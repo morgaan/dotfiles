@@ -4,3 +4,6 @@
 # Vim temp and swap files
 .*.sw*
 *~
+
+# Apple specific
+.DS_Store

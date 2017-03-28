@@ -42,7 +42,7 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 " Space as a Leader
 let mapleader = "\<Space>"
 " Edit vimrc
-nnoremap <leader>ev :tabnew $MYVIMRC<CR>
+nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
 " Reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " Escape key replacement to get back to normal mode
@@ -129,6 +129,10 @@ NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/scrooloose/nerdtree'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 NeoBundle 'mileszs/ack.vim'
+NeoBundle 'https://github.com/digitaltoad/vim-pug'
+NeoBundle 'mustache/vim-mustache-handlebars'
+NeoBundle 'https://github.com/pangloss/vim-javascript'
+NeoBundle 'https://github.com/airblade/vim-gitgutter'
 
 call neobundle#end()
 

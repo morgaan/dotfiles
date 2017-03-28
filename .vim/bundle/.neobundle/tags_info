@@ -3,5 +3,9 @@ ctrlp.vim
 neobundle.vim
 nerdtree
 vim-easymotion
+vim-gitgutter
+vim-javascript
 vim-javascript-syntax
+vim-mustache-handlebars
+vim-pug
 vim-surround
