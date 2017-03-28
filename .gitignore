@@ -1,0 +1,6 @@
+# To take into account this file globally
+# $ git config --global core.excludesfile ~/.gitignore
+
+# Vim temp and swap files
+.*.sw*
+*~
