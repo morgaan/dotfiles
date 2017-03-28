@@ -1,8 +1,11 @@
 # dotfiles
 
 
-Copy this to ~/dotfiles
+- Copy this to ~/dotfiles
+- Then run:
 
-Then run:
+
+```
 $ cd ~/dotfiles
 $ sh install.sh
+```
