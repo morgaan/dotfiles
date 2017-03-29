@@ -45,9 +45,8 @@ let mapleader = "\<Space>"
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
 " Reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<CR>
-" Escape key replacement to get back to normal mode
-inoremap kk <Esc>
-cnoremap kk <Esc>
+" Close all opened buffers
+nnoremap <leader>ca :%bd<CR>
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
 imap <up>    <nop>
@@ -82,7 +81,7 @@ nnoremap <leader>nt :NERDTree<CR>
 " Select all
 nnoremap <leader>a ggVG
 " Copy all file content to clipboard
-nnoremap <leader>ca :%y+<CR>
+nnoremap <leader>ya :%y+<CR>
 " Set ctrlp shortcut
 nnoremap <C-p> :CtrlP<CR>
 " Shortcut to rapidly toggle `set list`
