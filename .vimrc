@@ -6,8 +6,8 @@
 set nocompatible
 set encoding=utf-8
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
-
+set listchars=tab:»-,trail:·
+set guifont=Menlo\ Regular:h13
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -24,6 +24,8 @@ set t_Co=256
 colorscheme solarized
 " ...with a dark background
 set background=dark
+" Show matching parens, brackets, etc.
+set showmatch
 " Italicised comments and attributes
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
