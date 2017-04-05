@@ -7,3 +7,5 @@
 
 # Apple specific
 .DS_Store
+
+.vim/bundle/
