@@ -35,7 +35,8 @@ highlight SpecialKey guifg=#4a4a59
 
 " markdown also starts with .md
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-
+" handlebars template to be considered as html
+au BufNewFile,BufRead *.hbs set filetype=html
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
@@ -112,59 +113,41 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'christoomey/vim-sort-motion'
-NeoBundle 'christoomey/vim-system-copy'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'digitaltoad/vim-pug'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-scripts/ReplaceWithRegister'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'bkad/CamelCaseMotion'
-NeoBundle 'christoomey/vim-sort-motion'
-NeoBundle 'christoomey/vim-system-copy'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'digitaltoad/vim-pug'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'michaeljsmith/vim-indent-object'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'mustache/vim-mustache-handlebars'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-scripts/ReplaceWithRegister'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'christoomey/vim-system-copy'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'kana/vim-textobj-line'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'mileszs/ack.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'pangloss/vim-javascript'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/ReplaceWithRegister'
 
-call neobundle#end()
 
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 
 
