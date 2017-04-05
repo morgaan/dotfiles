@@ -4,6 +4,79 @@
 
 " Use Vim features, not Vi
 set nocompatible
+
+
+
+
+
+
+" Vundle | Plugin manager
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Plugins
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'christoomey/vim-system-copy'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'kana/vim-textobj-entire'
+Plugin 'kana/vim-textobj-line'
+Plugin 'kana/vim-textobj-user'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'mileszs/ack.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'pangloss/vim-javascript'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/ReplaceWithRegister'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+" Plugins CONFIGURATION
+
+" EasyAlign Conf
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
 set encoding=utf-8
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:»-,trail:·
@@ -103,55 +176,6 @@ nmap <leader>q :q<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Neobundle | Plugin manager
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Note: Skip initialization for vim-tiny or vim-small.
-if 0 | endif
-
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Plugins
-
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'christoomey/vim-sort-motion'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'kana/vim-textobj-entire'
-Plugin 'kana/vim-textobj-line'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'mileszs/ack.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'pangloss/vim-javascript'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/ReplaceWithRegister'
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffer management
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -173,7 +197,6 @@ set wildignore+=*.pdf,*.psd
 " Text management
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-filetype plugin indent on
 " 2 spaces please
 set expandtab
 set shiftwidth=2
