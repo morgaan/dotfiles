@@ -64,7 +64,7 @@ filetype plugin indent on    " required
 
 " Plugins CONFIGURATION
 
-" EasyAlign Conf
+" ~~~~ EasyAlign Conf ~~~~
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -72,6 +72,21 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
+" ~~~~ Vim-javascript ~~~~
+
+let g:javascript_conceal_NaN                       = "ℕ"
+let g:javascript_conceal_arrow_function            = "⇒"
+let g:javascript_conceal_function                  = "ƒ"
+let g:javascript_conceal_noarg_arrow_function      = "🞅"
+let g:javascript_conceal_null                      = "ø"
+let g:javascript_conceal_prototype                 = "¶"
+let g:javascript_conceal_return                    = "⇚"
+let g:javascript_conceal_static                    = "•"
+let g:javascript_conceal_super                     = "Ω"
+let g:javascript_conceal_this                      = "@"
+let g:javascript_conceal_undefined                 = "¿"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+let g:javascript_plugin_jsdoc                      = 1
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -177,7 +192,11 @@ vnoremap // y/\V<C-R>"<CR>
 nmap <leader>w :w!<cr>
 " easier quit
 nmap <leader>q :q<cr>
-
+" Move windows with <C-Direction>
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
 
 
 
