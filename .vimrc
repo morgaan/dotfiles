@@ -45,6 +45,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'whatyouhide/vim-textobj-xmlattr'
+Plugin 'Kris2k/matchit'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,6 +125,8 @@ nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " Close all opened buffers
 nnoremap <leader>ca :%bd<CR>
+" Close all opened buffer but Current
+nmap <Leader>cob :call CloseAllBuffersButCurrent()<CR>
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
 imap <up>    <nop>
@@ -167,6 +171,8 @@ nnoremap <leader>p :set paste<CR>"+p:set nopaste<CR>
 vnoremap <leader>p <Esc>:set paste<CR>gv"+p:set nopaste<CR>
 "copy to outside buffer
 vnoremap <leader>y "+y
+" search for the selected text
+vnoremap // y/\V<C-R>"<CR>
 " easier write
 nmap <leader>w :w!<cr>
 " easier quit
@@ -178,10 +184,19 @@ nmap <leader>q :q<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffer management
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! CloseAllBuffersButCurrent()
+  let curr = bufnr("%")
+  let last = bufnr("$")
+
+  if curr > 1    | silent! execute "1,".(curr-1)."bd"     | endif
+  if curr < last | silent! execute (curr+1).",".last."bd" | endif
+endfunction
 
 " Open splits to the right or below; more natural than the default
 set splitright
 set splitbelow
+" Make ctrlp to open in new window
+let g:ctrlp_reuse_window  = 'startify'
 " Set the working directory to wherever the open file lives (can be problematic)
 set autochdir
 " set path+=**
@@ -190,7 +205,7 @@ set wildmenu
 " Don't offer to open certain files
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
-
+let NERDTreeShowBookmarks=1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
