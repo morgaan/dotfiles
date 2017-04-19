@@ -26,6 +26,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 
+Plugin 'Kris2k/matchit'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'christoomey/vim-system-copy'
@@ -44,9 +45,10 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
-Plugin 'Kris2k/matchit'
+Plugin 'bkad/camelcasemotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,6 +65,10 @@ filetype plugin indent on    " required
 
 
 " Plugins CONFIGURATION
+
+" ~~~~ CamelCaseMotion ~~~~
+
+call camelcasemotion#CreateMotionMappings('<leader>')
 
 " ~~~~ EasyAlign Conf ~~~~
 
