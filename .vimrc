@@ -28,6 +28,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Kris2k/matchit'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'bkad/camelcasemotion'
 Plugin 'christoomey/vim-sort-motion'
 Plugin 'christoomey/vim-system-copy'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -48,7 +49,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
-Plugin 'bkad/camelcasemotion'
+Plugin 'mzlogin/vim-markdown-toc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -101,8 +102,9 @@ let g:javascript_plugin_jsdoc                      = 1
 
 
 set encoding=utf-8
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:»-,trail:·
+" Show invisibles
+set list
+set listchars=tab:»-,trail:·,eol:¬
 set guifont=Menlo\ Regular:h13
 
 
@@ -161,6 +163,10 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+" Add space before cursor in normal mode
+nnoremap SS i<Space><Esc>l
+" Add space after cursor in normal mode
+nnoremap ss a<Space><Esc>h
 " Tabs mappings
 nnoremap tN :tabnew<Space>
 nnoremap tj :tabnext<CR>
