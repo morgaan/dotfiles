@@ -5,7 +5,8 @@
 " Use Vim features, not Vi
 set nocompatible
 
-
+set hidden
+set incsearch
 
 
 
@@ -50,6 +51,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
 Plugin 'mzlogin/vim-markdown-toc'
+Plugin 'vim-scripts/LustyExplorer'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
