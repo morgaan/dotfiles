@@ -52,6 +52,7 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
 Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'vim-scripts/LustyExplorer'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,6 +69,12 @@ filetype plugin indent on    " required
 
 
 " Plugins CONFIGURATION
+
+" ~~~~ Emmet ~~~~
+
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<C-E>'
+autocmd FileType html,hbs,scss,css EmmetInstall
 
 " ~~~~ CamelCaseMotion ~~~~
 
