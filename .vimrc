@@ -1,13 +1,15 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Setup
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use Vim features, not Vi
 set nocompatible
 
 set hidden
 set incsearch
-
+set encoding=utf-8
+" Show invisibles
+set list
+set listchars=tab:»-,trail:·,eol:¬
+set guifont=Menlo\ Regular:h13
 
 
 
@@ -48,11 +50,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
 Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'vim-scripts/LustyExplorer'
 Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/BufOnly.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,6 +73,14 @@ filetype plugin indent on    " required
 
 
 " Plugins CONFIGURATION
+
+" ~~~~ Ack ~~~~
+
+let g:ackhighlight = 1
+" Split rightward so as not to displace a left NERDTree
+let g:ack_mappings = {
+      \  'v': '<C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p',
+      \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
 
 " ~~~~ Emmet ~~~~
 
@@ -107,14 +119,22 @@ let g:javascript_plugin_jsdoc                      = 1
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+" ~~~~ NERDTree ~~~~
+
+let NERDTreeShowBookmarks=1
+" Run NERDTree as soon as we launch Vim...
+autocmd VimEnter * NERDTree
+" ... but focus on the file itself
+" autocmd VimEnter * wincmd p
+" Close Vim if only NERDTree is left open
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
-set encoding=utf-8
-" Show invisibles
-set list
-set listchars=tab:»-,trail:·,eol:¬
-set guifont=Menlo\ Regular:h13
+
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,10 +175,6 @@ let mapleader = "\<Space>"
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
 " Reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<CR>
-" Close all opened buffers
-nnoremap <leader>ca :%bd<CR>
-" Close all opened buffer but Current
-nmap <Leader>cob :call CloseAllBuffersButCurrent()<CR>
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
 imap <up>    <nop>
@@ -211,41 +227,52 @@ vnoremap <leader>y "+y
 vnoremap // y/\V<C-R>"<CR>
 " easier write
 nmap <leader>w :w!<cr>
+" Close all opened buffers but the current one
+nnoremap <leader>dob :BufOnly<CR>
+" Close all opened buffers
+nnoremap <leader>dab :%bd<CR>
+" easier buffer delete
+nnoremap <leader>db :bd<cr>
 " easier quit
-nmap <leader>q :q<cr>
+nnoremap <leader>q :q<cr>
 " Move windows with <C-Direction>
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
+" Line jumps
+noremap ]2 o<CR><Esc>
+noremap [2 O<CR><Esc>j
+noremap ]5 o<CR><CR><CR><CR><Esc>
+noremap [5 O<CR><CR><CR><CR><Esc>j
 
+" Load template
+noremap [hSP :r ~/dotfiles/.vim/templates/section-part.html<CR>ki<Del><Esc>j$a
+noremap [hST :r ~/dotfiles/.vim/templates/section-title.html<CR>ki<Del><Esc>jj$a
+noremap [hC :r ~/dotfiles/.vim/templates/comment.html<CR>ki<Del><Esc>lllla
+noremap [cC :r ~/dotfiles/.vim/templates/comment.css<CR>ki<Del><Esc>jf.i
+noremap [cIC :r ~/dotfiles/.vim/templates/inline-comment.css<CR>ki<Del><Esc>f]i
+noremap [cSP :r ~/dotfiles/.vim/templates/section-part.css<CR>ki<Del><Esc>$a
+noremap [cST :r ~/dotfiles/.vim/templates/section-title.css<CR>ki<Del><Esc>jf#a
+noremap [sIC :r ~/dotfiles/.vim/templates/inline-comment.scss<CR>ki<Del><Esc>f]i
+noremap [sSP :r ~/dotfiles/.vim/templates/section-part.scss<CR>ki<Del><Esc>$a
+noremap [sST :r ~/dotfiles/.vim/templates/section-title.scss<CR>ki<Del><Esc>jf#a
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffer management
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CloseAllBuffersButCurrent()
-  let curr = bufnr("%")
-  let last = bufnr("$")
-
-  if curr > 1    | silent! execute "1,".(curr-1)."bd"     | endif
-  if curr < last | silent! execute (curr+1).",".last."bd" | endif
-endfunction
 
 " Open splits to the right or below; more natural than the default
 set splitright
 set splitbelow
 " Make ctrlp to open in new window
 let g:ctrlp_reuse_window  = 'startify'
-" Set the working directory to wherever the open file lives (can be problematic)
-set autochdir
-" set path+=**
 " Show file options above the command line
 set wildmenu
 " Don't offer to open certain files
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
-let NERDTreeShowBookmarks=1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -259,8 +286,6 @@ set tabstop=2
 set softtabstop=2
 " Round indent to nearest multiple of 2
 set shiftround
-" No line-wrapping
-set nowrap
 
 
 
