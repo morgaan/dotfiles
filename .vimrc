@@ -57,6 +57,7 @@ Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'vim-scripts/LustyExplorer'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'arithran/vim-delete-hidden-buffers'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,6 +75,13 @@ filetype plugin indent on    " required
 
 " Plugins CONFIGURATION
 
+" ~~~~ ctrlp ~~~~
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules|bower_components)$',
+  \ 'file': '\v\.(exe|so|dll|eot|woff|ttf)$'
+  \ }
+
 " ~~~~ Ack ~~~~
 
 let g:ackhighlight = 1
@@ -85,12 +93,13 @@ let g:ack_mappings = {
 " ~~~~ Emmet ~~~~
 
 let g:user_emmet_install_global = 0
+autocmd FileType html,hbs,scss,css,mustache,javascript EmmetInstall
 let g:user_emmet_leader_key='<C-E>'
-autocmd FileType html,hbs,scss,css EmmetInstall
 
 " ~~~~ CamelCaseMotion ~~~~
 
 call camelcasemotion#CreateMotionMappings('<leader>')
+
 
 " ~~~~ EasyAlign Conf ~~~~
 
@@ -124,10 +133,8 @@ let g:javascript_plugin_jsdoc                      = 1
 let NERDTreeShowBookmarks=1
 " Run NERDTree as soon as we launch Vim...
 autocmd VimEnter * NERDTree
-" ... but focus on the file itself
-" autocmd VimEnter * wincmd p
-" Close Vim if only NERDTree is left open
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" CWD is changed whenever the tree root is changed
+let NERDTreeChDirMode=2
 
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -154,16 +161,16 @@ set background=dark
 " Show matching parens, brackets, etc.
 set showmatch
 " Italicised comments and attributes
-highlight Comment cterm=italic
-highlight htmlArg cterm=italic
+highlight Comment cterm=italic gui=italic
+highlight htmlArg cterm=italic gui=italic guifg=#B58900
 " Invisible character colors
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
+highlight! NonText guifg=#4a4a59
+highlight! SpecialKey guifg=#4a4a59
 
 " markdown also starts with .md
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-" handlebars template to be considered as html
-au BufNewFile,BufRead *.hbs set filetype=html
+" handlebars/mustache template to be considered as html
+autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
@@ -209,7 +216,7 @@ nnoremap G :norm! Gzz<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 " Toggle NERDTree open
-nnoremap <leader>nt :NERDTree<CR>
+map <leader>nt :NERDTreeToggle<CR>
 " Select all
 nnoremap <leader>a ggVG
 " Copy all file content to clipboard
@@ -225,8 +232,12 @@ vnoremap <leader>p <Esc>:set paste<CR>gv"+p:set nopaste<CR>
 vnoremap <leader>y "+y
 " search for the selected text
 vnoremap // y/\V<C-R>"<CR>
+" search for the selected text within CWD
+vnoremap <C-f> y:Ack! "<C-R>"" --
 " easier write
 nmap <leader>w :w!<cr>
+" Close all hidden buffers
+nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
 " Close all opened buffers but the current one
 nnoremap <leader>dob :BufOnly<CR>
 " Close all opened buffers
@@ -248,17 +259,21 @@ noremap ]5 o<CR><CR><CR><CR><Esc>
 noremap [5 O<CR><CR><CR><CR><Esc>j
 
 " Load template
-noremap [hSP :r ~/dotfiles/.vim/templates/section-part.html<CR>ki<Del><Esc>j$a
-noremap [hST :r ~/dotfiles/.vim/templates/section-title.html<CR>ki<Del><Esc>jj$a
-noremap [hC :r ~/dotfiles/.vim/templates/comment.html<CR>ki<Del><Esc>lllla
-noremap [cC :r ~/dotfiles/.vim/templates/comment.css<CR>ki<Del><Esc>jf.i
-noremap [cIC :r ~/dotfiles/.vim/templates/inline-comment.css<CR>ki<Del><Esc>f]i
-noremap [cSP :r ~/dotfiles/.vim/templates/section-part.css<CR>ki<Del><Esc>$a
-noremap [cST :r ~/dotfiles/.vim/templates/section-title.css<CR>ki<Del><Esc>jf#a
-noremap [sIC :r ~/dotfiles/.vim/templates/inline-comment.scss<CR>ki<Del><Esc>f]i
-noremap [sSP :r ~/dotfiles/.vim/templates/section-part.scss<CR>ki<Del><Esc>$a
-noremap [sST :r ~/dotfiles/.vim/templates/section-title.scss<CR>ki<Del><Esc>jf#a
+noremap !htmlsp :r ~/dotfiles/.vim/templates/section-part.html<CR>ki<Del><Esc>j$a
+noremap !htmlst :r ~/dotfiles/.vim/templates/section-title.html<CR>ki<Del><Esc>jj$a
+noremap !htmlc :r ~/dotfiles/.vim/templates/comment.html<CR>ki<Del><Esc>==<Esc>ela
 
+noremap !cssic A <Esc>:r ~/dotfiles/.vim/templates/inline-comment.css<CR>k<S-j>f]i
+noremap !cssc :r ~/dotfiles/.vim/templates/comment.css<CR>ki<Del><Esc><C-V>2j==<Esc>jf.i
+noremap !csssp :r ~/dotfiles/.vim/templates/section-part.css<CR>ki<Del><Esc>$a
+noremap !cssst :r ~/dotfiles/.vim/templates/section-title.css<CR>ki<Del><Esc>jf#a
+
+noremap !scssic A <Esc>:r ~/dotfiles/.vim/templates/inline-comment.scss<CR>k<S-j>f]i
+noremap !scssp :r ~/dotfiles/.vim/templates/section-part.scss<CR>ki<Del><Esc>$a
+noremap !scssst :r ~/dotfiles/.vim/templates/section-title.scss<CR>ki<Del><Esc>jf#a
+
+" Cut line to fit in the 80 column textwidth
+noremap [] 080lbhi<Del><CR><Esc>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffer management
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -273,6 +288,7 @@ set wildmenu
 " Don't offer to open certain files
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
+set wildignore+=*/node_modules/*,*/bower_components/*,*/tmp/*
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

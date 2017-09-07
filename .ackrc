@@ -1,7 +1,19 @@
 --ignore-file=is:tags
 --ignore-directory=is:node_modules
 --ignore-directory=is:bower_components
+--type-set=jade:ext:jade
 --type-set=hbs:ext:hbs
+--type-add=html:ext:hbs,jade
 --type-set=sass:ext:scss,sass
 --type-set=style:ext:css,scss,sass
 --type-set=markdown:ext:markdown,md
+
+
+
+
+# Project specific
+--ignore-directory=is:styleright/public
+--ignore-directory=is:website/public
+--ignore-directory=is:claimcheck/tmp
+--ignore-directory=is:claimcheck/dist
+--ignore-directory=is:claimcheck/vendor
