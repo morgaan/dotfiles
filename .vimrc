@@ -9,8 +9,8 @@ set encoding=utf-8
 " Show invisibles
 set list
 set listchars=tab:»-,trail:·,eol:¬
-set guifont=Menlo\ Regular:h13
-
+set guifont=Fira\ Code:h15
+" set guifont=Menlo\ Regular:h13
 
 
 " Vundle | Plugin manager
@@ -54,7 +54,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
 Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'vim-scripts/LustyExplorer'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'arithran/vim-delete-hidden-buffers'
@@ -81,6 +80,9 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules|bower_components)$',
   \ 'file': '\v\.(exe|so|dll|eot|woff|ttf)$'
   \ }
+
+" Opens in new window
+let g:ctrlp_reuse_window  = 'startify'
 
 " ~~~~ Ack ~~~~
 
@@ -131,8 +133,6 @@ let g:javascript_plugin_jsdoc                      = 1
 " ~~~~ NERDTree ~~~~
 
 let NERDTreeShowBookmarks=1
-" Run NERDTree as soon as we launch Vim...
-autocmd VimEnter * NERDTree
 " CWD is changed whenever the tree root is changed
 let NERDTreeChDirMode=2
 
@@ -152,20 +152,20 @@ let NERDTreeChDirMode=2
 filetype plugin on
 " Enable syntax highlighting
 syntax enable
+" Show matching parens, brackets, etc.
+set showmatch
 " 256 colours please
 set t_Co=256
 " Solarized colour scheme...
 colorscheme solarized
 " ...with a dark background
 set background=dark
-" Show matching parens, brackets, etc.
-set showmatch
 " Italicised comments and attributes
-highlight Comment cterm=italic gui=italic
-highlight htmlArg cterm=italic gui=italic guifg=#B58900
-" Invisible character colors
-highlight! NonText guifg=#4a4a59
-highlight! SpecialKey guifg=#4a4a59
+highlight Comment cterm=italic ctermfg=68
+highlight htmlArg cterm=italic ctermfg=136
+" Ensure that italics carry over if I ever switch light/dark scheme
+autocmd ColorScheme * highlight! Comment cterm=italic
+autocmd ColorScheme * highlight! htmlArg cterm=italic
 
 " markdown also starts with .md
 autocmd BufNewFile,BufRead *.md set filetype=markdown
@@ -242,8 +242,8 @@ nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
 nnoremap <leader>dob :BufOnly<CR>
 " Close all opened buffers
 nnoremap <leader>dab :%bd<CR>
-" easier buffer delete
-nnoremap <leader>db :bd<cr>
+" Easier buffer delete
+nnoremap <leader>d :bd<CR>
 " easier quit
 nnoremap <leader>q :q<cr>
 " Move windows with <C-Direction>
@@ -274,6 +274,8 @@ noremap !scssst :r ~/dotfiles/.vim/templates/section-title.scss<CR>ki<Del><Esc>j
 
 " Cut line to fit in the 80 column textwidth
 noremap [] 080lbhi<Del><CR><Esc>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffer management
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -281,14 +283,26 @@ noremap [] 080lbhi<Del><CR><Esc>
 " Open splits to the right or below; more natural than the default
 set splitright
 set splitbelow
-" Make ctrlp to open in new window
-let g:ctrlp_reuse_window  = 'startify'
+
 " Show file options above the command line
 set wildmenu
+
 " Don't offer to open certain files
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
 set wildignore+=*/node_modules/*,*/bower_components/*,*/tmp/*
+
+" Automatically updates an open buffer if it has been changed outside of the
+" current edit session, usually by an external program.
+set autoread
+
+" Automatically saves to disk the currently edited buffer upon leaving insert
+" mode as well as after a text edit has occurred.
+augroup autoSaveAndRead
+    autocmd!
+    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+    autocmd CursorHold * silent! checktime
+augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -300,10 +314,9 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
+
 " Round indent to nearest multiple of 2
 set shiftround
-
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

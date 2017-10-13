@@ -1,4 +1,5 @@
 --ignore-file=is:tags
+--ignore-file=ext:scssc
 --ignore-directory=is:node_modules
 --ignore-directory=is:bower_components
 --type-set=jade:ext:jade
