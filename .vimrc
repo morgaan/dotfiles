@@ -12,6 +12,8 @@ set listchars=tab:»-,trail:·,eol:¬
 set guifont=Fira\ Code:h15
 " set guifont=Menlo\ Regular:h13
 
+set backupdir=~/.vim-backupdir//
+set directory=~/.vim-directory//
 
 " Vundle | Plugin manager
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -215,6 +217,7 @@ nnoremap G :norm! Gzz<CR>
 " Jump Up / Jump down and places line in middle of screen
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
+nnoremap <C-b> <C-b>zt
 " Toggle NERDTree open
 map <leader>nt :NERDTreeToggle<CR>
 " Select all
@@ -351,3 +354,10 @@ set colorcolumn=+1
 " Highlight current line
 set cursorline
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom Commands
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" JSON format
+com! FormatJSON %!python -m json.tool

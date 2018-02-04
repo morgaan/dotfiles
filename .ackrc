@@ -2,6 +2,10 @@
 --ignore-file=ext:scssc
 --ignore-directory=is:node_modules
 --ignore-directory=is:bower_components
+--ignore-directory=is:tmp
+--ignore-directory=is:dist
+--ignore-directory=is:vendor
+
 --type-set=jade:ext:jade
 --type-set=hbs:ext:hbs
 --type-add=html:ext:hbs,jade
@@ -15,6 +19,4 @@
 # Project specific
 --ignore-directory=is:styleright/public
 --ignore-directory=is:website/public
---ignore-directory=is:claimcheck/tmp
---ignore-directory=is:claimcheck/dist
---ignore-directory=is:claimcheck/vendor
+--ignore-directory=is:public/assets
