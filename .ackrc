@@ -9,14 +9,13 @@
 --type-set=jade:ext:jade
 --type-set=hbs:ext:hbs
 --type-add=html:ext:hbs,jade
---type-set=sass:ext:scss,sass
---type-set=style:ext:css,scss,sass
+--type-add=css:ext:scss,sass
 --type-set=markdown:ext:markdown,md
 
 
 
 
 # Project specific
---ignore-directory=is:styleright/public
+--ignore-directory=is:frontend-toolkit/public
 --ignore-directory=is:website/public
 --ignore-directory=is:public/assets

@@ -301,11 +301,11 @@ set autoread
 
 " Automatically saves to disk the currently edited buffer upon leaving insert
 " mode as well as after a text edit has occurred.
-augroup autoSaveAndRead
-    autocmd!
-    autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-    autocmd CursorHold * silent! checktime
-augroup END
+" augroup autoSaveAndRead
+"     autocmd!
+"     autocmd TextChanged,InsertLeave,FocusLost * silent! wall
+"     autocmd CursorHold * silent! checktime
+" augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

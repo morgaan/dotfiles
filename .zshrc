@@ -88,7 +88,10 @@ DEFAULT_USER=`whoami`
 
 . `brew --prefix`/etc/profile.d/z.sh
 
+alias dc='docker-compose'
+
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
 source ~/.bashrc
+
