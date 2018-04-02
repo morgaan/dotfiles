@@ -15,6 +15,11 @@ set guifont=Fira\ Code:h15
 set backupdir=~/.vim-backupdir//
 set directory=~/.vim-directory//
 
+" Tell Vim to look in my home directory for more ctags
+set tags+=tags;$HOME
+
+set updatetime=2000
+
 " Vundle | Plugin manager
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -56,6 +61,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
 Plugin 'mzlogin/vim-markdown-toc'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'shime/vim-livedown'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'arithran/vim-delete-hidden-buffers'
@@ -85,6 +93,11 @@ let g:ctrlp_custom_ignore = {
 
 " Opens in new window
 let g:ctrlp_reuse_window  = 'startify'
+
+" ~~~~ Vim-markdown ~~~~
+
+let g:vim_markdown_folding_disabled = 1
+nmap gm :LivedownToggle<CR>
 
 " ~~~~ Ack ~~~~
 
@@ -154,6 +167,8 @@ let NERDTreeChDirMode=2
 filetype plugin on
 " Enable syntax highlighting
 syntax enable
+" Force a full file syntax computation when opening Markdown files
+autocmd FileType markdown syntax sync fromstart
 " Show matching parens, brackets, etc.
 set showmatch
 " 256 colours please
@@ -298,6 +313,8 @@ set wildignore+=*/node_modules/*,*/bower_components/*,*/tmp/*
 " Automatically updates an open buffer if it has been changed outside of the
 " current edit session, usually by an external program.
 set autoread
+" check one time after 4s of inactivity in normal mode
+au CursorHold * if !bufexists("[Command Line]") | checktime | endif
 
 " Automatically saves to disk the currently edited buffer upon leaving insert
 " mode as well as after a text edit has occurred.
@@ -307,6 +324,13 @@ set autoread
 "     autocmd CursorHold * silent! checktime
 " augroup END
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Window management
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Automatically equalize splits when Vim is resized
+autocmd VimResized * wincmd =
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text management
