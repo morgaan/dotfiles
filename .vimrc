@@ -53,7 +53,6 @@ Plugin 'mileszs/ack.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
@@ -102,10 +101,6 @@ nmap gm :LivedownToggle<CR>
 " ~~~~ Ack ~~~~
 
 let g:ackhighlight = 1
-" Split rightward so as not to displace a left NERDTree
-let g:ack_mappings = {
-      \  'v': '<C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p',
-      \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
 
 " ~~~~ Emmet ~~~~
 
@@ -145,13 +140,7 @@ let g:javascript_plugin_jsdoc                      = 1
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-" ~~~~ NERDTree ~~~~
 
-let NERDTreeShowBookmarks=1
-" CWD is changed whenever the tree root is changed
-let NERDTreeChDirMode=2
-
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
@@ -233,8 +222,6 @@ nnoremap G :norm! Gzz<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-b> <C-b>zt
-" Toggle NERDTree open
-map <leader>nt :NERDTreeToggle<CR>
 " Select all
 nnoremap <leader>a ggVG
 " Copy all file content to clipboard
