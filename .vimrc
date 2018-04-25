@@ -1,29 +1,37 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set encoding=utf-8
 
 " Use Vim features, not Vi
 set nocompatible
 
+" Prevent Vim from complaining when switch from an unsaved buffer to another.
 set hidden
+
+" Start matching+highlighting search pattern as I type.
 set incsearch
-set encoding=utf-8
-" Show invisibles
-set list
-set listchars=tab:»-,trail:·,eol:¬
+
 set guifont=Fira\ Code:h15
 " set guifont=Menlo\ Regular:h13
 
+" Move swap files out of the editing folder.
 set backupdir=~/.vim-backupdir//
 set directory=~/.vim-directory//
 
 " Tell Vim to look in my home directory for more ctags
 set tags+=tags;$HOME
 
-set updatetime=2000
+" Set the path and some file extensions for jumping to files
+set path=.,/usr/include,,
+set suffixesadd+=.scss
+
+
+
+
 
 " Vundle | Plugin manager
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-filetype off                  " required
+" required
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -34,43 +42,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+
+
+
+
 " Plugins
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Plugin 'Kris2k/matchit'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bkad/camelcasemotion'
-Plugin 'christoomey/vim-sort-motion'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'kana/vim-textobj-entire'
-Plugin 'kana/vim-textobj-line'
-Plugin 'kana/vim-textobj-user'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'mileszs/ack.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'pangloss/vim-javascript'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-repeat'
-Plugin 'vim-scripts/ReplaceWithRegister'
-Plugin 'whatyouhide/vim-textobj-xmlattr'
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'shime/vim-livedown'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/BufOnly.vim'
-Plugin 'arithran/vim-delete-hidden-buffers'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-"
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -81,17 +59,62 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
+" Text objects
+Plugin 'kana/vim-textobj-entire'
+Plugin 'kana/vim-textobj-line'
+Plugin 'kana/vim-textobj-user'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'whatyouhide/vim-textobj-xmlattr'
+
+" Language support/syntax highlighting
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mzlogin/vim-markdown-toc'
+Plugin 'plasticboy/vim-markdown'
+
+" Customization
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Extensions
+Plugin 'Kris2k/matchit'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'christoomey/vim-sort-motion'
+Plugin 'christoomey/vim-system-copy'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'mileszs/ack.vim'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'godlygeek/tabular'
+Plugin 'shime/vim-livedown'
+Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'arithran/vim-delete-hidden-buffers'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+
+
+
 " Plugins CONFIGURATION
+" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-" ~~~~ ctrlp ~~~~
+" ~~~~ airline ~~~~
 
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules|bower_components)$',
-  \ 'file': '\v\.(exe|so|dll|eot|woff|ttf)$'
-  \ }
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 
-" Opens in new window
-let g:ctrlp_reuse_window  = 'startify'
 
 " ~~~~ Vim-markdown ~~~~
 
@@ -107,10 +130,6 @@ let g:ackhighlight = 1
 let g:user_emmet_install_global = 0
 autocmd FileType html,hbs,scss,css,mustache,javascript EmmetInstall
 let g:user_emmet_leader_key='<C-E>'
-
-" ~~~~ CamelCaseMotion ~~~~
-
-call camelcasemotion#CreateMotionMappings('<leader>')
 
 
 " ~~~~ EasyAlign Conf ~~~~
@@ -154,29 +173,39 @@ let g:javascript_plugin_jsdoc                      = 1
 
 " Detect filetype
 filetype plugin on
+
 " Enable syntax highlighting
 syntax enable
+
 " Force a full file syntax computation when opening Markdown files
 autocmd FileType markdown syntax sync fromstart
+
 " Show matching parens, brackets, etc.
 set showmatch
-" 256 colours please
-set t_Co=256
+
 " Solarized colour scheme...
 colorscheme solarized
 " ...with a dark background
 set background=dark
+" 256 colours please
+set t_Co=256
+
 " Italicised comments and attributes
 highlight Comment cterm=italic ctermfg=68
 highlight htmlArg cterm=italic ctermfg=136
+
 " Ensure that italics carry over if I ever switch light/dark scheme
 autocmd ColorScheme * highlight! Comment cterm=italic
 autocmd ColorScheme * highlight! htmlArg cterm=italic
 
-" markdown also starts with .md
+" Markdown also starts with .md
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-" handlebars/mustache template to be considered as html
+" Handlebars/mustache template to be considered as html
 autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html
+
+
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Key mappings
@@ -184,10 +213,12 @@ autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html
 
 " Space as a Leader
 let mapleader = "\<Space>"
+
 " Edit vimrc
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
 " Reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<CR>
+
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
 imap <up>    <nop>
@@ -201,10 +232,12 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
 " Add space before cursor in normal mode
 nnoremap SS i<Space><Esc>l
 " Add space after cursor in normal mode
 nnoremap ss a<Space><Esc>h
+
 " Tabs mappings
 nnoremap tN :tabnew<Space>
 nnoremap tj :tabnext<CR>
@@ -212,6 +245,7 @@ nnoremap tk :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 nnoremap tn :tabnew<Space>
+
 " Make `n`/`N` bring next search result to middle line
 nnoremap n nzz
 nnoremap N Nzz
@@ -222,35 +256,27 @@ nnoremap G :norm! Gzz<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-b> <C-b>zt
-" Select all
-nnoremap <leader>a ggVG
-" Copy all file content to clipboard
-nnoremap <leader>ya :%y+<CR>
-" Set ctrlp shortcut
-nnoremap <C-p> :CtrlP<CR>
-" Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
-"paste from outside buffer
-nnoremap <leader>p :set paste<CR>"+p:set nopaste<CR>
-vnoremap <leader>p <Esc>:set paste<CR>gv"+p:set nopaste<CR>
-"copy to outside buffer
-vnoremap <leader>y "+y
+
 " search for the selected text
 vnoremap // y/\V<C-R>"<CR>
 " search for the selected text within CWD
 vnoremap <C-f> y:Ack! "<C-R>"" --
+
 " easier write
 nmap <leader>w :w!<cr>
+
 " Close all hidden buffers
 nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
 " Close all opened buffers but the current one
 nnoremap <leader>dob :BufOnly<CR>
 " Close all opened buffers
 nnoremap <leader>dab :%bd<CR>
+
 " Easier buffer delete
 nnoremap <leader>d :bd<CR>
-" easier quit
+" Easier quit
 nnoremap <leader>q :q<cr>
+
 " Move windows with <C-Direction>
 map <C-J> <C-W>j
 map <C-K> <C-W>k
@@ -278,7 +304,10 @@ noremap !scssp :r ~/dotfiles/.vim/templates/section-part.scss<CR>ki<Del><Esc>$a
 noremap !scssst :r ~/dotfiles/.vim/templates/section-title.scss<CR>ki<Del><Esc>jf#a
 
 " Cut line to fit in the 80 column textwidth
-noremap [] 080lbhi<Del><CR><Esc>
+noremap [] 080lBhi<Del><CR><Esc>
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -299,8 +328,9 @@ set wildignore+=*/node_modules/*,*/bower_components/*,*/tmp/*
 
 " Automatically updates an open buffer if it has been changed outside of the
 " current edit session, usually by an external program.
+set updatetime=2000
 set autoread
-" check one time after 4s of inactivity in normal mode
+" check one time after 2s of inactivity in normal mode
 au CursorHold * if !bufexists("[Command Line]") | checktime | endif
 
 " Automatically saves to disk the currently edited buffer upon leaving insert
@@ -339,29 +369,32 @@ set shiftround
 
 " Show status line
 set laststatus=2
+
 " Show what mode you're currently in
 set showmode
+
 " Show what commands you're typing
 set showcmd
-" Allow modelines
-set modeline
-" Show current line and column position in file
-set ruler
+
 " Show file title in terminal tab
 set title
-" Show invisibles
-set list
-set listchars=tab:ª-,trail:∑
+
+" Show invisibles.
+" set list
+set listchars=tab:▸\ ,trail:·,eol:¬
+
 " Set relative line numbers...
 set relativenumber
 " ...but absolute numbers on the current line (hybrid numbering)
 set number
+
 " Force the cursor onto a new line after 80 characters
 set textwidth=80
 " However, in Git commit messages, let's make it 72 characters
 autocmd FileType gitcommit set textwidth=72
-" Colour the 81st (or 73rd) column so that we donøt type over our limit
+" Colour the 81st (or 73rd) column so that we don't type over our limit
 set colorcolumn=+1
+
 " Highlight current line
 set cursorline
 
