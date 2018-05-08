@@ -84,7 +84,6 @@ Plugin 'christoomey/vim-system-copy'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'mileszs/ack.vim'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -96,6 +95,7 @@ Plugin 'shime/vim-livedown'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/BufOnly.vim'
 Plugin 'arithran/vim-delete-hidden-buffers'
+Plugin 'sjl/vitality.vim'
 
 
 " All of your Plugins must be added before the following line
@@ -362,6 +362,7 @@ set softtabstop=2
 " Round indent to nearest multiple of 2
 set shiftround
 
+se fo-=2 ai " fixes https://github.com/tpope/vim-markdown/issues/98
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual decorations
