@@ -72,29 +72,28 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'plasticboy/vim-markdown'
 
+" Buffer management
+Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'arithran/vim-delete-hidden-buffers'
+
 " Customization
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Extensions
-Plugin 'Kris2k/matchit'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'christoomey/vim-sort-motion'
-Plugin 'christoomey/vim-system-copy'
 Plugin 'digitaltoad/vim-pug'
-Plugin 'junegunn/vim-easy-align'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'godlygeek/tabular'
 Plugin 'shime/vim-livedown'
 Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/BufOnly.vim'
-Plugin 'arithran/vim-delete-hidden-buffers'
 Plugin 'sjl/vitality.vim'
 
 
