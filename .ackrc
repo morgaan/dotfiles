@@ -8,8 +8,9 @@
 
 --type-set=jade:ext:jade
 --type-set=hbs:ext:hbs
+--type-set=mustache:ext:mustache
 --type-set=scss:ext:scss,sass
---type-add=html:ext:hbs,jade
+--type-add=html:ext:hbs,jade,mustache
 --type-add=css:ext:css,scss,sass
 --type-set=markdown:ext:markdown,md
 
