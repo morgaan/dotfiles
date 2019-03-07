@@ -1,3 +1,6 @@
+" Force language to english
+language en_US.utf-8
+
 set encoding=utf-8
 
 " Use Vim features, not Vi
@@ -6,8 +9,9 @@ set nocompatible
 " Prevent Vim from complaining when switch from an unsaved buffer to another.
 set hidden
 
-" Start matching+highlighting search pattern as I type.
+" Start matching+highlighting vearch pattern as I type.
 set incsearch
+set hlsearch
 
 set guifont=Fira\ Code:h15
 " set guifont=Menlo\ Regular:h13
@@ -117,9 +121,13 @@ filetype plugin indent on    " required
 
 " ~~~~ netrw ~~~~
 let g:netrw_banner = 0
+let g:netrw_liststyle = 0
+let g:netrw_winsize = 25
 
 " ~~~~ ternjs ~~~~
 
+" This will automatically hide the preview window whenever you're done auto-completing.
+autocmd CompleteDone * pclose
 "let g:tern_map_keys=1
 "let g:tern_show_argument_hints='on_hold'
 
@@ -248,6 +256,10 @@ nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " Start type for Ack search
 nnoremap <leader>f :Ack! "
+" Open netrw in a left split
+nnoremap <leader>o :Vex<CR>
+" Clear highlighted searches
+nmap <silent> ,/ :nohlsearch<CR>
 
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
@@ -293,6 +305,9 @@ nnoremap G :norm! Gzz<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-b> <C-b>zt
+" Jump back / Jump forward and places line in middle of screen
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
 
 " search for the selected text
 vnoremap // y/\V<C-R>"<CR>
@@ -309,8 +324,6 @@ nnoremap <leader>dob :BufOnly<CR>
 " Close all opened buffers
 nnoremap <leader>dab :%bd<CR>
 
-" Duplicate current window to a vertical split
-nnoremap <leader>d :vsp<CR>
 " Easier quit
 nnoremap <leader>q :q<cr>
 
@@ -320,11 +333,9 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-" Line jumps
-noremap ]2 o<CR><Esc>
-noremap [2 O<CR><Esc>j
-noremap ]5 o<CR><CR><CR><CR><Esc>
-noremap [5 O<CR><CR><CR><CR><Esc>j
+" Move visual selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Load template
 noremap !htmlsp :r ~/dotfiles/.vim/templates/section-part.html<CR>ki<Del><Esc>j$a
@@ -449,3 +460,17 @@ set cursorline
 
 " JSON format
 com! FormatJSON %!python -m json.tool
+
+
+
+
+
+
+
+
+
+
+" Set relative number just for normal mode
+augroup toggle_relative_number
+autocmd InsertEnter * :setlocal norelativenumber
+autocmd InsertLeave * :setlocal relativenumber
