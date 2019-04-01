@@ -56,3 +56,16 @@ rm -rf fonts
 In iTerm2 access the Preferences pane on the Profiles tab.
 Under the Text tab change the font for each type (Regular and Non-ASCII) to ‘Inconsolata for Powerline’. (Refer to the powerline-fonts repo for help on font installation.)
 
+### Comments are highlighted in vanilla vim
+
+This is happening because you have italics enabled, but some combination of your iTerm2 reported terminal type and terminfo database is causing italics to be displayed incorrectly.
+
+1. In iTerm2 preferences, on the “Terminal” tab, for the “Report Terminal Type:” setting, select “xtern-256color” if it’s not already selected
+2. Create a file somewhere on disk with the following contents:
+
+        xterm-256color|xterm with 256 colors and italic,
+          sitm=\E[3m, ritm=\E[23m,
+          use=xterm-256color,
+3. In a shell, run tic path/to/the/file/you/just/made
+4. Quit and restart iTerm2
+5. Vim should now display italics properly
