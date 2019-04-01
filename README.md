@@ -13,6 +13,12 @@ $ git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/V
 $ git clone git@github.com:mbadolato/iTerm2-Color-Schemes.git ~/dotfiles/iTerm2/iTerm2-Color-Schemes
 ```
 
+You may need this:
+```
+$ mkdir ~/.vim-backupdir
+$ mkdir ~/.vim-directory
+```
+
 Once vim open execute: `:PluginInstall`
 
 For zsh + oh my zsh + iterm2
