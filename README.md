@@ -29,7 +29,7 @@ $ brew install zsh
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)”
 ```
 
-source ~/dotfiles/.zshrc
+source ~/.zshrc (if it doesn't source approprietly, delete the file ~/.zshrc and re-execute the linking ln -s ~/dotfiles/.zshrc .zshrc and then source again)
 
 ### Using z to jump to “frecent” folders
 
