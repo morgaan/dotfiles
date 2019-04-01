@@ -14,3 +14,45 @@ $ git clone git@github.com:mbadolato/iTerm2-Color-Schemes.git ~/dotfiles/iTerm2/
 ```
 
 Once vim open execute: `:PluginInstall`
+
+For zsh + oh my zsh + iterm2
+
+## Install zsh
+
+```
+$ brew install zsh
+```
+
+## Install oh my zsh
+
+```
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)”
+```
+
+source ~/dotfiles/.zshrc
+
+### Using z to jump to “frecent” folders
+
+```
+$ brew install z
+```
+
+## Iterm2
+
+https://iterm2.com/downloads.html
+
+Once iterm is opened, go to Preferences > General > Preferences and check Load preferences... and set folder to ~/dotfiles/iTerm2.
+
+To install Powerline fonts
+
+```
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+```
+
+In iTerm2 access the Preferences pane on the Profiles tab.
+Under the Text tab change the font for each type (Regular and Non-ASCII) to ‘Inconsolata for Powerline’. (Refer to the powerline-fonts repo for help on font installation.)
+
