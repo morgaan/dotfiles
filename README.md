@@ -7,7 +7,8 @@
 
 ```
 $ cd ~/dotfiles
-$ sh install.sh
+$ chmod +x install.sh
+$ ./install.sh
 $ git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/Vundle.vim
 ```
 
