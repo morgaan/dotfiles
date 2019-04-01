@@ -10,3 +10,5 @@
 
 .vim/bundle/
 .netrwhist
+.tmux/resurrect
+.tmux/plugins

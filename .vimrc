@@ -1,3 +1,6 @@
+" Force language to english
+language en_US.utf-8
+
 set encoding=utf-8
 
 " Use Vim features, not Vi
@@ -6,8 +9,9 @@ set nocompatible
 " Prevent Vim from complaining when switch from an unsaved buffer to another.
 set hidden
 
-" Start matching+highlighting search pattern as I type.
+" Start matching+highlighting vearch pattern as I type.
 set incsearch
+set hlsearch
 
 set guifont=Fira\ Code:h15
 " set guifont=Menlo\ Regular:h13
@@ -32,6 +36,7 @@ set suffixesadd+=.scss
 
 " required
 filetype off
+set omnifunc=syntaxcomplete#Complete
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -69,8 +74,11 @@ Plugin 'whatyouhide/vim-textobj-xmlattr'
 " Language support/syntax highlighting
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'pangloss/vim-javascript'
+Plugin 'suan/vim-instant-markdown'
 Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'mxw/vim-jsx'
 
 " Buffer management
 Plugin 'vim-scripts/BufOnly.vim'
@@ -92,9 +100,12 @@ Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'godlygeek/tabular'
-Plugin 'shime/vim-livedown'
 Plugin 'mattn/emmet-vim'
 Plugin 'sjl/vitality.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'shime/vim-livedown'
+" After :PluginInstall, Go to '~/dotfiles/.vim/bundle/tern_for_vim' folder and type 'npm install'
+Plugin 'ternjs/tern_for_vim'
 
 
 " All of your Plugins must be added before the following line
@@ -108,17 +119,33 @@ filetype plugin indent on    " required
 " Plugins CONFIGURATION
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+" ~~~~ netrw ~~~~
+let g:netrw_banner = 0
+let g:netrw_liststyle = 0
+let g:netrw_winsize = 25
+
+" ~~~~ ternjs ~~~~
+
+" This will automatically hide the preview window whenever you're done auto-completing.
+autocmd CompleteDone * pclose
+"let g:tern_map_keys=1
+"let g:tern_show_argument_hints='on_hold'
+
 " ~~~~ airline ~~~~
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
 let g:airline_solarized_bg='dark'
 
+" ~~~~ Vim-livedown ~~~~
 
-" ~~~~ Vim-markdown ~~~~
+" the port on which Livedown server will run
+let g:livedown_port = 4242
 
-let g:vim_markdown_folding_disabled = 1
-nmap gm :LivedownToggle<CR>
+" the browser to use
+let g:livedown_browser = "safari"
+
+let g:vim_markdown_no_default_key_mappings = 1
 
 " ~~~~ Ack ~~~~
 
@@ -130,6 +157,9 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,hbs,scss,css,mustache,javascript EmmetInstall
 let g:user_emmet_leader_key='<C-E>'
 
+
+" ~~~~ Instant Mardown  ~~~~
+let g:instant_markdown_autostart = 1
 
 " ~~~~ EasyAlign Conf ~~~~
 
@@ -155,9 +185,16 @@ let g:javascript_conceal_undefined                 = "¿"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
 let g:javascript_plugin_jsdoc                      = 1
 
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+" ~~~~ UltiSnips ~~~~
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetsDir="~/dotfiles/.vim/snippets/"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 
 
@@ -217,6 +254,12 @@ let mapleader = "\<Space>"
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
 " Reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<CR>
+" Start type for Ack search
+nnoremap <leader>f :Ack! "
+" Open netrw in a left split
+nnoremap <leader>o :Vex<CR>
+" Clear highlighted searches
+nmap <silent> ,/ :nohlsearch<CR>
 
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
@@ -227,10 +270,17 @@ map  <left>  <nop>
 imap <left>  <nop>
 map  <right> <nop>
 imap <right> <nop>
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+
+" Disable arrow movement, resize splits instead.
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+" Resize even faster.
+nnoremap <S-Up>    :resize +10<CR>
+nnoremap <S-Down>  :resize -10<CR>
+nnoremap <S-Left>  :vertical resize +10<CR>
+nnoremap <S-Right> :vertical resize -10<CR>
 
 " Add space before cursor in normal mode
 nnoremap SS i<Space><Esc>l
@@ -255,6 +305,9 @@ nnoremap G :norm! Gzz<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-b> <C-b>zt
+" Jump back / Jump forward and places line in middle of screen
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
 
 " search for the selected text
 vnoremap // y/\V<C-R>"<CR>
@@ -271,8 +324,6 @@ nnoremap <leader>dob :BufOnly<CR>
 " Close all opened buffers
 nnoremap <leader>dab :%bd<CR>
 
-" Easier buffer delete
-nnoremap <leader>d :bd<CR>
 " Easier quit
 nnoremap <leader>q :q<cr>
 
@@ -282,11 +333,9 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-" Line jumps
-noremap ]2 o<CR><Esc>
-noremap [2 O<CR><Esc>j
-noremap ]5 o<CR><CR><CR><CR><Esc>
-noremap [5 O<CR><CR><CR><CR><Esc>j
+" Move visual selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Load template
 noremap !htmlsp :r ~/dotfiles/.vim/templates/section-part.html<CR>ki<Del><Esc>j$a
@@ -308,6 +357,12 @@ noremap [] 080lBhi<Del><CR><Esc>
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
+" Quick search for files
+noremap <C-P> :e **/*
+cnoremap <leader>v <C-B>vsp<Space><bar><Space><CR>
+cnoremap <leader>s <C-B>sp<Space><bar><Space><CR>
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffer management
@@ -323,7 +378,7 @@ set wildmenu
 " Don't offer to open certain files
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
-set wildignore+=*/node_modules/*,*/bower_components/*,*/tmp/*
+set wildignore+=*/node_modules/*,*/bower_components/*,*/tmp/*,*/public/*
 
 " Automatically updates an open buffer if it has been changed outside of the
 " current edit session, usually by an external program.
@@ -405,3 +460,17 @@ set cursorline
 
 " JSON format
 com! FormatJSON %!python -m json.tool
+
+
+
+
+
+
+
+
+
+
+" Set relative number just for normal mode
+augroup toggle_relative_number
+autocmd InsertEnter * :setlocal norelativenumber
+autocmd InsertLeave * :setlocal relativenumber
