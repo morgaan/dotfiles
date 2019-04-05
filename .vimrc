@@ -27,6 +27,8 @@ set tags+=tags;$HOME
 set path=.,/usr/include,,
 set suffixesadd+=.scss
 
+" Enable `<BS>`, `<Del>`, `CTRL-W` and `CTRL-U` in Insert mode.
+set backspace=indent,eol,start
 
 
 
