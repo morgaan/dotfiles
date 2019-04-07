@@ -91,7 +91,9 @@ DEFAULT_USER=`whoami`
 alias dc='docker-compose'
 
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+NVM_HOMEBREW="/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_HOMEBREW" ] && \. "$NVM_HOMEBREW"
+[ -x "$(command -v npm)" ] && export NODE_PATH=$NODE_PATH:`npm root -g`
 
 source ~/.bashrc
 

@@ -81,6 +81,7 @@ Plugin 'mzlogin/vim-markdown-toc'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'mxw/vim-jsx'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Buffer management
 Plugin 'vim-scripts/BufOnly.vim'
@@ -198,8 +199,9 @@ let g:UltiSnipsSnippetsDir="~/dotfiles/.vim/snippets/"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+" ~~~~ editorconfig-vim ~~~~
 
-
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 
 
