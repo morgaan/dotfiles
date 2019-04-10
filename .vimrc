@@ -262,6 +262,8 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap <leader>f :Ack! "
 " Open netrw in a left split
 nnoremap <leader>o :Vex<CR>
+" Improve buffer switching
+nnoremap gb :ls<CR>:b<Space>
 " Clear highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
 
