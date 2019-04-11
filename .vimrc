@@ -82,6 +82,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'mxw/vim-jsx'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-syntastic/syntastic'
 
 " Buffer management
 Plugin 'vim-scripts/BufOnly.vim'
@@ -188,6 +189,16 @@ let g:javascript_conceal_undefined                 = "¿"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
 let g:javascript_plugin_jsdoc                      = 1
 
+" ~~~~ vim-syntastic ~~~~
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " ~~~~ UltiSnips ~~~~
 

@@ -95,5 +95,7 @@ NVM_HOMEBREW="/usr/local/opt/nvm/nvm.sh"
 [ -s "$NVM_HOMEBREW" ] && \. "$NVM_HOMEBREW"
 [ -x "$(command -v npm)" ] && export NODE_PATH=$NODE_PATH:`npm root -g`
 
+export VAULT_ADDR=https://vault.halfpipe.io
+
 source ~/.bashrc
 
