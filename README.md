@@ -11,6 +11,8 @@ $ chmod +x install.sh
 $ ./install.sh
 $ git clone https://github.com/VundleVim/Vundle.vim.git ~/dotfiles/.vim/bundle/Vundle.vim
 $ git clone git@github.com:mbadolato/iTerm2-Color-Schemes.git ~/dotfiles/iTerm2/iTerm2-Color-Schemes
+$ cd ~/dotfiles/.vim/bundle/tern_for_vim
+$ npm install
 ```
 
 You may need this:

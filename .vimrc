@@ -101,6 +101,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'godlygeek/tabular'
@@ -240,6 +241,8 @@ colorscheme solarized
 set background=dark
 " 256 colours please
 set t_Co=256
+" Set high visibility for diff mode
+let g:solarized_diffmode="high"
 
 " Italicised comments and attributes
 highlight Comment cterm=italic ctermfg=68
