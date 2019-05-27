@@ -3,6 +3,12 @@ let mapleader = "\<Space>"
 
 " Edit vimrc
 nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
+" Edit key mappings
+nnoremap <leader>ek :tabnew ~/dotfiles/.vim/partials/.vimrc-keymappings<CR>
+" Edit plugins
+nnoremap <leader>ep :tabnew ~/dotfiles/.vim/partials/.vimrc-plugins<CR>
+" Edit plugins config
+nnoremap <leader>epc :tabnew ~/dotfiles/.vim/partials/.vimrc-plugins-config<CR>
 " Reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " Start type for Ack search

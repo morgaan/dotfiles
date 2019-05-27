@@ -77,3 +77,7 @@ This is happening because you have italics enabled, but some combination of your
 3. In a shell, run tic path/to/the/file/you/just/made
 4. Quit and restart iTerm2
 5. Vim should now display italics properly
+
+## Bat
+
+[bat](https://github.com/sharkdp/bat), A cat(1) clone with wings. (brew install bat). Used by vim fzf preview to render syntax highlighting

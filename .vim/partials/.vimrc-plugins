@@ -40,7 +40,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'junegunn/vim-easy-align'
 Plug 'mattn/emmet-vim'
 Plug 'shime/vim-livedown'
-" After :PluginInstall, Go to '~/dotfiles/.vim/bundle/tern_for_vim' folder and type 'npm install'
+" After :PlugInstall, Go to '~/dotfiles/.vim/plugged/tern_for_vim' folder and type 'npm install'
 Plug 'ternjs/tern_for_vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
