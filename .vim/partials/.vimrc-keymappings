@@ -1,0 +1,117 @@
+" Space as a Leader
+let mapleader = "\<Space>"
+
+" Edit vimrc
+nnoremap <leader>ev :tabnew ~/dotfiles/.vimrc<CR>
+" Reload vimrc
+nnoremap <leader>rv :source $MYVIMRC<CR>
+" Start type for Ack search
+nnoremap <leader>f :Ack! "
+" Open netrw in a left split
+nnoremap <leader>o :Vex<CR>
+" Improve buffer switching
+nnoremap gb :ls<CR>:b<Space>
+" Clear highlighted searches
+nmap <silent> ,/ :nohlsearch<CR>
+
+" Disable arrow keys (hardcore)
+map  <up>    <nop>
+imap <up>    <nop>
+map  <down>  <nop>
+imap <down>  <nop>
+map  <left>  <nop>
+imap <left>  <nop>
+map  <right> <nop>
+imap <right> <nop>
+
+" Disable arrow movement, resize splits instead.
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
+" Resize even faster.
+nnoremap <S-Up>    :resize +10<CR>
+nnoremap <S-Down>  :resize -10<CR>
+nnoremap <S-Left>  :vertical resize +10<CR>
+nnoremap <S-Right> :vertical resize -10<CR>
+
+" Add space before cursor in normal mode
+nnoremap SS i<Space><Esc>l
+" Add space after cursor in normal mode
+nnoremap ss a<Space><Esc>h
+
+" Tabs mappings
+nnoremap tN :tabnew<Space>
+nnoremap tj :tabnext<CR>
+nnoremap tk :tabprev<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tl :tablast<CR>
+nnoremap tn :tabnew<Space>
+
+" Make `n`/`N` bring next search result to middle line
+nnoremap n nzz
+nnoremap N Nzz
+" `G` skips to bottom of file and places line in middle of screen
+nnoremap G :norm! Gzz<CR>
+nnoremap G :norm! Gzz<CR>
+" Jump Up / Jump down and places line in middle of screen
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-b> <C-b>zt
+" Jump back / Jump forward and places line in middle of screen
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
+
+" search for the selected text
+vnoremap // y/\V<C-R>"<CR>
+" search for the selected text within CWD
+vnoremap <C-f> y:Ack! "<C-R>"" --
+
+" easier write
+nmap <leader>w :w!<cr>
+
+" Close all hidden buffers
+nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
+" Close all opened buffers but the current one
+nnoremap <leader>dob :BufOnly<CR>
+" Close all opened buffers
+nnoremap <leader>dab :%bd<CR>
+
+" Easier quit
+nnoremap <leader>q :q<cr>
+
+" Move windows with <C-Direction>
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+
+" Move visual selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Load template
+noremap !htmlsp :r ~/dotfiles/.vim/templates/section-part.html<CR>ki<Del><Esc>j$a
+noremap !htmlst :r ~/dotfiles/.vim/templates/section-title.html<CR>ki<Del><Esc>jj$a
+noremap !htmlc :r ~/dotfiles/.vim/templates/comment.html<CR>ki<Del><Esc>==<Esc>ela
+
+noremap !cssic A <Esc>:r ~/dotfiles/.vim/templates/inline-comment.css<CR>k<S-j>f]i
+noremap !cssc :r ~/dotfiles/.vim/templates/comment.css<CR>ki<Del><Esc><C-V>2j==<Esc>jf.i
+noremap !csssp :r ~/dotfiles/.vim/templates/section-part.css<CR>ki<Del><Esc>$a
+noremap !cssst :r ~/dotfiles/.vim/templates/section-title.css<CR>ki<Del><Esc>jf#a
+
+noremap !scssic A <Esc>:r ~/dotfiles/.vim/templates/inline-comment.scss<CR>k<S-j>f]i
+noremap !scssp :r ~/dotfiles/.vim/templates/section-part.scss<CR>ki<Del><Esc>$a
+noremap !scssst :r ~/dotfiles/.vim/templates/section-title.scss<CR>ki<Del><Esc>jf#a
+
+" Cut line to fit in the 80 column textwidth
+noremap [] 080lBhi<Del><CR><Esc>
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Quick search for files
+noremap <C-P> :e **/*
+cnoremap <leader>v <C-B>vsp<Space><bar><Space><CR>
+cnoremap <leader>s <C-B>sp<Space><bar><Space><CR>
+

@@ -9,6 +9,7 @@
 .DS_Store
 
 .vim/bundle/
+.vim/plugged/
 .netrwhist
 .tmux/resurrect
 .tmux/plugins

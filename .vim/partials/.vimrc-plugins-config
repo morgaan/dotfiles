@@ -1,0 +1,114 @@
+" ~~~~ netrw ~~~~
+let g:netrw_banner = 0
+let g:netrw_liststyle = 0
+let g:netrw_winsize = 25
+
+" ~~~~ ternjs ~~~~
+
+" This will automatically hide the preview window whenever you're done auto-completing.
+autocmd CompleteDone * pclose
+
+
+" ~~~~ Vim-livedown ~~~~
+
+" the port on which Livedown server will run
+let g:livedown_port = 4242
+
+" the browser to use
+let g:livedown_browser = "safari"
+
+let g:vim_markdown_no_default_key_mappings = 1
+
+" ~~~~ Ack ~~~~
+
+let g:ackhighlight = 1
+
+" ~~~~ Emmet ~~~~
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,hbs,scss,css,mustache,javascript EmmetInstall
+let g:user_emmet_leader_key='<C-E>'
+
+
+" ~~~~ Instant Mardown  ~~~~
+let g:instant_markdown_autostart = 1
+
+" ~~~~ EasyAlign Conf ~~~~
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
+" ~~~~ Vim-javascript ~~~~
+
+let g:javascript_conceal_NaN                       = "ℕ"
+let g:javascript_conceal_arrow_function            = "⇒"
+let g:javascript_conceal_function                  = "ƒ"
+let g:javascript_conceal_noarg_arrow_function      = "🞅"
+let g:javascript_conceal_null                      = "ø"
+let g:javascript_conceal_prototype                 = "¶"
+let g:javascript_conceal_return                    = "⇚"
+let g:javascript_conceal_static                    = "•"
+let g:javascript_conceal_super                     = "Ω"
+let g:javascript_conceal_this                      = "@"
+let g:javascript_conceal_undefined                 = "¿"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+let g:javascript_plugin_jsdoc                      = 1
+
+" ~~~~ airline ~~~~
+
+" Help : 
+" | A | B |       C       X | Y | Z |  [...] |
+" A => mode, B => VCS, C => filename + read-only flag
+" X => filetype, Y: file encoding[fileformat]
+" Z => current position in the file 
+"
+" Z example: 10% ☰ 10/100 ln : 20
+"
+" 10%     - 10 percent down the top of the file
+" ☰ 10    - current line 10
+" /100 ln - of 100 lines
+" : 20    - current column 20
+
+let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary with the powerline symbols
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
+" ~~~~ vim-syntastic ~~~~
+
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" ~~~~ editorconfig-vim ~~~~
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" ~~~~ fzf ~~~~
+
+" Augmenting Ag command using fzf#vim#with_preview function
+"   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
+"     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Bat: https://github.com/sharkdp/bat
+"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
+"       - CodeRay: http://coderay.rubychan.de/
+"       - Rouge: https://github.com/jneen/rouge
+"
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)

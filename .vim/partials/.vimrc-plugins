@@ -1,0 +1,47 @@
+" Text objects
+Plug 'kana/vim-textobj-user' " Create your own text objects (needed by some text object)
+Plug 'kana/vim-textobj-entire' " For the entire buffer  (ae, ie (ignore leading/trailing empty lines))
+Plug 'kana/vim-textobj-line' " for current line (al, il)
+Plug 'michaeljsmith/vim-indent-object' " (ai, ii)
+Plug 'whatyouhide/vim-textobj-xmlattr' " for XML/HTML attributes (ax and ix)
+
+" Language support/syntax highlighting
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'suan/vim-instant-markdown'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'plasticboy/vim-markdown'
+Plug 'mxw/vim-jsx'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-syntastic/syntastic'
+
+" Buffer management
+Plug 'vim-scripts/BufOnly.vim'
+Plug 'arithran/vim-delete-hidden-buffers'
+
+" Extensions
+Plug 'junegunn/limelight.vim' " Hyperfocus-writing.
+  let g:limelight_conceal_ctermfg = 'darkgray'
+
+Plug 'junegunn/goyo.vim' " Distraction-free writing.
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-sort-motion'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'junegunn/vim-easy-align'
+Plug 'mattn/emmet-vim'
+Plug 'shime/vim-livedown'
+" After :PluginInstall, Go to '~/dotfiles/.vim/bundle/tern_for_vim' folder and type 'npm install'
+Plug 'ternjs/tern_for_vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Cosmetics
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'

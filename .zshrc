@@ -99,3 +99,6 @@ export VAULT_ADDR=https://vault.halfpipe.io
 
 source ~/.bashrc
 
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
