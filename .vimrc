@@ -6,6 +6,9 @@ set encoding=utf-8
 " Use Vim features, not Vi
 set nocompatible
 
+" Enable project specific vimrc
+set exrc
+
 " Prevent Vim from complaining when switch from an unsaved buffer to another.
 set hidden
 
@@ -74,6 +77,7 @@ Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'whatyouhide/vim-textobj-xmlattr'
 
 " Language support/syntax highlighting
+Plugin 'vim-scripts/matchit.zip'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'pangloss/vim-javascript'
 Plugin 'suan/vim-instant-markdown'
@@ -83,6 +87,8 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'mxw/vim-jsx'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'xojs/vim-xo'
+Plugin 'jimmyhchan/dustjs.vim'
 
 " Buffer management
 Plugin 'vim-scripts/BufOnly.vim'
@@ -192,6 +198,9 @@ let g:javascript_plugin_jsdoc                      = 1
 
 " ~~~~ vim-syntastic ~~~~
 
+let g:syntastic_enable_signs=1
+let g:syntastic_loc_list_height=5
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -199,7 +208,16 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['xo']
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
 
 " ~~~~ UltiSnips ~~~~
 
@@ -280,6 +298,8 @@ nnoremap <leader>o :Vex<CR>
 nnoremap gb :ls<CR>:b<Space>
 " Clear highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
+" Close location list
+nmap <leader>c :lclose<CR>
 
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
@@ -325,6 +345,9 @@ nnoremap G :norm! Gzz<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-b> <C-b>zt
+nmap ]q :cn<CR>zz
+nmap [q :cN<CR>zz
+
 " Jump back / Jump forward and places line in middle of screen
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
@@ -398,7 +421,8 @@ set wildmenu
 " Don't offer to open certain files
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
-set wildignore+=*/node_modules/*,*/bower_components/*,*/tmp/*,*/public/*
+set wildignore+=*/node_modules/*,*/bower_components/*,*tmp/*,*/public/*,.git,.DS_Store
+set wildignore+=*~,*.swp,*.tmp
 
 " Automatically updates an open buffer if it has been changed outside of the
 " current edit session, usually by an external program.
