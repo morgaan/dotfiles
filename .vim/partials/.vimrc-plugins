@@ -6,6 +6,7 @@ Plug 'michaeljsmith/vim-indent-object' " (ai, ii)
 Plug 'whatyouhide/vim-textobj-xmlattr' " for XML/HTML attributes (ax and ix)
 
 " Language support/syntax highlighting
+Plug 'vim-scripts/matchit.zip'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'pangloss/vim-javascript'
 Plug 'suan/vim-instant-markdown'
@@ -14,6 +15,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'mxw/vim-jsx'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'xojs/vim-xo'
+Plug 'jimmyhchan/dustjs.vim'
+
 
 " Buffer management
 Plug 'vim-scripts/BufOnly.vim'

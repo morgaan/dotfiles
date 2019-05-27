@@ -723,19 +723,19 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>1094 595 511 77 0 0 1680 1027 </string>
+	<string>-603 80 511 77 -1920 -131 1920 1057 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>585 588 735 382 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>657 702 400 129 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 372 620 392 0 0 1440 877 </string>
+	<string>-1270 380 620 392 -1920 -131 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-1291 300 796 486 -1920 -131 1920 1057 </string>
+	<string>-1436 411 918 423 -1920 -131 1920 1057 </string>
 	<key>NSWindow Frame com.apple.typography_panel_InconsolataForPowerline</key>
 	<string>346 588 260 42 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 347 1050 680 0 0 1680 1027 </string>
+	<string>72 42 1680 977 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 402 650 475 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_E7208F94-F2C8-4ECF-9B02-E9523A1951D2</key>
@@ -749,6 +749,18 @@
 			<true/>
 			<key>ASCII Ligatures</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>Recycle</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>Recycle</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>Recycle</string>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -1018,7 +1030,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Advanced</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -1108,6 +1120,13 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x7f</string>
+				</dict>
+				<key>0x7f-0x0</key>
+				<dict>
+					<key>Action</key>
+					<integer>16</integer>
+					<key>Text</key>
+					<string></string>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
@@ -1358,7 +1377,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraMonoForPowerline-Medium 16</string>
+			<string>FiraMonoForPowerline-Regular 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1519,7 +1538,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-04-03T08:48:03Z</date>
+	<date>2019-05-08T07:31:18Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1542,6 +1561,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.8</string>
+	<string>3.2.9</string>
 </dict>
 </plist>

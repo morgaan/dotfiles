@@ -3,16 +3,18 @@
 --ignore-directory=is:node_modules
 --ignore-directory=is:bower_components
 --ignore-directory=is:tmp
+--ignore-directory=is:.tmp
 --ignore-directory=is:dist
 --ignore-directory=is:vendor
 
 --type-set=jade:ext:jade
+--type-set=dust:ext:dust
 --type-set=hbs:ext:hbs
 --type-set=mustache:ext:mustache
 --type-set=scss:ext:scss,sass
---type-add=html:ext:hbs,jade,mustache
+--type-set=md:ext:markdown,md
+--type-add=html:ext:hbs,jade,mustache,dust
 --type-add=css:ext:css,scss,sass
---type-set=markdown:ext:markdown,md
 
 
 
@@ -21,3 +23,4 @@
 --ignore-directory=is:frontend-toolkit/public
 --ignore-directory=is:website/public
 --ignore-directory=is:public/assets
+--ignore-directory=is:resources/js

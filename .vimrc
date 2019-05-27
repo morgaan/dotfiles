@@ -6,6 +6,9 @@ set encoding=utf-8
 " Use Vim features, not Vi
 set nocompatible
 
+" Enable project specific vimrc
+set exrc
+
 " Prevent Vim from complaining when switch from an unsaved buffer to another.
 set hidden
 
@@ -128,7 +131,8 @@ set wildmenu
 " Don't offer to open certain files
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
-set wildignore+=*/node_modules/*,*/bower_components/*,*/tmp/*,*/public/*
+set wildignore+=*/node_modules/*,*/bower_components/*,*tmp/*,*/public/*,.git,.DS_Store
+set wildignore+=*~,*.swp,*.tmp
 
 " Automatically updates an open buffer if it has been changed outside of the
 " current edit session, usually by an external program.

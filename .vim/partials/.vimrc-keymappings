@@ -13,6 +13,9 @@ nnoremap <leader>o :Vex<CR>
 nnoremap gb :ls<CR>:b<Space>
 " Clear highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
+" Close location list
+nmap <leader>c :lclose<CR>
+
 
 " Disable arrow keys (hardcore)
 map  <up>    <nop>
@@ -58,6 +61,9 @@ nnoremap G :norm! Gzz<CR>
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-b> <C-b>zt
+nmap ]q :cn<CR>zz
+nmap [q :cN<CR>zz
+
 " Jump back / Jump forward and places line in middle of screen
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
