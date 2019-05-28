@@ -100,5 +100,6 @@ export VAULT_ADDR=https://vault.halfpipe.io
 source ~/.bashrc
 
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

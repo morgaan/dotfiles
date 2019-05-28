@@ -13,10 +13,8 @@ nnoremap <leader>epc :tabnew ~/dotfiles/.vim/partials/.vimrc-plugins-config<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " Start type for Ack search
 nnoremap <leader>f :Ack! "
-" Open netrw in a left split
-nnoremap <leader>o :Vex<CR>
 " Improve buffer switching
-nnoremap gb :ls<CR>:b<Space>
+nnoremap gb :Buffers<CR>
 " Clear highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
 " Close location list
@@ -102,28 +100,11 @@ map <C-L> <C-W>l
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" Load template
-noremap !htmlsp :r ~/dotfiles/.vim/templates/section-part.html<CR>ki<Del><Esc>j$a
-noremap !htmlst :r ~/dotfiles/.vim/templates/section-title.html<CR>ki<Del><Esc>jj$a
-noremap !htmlc :r ~/dotfiles/.vim/templates/comment.html<CR>ki<Del><Esc>==<Esc>ela
-
-noremap !cssic A <Esc>:r ~/dotfiles/.vim/templates/inline-comment.css<CR>k<S-j>f]i
-noremap !cssc :r ~/dotfiles/.vim/templates/comment.css<CR>ki<Del><Esc><C-V>2j==<Esc>jf.i
-noremap !csssp :r ~/dotfiles/.vim/templates/section-part.css<CR>ki<Del><Esc>$a
-noremap !cssst :r ~/dotfiles/.vim/templates/section-title.css<CR>ki<Del><Esc>jf#a
-
-noremap !scssic A <Esc>:r ~/dotfiles/.vim/templates/inline-comment.scss<CR>k<S-j>f]i
-noremap !scssp :r ~/dotfiles/.vim/templates/section-part.scss<CR>ki<Del><Esc>$a
-noremap !scssst :r ~/dotfiles/.vim/templates/section-title.scss<CR>ki<Del><Esc>jf#a
-
-" Cut line to fit in the 80 column textwidth
-noremap [] 080lBhi<Del><CR><Esc>
-
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
 " Quick search for files
-noremap <C-P> :e **/*
+noremap <C-P> :GFiles<CR>
 cnoremap <leader>v <C-B>vsp<Space><bar><Space><CR>
 cnoremap <leader>s <C-B>sp<Space><bar><Space><CR>
 

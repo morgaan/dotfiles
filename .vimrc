@@ -1,16 +1,37 @@
-" Force language to english
-language en_US.utf-8
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General configuration options
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set encoding=utf-8
+set nocompatible " Use Vim features, not Vi.
 
-" Use Vim features, not Vi
-set nocompatible
+set backspace=indent,eol,start " Enable `<BS>`, `<Del>`, `CTRL-W` and `CTRL-U` in Insert mode.
+
+set history=1000 " Set bigger history of executed commands.
+
+set showcmd " Show what commands you're typing.
+
+set showmode " Show what mode you're currently in.
+
+set autoread " Track change on file outsite Vim. Does not reload the buffer though.
+set updatetime=250 " Set time interval for CursorHold.
+" Trigger when cursor stops moving or on buffer change or terminal focus.
+au CursorHold,CursorHoldI,FocusGained,BufEnter * if mode() != 'c' | checktime | endif
+" Give feedback that filed has change.
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " Enable project specific vimrc
 set exrc
 
 " Prevent Vim from complaining when switch from an unsaved buffer to another.
 set hidden
+
+" Force language to english
+language en_US.utf-8
+
+set encoding=utf-8
+
+
 
 " Start matching+highlighting vearch pattern as I type.
 set incsearch
@@ -30,8 +51,6 @@ set tags+=tags;$HOME
 set path=.,/usr/include,,
 set suffixesadd+=.scss
 
-" Enable `<BS>`, `<Del>`, `CTRL-W` and `CTRL-U` in Insert mode.
-set backspace=indent,eol,start
 
 set omnifunc=syntaxcomplete#Complete
 
@@ -134,20 +153,7 @@ set wildignore+=*.pdf,*.psd
 set wildignore+=*/node_modules/*,*/bower_components/*,*tmp/*,*/public/*,.git,.DS_Store
 set wildignore+=*~,*.swp,*.tmp
 
-" Automatically updates an open buffer if it has been changed outside of the
-" current edit session, usually by an external program.
-set updatetime=2000
-set autoread
-" check one time after 2s of inactivity in normal mode
-au CursorHold * if !bufexists("[Command Line]") | checktime | endif
 
-" Automatically saves to disk the currently edited buffer upon leaving insert
-" mode as well as after a text edit has occurred.
-" augroup autoSaveAndRead
-"     autocmd!
-"     autocmd TextChanged,InsertLeave,FocusLost * silent! wall
-"     autocmd CursorHold * silent! checktime
-" augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -179,11 +185,6 @@ se fo-=2 ai " fixes https://github.com/tpope/vim-markdown/issues/98
 " Always show status line
 set laststatus=2
 
-" Show what mode you're currently in
-set showmode
-
-" Show what commands you're typing
-set showcmd
 
 " Show file title in terminal tab
 set title
