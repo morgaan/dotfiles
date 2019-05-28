@@ -1,0 +1,10 @@
+[user]
+	name = morgaan
+	email = morgaan@gmail.com
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	visual = !gitk
+	last = log -1 HEAD

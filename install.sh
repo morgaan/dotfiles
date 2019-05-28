@@ -8,6 +8,7 @@ rm -f .ackrc
 rm -f .zshrc
 rm -f .tern-project
 rm -f .gitignore
+rm -f .gitconfig
 
 ln -s ~/dotfiles/.vim .vim
 ln -s ~/dotfiles/.vimrc .vimrc
@@ -18,3 +19,4 @@ ln -s ~/dotfiles/.ackrc .ackrc
 ln -s ~/dotfiles/.zshrc .zshrc
 ln -s ~/dotfiles/.tern-project .tern-project
 ln -s ~/dotfiles/.gitignore .gitignore
+ln -s ~/dotfiles/.gitconfig .gitconfig
