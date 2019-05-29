@@ -93,6 +93,12 @@ $ source ~/.zshrc
 
 Run `fzf` command to check the installation worked.
 
+## ack
+
+```
+$ brew install ack
+```
+
 ## ag (the silver searcher)
 
 ```

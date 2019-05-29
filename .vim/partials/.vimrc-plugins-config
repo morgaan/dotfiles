@@ -22,9 +22,6 @@ let g:vim_markdown_no_default_key_mappings = 1
 " ~~~~ Ack ~~~~
 
 let g:ackhighlight = 1
-if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
 
 " ~~~~ Emmet ~~~~
 
