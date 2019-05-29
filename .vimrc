@@ -15,11 +15,6 @@ set updatetime=250             " Write swapfiles to disk a little sooner
 
 
 
-
-
-
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -116,9 +111,6 @@ autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html " Handlebars/musta
 
 
 
-
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Search options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -189,12 +181,202 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 
-source ~/.vim/partials/.vimrc-plugins
+
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~ Plugins declaration ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" Text objects
+Plug 'kana/vim-textobj-user' " Create your own text objects (needed by some text object)
+Plug 'kana/vim-textobj-entire' " For the entire buffer  (ae, ie (ignore leading/trailing empty lines))
+Plug 'kana/vim-textobj-line' " for current line (al, il)
+Plug 'michaeljsmith/vim-indent-object' " (ai, ii)
+Plug 'whatyouhide/vim-textobj-xmlattr' " for XML/HTML attributes (ax and ix)
+
+
+" Language support/syntax highlighting
+Plug 'vim-scripts/matchit.zip'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'suan/vim-instant-markdown'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'plasticboy/vim-markdown'
+Plug 'mxw/vim-jsx'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'xojs/vim-xo'
+Plug 'jimmyhchan/dustjs.vim'
+
+
+" Buffer management
+Plug 'vim-scripts/BufOnly.vim'
+Plug 'arithran/vim-delete-hidden-buffers'
+
+
+" Extensions
+Plug 'junegunn/goyo.vim' " Distraction-free writing.
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-sort-motion'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'junegunn/vim-easy-align'
+Plug 'mattn/emmet-vim'
+Plug 'shime/vim-livedown'
+" After :PlugInstall, Go to '~/dotfiles/.vim/plugged/tern_for_vim' folder and type 'npm install'
+Plug 'ternjs/tern_for_vim'
+Plug 'junegunn/limelight.vim'
+Plug '~/.fzf' " Should have been installed with git seperately in home folder.
+Plug 'junegunn/fzf.vim'
+
+
+" UI/UX
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/limelight.vim' " Hyperfocus-writing.
+
+
+
+
 
 " Initialize plugin system
 call plug#end()
 
-source ~/.vim/partials/.vimrc-plugins-config
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~ END : Plugins declaration ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~~ Plugins configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+" netrw settings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 0
+let g:netrw_winsize = 25
+
+
+" ternjs settings
+autocmd CompleteDone * pclose " This will automatically hide the preview window whenever you're done auto-completing.
+
+
+" vim-livedown settings
+let g:livedown_port = 4242        " the port on which Livedown server will run
+let g:livedown_browser = "safari" " the browser to use
+let g:vim_markdown_no_default_key_mappings = 1
+
+
+" vim-instant-markdown settings
+let g:instant_markdown_autostart = 1
+
+
+" ack.vim settings
+let g:ackhighlight = 1
+
+
+" emmet-vim settings
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<C-E>'
+autocmd FileType html,hbs,scss,css,mustache,javascript EmmetInstall
+
+
+" vim-easy-align settings
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
+" vim-javascript settings
+let g:javascript_conceal_NaN                       = "ℕ"
+let g:javascript_conceal_arrow_function            = "⇒"
+let g:javascript_conceal_function                  = "ƒ"
+let g:javascript_conceal_noarg_arrow_function      = "🞅"
+let g:javascript_conceal_null                      = "ø"
+let g:javascript_conceal_prototype                 = "¶"
+let g:javascript_conceal_return                    = "⇚"
+let g:javascript_conceal_static                    = "•"
+let g:javascript_conceal_super                     = "Ω"
+let g:javascript_conceal_this                      = "@"
+let g:javascript_conceal_undefined                 = "¿"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+let g:javascript_plugin_jsdoc                      = 1
+
+" vim-airline settings
+
+" Help : 
+" | A | B |       C       X | Y | Z |  [...] |
+" A => mode, B => VCS, C => filename + read-only flag
+" X => filetype, Y: file encoding[fileformat]
+" Z => current position in the file 
+"
+" Z example: 10% ☰ 10/100 ln : 20
+"
+" 10%     - 10 percent down the top of the file
+" ☰ 10    - current line 10
+" /100 ln - of 100 lines
+" : 20    - current column 20
+let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary with the powerline symbols
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+
+
+" vim-syntastic settings
+let g:syntastic_enable_signs=1
+let g:syntastic_loc_list_height=5
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['xo']
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+
+" editorconfig-vim settings
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+
+" fzf settings
+"
+" Augmenting Ag command using fzf#vim#with_preview function
+"   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
+"     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Bat: https://github.com/sharkdp/bat
+"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
+"       - CodeRay: http://coderay.rubychan.de/
+"       - Rouge: https://github.com/jneen/rouge
+"
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+
+" limelight.vim settings
+let g:limelight_conceal_ctermfg = 'darkgray'
+
+
+" ~~~~~~~~~~~~~~~~~~~~~~~ END : Plugins configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
