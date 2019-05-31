@@ -1,8 +1,6 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" ~~~~~~~~~~~~~~~~~~~~~~~~ Plugins declaration ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"*******************************************************************************
 " General configuration options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
 set nocompatible               " Use Vim features, not Vi.
 language en_US.utf-8           " Force language to english.
@@ -19,9 +17,9 @@ set updatetime=250             " Write swapfiles to disk a little sooner
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " UI options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
 set title                                   " Show file title in terminal tab.
 set laststatus=2                            " Always show status line.
@@ -421,9 +419,6 @@ nnoremap <leader>ev :e $MYVIMRC<CR>
 nnoremap <leader>gv :e $MYVIMRC<CR>:BLines<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
-" Search text/pattern across opened project.
-nnoremap <leader>f :Ack! "
-
 " fzf file fuzzy search that respects .gitignore
 " If in git directory, show only files that are committed, staged, or unstaged
 " else use regular :Files
@@ -434,12 +429,14 @@ nnoremap <silent> gb :Buffers<CR>
 " Improve buffer switching
 nnoremap <silent> gl :BLines<CR>
 
-" Toggle `hlsearch` with <Space>/
-nnoremap <Leader>/ :set hlsearch!<CR>
+" Search text/pattern across opened project.
+nnoremap <leader>f :Ack! "
 
 " Close location list
 nmap <leader>c :lclose<CR>
 
+" Toggle `hlsearch` with <Space>/
+nnoremap <Leader>/ :set hlsearch!<CR>
 
 
 " Add space before/after cursor in normal mode
@@ -469,28 +466,21 @@ vnoremap // y/\V<C-R>"<CR>
 " search for the selected text within CWD
 vnoremap <C-f> y:Ack! "<C-R>"" --
 
-" easier write
-nmap <leader>w :w!<cr>
-
-" Close all hidden buffers
-nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
-" Close all opened buffers but the current one
-nnoremap <leader>dob :BufOnly<CR>
-" Close all opened buffers
-nnoremap <leader>dab :%bd<CR>
-
-" Easier quit
-nnoremap <leader>q :q<cr>
-
-" Move windows with <C-Direction>
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
-
 " Move visual selection
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+
+" Easier write
+nmap <leader>w :w!<cr>
+" Easier quit
+nnoremap <leader>q :q<cr>
+
+" Close all hidden/others/all buffers
+nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
+nnoremap <leader>dob :BufOnly<CR>
+nnoremap <leader>dab :%bd<CR>
+
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
