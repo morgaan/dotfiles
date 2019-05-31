@@ -1,8 +1,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" ~~~~~~~~~~~~~~~~~~~~~~~~ Plugins declaration ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " General configuration options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible               " Use Vim features, not Vi.
+language en_US.utf-8           " Force language to english.
+set encoding=utf-8             " utf-8 FTW.
 set backspace=indent,eol,start " Enable `<BS>`, `<Del>`, `CTRL-W` and `CTRL-U` in Insert mode.
 set hidden                     " Prevent Vim from complaining when switch from an unsaved buffer to another.
 set history=1000               " Set bigger history of executed commands.
@@ -23,7 +27,7 @@ set title                                   " Show file title in terminal tab.
 set laststatus=2                            " Always show status line.
 set splitright                              " Open splits to the right...
 set splitbelow                              " ... or below.
-set listchars=tab:▸\ ,trail:·,eol:¬         " Characters for invisibles (`set list`).
+set listchars=tab:▸\ ,trail:·,eol:¬         " Characters for invisibles (set list).
 set relativenumber                          " Set relative line numbers...
 set number                                  " ...but absolute numbers on the current line (hybrid numbering).
 set cursorline                              " Highlight current line.
@@ -56,40 +60,44 @@ autocmd InsertLeave * :setlocal relativenumber
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " Indentation options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
 set autoindent " New lines inherit the indentation of previous lines.
 filetype plugin indent on " Smart auto indentation (instead of old smartindent option).
 
-" Help
+" Indentation settings help:
 "
-" tabstop - specifies the width of a tab character.
-" expandtab - when enabled, causes spaces to be used in place of tab characters.
-" softtabstop - when enabled, fine tunes the amount of whitespace to be inserted.
-" shiftwidth - determines the amount of whitespace to insert or remove using the indentation commands in normal mode.
+" tabstop     : how many columns a tab should be made up of in the editor view.
+" expandtab   : when enabled, insert the appropriate number of spaces when in insert mode.
+" shiftwidth  : how many columns text will be indented when using indent operations (such as << or >>) in normal or visual mode
+" softtabstop : when enabled,
+"                - softtabstop < tabstop, noexpandtab
+"                  This will result in a combination of tabs and spaces to make up the total spacing .
+"                - softtabstop == tabstop, noexpandtab
+"                  This will always force the use of tabs.
+"                - expandtab
+"                  The value of softtabstop will be ignored and spaces will be forced
+"
+" src: https://federico-lox.github.io/development/tabs-stop-the-truth-about-vim-tab-spaces.html
+"
+" shifround   : round indent to nearest multiple of set shiftwidth on indent
+"               operations (>> << in Normal mode, CTRL-T CTRL-D in Insert mode)
+"
+set expandtab    " Use spaces in place of tab character.
+set tabstop=2    " Existing tabs are visually rendered as 2 columns.
+set shiftwidth=2 " Indent by 2 columns.
+set shiftround   " Round indent to nearest multiple of set shiftwidth.
 
-set expandtab     " Use spaces in place of tab character.
-set tabstop=2     " Width of tab if tabs are present.
-                  " In noexpandtab mode, softtabstop trumps tabstop until tabs match
-                  " a common denominator of tabstop.
-set softtabstop=2 " So that backspacing is consistent to tabing.
-set shiftwidth=2  " 2 whitespace when indenting in normal mode.
-
-" Round indent to nearest multiple of 2
-set shiftround
 
 
 
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " Text rendering options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
-language en_US.utf-8                       " Force language to english.
-set encoding=utf-8                         " utf-8 FTW.
 set showmatch                              " Show matching parens, brackets, etc.
 syntax enable                              " Enable syntax highlighting.
 highlight Comment cterm=italic ctermfg=68  " Italicised comments...
@@ -111,9 +119,9 @@ autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html " Handlebars/musta
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " Search options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
 set incsearch  " Find the next match as I type the seach.
 set hlsearch   " Highlight searches by default.
@@ -124,9 +132,9 @@ set smartcase  " ... unless I type a capital letter in search term.
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " Swap and backup file options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
 set directory=$HOME/.vim-directory// " Move swap files out of the editing folder.
 set nobackup                         " No backup mechanism...
@@ -136,9 +144,9 @@ set nowritebackup                    " ...what so ever
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " External changes tracking
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
 " Track change on file outside of Vim.
 " Do not update changed buffer unless
@@ -162,9 +170,9 @@ autocmd FileChangedShellPost *
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " Plugins area
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
 " Plugin manager => https://github.com/junegunn/vim-plug
 "
@@ -382,19 +390,118 @@ let g:limelight_conceal_ctermfg = 'darkgray'
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " Key mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
-source ~/.vim/partials/.vimrc-keymappings
+" Space as a Leader.
+let mapleader = "\<Space>"
+
+" Disable arrow keys...
+map  <up>    <nop>
+imap <up>    <nop>
+map  <down>  <nop>
+imap <down>  <nop>
+map  <left>  <nop>
+imap <left>  <nop>
+map  <right> <nop>
+imap <right> <nop>
+" ...resize splits instead.
+nnoremap <right> :vertical resize +2<CR>
+nnoremap <left>  :vertical resize -2<CR>
+nnoremap <down>  :resize -2<CR>
+nnoremap <up>    :resize +2<CR>
+nnoremap <S-right> :vertical resize +10<CR>
+nnoremap <S-left>  :vertical resize -10<CR>
+nnoremap <S-down>  :resize -10<CR>
+nnoremap <S-up>    :resize +10<CR>
+
+" Edit/Grep .vimrc / source .vimrc.
+nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>gv :e $MYVIMRC<CR>:BLines<CR>
+nnoremap <leader>rv :source $MYVIMRC<CR>
+
+" Search text/pattern across opened project.
+nnoremap <leader>f :Ack! "
+
+" fzf file fuzzy search that respects .gitignore
+" If in git directory, show only files that are committed, staged, or unstaged
+" else use regular :Files
+" src: https://rietta.com/blog/hide-gitignored-files-fzf-vim/
+nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
+" Improve buffer switching
+nnoremap <silent> gb :Buffers<CR>
+" Improve buffer switching
+nnoremap <silent> gl :BLines<CR>
+
+" Toggle `hlsearch` with <Space>/
+nnoremap <Leader>/ :set hlsearch!<CR>
+
+" Close location list
+nmap <leader>c :lclose<CR>
+
+
+
+" Add space before/after cursor in normal mode
+nnoremap [s i<Space><Esc>l
+nnoremap ]s a<Space><Esc>h
+
+
+" Make `n`/`N` bring next search result to middle line
+nnoremap n nzz
+nnoremap N Nzz
+" `G` skips to bottom of file and places line in middle of screen
+nnoremap G :norm! Gzz<CR>
+nnoremap G :norm! Gzz<CR>
+" Jump Up / Jump down and places line in middle of screen
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-b> <C-b>zt
+nmap ]q :cn<CR>zz
+nmap [q :cN<CR>zz
+
+" Jump back / Jump forward and places line in middle of screen
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
+
+" search for the selected text
+vnoremap // y/\V<C-R>"<CR>
+" search for the selected text within CWD
+vnoremap <C-f> y:Ack! "<C-R>"" --
+
+" easier write
+nmap <leader>w :w!<cr>
+
+" Close all hidden buffers
+nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
+" Close all opened buffers but the current one
+nnoremap <leader>dob :BufOnly<CR>
+" Close all opened buffers
+nnoremap <leader>dab :%bd<CR>
+
+" Easier quit
+nnoremap <leader>q :q<cr>
+
+" Move windows with <C-Direction>
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+
+" Move visual selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
 
 
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 " Custom Commands
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"*******************************************************************************
 
 " JSON format
 com! FormatJSON %!python -m json.tool
