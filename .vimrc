@@ -54,7 +54,18 @@ augroup toggle_relative_number
 autocmd InsertEnter * :setlocal norelativenumber
 autocmd InsertLeave * :setlocal relativenumber
 
+" Status line (inspired from " https://github.com/junegunn/dotfiles/blob/master/vimrc)
+function! s:statusline_expr()
+  let isModified = "%{&modified ? '[Unsaved] ' : !&modifiable ? '[ReadOnly] ' : '[NoChanges] '}"
+  let gitBranch = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
+  let seperator = ' %= '
+  let fileType  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
+  let cursorPosition = '%-12(%l:%c%V%)'
+  let percentageThrough = '|%P'
 
+  return '[b%n] %F%<'.isModified.gitBranch.seperator.fileType.cursorPosition.percentageThrough
+endfunction
+let &statusline = s:statusline_expr()
 
 
 
@@ -192,57 +203,52 @@ call plug#begin('~/.vim/plugged')
 " ~~~~~~~~~~~~~~~~~~~~~~~~ Plugins declaration ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 " Text objects
-Plug 'kana/vim-textobj-user' " Create your own text objects (needed by some text object)
-Plug 'kana/vim-textobj-entire' " For the entire buffer  (ae, ie (ignore leading/trailing empty lines))
-Plug 'kana/vim-textobj-line' " for current line (al, il)
-Plug 'michaeljsmith/vim-indent-object' " (ai, ii)
+Plug 'kana/vim-textobj-user'           " Create your own text objects (needed by some text object)
+Plug 'kana/vim-textobj-entire'         " For the entire buffer  (ae, ie (ignore leading/trailing empty lines))
+Plug 'kana/vim-textobj-line'           " for current line (al, il)
+Plug 'michaeljsmith/vim-indent-object' " current indentation (ai, ii)
 Plug 'whatyouhide/vim-textobj-xmlattr' " for XML/HTML attributes (ax and ix)
 
 
 " Language support/syntax highlighting
-Plug 'vim-scripts/matchit.zip'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'pangloss/vim-javascript'
-Plug 'suan/vim-instant-markdown'
-Plug 'mzlogin/vim-markdown-toc'
-Plug 'plasticboy/vim-markdown'
-Plug 'mxw/vim-jsx'
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'hbs'] }
+Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
+Plug 'jimmyhchan/dustjs.vim', { 'for': 'dust' }
+Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
+
+
+" Syntax checkers/linters
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'xojs/vim-xo'
-Plug 'jimmyhchan/dustjs.vim'
 
 
 " Buffer management
-Plug 'vim-scripts/BufOnly.vim'
-Plug 'arithran/vim-delete-hidden-buffers'
+Plug 'arithran/vim-delete-hidden-buffers' " Clear any unused buffers that are hidden.
 
+
+" UI/UX Extensions
+Plug 'junegunn/goyo.vim', { 'for': ['md', 'markdown'] }                   " Distraction-free writing.
+Plug '~/.fzf'                                                             " Should have been installed with git seperately in home folder.
+Plug 'junegunn/fzf.vim'                                                   " Fuzzy search finder.
+Plug 'junegunn/limelight.vim'                                             " Hyperfocus-writing.
+Plug 'suan/vim-instant-markdown', { 'for': ['md', 'markdown'] }           " Preview markdown as you type
+Plug 'airblade/vim-gitgutter'                                             " Shows a +/-/~ next to lines that have been added...
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': ['js', 'jsx'] } " When using <C-x><C-o> bring dropdown with autocompletation for JS.
+Plug 'mileszs/ack.vim'                                                    " Ack command for vim
+Plug 'mattn/emmet-vim'                                                    " Greatly improves HTML & CSS workflow
+Plug 'tpope/vim-fugitive'                                                 " A Git wrapper so awesome, it should be illegal
 
 " Extensions
-Plug 'junegunn/goyo.vim' " Distraction-free writing.
-Plug 'airblade/vim-gitgutter'
-Plug 'christoomey/vim-sort-motion'
-Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'junegunn/vim-easy-align'
-Plug 'mattn/emmet-vim'
-Plug 'shime/vim-livedown'
-" After :PlugInstall, Go to '~/dotfiles/.vim/plugged/tern_for_vim' folder and type 'npm install'
-Plug 'ternjs/tern_for_vim'
-Plug 'junegunn/limelight.vim'
-Plug '~/.fzf' " Should have been installed with git seperately in home folder.
-Plug 'junegunn/fzf.vim'
-
-
-" UI/UX
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/limelight.vim' " Hyperfocus-writing.
+Plug 'vim-scripts/matchit.zip'         " Extends `%` operator.
+Plug 'christoomey/vim-sort-motion'     " Ability to sort using text objects and motions (gsip, gsii, gsi(...).
+Plug 'tpope/vim-commentary'            " Comment stuff out (gcc for a line, gc with motion e.g. gcap).
+Plug 'tpope/vim-surround'              " quoting/parenthesizing made simple (e.g. ysaw', cs'`).
+Plug 'tpope/vim-unimpaired'            " Pairs of handy bracket mappings.
+Plug 'tpope/vim-repeat'                " Enable repeating supported plugin maps with `.`
+Plug 'vim-scripts/ReplaceWithRegister' " (e.g. grap+)
+Plug 'junegunn/vim-easy-align'         " Simple, easy-to-use Vim alignment plugin.
+Plug 'shime/vim-livedown'              " '~Live' markdown preview (better results when printing than with instant-markdown)
 
 
 
@@ -267,7 +273,8 @@ let g:netrw_winsize = 25
 
 
 " ternjs settings
-autocmd CompleteDone * pclose " This will automatically hide the preview window whenever you're done auto-completing.
+" This will automatically hide the preview window whenever you're done auto-completing.
+autocmd CompleteDone * pclose
 
 
 " vim-livedown settings
@@ -298,6 +305,7 @@ nmap ga <Plug>(EasyAlign)
 
 
 " vim-javascript settings
+set conceallevel=1
 let g:javascript_conceal_NaN                       = "ℕ"
 let g:javascript_conceal_arrow_function            = "⇒"
 let g:javascript_conceal_function                  = "ƒ"
@@ -312,24 +320,6 @@ let g:javascript_conceal_undefined                 = "¿"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
 let g:javascript_plugin_jsdoc                      = 1
 
-" vim-airline settings
-
-" Help : 
-" | A | B |       C       X | Y | Z |  [...] |
-" A => mode, B => VCS, C => filename + read-only flag
-" X => filetype, Y: file encoding[fileformat]
-" Z => current position in the file 
-"
-" Z example: 10% ☰ 10/100 ln : 20
-"
-" 10%     - 10 percent down the top of the file
-" ☰ 10    - current line 10
-" /100 ln - of 100 lines
-" : 20    - current column 20
-let g:airline_powerline_fonts = 1 " automatically populate the g:airline_symbols dictionary with the powerline symbols
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
-
 
 " vim-syntastic settings
 let g:syntastic_enable_signs=1
@@ -343,9 +333,9 @@ let g:syntastic_error_symbol = '❌'
 let g:syntastic_style_error_symbol = '⁉️'
 let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_warning_symbol = '💩'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
@@ -381,6 +371,8 @@ command! -bang -nargs=? -complete=dir Files
 " limelight.vim settings
 let g:limelight_conceal_ctermfg = 'darkgray'
 
+" vim-markdown settings
+let g:vim_markdown_folding_disabled = 1
 
 " ~~~~~~~~~~~~~~~~~~~~~~~ END : Plugins configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -471,27 +463,21 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 
-" Easier write
+" Easier write.
 nmap <leader>w :w!<cr>
-" Easier quit
+" Easier quit.
 nnoremap <leader>q :q<cr>
 
-" Close all hidden/others/all buffers
+" Close all hidden/all buffers.
 nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
-nnoremap <leader>dob :BufOnly<CR>
 nnoremap <leader>dab :%bd<CR>
 
 
-" Shortcut to rapidly toggle `set list`
+" Shortcut to rapidly toggle `set list`.
 nmap <leader>l :set list!<CR>
 
+" Copy current file path to clipboard.
+nnoremap gcp :let @+=@%<CR>
 
-
-
-
-"*******************************************************************************
-" Custom Commands
-"*******************************************************************************
-
-" JSON format
-com! FormatJSON %!python -m json.tool
+" Open folder container active buffer.
+nnoremap <silent> -- :Lex %:p:h<CR>
