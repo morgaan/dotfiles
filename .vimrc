@@ -122,7 +122,7 @@ set omnifunc=syntaxcomplete#Complete
 
 autocmd FileType markdown syntax sync fromstart               " Force a full file syntax computation when opening Markdown files.
 autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
-autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html " Handlebars/mustache template to be considered as html
+autocmd BufNewFile,BufRead *.dust,*.hbs,*.mustache set filetype=html " Dust/Handlebars/mustache template to be considered as html
 
 
 
@@ -305,20 +305,7 @@ nmap ga <Plug>(EasyAlign)
 
 
 " vim-javascript settings
-set conceallevel=1
-let g:javascript_conceal_NaN                       = "ℕ"
-let g:javascript_conceal_arrow_function            = "⇒"
-let g:javascript_conceal_function                  = "ƒ"
-let g:javascript_conceal_noarg_arrow_function      = "🞅"
-let g:javascript_conceal_null                      = "ø"
-let g:javascript_conceal_prototype                 = "¶"
-let g:javascript_conceal_return                    = "⇚"
-let g:javascript_conceal_static                    = "•"
-let g:javascript_conceal_super                     = "Ω"
-let g:javascript_conceal_this                      = "@"
-let g:javascript_conceal_undefined                 = "¿"
-let g:javascript_conceal_underscore_arrow_function = "🞅"
-let g:javascript_plugin_jsdoc                      = 1
+let g:javascript_plugin_jsdoc=1
 
 
 " vim-syntastic settings
@@ -333,9 +320,10 @@ let g:syntastic_error_symbol = '❌'
 let g:syntastic_style_error_symbol = '⁉️'
 let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_warning_symbol = '💩'
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+let g:syntastic_javascript_checkers = ['xo']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
@@ -467,6 +455,11 @@ vnoremap K :m '<-2<CR>gv=gv
 nmap <leader>w :w!<cr>
 " Easier quit.
 nnoremap <leader>q :q<cr>
+" Easier window navigation.
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Close all hidden/all buffers.
 nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
