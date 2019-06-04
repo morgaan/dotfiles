@@ -103,3 +103,32 @@ source ~/.bashrc
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# Notebook syncing
+note () {
+  local notes_dir="$HOME/notebook"
+  case "$1" in
+    c)
+      cd "$notes_dir/entries"
+      ;;
+    l)
+      ls "$notes_dir/entries"
+      ;;
+    p)
+      pushd "$notes_dir"
+      msg="Sync from $(hostname) on $(date -u '+%Y-%m-%d %H:%M:%S') UTC"
+      git add .
+      git commit -m "$msg"
+      git push origin master
+      note s
+      popd
+      ;;
+    s)
+      cp -rf "$notes_dir/entries" "$HOME/Dropbox/notebook"
+      ;;
+    *)
+      vim "$notes_dir/entries/$1"
+  esac
+}
+

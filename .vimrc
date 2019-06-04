@@ -228,16 +228,24 @@ Plug 'arithran/vim-delete-hidden-buffers' " Clear any unused buffers that are hi
 
 
 " UI/UX Extensions
-Plug 'junegunn/goyo.vim', { 'for': ['md', 'markdown'] }                   " Distraction-free writing.
-Plug '~/.fzf'                                                             " Should have been installed with git seperately in home folder.
-Plug 'junegunn/fzf.vim'                                                   " Fuzzy search finder.
-Plug 'junegunn/limelight.vim'                                             " Hyperfocus-writing.
-Plug 'suan/vim-instant-markdown', { 'for': ['md', 'markdown'] }           " Preview markdown as you type
-Plug 'airblade/vim-gitgutter'                                             " Shows a +/-/~ next to lines that have been added...
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': ['js', 'jsx'] } " When using <C-x><C-o> bring dropdown with autocompletation for JS.
-Plug 'mileszs/ack.vim'                                                    " Ack command for vim
-Plug 'mattn/emmet-vim'                                                    " Greatly improves HTML & CSS workflow
-Plug 'tpope/vim-fugitive'                                                 " A Git wrapper so awesome, it should be illegal
+Plug 'junegunn/goyo.vim', {
+      \ 'for': ['md', 'markdown']
+      \ }                                         " Distraction-free writing.
+Plug '~/.fzf'                                     " Should have been installed with git seperately in home folder.
+Plug 'junegunn/fzf.vim'                           " Fuzzy search finder.
+Plug 'junegunn/limelight.vim'                     " Hyperfocus-writing.
+Plug 'suan/vim-instant-markdown', { 
+      \ 'for': ['md', 'markdown'],
+      \ 'do': 'npm -g install instant-markdown-d'
+      \ }                                         " Preview markdown as you type
+Plug 'airblade/vim-gitgutter'                     " Shows a +/-/~ next to lines that have been added...
+Plug 'ternjs/tern_for_vim', {
+      \ 'do': 'npm install',
+      \ 'for': ['js', 'jsx']
+      \ }                                         " When using <C-x><C-o> bring dropdown with autocompletation for JS.
+Plug 'mileszs/ack.vim'                            " Ack command for vim
+Plug 'mattn/emmet-vim'                            " Greatly improves HTML & CSS workflow
+Plug 'tpope/vim-fugitive'                         " A Git wrapper so awesome, it should be illegal
 
 " Extensions
 Plug 'vim-scripts/matchit.zip'         " Extends `%` operator.
@@ -361,6 +369,7 @@ let g:limelight_conceal_ctermfg = 'darkgray'
 
 " vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 1
 
 " ~~~~~~~~~~~~~~~~~~~~~~~ END : Plugins configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
