@@ -416,9 +416,9 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 " else use regular :Files
 " src: https://rietta.com/blog/hide-gitignored-files-fzf-vim/
 nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
-" Improve buffer switching
+" Improve buffer switching.
 nnoremap <silent> gb :Buffers<CR>
-" Improve buffer switching
+" Grep for line in current buffer.
 nnoremap <silent> gl :BLines<CR>
 
 " Search text/pattern across opened project.
