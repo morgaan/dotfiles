@@ -247,6 +247,7 @@ Plug 'mileszs/ack.vim'                            " Ack command for vim
 Plug 'mattn/emmet-vim'                            " Greatly improves HTML & CSS workflow
 Plug 'tpope/vim-fugitive'                         " A Git wrapper so awesome, it should be illegal
 
+
 " Extensions
 Plug 'vim-scripts/matchit.zip'         " Extends `%` operator.
 Plug 'christoomey/vim-sort-motion'     " Ability to sort using text objects and motions (gsip, gsii, gsi(...).
@@ -370,6 +371,7 @@ let g:limelight_conceal_ctermfg = 'darkgray'
 " vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 1
+let g:vim_markdown_fenced_languages = ['javascript', 'bash']
 
 " ~~~~~~~~~~~~~~~~~~~~~~~ END : Plugins configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
