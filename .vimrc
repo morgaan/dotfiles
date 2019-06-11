@@ -68,7 +68,6 @@ endfunction
 let &statusline = s:statusline_expr()
 
 
-
 "*******************************************************************************
 " Indentation options
 "*******************************************************************************
@@ -120,8 +119,10 @@ autocmd ColorScheme * highlight! htmlArg cterm=italic
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-autocmd FileType markdown syntax sync fromstart               " Force a full file syntax computation when opening Markdown files.
-autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
+autocmd FileType markdown syntax sync fromstart   " Force a full file syntax computation when opening Markdown files.
+autocmd FileType dustjs set textwidth=0           " Disable textwidth for dust template
+
+autocmd BufNewFile,BufRead *.md set filetype=markdown                " Markdown also starts with .md
 autocmd BufNewFile,BufRead *.dust,*.hbs,*.mustache set filetype=html " Dust/Handlebars/mustache template to be considered as html
 
 
@@ -476,12 +477,39 @@ map <C-l> <C-w>l
 nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
 nnoremap <leader>dab :%bd<CR>
 
+" Swap booleans.
+nnoremap <leader>1 :s/false/true/<CR>
+nnoremap <leader>0 :s/true/false/<CR>
 
 " Shortcut to rapidly toggle `set list`.
 nmap <leader>l :set list!<CR>
 
 " Copy current file path to clipboard.
 nnoremap gcp :let @+=@%<CR>
+
+"Toggle netrw explorer.
+"function! ToggleVExplorer()
+"  if exists("t:expl_buf_num")
+"      let expl_win_num = bufwinnr(t:expl_buf_num)
+"      if expl_win_num != -1
+"          let cur_win_nr = winnr()
+"          exec expl_win_num . 'wincmd w'
+"          close
+"          exec cur_win_nr . 'wincmd w'
+"          unlet t:expl_buf_num
+"      else
+"          unlet t:expl_buf_num
+"      endif
+"  else
+"      exec '1wincmd w'
+"      Vexplore
+"      let t:expl_buf_num = bufnr("%")
+"  endif
+"endfunction
+
+"Toggle netrw explorer.
+"map <silent> <leader>e :call ToggleVExplorer()<CR>
+nnoremap <silent> <leader>e :Lex<CR>
 
 " Open folder container active buffer.
 nnoremap <silent> -- :Lex %:p:h<CR>
