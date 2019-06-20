@@ -26,7 +26,6 @@ set laststatus=2                            " Always show status line.
 set splitright                              " Open splits to the right...
 set splitbelow                              " ... or below.
 set listchars=tab:▸\ ,trail:·,eol:¬         " Characters for invisibles (set list).
-set relativenumber                          " Set relative line numbers...
 set number                                  " ...but absolute numbers on the current line (hybrid numbering).
 set cursorline                              " Highlight current line.
 set textwidth=80                            " Force the cursor onto a new line after 80 characters.
@@ -50,9 +49,9 @@ set wildignore+=*/node_modules/*,*/bower_components/*
 autocmd VimResized * wincmd =
 
 " Set relative number just for normal mode.
-augroup toggle_relative_number
-autocmd InsertEnter * :setlocal norelativenumber
-autocmd InsertLeave * :setlocal relativenumber
+"augroup toggle_relative_number
+"autocmd InsertEnter * :setlocal relativenumber
+"autocmd InsertLeave * :setlocal norelativenumber
 
 " Status line (inspired from " https://github.com/junegunn/dotfiles/blob/master/vimrc)
 function! s:statusline_expr()
@@ -487,29 +486,8 @@ nmap <leader>l :set list!<CR>
 " Copy current file path to clipboard.
 nnoremap gcp :let @+=@%<CR>
 
-"Toggle netrw explorer.
-"function! ToggleVExplorer()
-"  if exists("t:expl_buf_num")
-"      let expl_win_num = bufwinnr(t:expl_buf_num)
-"      if expl_win_num != -1
-"          let cur_win_nr = winnr()
-"          exec expl_win_num . 'wincmd w'
-"          close
-"          exec cur_win_nr . 'wincmd w'
-"          unlet t:expl_buf_num
-"      else
-"          unlet t:expl_buf_num
-"      endif
-"  else
-"      exec '1wincmd w'
-"      Vexplore
-"      let t:expl_buf_num = bufnr("%")
-"  endif
-"endfunction
-
-"Toggle netrw explorer.
-"map <silent> <leader>e :call ToggleVExplorer()<CR>
+" Faster open file explorer (netrw).
 nnoremap <silent> <leader>e :Lex<CR>
 
-" Open folder container active buffer.
+" Open folder container active buffer in file explorer (netrw).
 nnoremap <silent> -- :Lex %:p:h<CR>
