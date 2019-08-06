@@ -109,6 +109,9 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 note () {
   local notes_dir="$HOME/notebook"
   case "$1" in
+    h)
+      printf "%s\n" "h: Help" "c: CD to notes folder" "l: List entries" "p: Stage, commit and push latest changes"
+      ;;
     c)
       cd "$notes_dir/entries"
       ;;
