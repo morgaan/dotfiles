@@ -439,8 +439,8 @@ nnoremap ]s a<Space><Esc>h
 nnoremap n nzz
 nnoremap N Nzz
 " `G` skips to bottom of file and places line in middle of screen
-nnoremap G :norm! Gzz<CR>
-nnoremap G :norm! Gzz<CR>
+" nnoremap G :norm! Gzz<CR>
+" nnoremap G :norm! Gzz<CR>
 " Jump Up / Jump down and places line in middle of screen
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
