@@ -24,3 +24,4 @@
 --ignore-directory=is:website/public
 --ignore-directory=is:public/assets
 --ignore-directory=is:resources/js
+--ignore-directory=is:_site
