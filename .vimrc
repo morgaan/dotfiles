@@ -119,10 +119,10 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 autocmd FileType markdown syntax sync fromstart   " Force a full file syntax computation when opening Markdown files.
-autocmd FileType dustjs set textwidth=0           " Disable textwidth for dust template
+" autocmd FileType dustjs set textwidth=0           " Disable textwidth for dust template
 
-autocmd BufNewFile,BufRead *.md set filetype=markdown                " Markdown also starts with .md
-autocmd BufNewFile,BufRead *.dust,*.hbs,*.mustache set filetype=html " Dust/Handlebars/mustache template to be considered as html
+autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
+autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html " Handlebars/mustache template to be considered as html
 
 
 
