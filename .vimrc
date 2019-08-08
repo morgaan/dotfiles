@@ -429,6 +429,8 @@ nmap <leader>c :lclose<CR>
 " Toggle `hlsearch` with <Space>/
 nnoremap <Leader>/ :set hlsearch!<CR>
 
+" Toggle `relativenumber` with <Space>n
+nnoremap <Leader>n :set relativenumber!<CR>
 
 " Add space before/after cursor in normal mode
 nnoremap [s i<Space><Esc>l
