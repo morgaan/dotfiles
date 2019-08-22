@@ -363,6 +363,7 @@ command! -bang -nargs=* Ag
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+let g:fzf_layout = { 'up': '~50%' }
 
 
 " limelight.vim settings
@@ -434,6 +435,8 @@ nnoremap <Leader>/ :set hlsearch!<CR>
 nnoremap [s i<Space><Esc>l
 nnoremap ]s a<Space><Esc>h
 
+" Add explicit tab in insert mode
+inoremap <Leader><Tab> <C-V><Tab>
 
 " Make `n`/`N` bring next search result to middle line
 nnoremap n nzz
