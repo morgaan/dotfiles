@@ -259,6 +259,9 @@ Plug 'vim-scripts/ReplaceWithRegister' " (e.g. grap+)
 Plug 'junegunn/vim-easy-align'         " Simple, easy-to-use Vim alignment plugin.
 Plug 'shime/vim-livedown'              " '~Live' markdown preview (better results when printing than with instant-markdown)
 
+" Applications
+Plug 'vimwiki/vimwiki'
+
 
 
 
@@ -317,13 +320,13 @@ nmap ga <Plug>(EasyAlign)
 let g:javascript_plugin_jsdoc=1
 
 
-" vim-syntastic settings
+" vim-syntastic settings and hacks
 let g:syntastic_enable_signs=1
 let g:syntastic_loc_list_height=5
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['xo']
 let g:syntastic_error_symbol = '❌'
 let g:syntastic_style_error_symbol = '⁉️'
@@ -337,7 +340,9 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
-
+" Close error window not only on :quit but also on :bdelete.
+nnoremap <silent> <C-d> :lclose<CR>:bdelete<CR>
+cabbrev <silent> bd <C-r>=(getcmdtype()==#':' && getcmdpos()==1 ? 'lclose\|bdelete' : 'bd')<CR>
 
 " editorconfig-vim settings
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
@@ -373,6 +378,10 @@ let g:limelight_conceal_ctermfg = 'darkgray'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 1
 let g:vim_markdown_fenced_languages = ['javascript', 'bash']
+
+let g:vimwiki_list = [{'path': '~/notebook/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+nmap <Leader>wb :VimwikiGoBackLink<CR>
 
 " ~~~~~~~~~~~~~~~~~~~~~~~ END : Plugins configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -424,8 +433,10 @@ nnoremap <silent> gl :BLines<CR>
 " Search text/pattern across opened project.
 nnoremap <leader>f :Ack! "
 
-" Close location list
+" Close location list.
 nmap <leader>c :lclose<CR>
+" Close quickfix window.
+nmap <leader>qf :cclose<CR>
 
 " Toggle `hlsearch` with <Space>/
 nnoremap <Leader>/ :set hlsearch!<CR>
@@ -467,6 +478,8 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Easier write.
 nmap <leader>w :w!<cr>
+" Easier delete buffer.
+nmap <leader>d :bd<cr>
 " Easier quit.
 nnoremap <leader>q :q<cr>
 " Easier window navigation.
