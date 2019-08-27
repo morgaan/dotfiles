@@ -379,7 +379,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 1
 let g:vim_markdown_fenced_languages = ['javascript', 'bash']
 
-let g:vimwiki_list = [{'path': '~/notebook/vimwiki/',
+let g:vimwiki_list = [{'path': '~/notebook/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 nmap <Leader>wb :VimwikiGoBackLink<CR>
 

@@ -106,17 +106,17 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 
 # Notebook syncing
-note () {
+notes () {
   local notes_dir="$HOME/notebook"
   case "$1" in
     h)
-      printf "%s\n" "h: Help" "c: CD to notes folder" "l: List entries" "p: Stage, commit and push latest changes"
+      printf "%s\n" "h: Help" "f: CD to notes folder" "i: Open notes index in vim" "p: Persist: Stage, commit, push latest changes to git and sync to Dropbox"
       ;;
-    c)
-      cd "$notes_dir/entries"
+    f)
+      cd "$notes_dir/"
       ;;
-    l)
-      ls "$notes_dir/entries"
+    i)
+      vim "$notes_dir/index.md"
       ;;
     p)
       pushd "$notes_dir"
@@ -124,14 +124,12 @@ note () {
       git add .
       git commit -m "$msg"
       git push origin master
-      note s
+      notes s
       popd
       ;;
     s)
-      cp -rf "$notes_dir/entries" "$HOME/Dropbox/notebook"
+      rsync -av --progress "$notes_dir" "$HOME/Dropbox" --exclude ".git"
       ;;
-    *)
-      vim "$notes_dir/entries/$1"
   esac
 }
 
