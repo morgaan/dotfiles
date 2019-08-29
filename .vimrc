@@ -261,6 +261,7 @@ Plug 'shime/vim-livedown'              " '~Live' markdown preview (better result
 
 " Applications
 Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 
 
@@ -379,9 +380,14 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal = 1
 let g:vim_markdown_fenced_languages = ['javascript', 'bash']
 
+" vimwiki settings
 let g:vimwiki_list = [{'path': '~/notebook/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 nmap <Leader>wb :VimwikiGoBackLink<CR>
+
+" calendar-vim settings
+let g:calendar_diary='~/notebook/diary'
+
 
 " ~~~~~~~~~~~~~~~~~~~~~~~ END : Plugins configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
