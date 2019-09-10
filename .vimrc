@@ -383,6 +383,7 @@ let g:vim_markdown_fenced_languages = ['javascript', 'bash']
 " vimwiki settings
 let g:vimwiki_list = [{'path': '~/notebook/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0  " Fix this https://github.com/vimwiki/vimwiki/issues/95
 nmap <Leader>wb :VimwikiGoBackLink<CR>
 
 " calendar-vim settings
