@@ -212,7 +212,7 @@ Plug 'kana/vim-textobj-line'           " for current line (al, il)
 Plug 'michaeljsmith/vim-indent-object' " current indentation (ai, ii)
 Plug 'whatyouhide/vim-textobj-xmlattr' " for XML/HTML attributes (ax and ix)
 Plug 'jceb/vim-textobj-uri' " Text objects for dealing with URIs (au and iu)
-
+Plug 'wellle/targets.vim'              " Add seperators like ,.;:+-=~_*#/|\&$ and much more (https://www.barbarianmeetscoding.com/blog/2019/08/11/exploring-vim-plugins-improve-and-extend-your-text-objects-with-targets-vim)
 
 
 " Language support/syntax highlighting
@@ -484,6 +484,8 @@ nnoremap <C-i> <C-i>zz
 vnoremap // y/\V<C-R>"<CR>
 " search for the selected text within CWD
 vnoremap <C-f> y:Ack! "<C-R>"" --
+" execute the selected text
+vnoremap <leader>e y:<C-R>"<CR>
 
 " Move visual selection
 vnoremap J :m '>+1<CR>gv=gv
