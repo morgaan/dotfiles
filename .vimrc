@@ -298,7 +298,7 @@ let g:vim_markdown_no_default_key_mappings = 1
 
 
 " vim-instant-markdown settings
-let g:instant_markdown_autostart = 1
+let g:instant_markdown_autostart = 0 " Therefore need to be manually triggered w/ :InstantMarkdownPreview and stopped w/ :InstantMarkdownStop
 
 
 " ack.vim settings
@@ -327,7 +327,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_loc_list_height=5
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0 " Plays well with vimwikisearch https://github.com/vimwiki/vimwiki/issues/350#issuecomment-303508835
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['xo']
 let g:syntastic_error_symbol = '❌'
