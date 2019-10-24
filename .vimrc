@@ -480,6 +480,8 @@ nnoremap <C-i> <C-i>zz
 vnoremap // y/\V<C-R>"<CR>
 " search for the selected text within CWD
 vnoremap <C-f> y:Ack! "<C-R>"" --
+" execute the selected text
+vnoremap <leader>e y:<C-R>"<CR>
 
 " Move visual selection
 vnoremap J :m '>+1<CR>gv=gv
