@@ -8,3 +8,5 @@
 	st = status
 	visual = !gitk
 	last = log -1 HEAD
+[core]
+	excludesfile = ~/.gitignore

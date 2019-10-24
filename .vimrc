@@ -121,6 +121,9 @@ set omnifunc=syntaxcomplete#Complete
 autocmd FileType markdown syntax sync fromstart   " Force a full file syntax computation when opening Markdown files.
 " autocmd FileType dustjs set textwidth=0           " Disable textwidth for dust template
 
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
 autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
 autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html " Handlebars/mustache template to be considered as html
 
@@ -208,6 +211,7 @@ Plug 'kana/vim-textobj-entire'         " For the entire buffer  (ae, ie (ignore 
 Plug 'kana/vim-textobj-line'           " for current line (al, il)
 Plug 'michaeljsmith/vim-indent-object' " current indentation (ai, ii)
 Plug 'whatyouhide/vim-textobj-xmlattr' " for XML/HTML attributes (ax and ix)
+Plug 'jceb/vim-textobj-uri' " Text objects for dealing with URIs (au and iu)
 Plug 'wellle/targets.vim'              " Add seperators like ,.;:+-=~_*#/|\&$ and much more (https://www.barbarianmeetscoding.com/blog/2019/08/11/exploring-vim-plugins-improve-and-extend-your-text-objects-with-targets-vim)
 
 
