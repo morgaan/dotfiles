@@ -10,3 +10,5 @@
 	last = log -1 HEAD
 [core]
 	excludesfile = ~/.gitignore
+[init]
+	templatedir = ~/.git_template
