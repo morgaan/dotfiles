@@ -220,6 +220,7 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'hbs'] }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'jimmyhchan/dustjs.vim', { 'for': 'dust' }
 Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
+Plug 'derekwyatt/vim-scala'
 
 
 " Syntax checkers/linters
@@ -339,6 +340,7 @@ let g:syntastic_style_error_symbol = '⁉️'
 let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_warning_symbol = '💩'
 let g:syntastic_javascript_checkers = ['xo']
+let g:syntastic_ignore_files = ['\c\.scala\.html$']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
