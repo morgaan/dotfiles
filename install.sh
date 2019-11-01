@@ -22,3 +22,4 @@ ln -s ~/dotfiles/.tern-project .tern-project
 ln -s ~/dotfiles/.gitignore .gitignore
 ln -s ~/dotfiles/.gitconfig .gitconfig
 ln -s ~/dotfiles/.ackrc .ackrc
+ln -s ~/dotfiles/.git_template .git_template
