@@ -384,8 +384,9 @@ let g:limelight_conceal_ctermfg = 'darkgray'
 
 " vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 1
 let g:vim_markdown_fenced_languages = ['javascript', 'bash']
+let g:vim_markdown_frontmatter = 1
+
 
 " vimwiki settings
 let g:vimwiki_list = [{'path': '~/notebook/',
@@ -527,3 +528,6 @@ nnoremap <silent> <leader>e :Lex<CR>
 
 " Open folder container active buffer in file explorer (netrw).
 nnoremap <silent> -- :Lex %:p:h<CR>
+
+" Faster toggle Goyo + Limelight
+nnoremap <leader><Esc> :Goyo<bar>Limelight!!<CR>
