@@ -240,10 +240,7 @@ Plug 'junegunn/goyo.vim', {
 Plug '~/.fzf'                                     " Should have been installed with git seperately in home folder.
 Plug 'junegunn/fzf.vim'                           " Fuzzy search finder.
 Plug 'junegunn/limelight.vim'                     " Hyperfocus-writing.
-Plug 'suan/vim-instant-markdown', { 
-      \ 'for': ['md', 'markdown'],
-      \ 'do': 'npm -g install instant-markdown-d'
-      \ }                                         " Preview markdown as you type
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  } " Preview markdown as you type
 Plug 'airblade/vim-gitgutter'                     " Shows a +/-/~ next to lines that have been added...
 Plug 'ternjs/tern_for_vim', {
       \ 'do': 'npm install',
@@ -263,7 +260,7 @@ Plug 'tpope/vim-unimpaired'            " Pairs of handy bracket mappings.
 Plug 'tpope/vim-repeat'                " Enable repeating supported plugin maps with `.`
 Plug 'vim-scripts/ReplaceWithRegister' " (e.g. grap+)
 Plug 'junegunn/vim-easy-align'         " Simple, easy-to-use Vim alignment plugin.
-Plug 'shime/vim-livedown'              " '~Live' markdown preview (better results when printing than with instant-markdown)
+
 
 " Applications
 Plug 'vimwiki/vimwiki'
@@ -296,15 +293,9 @@ let g:netrw_winsize = 25
 autocmd CompleteDone * pclose
 
 
-" vim-livedown settings
-let g:livedown_port = 4242        " the port on which Livedown server will run
-let g:livedown_browser = "safari" " the browser to use
-let g:vim_markdown_no_default_key_mappings = 1
-
-
-" vim-instant-markdown settings
-let g:instant_markdown_autostart = 0 " Therefore need to be manually triggered w/ :InstantMarkdownPreview and stopped w/ :InstantMarkdownStop
-
+" markdown-preview settings
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 1
 
 " ack.vim settings
 let g:ackhighlight = 1
@@ -508,6 +499,10 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Ease help browsing by adding Find next/previous subject
+nnoremap <buffer> <Tab> /\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
+nnoremap <buffer> <S-Tab> ?\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
 
 " Close all hidden/all buffers.
 nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
