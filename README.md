@@ -78,6 +78,12 @@ This is happening because you have italics enabled, but some combination of your
 4. Quit and restart iTerm2
 5. Vim should now display italics properly
 
+## Install ctags
+
+```
+$ brew install ctags
+```
+
 ## FZF
 
 ```
