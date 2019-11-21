@@ -412,23 +412,22 @@ let g:calendar_diary='~/notebook/diary'
 let mapleader = "\<Space>"
 
 " Disable arrow keys...
-map  <up>    <nop>
-imap <up>    <nop>
-map  <down>  <nop>
-imap <down>  <nop>
-map  <left>  <nop>
-imap <left>  <nop>
-map  <right> <nop>
-imap <right> <nop>
-" ...resize splits instead.
-nnoremap <right> :vertical resize +2<CR>
-nnoremap <left>  :vertical resize -2<CR>
-nnoremap <down>  :resize -2<CR>
-nnoremap <up>    :resize +2<CR>
-nnoremap <S-right> :vertical resize +10<CR>
-nnoremap <S-left>  :vertical resize -10<CR>
-nnoremap <S-down>  :resize -10<CR>
-nnoremap <S-up>    :resize +10<CR>
+" map  <up>    <nop>
+" imap <up>    <nop>
+" map  <down>  <nop>
+" imap <down>  <nop>
+" map  <left>  <nop>
+" imap <left>  <nop>
+" map  <right> <nop>
+" imap <right> <nop>
+nnoremap <S-right> :vertical resize +2<CR>
+nnoremap <S-left>  :vertical resize -2<CR>
+nnoremap <S-down>  :resize -2<CR>
+nnoremap <S-up>    :resize +2<CR>
+
+" Move by visual lines rather than by lines
+nnoremap j gj
+nnoremap k gk
 
 " Edit/Grep .vimrc / source .vimrc.
 nnoremap <leader>ev :e $MYVIMRC<CR>
@@ -480,10 +479,6 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-b> <C-b>zt
 nmap ]q :cn<CR>zz
 nmap [q :cN<CR>zz
-
-" Jump back / Jump forward and places line in middle of screen
-nnoremap <C-o> <C-o>zz
-nnoremap <C-i> <C-i>zz
 
 " search for the selected text
 vnoremap // y/\V<C-R>"<CR>
