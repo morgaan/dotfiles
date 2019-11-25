@@ -16,7 +16,6 @@ set updatetime=250             " Write swapfiles to disk a little sooner
 
 
 
-
 "*******************************************************************************
 " UI options
 "*******************************************************************************
@@ -35,7 +34,7 @@ colorscheme solarized                       " Solarized colour scheme...
 set background=dark                         " ... with a dark background.
 set t_Co=256                                " 256 colours please.
 let g:solarized_diffmode="high"             " Set high visibility for diff mode.
-set guifont=Fira\ Code:h15
+set guifont=Victor\ Mono:h16
 
 set wildmenu " Show file options above the command line.
 
