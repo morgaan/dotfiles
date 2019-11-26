@@ -520,3 +520,6 @@ nnoremap <silent> -- :Lex %:p:h<CR>
 
 " Faster toggle Goyo + Limelight
 nnoremap <leader><Esc> :Goyo<bar>Limelight!!<CR>
+
+" Toggle conceallevel (useful to toggle for URL on vimwiki files)
+nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
