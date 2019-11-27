@@ -1,6 +1,7 @@
 cd ~
 rm -rf .vim
 rm -f .vimrc
+rm -rf .config
 rm -f .ctags
 rm -rf .tmux
 rm -f .tmux.conf
@@ -12,6 +13,7 @@ rm -f .gitconfig
 rm -f .ackrc
 
 ln -s ~/dotfiles/.vim .vim
+ln -s ~/dotfiles/.config .config
 ln -s ~/dotfiles/.vimrc .vimrc
 ln -s ~/dotfiles/.ctags .ctags
 ln -s ~/dotfiles/.tmux .tmux

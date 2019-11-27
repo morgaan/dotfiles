@@ -9,6 +9,7 @@
 ```
 $ cd ~/dotfiles
 $ chmod +x install.sh
+$ cd ~
 $ ./install.sh
 $ git clone git@github.com:mbadolato/iTerm2-Color-Schemes.git ~/dotfiles/iTerm2/iTerm2-Color-Schemes
 ```
@@ -77,6 +78,20 @@ This is happening because you have italics enabled, but some combination of your
 3. In a shell, run tic path/to/the/file/you/just/made
 4. Quit and restart iTerm2
 5. Vim should now display italics properly
+
+## Install Neovim (nvim)
+
+```
+$ brew install neovim/neovim/neovim
+```
+
+The following alias is set into `.zshrc`
+```
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+```
+allows to map `vim` to be `nvim`
 
 ## Install ctags
 

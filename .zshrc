@@ -88,6 +88,10 @@ DEFAULT_USER=`whoami`
 
 . `brew --prefix`/etc/profile.d/z.sh
 
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
 alias dc='docker-compose'
 
 export NVM_DIR=~/.nvm
