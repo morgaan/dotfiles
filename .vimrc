@@ -220,6 +220,7 @@ Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'jimmyhchan/dustjs.vim', { 'for': 'dust' }
 Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
 Plug 'derekwyatt/vim-scala'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 
 " Syntax checkers/linters
@@ -248,7 +249,7 @@ Plug 'ternjs/tern_for_vim', {
 Plug 'mileszs/ack.vim'                            " Ack command for vim
 Plug 'mattn/emmet-vim'                            " Greatly improves HTML & CSS workflow
 Plug 'tpope/vim-fugitive'                         " A Git wrapper so awesome, it should be illegal
-
+Plug 'takac/vim-hardtime'                         " Vim HardTime
 
 " Extensions
 Plug 'vim-scripts/matchit.zip'         " Extends `%` operator.
@@ -387,6 +388,10 @@ nmap <Leader>wb :VimwikiGoBackLink<CR>
 " calendar-vim settings
 let g:calendar_diary='~/notebook/diary'
 
+" hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_timeout = 1000
+let g:hardtime_ignore_quickfix = 1
 
 " ~~~~~~~~~~~~~~~~~~~~~~~ END : Plugins configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
