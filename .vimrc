@@ -461,8 +461,8 @@ nnoremap ]s a<Space><Esc>h
 
 " Lines swapped get indent
 function! UnimpairedMove(direction)
-  :execute "norm \<Plug>unimpairedMove" . a:direction
-  :norm! ==
+  execute "norm \<Plug>unimpairedMove" . a:direction
+  norm! ==
 endfunction
 nmap ]e :call UnimpairedMove('Down')<CR>
 nmap [e :call UnimpairedMove('Up')<CR>
