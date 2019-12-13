@@ -93,6 +93,19 @@ fi
 ```
 allows to map `vim` to be `nvim`
 
+Run `:checkhealth` to figure out what are the missing providers.
+
+Among the command to turn all OK are:
+
+```
+npm install -g neovim
+brew install python@2
+python2 -m pip install --user --upgrade pynvim
+brew install python@3
+python3 -m pip install --user --upgrade pynvim
+gem install neovim
+```
+
 ## Install ctags
 
 ```
