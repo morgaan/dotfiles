@@ -47,13 +47,9 @@ set wildignore+=*/node_modules/*,*/bower_components/*
 " Automatically equalize splits when Vim is resized.
 autocmd VimResized * wincmd =
 
-" Set relative number just for normal mode.
-"augroup toggle_relative_number
-"autocmd InsertEnter * :setlocal relativenumber
-"autocmd InsertLeave * :setlocal norelativenumber
-
 " Status line (inspired from " https://github.com/junegunn/dotfiles/blob/master/vimrc)
 function! s:statusline_expr()
+
   let isModified = "%{&modified ? '[Unsaved] ' : !&modifiable ? '[ReadOnly] ' : '[NoChanges] '}"
   let gitBranch = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
   let seperator = ' %= '
@@ -61,10 +57,10 @@ function! s:statusline_expr()
   let cursorPosition = '%-12(%l:%c%V%)'
   let percentageThrough = '|%P'
 
-  return '[b%n] %F%<'.isModified.gitBranch.seperator.fileType.cursorPosition.percentageThrough
+  return '[w%{winnr()}|b%n] %F%<'.isModified.gitBranch.seperator.fileType.cursorPosition.percentageThrough
 endfunction
-let &statusline = s:statusline_expr()
 
+let &statusline = s:statusline_expr()
 
 "*******************************************************************************
 " Indentation options
