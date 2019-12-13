@@ -460,8 +460,12 @@ nnoremap [s i<Space><Esc>l
 nnoremap ]s a<Space><Esc>h
 
 " Lines swapped get indent
-nmap [e :execute "norm \<Plug>unimpairedMoveUp" <bar> :execute "norm =="<CR>
-nmap ]e :execute "norm \<Plug>unimpairedMoveDown" <bar> :execute "norm =="<CR>
+function! UnimpairedMove(direction)
+  :execute "norm \<Plug>unimpairedMove" . a:direction
+  :norm! ==
+endfunction
+nmap ]e :call UnimpairedMove('Down')<CR>
+nmap [e :call UnimpairedMove('Up')<CR>
 
 " Add explicit tab in insert mode
 inoremap <Leader><Tab> <C-V><Tab>
