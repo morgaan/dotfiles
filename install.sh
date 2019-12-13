@@ -13,7 +13,7 @@ rm -f .gitconfig
 rm -f .ackrc
 
 ln -s ~/dotfiles/.vim .vim
-ln -s ~/dotfiles/.config .config
+ln -s ~/dotfiles/.config/nvim .config/nvim
 ln -s ~/dotfiles/.vimrc .vimrc
 ln -s ~/dotfiles/.ctags .ctags
 ln -s ~/dotfiles/.tmux .tmux
