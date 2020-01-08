@@ -227,6 +227,7 @@ Plug 'xojs/vim-xo'
 
 " Buffer management
 Plug 'arithran/vim-delete-hidden-buffers' " Clear any unused buffers that are hidden.
+Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands that need it the most.
 
 
 " UI/UX Extensions
