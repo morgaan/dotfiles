@@ -114,15 +114,15 @@ notes () {
   local notes_dir="$HOME/notebook"
   case "$1" in
     h)
-      printf "%s\n" "h: Help" "f: CD to notes folder" "i: Open wiki index in vim" "d: Open wiki diary index in vim" "p: Persist: Stage, commit, push latest changes to git and sync to Dropbox" "u: Update: Pull from git and sync to Dropbox"  
+      printf "%s\n" "h: Help" "d: Change [d]irectory to notes folder" "i: Open wiki [i]ndex in vim" "j: Open wiki [j]ournal(diary) index in vim" "p: [p]ersist: Stage, commit, push latest changes to git and sync to Dropbox" "f: [f]etch: Pull from git and sync to Dropbox"  
       ;;
-    f)
+    d)
       cd "$notes_dir/"
       ;;
     i)
       vim "$notes_dir/index.md"
       ;;
-    d)
+    j)
       vim "$notes_dir/diary/diary.md"
       ;;
     p)
@@ -134,7 +134,7 @@ notes () {
       notes s
       popd
       ;;
-    u)
+    f)
       pushd "$notes_dir"
       git pull origin master
       notes s
