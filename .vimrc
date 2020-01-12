@@ -30,9 +30,9 @@ set cursorline                              " Highlight current line.
 set textwidth=80                            " Force the cursor onto a new line after 80 characters.
 autocmd FileType gitcommit set textwidth=72 " However, in Git commit messages, let's make it 72 characters.
 set colorcolumn=+1                          " Colour the 81st (or 73rd) column so that we don't type over our limit.
-colorscheme solarized                       " Solarized colour scheme...
+set termguicolors
+colorscheme solarized8                      " Solarized8 colour scheme... improved Solarized that avoid shitty hight contrast for PMenu
 set background=dark                         " ... with a dark background.
-set t_Co=256                                " 256 colours please.
 let g:solarized_diffmode="high"             " Set high visibility for diff mode.
 set guifont=Victor\ Mono:h16
 
@@ -102,8 +102,8 @@ set shiftround   " Round indent to nearest multiple of set shiftwidth.
 
 set showmatch                              " Show matching parens, brackets, etc.
 syntax enable                              " Enable syntax highlighting.
-highlight Comment cterm=italic ctermfg=68  " Italicised comments...
-highlight htmlArg cterm=italic ctermfg=136 " ... and attributes
+highlight Comment cterm=italic guifg=#5f87df  " Italicised comments...
+highlight htmlArg cterm=italic guifg=#af8700 " ... and attributes
 
 " Ensure that italics carry over if I ever switch light/dark scheme
 autocmd ColorScheme * highlight! Comment cterm=italic
