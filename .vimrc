@@ -36,6 +36,13 @@ set background=dark                         " ... with a dark background.
 let g:solarized_diffmode="high"             " Set high visibility for diff mode.
 set guifont=Victor\ Mono:h16
 
+" More contrasted hightlight of current line.
+autocmd ColorScheme * hi CursorLine ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+autocmd ColorScheme * hi CursorLineNr ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
+" More contrasted colorcolumn (for line breaks)
+autocmd ColorScheme * hi ColorColumn ctermbg=242 guibg=#6c6c6c
+
 set wildmenu " Show file options above the command line.
 
 " Don't offer to open certain files/directories.
@@ -551,8 +558,8 @@ nnoremap j gj
 nnoremap k gk
 
 " Edit/Grep .vimrc / source .vimrc.
-nnoremap <leader>ev :e $MYVIMRC<CR>
-nnoremap <leader>gv :e $MYVIMRC<CR>:BLines<CR>
+nnoremap <leader>ev :e ~/.vimrc<CR>
+nnoremap <leader>gv :e ~/.vimrc<CR>:BLines<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
 " fzf file fuzzy search that respects .gitignore
