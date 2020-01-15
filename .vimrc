@@ -227,8 +227,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Syntax checkers/linters
 Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-syntastic/syntastic'
-Plug 'xojs/vim-xo'
 
 
 " Buffer management
@@ -451,31 +449,6 @@ nmap ga <Plug>(EasyAlign)
 let g:javascript_plugin_jsdoc=1
 
 
-" vim-syntastic settings and hacks
-let g:syntastic_enable_signs=1
-let g:syntastic_loc_list_height=5
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0 " Plays well with vimwikisearch https://github.com/vimwiki/vimwiki/issues/350#issuecomment-303508835
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['xo']
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-let g:syntastic_javascript_checkers = ['xo']
-let g:syntastic_ignore_files = ['\c\.scala\.html$']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-" Close error window not only on :quit but also on :bdelete.
-nnoremap <silent> <C-d> :lclose<CR>:bdelete<CR>
-cabbrev <silent> bd <C-r>=(getcmdtype()==#':' && getcmdpos()==1 ? 'lclose\|bdelete' : 'bd')<CR>
-
 " editorconfig-vim settings
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
@@ -612,7 +585,6 @@ nnoremap N Nzz
 " Jump Up / Jump down and places line in middle of screen
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
-nnoremap <C-b> <C-b>zt
 nmap ]q :cn<CR>zz
 nmap [q :cN<CR>zz
 
