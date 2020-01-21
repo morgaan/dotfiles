@@ -385,10 +385,6 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -614,8 +610,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Ease help browsing by adding Find next/previous subject
-nnoremap <buffer> <Tab> /\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
-nnoremap <buffer> <S-Tab> ?\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
+autocmd! FileType help nnoremap <silent> <buffer> <Tab> /\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
+autocmd! FileType help nnoremap <silent> <buffer> <S-Tab> ?\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
 
 " Close all hidden/all buffers.
 nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
