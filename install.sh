@@ -15,7 +15,7 @@ rm -f .gitconfig
 rm -f .ackrc
 
 ln -s ~/dotfiles/.vim .vim
-ln -s ~/dotfiles/coc/ultisnips .config/coc/ultisnips
+ln -s ~/dotfiles/.config/coc/ultisnips .config/coc/ultisnips
 ln -s ~/dotfiles/.config/nvim .config/nvim
 ln -s ~/dotfiles/.vimrc .vimrc
 ln -s ~/dotfiles/.ctags .ctags
