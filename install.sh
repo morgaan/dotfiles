@@ -2,7 +2,7 @@ cd ~
 rm -rf .vim
 rm -f .vimrc
 rm -rf .config
-rm -rf .config/nvim
+rm -f .config/nvim/init.vim
 rm -rf .config/coc/ultisnips
 rm -f .ctags
 rm -rf .tmux
@@ -16,7 +16,7 @@ rm -f .ackrc
 
 ln -s ~/dotfiles/.vim .vim
 ln -s ~/dotfiles/.config/coc/ultisnips .config/coc/ultisnips
-ln -s ~/dotfiles/.config/nvim .config/nvim
+ln -s ~/dotfiles/.config/nvim/init.vim .config/nvim/init.vim
 ln -s ~/dotfiles/.vimrc .vimrc
 ln -s ~/dotfiles/.ctags .ctags
 ln -s ~/dotfiles/.tmux .tmux

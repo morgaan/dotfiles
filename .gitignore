@@ -10,8 +10,6 @@
 
 .vim/bundle/
 .vim/plugged/
-.config/configstore/
-.config/coc/extensions/
 .netrwhist
 .tmux/resurrect
 .tmux/plugins
