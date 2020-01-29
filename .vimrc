@@ -35,6 +35,7 @@ colorscheme solarized8                      " Solarized8 colour scheme... improv
 set background=dark                         " ... with a dark background.
 let g:solarized_diffmode="high"             " Set high visibility for diff mode.
 set guifont=Victor\ Mono:h16
+set scrolloff=3                              " Don't like my cursor line getting too close to the top or the bottom of the screen
 
 " More contrasted hightlight of current line.
 autocmd ColorScheme * hi CursorLine ctermbg=darkred ctermfg=white guibg=darkred guifg=white
@@ -292,7 +293,6 @@ let g:netrw_winsize = 25
 " CoC settings
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-html', 
