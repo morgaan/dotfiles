@@ -631,7 +631,8 @@ nnoremap gcp :let @+=@%<CR>
 nnoremap <silent> <leader>e :Lex<CR>
 
 " Open folder container active buffer in file explorer (netrw).
-nnoremap <silent> -- :Lex %:p:h<CR>
+" Resetting winfixwidth make <C-W> = works again!
+nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
 
 " Faster toggle Goyo + Limelight
 nnoremap <leader><Esc> :Goyo<bar>Limelight!!<CR>
