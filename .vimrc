@@ -38,8 +38,7 @@ set guifont=Victor\ Mono:h16
 set scrolloff=3                              " Don't like my cursor line getting too close to the top or the bottom of the screen
 
 " More contrasted hightlight of current line.
-autocmd ColorScheme * hi CursorLine ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-autocmd ColorScheme * hi CursorLineNr ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+autocmd ColorScheme * hi CursorLineNr ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 
 " More contrasted colorcolumn (for line breaks)
 autocmd ColorScheme * hi ColorColumn ctermbg=242 guibg=#6c6c6c

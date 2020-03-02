@@ -1,3 +1,9 @@
 {
-  "eslint.filetypes": ["javascript"]
+  "eslint.filetypes": ["javascript"],
+  "eslint.enable": false,
+  "eslint.options": {
+    "ignorePatterns": [
+      "/__tests__"
+    ]
+  }
 }
