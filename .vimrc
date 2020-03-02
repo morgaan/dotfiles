@@ -527,8 +527,8 @@ nnoremap j gj
 nnoremap k gk
 
 " Edit/Grep .vimrc / source .vimrc.
-nnoremap <leader>ev :e ~/.vimrc<CR>
-nnoremap <leader>gv :e ~/.vimrc<CR>:BLines<CR>
+nnoremap <leader>ev :tabnew ~/.vimrc<CR>
+nnoremap <leader>gv :tabnew ~/.vimrc<CR>:BLines<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
 " fzf file fuzzy search that respects .gitignore
@@ -540,8 +540,6 @@ nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --excl
 nnoremap <silent> gb :Buffers<CR>
 " Fuzzy search for line in current buffer.
 nnoremap <silent> gl :BLines<CR>
-" Fuzzy search for projects tags. (Overrides Go to next tab, but I do not use it)
-nnoremap <silent> gt :Tags<CR>
 
 " Search text/pattern across opened project.
 nnoremap <leader>f :Ack! "
