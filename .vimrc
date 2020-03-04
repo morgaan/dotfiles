@@ -256,7 +256,6 @@ Plug 'ternjs/tern_for_vim', {
 Plug 'mileszs/ack.vim'                            " Ack command for vim
 Plug 'mattn/emmet-vim'                            " Greatly improves HTML & CSS workflow
 Plug 'tpope/vim-fugitive'                         " A Git wrapper so awesome, it should be illegal
-Plug 'takac/vim-hardtime'                         " Vim HardTime
 
 " Extensions
 Plug 'vim-scripts/matchit.zip'         " Extends `%` operator.
