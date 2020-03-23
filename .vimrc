@@ -290,7 +290,7 @@ call plug#end()
 
 " netrw settings
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 1
 let g:netrw_winsize = 25
 
 
@@ -343,7 +343,6 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -628,6 +627,9 @@ nmap <leader>l :set list!<CR>
 
 " Copy current file path to clipboard.
 nnoremap gcp :let @+=@%<CR>
+" Paste with autoindent
+nnoremap p p=`]
+nnoremap P P=`]
 
 " Faster open file explorer (netrw).
 nnoremap <silent> <leader>e :Lex<CR>
