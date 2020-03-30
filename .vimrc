@@ -27,7 +27,6 @@ set splitbelow                              " ... or below.
 set listchars=tab:▸\ ,trail:·,eol:¬         " Characters for invisibles (set list).
 set number                                  " ...but absolute numbers on the current line (hybrid numbering).
 set cursorline                              " Highlight current line.
-set textwidth=80                            " Force the cursor onto a new line after 80 characters.
 autocmd FileType gitcommit set textwidth=72 " However, in Git commit messages, let's make it 72 characters.
 set colorcolumn=+1                          " Colour the 81st (or 73rd) column so that we don't type over our limit.
 set termguicolors
@@ -47,7 +46,7 @@ set guicursor+=n-v-c:blinkon0
 set guicursor+=i:blinkwait10
 
 " More contrasted colorcolumn (for line breaks)
-autocmd ColorScheme * hi ColorColumn ctermbg=242 guibg=#6c6c6c
+autocmd ColorScheme * hi ColorColumn ctermbg=darkgrey guibg=#073642
 
 set wildmenu " Show file options above the command line.
 
@@ -133,6 +132,7 @@ autocmd FileType markdown syntax sync fromstart   " Force a full file syntax com
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
+autocmd BufNewFile,BufRead *.md setlocal textwidth=80         " Force the cursor onto a new line after 80 characters.
 autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html " Handlebars/mustache template to be considered as html
 
 
