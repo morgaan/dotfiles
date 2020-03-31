@@ -62,14 +62,18 @@ autocmd VimResized * wincmd =
 " Status line (inspired from " https://github.com/junegunn/dotfiles/blob/master/vimrc)
 function! s:statusline_expr()
 
-  let isModified = "%{&modified ? '[Unsaved] ' : !&modifiable ? '[ReadOnly] ' : '[NoChanges] '}"
+  let winNumber = '[w%{winnr()}|b%n]'
+  let currentFile = '%f%'
+  let isModified = "<%{&modified ? '[Unsaved] ' : !&modifiable ? '[RO] ' : '[Saved]'}"
   let gitBranch = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
   let seperator = ' %= '
   let fileType  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
   let cursorPosition = '%-12(%l:%c%V%)'
   let percentageThrough = '|%P'
+  " Add status line support, for integration with other plugin, checkout `:h coc-status`
+  let cocStatus = "%{coc#status()}%{get(b:,'coc_current_function','')}"
 
-  return '[w%{winnr()}|b%n] %F%<'.isModified.gitBranch.seperator.fileType.cursorPosition.percentageThrough
+  return winNumber.currentFile.isModified.gitBranch.seperator.fileType.cursorPosition.percentageThrough.seperator.cocStatus
 endfunction
 
 let &statusline = s:statusline_expr()
@@ -249,10 +253,6 @@ Plug 'junegunn/fzf.vim'                           " Fuzzy search finder.
 Plug 'junegunn/limelight.vim'                     " Hyperfocus-writing.
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  } " Preview markdown as you type
 Plug 'airblade/vim-gitgutter'                     " Shows a +/-/~ next to lines that have been added...
-Plug 'ternjs/tern_for_vim', {
-      \ 'do': 'npm install',
-      \ 'for': ['js', 'jsx']
-      \ }                                         " When using <C-x><C-o> bring dropdown with autocompletation for JS.
 Plug 'mileszs/ack.vim'                            " Ack command for vim
 Plug 'mattn/emmet-vim'                            " Greatly improves HTML & CSS workflow
 Plug 'tpope/vim-fugitive'                         " A Git wrapper so awesome, it should be illegal
@@ -302,6 +302,7 @@ let g:coc_global_extensions = [
   \ 'coc-html', 
   \ 'coc-css', 
   \ 'coc-json', 
+  \ 'coc-prettier', 
   \ ]
 " ### From README subtracted from the one already set elsewhere
 
@@ -362,8 +363,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>,  <Plug>(coc-format-selected)
+nmap <leader>,  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -397,9 +398,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -419,10 +417,8 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
-" ternjs settings
-" This will automatically hide the preview window whenever you're done auto-completing.
-autocmd CompleteDone * pclose
-
+" Prettier command
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " markdown-preview settings
 let g:mkdp_auto_start = 0
