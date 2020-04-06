@@ -24,11 +24,11 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 snippet cl "Console.log" b
-console.log($1);
+console.log($0);
 endsnippet
 
 snippet dqs "doc.querySelector" b
-document.querySelector($1);
+document.querySelector(${1:'$0'});
 endsnippet
 
 snippet dqsa "doc.querySelectorAll" b

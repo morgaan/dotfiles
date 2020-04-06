@@ -295,6 +295,10 @@ let g:netrw_winsize = 25
 
 
 " CoC settings
+
+" Not sure this is working, but leave it here for reference.
+" Implemented coc extensions:
+" https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
@@ -304,6 +308,8 @@ let g:coc_global_extensions = [
   \ 'coc-json', 
   \ 'coc-prettier', 
   \ ]
+" hi CocFloating ctermbg=8
+
 " ### From README subtracted from the one already set elsewhere
 
 " Better display for messages
