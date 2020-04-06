@@ -643,9 +643,6 @@ nmap <leader>l :set list!<CR>
 
 " Copy current file path to clipboard.
 nnoremap gcp :let @+=@%<CR>
-" Paste with autoindent
-nnoremap p p=`]
-nnoremap P P=`]
 
 " Faster open file explorer (netrw).
 nnoremap <silent> <leader>e :Lex<CR>

@@ -26,4 +26,4 @@
 --ignore-directory=is:resources/js
 --ignore-directory=is:_site
 --ignore-directory=is:.bloop/
---ignore-directory=is:careers-admin/target
+--ignore-directory=is:target/
