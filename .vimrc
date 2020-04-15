@@ -292,6 +292,7 @@ call plug#end()
 let g:netrw_banner = 0
 let g:netrw_liststyle = 0
 let g:netrw_winsize = 25
+autocmd FileType netrw nnoremap ? :help netrw-quickmap<CR>
 
 
 " CoC settings
@@ -617,7 +618,7 @@ vnoremap K :m '<-2<CR>gv=gv
 " Easier write.
 nmap <leader>w :w!<cr>
 " Easier delete buffer.
-nmap <leader>d :bd<cr>
+nmap <leader>d :bw<cr>
 " Easier quit.
 nnoremap <leader>q :q<cr>
 " Easier window navigation.
