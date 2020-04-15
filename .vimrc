@@ -195,6 +195,26 @@ autocmd FileChangedShellPost *
 
 
 "*******************************************************************************
+" Enter vim routine
+"*******************************************************************************
+
+function MyVimEnter()
+    if argc() == 1 && argv(0) == '.'
+      execute "Files"
+    endif
+
+    return
+endfunction
+" The 'nested' before call allows nested autocmds, important for
+" syntax detection etc.
+autocmd VimEnter * nested call MyVimEnter()
+
+
+
+
+
+
+"*******************************************************************************
 " Plugins area
 "*******************************************************************************
 
@@ -292,7 +312,6 @@ call plug#end()
 let g:netrw_banner = 0
 let g:netrw_liststyle = 0
 let g:netrw_winsize = 25
-autocmd FileType netrw nnoremap ? :help netrw-quickmap<CR>
 
 
 " CoC settings
@@ -660,3 +679,5 @@ nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . 
 
 " Forgiving :Qall to :qall
 cmap Qall qall
+
+inoremap if( if (
