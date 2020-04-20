@@ -575,7 +575,8 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 " If in git directory, show only files that are committed, staged, or unstaged
 " else use regular :Files
 " src: https://rietta.com/blog/hide-gitignored-files-fzf-vim/
-nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
+" nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
+nnoremap <silent> <C-p> :Files<CR>
 " Fuzzy search for buffers. Improve buffer switching.
 nnoremap <silent> gb :Buffers<CR>
 " Fuzzy search for line in current buffer.
@@ -589,8 +590,38 @@ nmap <leader>c :lclose<CR>
 " Close quickfix window.
 nmap <leader>qf :cclose<CR>
 
-" Toggle `hlsearch` with <Space>/
-nnoremap <Leader>/ :set hlsearch!<CR>
+
+
+
+" Turn off `hlsearch` with <Space>/ until next search
+" nnoremap <Leader>/ :silent! nohls<cr>
+noremap <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
+noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
+
+fu! HlSearch()
+    let s:pos = match(getline('.'), @/, col('.') - 1) + 1
+    if s:pos != col('.')
+        call StopHL()
+    endif
+endfu
+
+fu! StopHL()
+    if !v:hlsearch || mode() isnot 'n'
+        return
+    else
+        sil call feedkeys("\<Plug>(StopHL)", 'm')
+    endif
+endfu
+
+augroup SearchHighlight
+au!
+    au CursorMoved * call HlSearch()
+    au InsertEnter * call StopHL()
+augroup end
+
+
+
+
 
 " Toggle `relativenumber` with <Space>n
 nnoremap <Leader>n :set relativenumber!<CR>
