@@ -24,7 +24,7 @@ set title                                   " Show file title in terminal tab.
 set laststatus=2                            " Always show status line.
 set splitright                              " Open splits to the right...
 set splitbelow                              " ... or below.
-set listchars=tab:▸\ ,trail:·,eol:¬         " Characters for invisibles (set list).
+set listchars=tab:▸\ ,space:·,trail:·,eol:¬ " Characters for invisibles (set list).
 set number                                  " ...but absolute numbers on the current line (hybrid numbering).
 set cursorline                              " Highlight current line.
 autocmd FileType gitcommit set textwidth=72 " However, in Git commit messages, let's make it 72 characters.
@@ -712,3 +712,14 @@ nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . 
 cmap Qall qall
 
 inoremap if( if (
+
+
+
+
+
+"*******************************************************************************
+" Other stuffs
+"*******************************************************************************
+
+" Vertically center the buffer when entering insert mode.
+autocmd InsertEnter * norm zz
