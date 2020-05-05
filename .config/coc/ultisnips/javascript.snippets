@@ -23,8 +23,16 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
-snippet cl "Console.log" b
+snippet clog "Console.log" b
 console.log($0);
+endsnippet
+
+snippet clog' "Console.log" b
+console.log('$0');
+endsnippet
+
+snippet clog` "Console.log" b
+console.log(`$0`);
 endsnippet
 
 snippet dqs "doc.querySelector" b
@@ -41,4 +49,40 @@ endsnippet
 
 snippet qsa "querySelectorAll" b
 querySelectorAll($1);
+endsnippet
+
+snippet jdes "Describe (jest)"
+describe('${1:description}', () => {
+	$0
+});
+endsnippet
+
+snippet jit "it (jest)"
+it('${1:description}', () => {
+	$0
+});
+endsnippet
+
+snippet jbefe "before each (jest)"
+beforeEach(() => {
+	$0
+});
+endsnippet
+
+snippet jafte "after each (jest)"
+afterEach(() => {
+	$0
+});
+endsnippet
+
+snippet jbefa "before all (jest)"
+beforeAll(() => {
+	$0
+});
+endsnippet
+
+snippet jafta "after all (jest)"
+afterAll(() => {
+	$0
+});
 endsnippet
