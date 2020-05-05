@@ -457,7 +457,7 @@ let g:ackhighlight = 1
 " emmet-vim settings
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key='<C-E>'
-autocmd FileType html,hbs,scss,css,mustache,javascript EmmetInstall
+autocmd FileType html,hbs,liquid,njk,dust,scss,css,mustache,javascript EmmetInstall
 
 
 " vim-easy-align settings
@@ -681,6 +681,9 @@ map <C-l> <C-w>l
 autocmd! FileType help nnoremap <silent> <buffer> <Tab> /\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
 autocmd! FileType help nnoremap <silent> <buffer> <S-Tab> ?\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
 
+" Create file when if it does not exist for scss files
+autocmd! FileType scss nnoremap <silent> <buffer> <leader>gf :exe 'e '.expand('%:h').'/_'.expand('<cfile>').'.scss'<CR>
+
 " Close all hidden/all buffers.
 nnoremap <leader>dhb :DeleteHiddenBuffers<CR>
 nnoremap <leader>dab :%bd<CR>
@@ -709,7 +712,7 @@ nnoremap <leader><Esc> :Goyo<bar>Limelight!!<CR>
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
 " Forgiving :Qall to :qall
-cmap Qall qall
+cmap Qa qa
 
 inoremap if( if (
 
