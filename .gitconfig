@@ -12,3 +12,6 @@
 	excludesfile = ~/.gitignore
 [init]
 	templatedir = ~/.git_template
+[diff]
+  tool = vimdiff
+  keepBackup = false
