@@ -6,6 +6,7 @@
 	br = branch
 	ci = commit
 	st = status
+  pf = push --force-with-lease
 	visual = !gitk
 	last = log -1 HEAD
 [core]
