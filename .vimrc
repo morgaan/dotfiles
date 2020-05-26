@@ -103,11 +103,11 @@ filetype plugin indent on " Smart auto indentation (instead of old smartindent o
 " shifround   : round indent to nearest multiple of set shiftwidth on indent
 "               operations (>> << in Normal mode, CTRL-T CTRL-D in Insert mode)
 "
-set expandtab    " Use spaces in place of tab character.
-set tabstop=2    " Existing tabs are visually rendered as 2 columns.
-set shiftwidth=2 " Indent by 2 columns.
+set noexpandtab    " Use tabs.
+set tabstop=4    " Existing tabs are visually rendered as 4 columns.
+set shiftwidth=4 " Indent by 4 columns.
+set softtabstop=4 " Indent by 4 columns.
 set shiftround   " Round indent to nearest multiple of set shiftwidth.
-
 
 
 
