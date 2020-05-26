@@ -708,6 +708,11 @@
 	<false/>
 	<key>NSScrollViewShouldScrollUnderTitlebar</key>
 	<false/>
+	<key>NSSplitView Subview Frames NSColorPanelSplitView</key>
+	<array>
+		<string>0.000000, 0.000000, 224.000000, 258.000000, NO, NO</string>
+		<string>0.000000, 259.000000, 224.000000, 48.000000, NO, NO</string>
+	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -749,7 +754,7 @@
 	<key>NSWindow Frame com.apple.typography_panel_InconsolataForPowerline</key>
 	<string>346 588 260 42 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 1680 1023 0 0 1920 1057 </string>
+	<string>0 0 1680 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 470 810 550 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_E7208F94-F2C8-4ECF-9B02-E9523A1951D2</key>
@@ -1489,9 +1494,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1920, 1080}}</string>
+		<string>{{0, 0}, {1680, 1050}}</string>
 		<key>topLeft</key>
-		<string>{471, 921}</string>
+		<string>{313, 891}</string>
 	</dict>
 	<key>NoSyncHaveUsedCopyMode</key>
 	<true/>
@@ -1502,7 +1507,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>513601374.31134897</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>63</integer>
+	<integer>82</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2249,16 +2254,16 @@
 	</array>
 	<key>NoSyncSearchHistory2</key>
 	<array>
+		<string>test</string>
+		<string>sncss-simple.cs</string>
+		<string>duplicate</string>
+		<string>additional</string>
+		<string>[country]</string>
+		<string>location[0]</string>
+		<string>Paris</string>
 		<string>Function</string>
 		<string>mountPath</string>
 		<string>filter-reducer</string>
-		<string>parser</string>
-		<string>parserOpt</string>
-		<string>spread</string>
-		<string>prefer-sprear</string>
-		<string>prefer-spw</string>
-		<string>prefer-spe</string>
-		<string>unicorn/pre</string>
 	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>509322890.84263998</real>
@@ -2340,7 +2345,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-03-06T21:34:04Z</date>
+	<date>2020-05-24T16:15:48Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUSkippedVersion</key>
@@ -2364,7 +2369,7 @@
 	<key>TabStyle</key>
 	<integer>1</integer>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>6</integer>
+	<integer>5</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
