@@ -12,7 +12,7 @@ set showcmd                    " Show what commands you're typing in bottom righ
 set showmode                   " Show what mode you're currently in bottom left corner.
 set exrc                       " Enable project specific vimrc.
 set updatetime=250             " Write swapfiles to disk a little sooner
-
+set nojoinspaces               " No extra spaces when joining lines
 
 
 
@@ -118,12 +118,14 @@ set shiftround   " Round indent to nearest multiple of set shiftwidth.
 
 set showmatch                              " Show matching parens, brackets, etc.
 syntax enable                              " Enable syntax highlighting.
-highlight Comment cterm=italic guifg=#5f87df  " Italicised comments...
-highlight htmlArg cterm=italic guifg=#af8700 " ... and attributes
+" Italicised comments...
+highlight Comment cterm=italic gui=italic guifg=#5f87df
+" ... and attributes
+highlight htmlArg cterm=italic gui=italic guifg=#af8700
 
 " Ensure that italics carry over if I ever switch light/dark scheme
-autocmd ColorScheme * highlight! Comment cterm=italic
-autocmd ColorScheme * highlight! htmlArg cterm=italic
+autocmd ColorScheme * highlight! Comment cterm=italic gui=italic
+autocmd ColorScheme * highlight! htmlArg cterm=italic gui=italic
 
 " Omni completion is not usually enabled by default. These 2 lines turn it on.
 filetype plugin on
