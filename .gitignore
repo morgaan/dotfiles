@@ -15,7 +15,6 @@
 .tmux/plugins
 iTerm2/iTerm2-Color-Schemes/
 node_modules
-package-lock.json
 .editorconfig
 .bloop/
 .metals/
