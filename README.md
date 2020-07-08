@@ -106,6 +106,12 @@ python3 -m pip install --user --upgrade pynvim
 gem install neovim
 ```
 
+## Install ripgrep (required for CocSearch)
+
+```
+brew install ripgrep
+```
+
 ## Install ctags
 
 ```
