@@ -15,7 +15,6 @@ set updatetime=250             " Write swapfiles to disk a little sooner
 set nojoinspaces               " No extra spaces when joining lines
 
 
-
 "*******************************************************************************
 " UI options
 "*******************************************************************************
@@ -393,7 +392,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for project wide rename of current word
-nnoremap <leader>pr :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>pr :CocSearch <C-R>=expand('<cword>')<CR><CR>
 
 augroup mygroup
   autocmd!
