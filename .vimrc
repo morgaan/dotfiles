@@ -134,7 +134,7 @@ autocmd FileType markdown syntax sync fromstart   " Force a full file syntax com
 " autocmd FileType dustjs set textwidth=0           " Disable textwidth for dust template
 
 " Align GitHub-flavored Markdown tables
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80         " Force the cursor onto a new line after 80 characters.
@@ -488,6 +488,7 @@ let g:limelight_conceal_ctermfg = 'darkgray'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_fenced_languages = ['javascript', 'bash']
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_auto_insert_bullets = 0
 
 
 " vimwiki settings
