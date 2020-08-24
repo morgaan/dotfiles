@@ -15,7 +15,6 @@
 .tmux/plugins
 iTerm2/iTerm2-Color-Schemes/
 node_modules
-.editorconfig
 .bloop/
 .metals/
 project/metals.sbt
