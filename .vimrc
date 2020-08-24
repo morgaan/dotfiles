@@ -675,9 +675,6 @@ nnoremap <silent> <leader>e :Lex<CR>
 " Resetting winfixwidth make <C-W> = works again!
 nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
 
-" Faster toggle Goyo + Limelight
-nnoremap <leader><Esc> :Goyo<bar>Limelight!!<CR>
-
 " Toggle conceallevel (useful to toggle for URL on vimwiki files)
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
