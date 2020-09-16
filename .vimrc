@@ -15,7 +15,6 @@ set updatetime=250             " Write swapfiles to disk a little sooner
 set nojoinspaces               " No extra spaces when joining lines
 
 
-
 "*******************************************************************************
 " UI options
 "*******************************************************************************
@@ -135,7 +134,7 @@ autocmd FileType markdown syntax sync fromstart   " Force a full file syntax com
 " autocmd FileType dustjs set textwidth=0           " Disable textwidth for dust template
 
 " Align GitHub-flavored Markdown tables
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80         " Force the cursor onto a new line after 80 characters.
@@ -393,7 +392,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for project wide rename of current word
-nnoremap <leader>pr :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>pr :CocSearch <C-R>=expand('<cword>')<CR><CR>
 
 augroup mygroup
   autocmd!
@@ -490,6 +489,7 @@ let g:limelight_conceal_ctermfg = 'darkgray'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_fenced_languages = ['javascript', 'bash']
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_auto_insert_bullets = 0
 
 
 " vimwiki settings
@@ -675,9 +675,6 @@ nnoremap <silent> <leader>e :Lex<CR>
 " Open folder container active buffer in file explorer (netrw).
 " Resetting winfixwidth make <C-W> = works again!
 nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
-
-" Faster toggle Goyo + Limelight
-nnoremap <leader><Esc> :Goyo<bar>Limelight!!<CR>
 
 " Toggle conceallevel (useful to toggle for URL on vimwiki files)
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
