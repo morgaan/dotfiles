@@ -481,6 +481,7 @@ command! DeleteBuffers call fzf#run(fzf#wrap({
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
+command! Folders call fzf#run(fzf#wrap({'source': 'find * -type d'}))
 
 " limelight.vim settings
 let g:limelight_conceal_ctermfg = 'darkgray'
