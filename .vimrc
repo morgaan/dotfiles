@@ -15,6 +15,9 @@ set exrc
 " User Interface options
 " =======================
 
+colorscheme solarized8
+set background=dark
+
 set title
 set laststatus=2
 set number
