@@ -16,3 +16,4 @@ set exrc
 " =======================
 
 set title
+set laststatus=2
