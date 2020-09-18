@@ -32,6 +32,9 @@ set termguicolors
 set guifont=Victor\ Mono:h16
 set wildmenu
 
+" Cursor behaviour
+set guicursor=n-v-c-ci-i:block-Cursor-blinkwait1-blinkon150-blinkoff150
+
 " Don't offer to open certain files/folders
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
