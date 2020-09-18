@@ -30,3 +30,4 @@ set scrolloff=3
 set colorcolumn=+1
 set termguicolors
 set guifont=Victor\ Mono:h16
+set wildmenu
