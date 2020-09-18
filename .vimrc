@@ -61,3 +61,5 @@ set shiftround
 " =============
 
 let mapleader = "\<Space>"
+
+nnoremap <leader>ev :tabnew ~/.vimrc<CR>
