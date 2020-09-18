@@ -31,3 +31,9 @@ set colorcolumn=+1
 set termguicolors
 set guifont=Victor\ Mono:h16
 set wildmenu
+
+" Don't offer to open certain files/folders
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=*.map,*.min.css,*.min.css
+set wildignore+=*/node_modules/*,*/bower_components/*
