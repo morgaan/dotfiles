@@ -47,3 +47,4 @@ set wildignore+=*/node_modules/*,*/bower_components/*
 " ====================
 
 set autoindent
+filetype plugin indent on
