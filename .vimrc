@@ -40,3 +40,10 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
 set wildignore+=*.map,*.min.css,*.min.css
 set wildignore+=*/node_modules/*,*/bower_components/*
+
+
+" ====================
+" Indentation options
+" ====================
+
+set autoindent
