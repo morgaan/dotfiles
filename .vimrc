@@ -9,3 +9,10 @@ set backspace=indent,eol,start
 set hidden
 set history=1000
 set exrc
+
+
+" =======================
+" User Interface options
+" =======================
+
+set title
