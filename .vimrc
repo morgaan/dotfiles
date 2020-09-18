@@ -65,6 +65,9 @@ let mapleader = "\<Space>"
 nnoremap <leader>ev :tabnew ~/.vimrc<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 
+nnoremap j gj
+nnoremap k gk
+
 " <S-arrow> to resize splits (not optimal yet).
 nnoremap <S-right> :vertical resize +2<CR>
 nnoremap <S-left>  :vertical resize -2<CR>
