@@ -17,6 +17,7 @@ set exrc
 
 colorscheme solarized8
 set background=dark
+let g:solarized_diffmode="high"
 
 set title
 set laststatus=2
