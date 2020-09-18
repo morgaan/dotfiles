@@ -21,3 +21,4 @@ set number
 set splitright
 set splitbelow
 set listchars=tab:▸\ ,space:·,trail:·,eol:¬
+set cursorline
