@@ -28,3 +28,4 @@ set listchars=tab:▸\ ,space:·,trail:·,eol:¬
 set cursorline
 set scrolloff=3
 set colorcolumn=+1
+set termguicolors
