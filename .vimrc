@@ -17,5 +17,6 @@ set exrc
 
 set title
 set laststatus=2
+set number
 set splitright
 set splitbelow
