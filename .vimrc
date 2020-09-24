@@ -1,6 +1,29 @@
-"===============================
-" General configuration options
-"===============================
+" VARIABLES
+" =========
+    
+
+
+
+
+" PLUGINS
+" =======
+
+
+
+
+
+" FUNCTIONS
+" =========
+
+
+
+
+
+" SETTINGS
+" ========
+
+" General configuration
+" ---------------------
 
 set nocompatible
 language en_US.utf-8
@@ -11,9 +34,8 @@ set history=1000
 set exrc
 
 
-" =======================
-" User Interface options
-" =======================
+" User Interface
+" --------------
 
 colorscheme solarized8
 set background=dark
@@ -42,9 +64,8 @@ set wildignore+=*.map,*.min.css,*.min.css
 set wildignore+=*/node_modules/*,*/bower_components/*
 
 
-" ====================
-" Indentation options
-" ====================
+" Indentation
+" -----------
 
 set autoindent
 filetype plugin indent on
@@ -56,9 +77,11 @@ set softtabstop=4
 set shiftround
 
 
-" =============
-" Key mappings
-" =============
+
+
+
+" MAPPINGS
+" ========
 
 let mapleader = "\<Space>"
 
@@ -73,3 +96,18 @@ nnoremap <S-right> :vertical resize +2<CR>
 nnoremap <S-left>  :vertical resize -2<CR>
 nnoremap <S-down>  :resize -2<CR>
 nnoremap <S-up>    :resize +2<CR>
+
+
+
+
+
+
+" AUTOCOMMANDS
+" ============
+
+
+
+
+
+" COMMANDS
+" ========
