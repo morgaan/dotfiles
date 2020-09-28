@@ -1,5 +1,11 @@
 " VARIABLES
 " =========
+
+" Plugins variables
+" -----------------
+
+let g:netrw_banner = 0
+
     
 
 
