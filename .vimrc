@@ -85,6 +85,19 @@ call plug#end()
 " FUNCTIONS
 " =========
 
+" fzf functions
+" -------------
+
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
 
 
 
