@@ -26,6 +26,7 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'whatyouhide/vim-textobj-xmlattr'
+Plug 'jceb/vim-textobj-uri'
 
 " Language support/syntax highlighting
 " ------------------------------------
