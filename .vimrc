@@ -16,6 +16,30 @@ let g:netrw_liststyle = 0
 " =======
 
 " Plugin manager => https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Text objects
+" ------------
+
+" Language support/syntax highlighting
+" ------------------------------------
+
+" Syntax checkers/linters
+" -----------------------
+
+" Buffer management
+" -----------------
+
+" UI/UX Extensions
+" ----------------
+
+" Extensions
+" ----------
+
+" Applications
+" ------------
+
+call plug#end()
 
 
 
