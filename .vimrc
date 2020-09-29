@@ -197,5 +197,9 @@ vnoremap <leader>? y?\V\<<C-R>"\><CR>
 " ========
 
 " fzf commands
+" ------------
+
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! Folders call fzf#run(fzf#wrap({'source': 'find * -type d \( ! -path "node_modules/*" \)'}))
