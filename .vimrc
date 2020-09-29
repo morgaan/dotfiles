@@ -61,6 +61,8 @@ Plug 'editorconfig/editorconfig-vim'
 " UI/UX Extensions
 " ----------------
 
+Plug '~/.fzf' " Should have been installed with git seperately in home folder.
+Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
