@@ -174,6 +174,8 @@ map <C-l> <C-w>l
 " Easilly search for things.
 nnoremap <leader>f :Ack! "
 vnoremap <leader>f y:Ack! "<C-R>"" --
+vnoremap <leader>/ y/\V\<<C-R>"\><CR>
+vnoremap <leader>? y?\V\<<C-R>"\><CR>
 
 
 
