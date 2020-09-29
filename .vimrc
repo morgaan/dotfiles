@@ -46,6 +46,8 @@ Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 " Syntax checkers/linters
 " -----------------------
 
+Plug 'editorconfig/editorconfig-vim'
+
 " Buffer management
 " -----------------
 
