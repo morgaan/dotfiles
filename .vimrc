@@ -58,6 +58,7 @@ Plug 'editorconfig/editorconfig-vim'
 " UI/UX Extensions
 " ----------------
 
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Extensions
