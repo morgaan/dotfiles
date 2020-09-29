@@ -32,6 +32,8 @@ Plug 'wellle/targets.vim'
 " Language support/syntax highlighting
 " ------------------------------------
 
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'hbs'] }
+
 " Syntax checkers/linters
 " -----------------------
 
