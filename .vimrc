@@ -15,6 +15,10 @@ let g:vim_markdown_auto_insert_bullets = 0
 " vim-javascript
 let g:javascript_plugin_jsdoc=1
 
+" editorconfig-vim
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+
 
 
 
