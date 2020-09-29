@@ -205,3 +205,9 @@ command! -bang -nargs=? -complete=dir Files
 command! Folders call fzf#run(fzf#wrap({'source': 'find * -type d \( ! -path "node_modules/*" \)'}))
 
 command! NodeModules call fzf#run(fzf#wrap({'source': 'find node_modules/* -type d'}))
+
+command! DeleteBuffers call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
