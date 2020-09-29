@@ -37,6 +37,7 @@ Plug 'wellle/targets.vim'
 " ------------------------------------
 
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'hbs'] }
+Plug 'jimmyhchan/dustjs.vim', { 'for': 'dust' }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 
 " Syntax checkers/linters
