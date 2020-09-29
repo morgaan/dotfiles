@@ -85,6 +85,14 @@ call plug#end()
 " FUNCTIONS
 " =========
 
+function MyVimEnter()
+    if argc() == 1 && argv(0) == '.'
+      execute "Files"
+    endif
+
+    return
+endfunction
+
 " fzf functions
 " -------------
 
