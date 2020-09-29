@@ -60,6 +60,7 @@ Plug 'editorconfig/editorconfig-vim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'mileszs/ack.vim'
 
 " Extensions
 " ----------
