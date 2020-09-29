@@ -7,7 +7,9 @@
 let g:netrw_banner = 0
 let g:netrw_liststyle = 0
 
-    
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+ 
 
 
 
