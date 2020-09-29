@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
 " Text objects
 " ------------
 
+Plug 'kana/vim-textobj-user'
+
 " Language support/syntax highlighting
 " ------------------------------------
 
