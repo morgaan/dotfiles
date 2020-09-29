@@ -58,6 +58,8 @@ Plug 'editorconfig/editorconfig-vim'
 " UI/UX Extensions
 " ----------------
 
+Plug 'tpope/vim-fugitive'
+
 " Extensions
 " ----------
 
