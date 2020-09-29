@@ -155,6 +155,11 @@ nnoremap <S-left>  :vertical resize -2<CR>
 nnoremap <S-down>  :resize -2<CR>
 nnoremap <S-up>    :resize +2<CR>
 
+" Easier window navigation.
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 
 
