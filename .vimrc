@@ -15,6 +15,8 @@ let g:netrw_liststyle = 0
 " PLUGINS
 " =======
 
+" Plugin manager => https://github.com/junegunn/vim-plug
+
 
 
 
