@@ -18,6 +18,9 @@ let g:javascript_plugin_jsdoc=1
 " editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
+" ack.vim
+let g:ackhighlight = 1
+
 
 
 
