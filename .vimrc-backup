@@ -6,10 +6,6 @@ let &statusline = s:statusline_expr()
 " Plugins variables
 " -----------------
 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 0
-let g:netrw_winsize = 25
-
 " Not sure this is working, but leave it here for reference.
 " Implemented coc extensions:
 " https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions
@@ -34,27 +30,13 @@ let g:ackhighlight = 1
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key='<C-E>'
 
-" vim-javascript
-let g:javascript_plugin_jsdoc=1
-
-" editorconfig-vim
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-
 " limelight.vim
 let g:limelight_conceal_ctermfg = 'darkgray'
-
-" vim-markdown
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_fenced_languages = ['javascript', 'bash']
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_auto_insert_bullets = 0
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/notebook/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0  " Fix this https://github.com/vimwiki/vimwiki/issues/95
-
-let g:fzf_layout = { 'up': '~50%' }
 
 " calendar-vim settings
 let g:calendar_diary='~/notebook/diary'
@@ -71,46 +53,11 @@ let g:hardtime_ignore_quickfix = 1
 " PLUGINS
 " =======
 
-" Plugin manager => https://github.com/junegunn/vim-plug
-"
-" Brief help
-" :PlugInstall - Install plugins
-" :PlugUpdate - Install or update plugins
-" :PlugUpgrade - Upgrade vim-plug itself
-" :PlugClean - Remove folder of not found (in rc) plugins (source rc file first)
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-call plug#begin('~/.vim/plugged')
-
-
-" Text objects
-" ------------
-
-Plug 'kana/vim-textobj-user'           " Create your own text objects (needed by some text object)
-Plug 'kana/vim-textobj-entire'         " For the entire buffer  (ae, ie (ignore leading/trailing empty lines))
-Plug 'kana/vim-textobj-line'           " for current line (al, il)
-Plug 'michaeljsmith/vim-indent-object' " current indentation (ai, ii)
-Plug 'whatyouhide/vim-textobj-xmlattr' " for XML/HTML attributes (ax and ix)
-Plug 'jceb/vim-textobj-uri' " Text objects for dealing with URIs (au and iu)
-Plug 'wellle/targets.vim'              " Add seperators like ,.;:+-=~_*#/|\&$ and much more (https://www.barbarianmeetscoding.com/blog/2019/08/11/exploring-vim-plugins-improve-and-extend-your-text-objects-with-targets-vim)
-
-
 " Language support/syntax highlighting
 " ------------------------------------
 
-Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'hbs'] }
-Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
-Plug 'jimmyhchan/dustjs.vim', { 'for': 'dust' }
-Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-
-" Syntax checkers/linters
-" -----------------------
-Plug 'editorconfig/editorconfig-vim'
 
 
 " Buffer management
@@ -124,14 +71,9 @@ Plug 'tpope/vim-eunuch' " Vim sugar for the UNIX shell commands that need it the
 Plug 'junegunn/goyo.vim', {
       \ 'for': ['md', 'markdown']
       \ }                                         " Distraction-free writing.
-Plug '~/.fzf'                                     " Should have been installed with git seperately in home folder.
-Plug 'junegunn/fzf.vim'                           " Fuzzy search finder.
 Plug 'junegunn/limelight.vim'                     " Hyperfocus-writing.
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  } " Preview markdown as you type
-Plug 'airblade/vim-gitgutter'                     " Shows a +/-/~ next to lines that have been added...
-Plug 'mileszs/ack.vim'                            " Ack command for vim
 Plug 'mattn/emmet-vim'                            " Greatly improves HTML & CSS workflow
-Plug 'tpope/vim-fugitive'                         " A Git wrapper so awesome, it should be illegal
 
 " Extensions
 " ----------
@@ -175,17 +117,6 @@ function! s:statusline_expr()
   return winNumber.currentFile.isModified.gitBranch.seperator.fileType.cursorPosition.percentageThrough.seperator.cocStatus
 endfunction
 
-" Delete buffers
-function! s:list_buffers()
-  redir => list
-  silent ls
-  redir END
-  return split(list, "\n")
-endfunction
-
-function! s:delete_buffers(lines)
-  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
-endfunction
 
 " CoC functions
 function! s:check_back_space() abort
@@ -356,29 +287,11 @@ nnoremap <C-d> <C-d>zz
 nmap ]q :cn<CR>zz
 nmap [q :cN<CR>zz
 
-" search for the selected text
-vnoremap // y/\V<C-R>"<CR>
-" search for the selected text within CWD
-vnoremap <C-f> y:Ack! "<C-R>"" --
-" execute the selected text
-vnoremap <leader>e y:<C-R>"<CR>
-
 " Move visual selection
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 
-" Easier write.
-nmap <leader>w :w!<cr>
-" Easier delete buffer.
-nmap <leader>d :bw<cr>
-" Easier quit.
-nnoremap <leader>q :q<cr>
-" Easier window navigation.
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 
 " Plugins mappings
@@ -434,19 +347,7 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Fix autofix problem of current line
 " nmap <leader>qf  <Plug>(coc-fix-current)
 
-" fzf file fuzzy search that respects .gitignore
-" If in git directory, show only files that are committed, staged, or unstaged
-" else use regular :Files
-" src: https://rietta.com/blog/hide-gitignored-files-fzf-vim/
-" nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
-nnoremap <silent> <C-p> :Files<CR>
-" Fuzzy search for buffers. Improve buffer switching.
-nnoremap <silent> gb :Buffers<CR>
-" Fuzzy search for line in current buffer.
-nnoremap <silent> gl :BLines<CR>
 
-" Search text/pattern across opened project.
-nnoremap <leader>f :Ack! "
 
 " Turn off `hlsearch` with <Space>/ until next search
 " nnoremap <Leader>/ :silent! nohls<cr>
@@ -504,10 +405,6 @@ autocmd CursorHold,CursorHoldI * checktime
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" The 'nested' before call allows nested autocmds, important for
-" syntax detection etc.
-autocmd VimEnter * nested call MyVimEnter()
-
 autocmd FileType html,hbs,liquid,njk,dust,scss,css,mustache,javascript EmmetInstall
 
 " CoC autocommands
@@ -564,17 +461,6 @@ command! -bang -nargs=* Ag
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-command! DeleteBuffers call fzf#run(fzf#wrap({
-  \ 'source': s:list_buffers(),
-  \ 'sink*': { lines -> s:delete_buffers(lines) },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
-\ }))
-
-" Search folders (but node_modules).
-command! Folders call fzf#run(fzf#wrap({'source': 'find * -type d \( ! -path "node_modules/*" \)'}))
-
-" Search node_modules
-command! NodeModules call fzf#run(fzf#wrap({'source': 'find node_modules/* -type d'}))
 
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
