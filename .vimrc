@@ -21,6 +21,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " ack.vim
 let g:ackhighlight = 1
 
+" fzf
+let g:fzf_layout = { 'up': '~50%' }
+
 
 
 
