@@ -177,6 +177,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Easilly search for things.
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> gb :Buffers<CR>
+nnoremap <silent> gl :BLines<CR>
 nnoremap <leader>f :Ack! "
 vnoremap <leader>f y:Ack! "<C-R>"" --
 vnoremap <leader>/ y/\V\<<C-R>"\><CR>
