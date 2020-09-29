@@ -171,6 +171,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Easilly search for things.
+nnoremap <leader>f :Ack! "
+vnoremap <leader>f y:Ack! "<C-R>"" --
+
 
 
 
