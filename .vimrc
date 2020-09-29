@@ -213,6 +213,7 @@ vnoremap <leader>? y?\V\<<C-R>"\><CR>
 " AUTOCOMMANDS
 " ============
 
+autocmd VimEnter * nested call MyVimEnter()
 
 
 
