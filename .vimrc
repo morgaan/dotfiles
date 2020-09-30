@@ -103,6 +103,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 " Applications
 " ------------
