@@ -74,6 +74,7 @@ Plug 'editorconfig/editorconfig-vim'
 " -----------------
 
 Plug 'arithran/vim-delete-hidden-buffers'
+Plug 'tpope/vim-eunuch'
 
 " UI/UX Extensions
 " ----------------
