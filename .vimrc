@@ -98,6 +98,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 " Extensions
 " ----------
 
+Plug 'vim-scripts/matchit.zip'
+
 " Applications
 " ------------
 
