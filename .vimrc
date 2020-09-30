@@ -227,6 +227,8 @@ nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
 
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 
 
 
