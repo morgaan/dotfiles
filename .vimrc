@@ -104,6 +104,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'junegunn/vim-easy-align'
 
 " Applications
 " ------------
