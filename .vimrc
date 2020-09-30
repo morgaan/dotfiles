@@ -24,6 +24,17 @@ let g:ackhighlight = 1
 " fzf
 let g:fzf_layout = { 'up': '~50%' }
 
+" CoC
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-html', 
+  \ 'coc-css', 
+  \ 'coc-json', 
+  \ 'coc-prettier', 
+  \ ]
+
 
 
 
