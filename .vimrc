@@ -1,7 +1,5 @@
 " VARIABLES
 " =========
-    
-let &statusline = MyStatusLine()
 
 " Plugins variables
 " -----------------
@@ -278,3 +276,12 @@ command! DeleteBuffers call fzf#run(fzf#wrap({
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
+
+
+
+
+
+" MISC
+" ====
+ 
+let &statusline = MyStatusLine()
