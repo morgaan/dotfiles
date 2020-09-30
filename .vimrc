@@ -68,6 +68,7 @@ Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'hbs'] }
 Plug 'jimmyhchan/dustjs.vim', { 'for': 'dust' }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mattn/emmet-vim'
 
 " Syntax checkers/linters
 " -----------------------
