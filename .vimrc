@@ -279,6 +279,12 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+" vim-easy-align mappings
+" -----------------------
+
+" Interactive mode
+xmap ga <Plug>(EasyAlign)
+
 
 
 
