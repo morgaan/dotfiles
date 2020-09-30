@@ -133,6 +133,18 @@ function! s:delete_buffers(lines)
   execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
 
+" CoC functions
+" -------------
+
+function! s:show_documentation()
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
+endfunction
+
+
 
 
 
