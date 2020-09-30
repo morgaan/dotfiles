@@ -52,6 +52,7 @@ Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx'] }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['mustache', 'hbs'] }
 Plug 'jimmyhchan/dustjs.vim', { 'for': 'dust' }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Syntax checkers/linters
 " -----------------------
