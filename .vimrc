@@ -280,6 +280,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 autocmd VimEnter * nested call MyVimEnter()
 
+" emmet-vim
+autocmd FileType html,hbs,css,scss EmmetInstall
+
+
 
 
 
