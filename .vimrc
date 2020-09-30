@@ -218,6 +218,15 @@ vnoremap <leader>f y:Ack! "<C-R>"" --
 vnoremap <leader>/ y/\V\<<C-R>"\><CR>
 vnoremap <leader>? y?\V\<<C-R>"\><CR>
 
+" CoC mappings
+" ------------
+
+" Remap keys for gotos
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+
 
 
 
