@@ -230,6 +230,17 @@ set shiftround
 
 
 
+" HIGHLIGHTS
+" ==========
+
+" Italicised comments and attributes.
+highlight Comment cterm=italic gui=italic guifg=#5f87df
+highlight htmlArg cterm=italic gui=italic guifg=#af8700
+
+
+
+
+
 " MAPPINGS
 " ========
 
