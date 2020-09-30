@@ -1,5 +1,7 @@
 " VARIABLES
 " =========
+    
+let &statusline = MyStatusLine()
 
 " Plugins variables
 " -----------------
@@ -103,6 +105,20 @@ function MyVimEnter()
     endif
 
     return
+endfunction
+
+function! MyStatusLine()
+  let winNumber = '[w%{winnr()}|b%n]'
+  let currentFile = '%f%'
+  let isModified = "<%{&modified ? '[Unsaved] ' : !&modifiable ? '[RO] ' : '[Saved]'}"
+  let gitBranch = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
+  let seperator = ' %= '
+  let fileType  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
+  let cursorPosition = '%-12(%l:%c%V%)'
+  let percentageThrough = '|%P'
+  " Add status line support, for integration with other plugin, checkout `:h coc-status`
+  let cocStatus = "%{coc#status()}%{get(b:,'coc_current_function','')}"
+  return winNumber.currentFile.isModified.gitBranch.seperator.fileType.cursorPosition.percentageThrough.seperator.cocStatus
 endfunction
 
 " fzf functions
