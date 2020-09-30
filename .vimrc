@@ -39,6 +39,9 @@ let g:coc_global_extensions = [
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 
+" emmet-vim
+let g:user_emmet_leader_key='<C-E>'
+
 
 
 
