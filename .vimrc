@@ -73,6 +73,8 @@ Plug 'editorconfig/editorconfig-vim'
 " Buffer management
 " -----------------
 
+Plug 'arithran/vim-delete-hidden-buffers'
+
 " UI/UX Extensions
 " ----------------
 
