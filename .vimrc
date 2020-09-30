@@ -41,6 +41,7 @@ let g:mkdp_auto_close = 1
 
 " emmet-vim
 let g:user_emmet_leader_key='<C-E>'
+let g:user_emmet_install_global = 0
 
 
 
