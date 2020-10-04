@@ -315,6 +315,7 @@ autocmd VimEnter * nested call MyVimEnter()
 
 
 autocmd ColorScheme * highlight! CursorLineNr ctermbg=magenta ctermfg=white guibg=magenta guifg=white
+autocmd ColorScheme * highlight! Cursor ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 
 
 " emmet-vim
