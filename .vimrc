@@ -109,6 +109,8 @@ Plug 'junegunn/vim-easy-align'
 " Applications
 " ------------
 
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 
