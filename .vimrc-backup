@@ -7,11 +7,6 @@
 " limelight.vim
 let g:limelight_conceal_ctermfg = 'darkgray'
 
-" vimwiki
-let g:vimwiki_list = [{'path': '~/notebook/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_global_ext = 0  " Fix this https://github.com/vimwiki/vimwiki/issues/95
-
 " calendar-vim settings
 let g:calendar_diary='~/notebook/diary'
 
@@ -35,7 +30,6 @@ Plug 'junegunn/limelight.vim'                     " Hyperfocus-writing.
 
 " Applications
 " ------------
-Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
 
 
@@ -186,8 +180,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " Plugins mappings
 " ----------------
 
-nmap <Leader>wb :VimwikiGoBackLink<CR>
-
 
 " CoC mappings
  
@@ -223,24 +215,21 @@ noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
 " AUTOCOMMANDS
 " ============
 
-autocmd FileType gitcommit set textwidth=72 " However, in Git commit messages, let's make it 72 characters.
-
-" More contrasted hightlight colors for current line, current cursor and
-" colorcolumn
-autocmd ColorScheme * hi CursorLineNr ctermbg=magenta ctermfg=white guibg=magenta guifg=white
-autocmd ColorScheme * hi Cursor ctermbg=yellow ctermfg=black guibg=yellow guifg=black
-autocmd ColorScheme * hi ColorColumn ctermbg=darkgrey guibg=#073642
-" Ensure that italics carry over if I ever switch light/dark scheme
-autocmd ColorScheme * highlight! Comment cterm=italic gui=italic
-autocmd ColorScheme * highlight! htmlArg cterm=italic gui=italic
-
-" Automatically equalize splits when Vim is resized.
-autocmd VimResized * wincmd =
-
 autocmd FileType markdown syntax sync fromstart   " Force a full file syntax computation when opening Markdown files.
 " autocmd FileType dustjs set textwidth=0           " Disable textwidth for dust template
 " Align GitHub-flavored Markdown tables
 autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+autocmd FileType html,hbs,liquid,njk,dust,scss,css,mustache,javascript EmmetInstall
+" Ease help browsing by adding Find next/previous subject
+" autocmd! FileType help nnoremap <silent> <buffer> <Tab> /\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
+" autocmd! FileType help nnoremap <silent> <buffer> <S-Tab> ?\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
+
+" Create file when if it does not exist for scss files
+autocmd! FileType scss nnoremap <silent> <buffer> <leader>gf :exe 'e '.expand('%:h').'/_'.expand('<cfile>').'.scss'<CR>
+
+" Automatically equalize splits when Vim is resized.
+autocmd VimResized * wincmd =
+
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80         " Force the cursor onto a new line after 80 characters.
@@ -258,7 +247,6 @@ autocmd CursorHold,CursorHoldI * checktime
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-autocmd FileType html,hbs,liquid,njk,dust,scss,css,mustache,javascript EmmetInstall
 
 " CoC autocommands
  
@@ -278,14 +266,6 @@ au!
     au CursorMoved * call HlSearch()
     au InsertEnter * call StopHL()
 augroup end
-
-" Ease help browsing by adding Find next/previous subject
-" autocmd! FileType help nnoremap <silent> <buffer> <Tab> /\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
-" autocmd! FileType help nnoremap <silent> <buffer> <S-Tab> ?\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
-
-" Create file when if it does not exist for scss files
-autocmd! FileType scss nnoremap <silent> <buffer> <leader>gf :exe 'e '.expand('%:h').'/_'.expand('<cfile>').'.scss'<CR>
-
 
 
 
