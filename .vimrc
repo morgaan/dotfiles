@@ -43,6 +43,9 @@ let g:mkdp_auto_close = 1
 let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_install_global = 0
 
+" vimwiki
+let g:vimwiki_list = [{'path': '~/notebook/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 
 
