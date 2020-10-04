@@ -313,6 +313,10 @@ nmap <Leader>wb :VimwikiGoBackLink<CR>
 
 autocmd VimEnter * nested call MyVimEnter()
 
+
+autocmd ColorScheme * highlight! CursorLineNr ctermbg=magenta ctermfg=white guibg=magenta guifg=white
+
+
 " emmet-vim
 autocmd FileType html,hbs,css,scss EmmetInstall
 
