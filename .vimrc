@@ -302,6 +302,8 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" vimwiki mappings
+nmap <Leader>wb :VimwikiGoBackLink<CR>
 
 
 
