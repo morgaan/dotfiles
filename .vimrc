@@ -310,6 +310,7 @@ nmap [q :cN<CR>zz
 " Forgiving mappings
 " ------------------
 cmap Qa qa
+cmap Wq wq
 
 
 " CoC mappings
