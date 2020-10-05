@@ -281,6 +281,11 @@ vnoremap <leader>f y:Ack! "<C-R>"" --
 vnoremap <leader>/ y/\V\<<C-R>"\><CR>
 vnoremap <leader>? y?\V\<<C-R>"\><CR>
 
+" Swap booleans.
+nnoremap <leader>1 :s/false/true/<CR>
+nnoremap <leader>0 :s/true/false/<CR>
+
+
 " CoC mappings
 " ------------
 
