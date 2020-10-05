@@ -296,6 +296,13 @@ nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
 nnoremap [s i<Space><Esc>l
 nnoremap ]s a<Space><Esc>h
 
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nmap ]q :cn<CR>zz
+nmap [q :cN<CR>zz
+
 " CoC mappings
 " ------------
 
