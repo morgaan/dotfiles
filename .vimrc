@@ -290,6 +290,9 @@ nnoremap gcp :let @+=@%<CR>
 nmap <leader>l :set list!<CR>
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
+" Copy current file path to clipboard.
+nnoremap gcp :let @+=@%<CR>
+
 " Open active buffer's folder in netrw.
 nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
 
