@@ -285,6 +285,7 @@ vnoremap <leader>? y?\V\<<C-R>"\><CR>
 nnoremap <leader>1 :s/false/true/<CR>
 nnoremap <leader>0 :s/true/false/<CR>
 
+nmap <leader>l :set list!<CR>
 
 " CoC mappings
 " ------------
