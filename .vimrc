@@ -335,6 +335,10 @@ nmap <leader>ln <Plug>(coc-rename)
 " Project wide rename of current symbol.
 nnoremap <leader>pr :CocSearch <C-R>=expand('<cword>')<CR><CR>
 
+" Fix autofix problem of current line
+nmap <leader>af  <Plug>(coc-fix-current)
+
+
 " vim-easy-align mappings
 " -----------------------
 
