@@ -286,6 +286,7 @@ nnoremap <leader>1 :s/false/true/<CR>
 nnoremap <leader>0 :s/true/false/<CR>
 
 nmap <leader>l :set list!<CR>
+nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
 " Open active buffer's folder in netrw.
 nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
