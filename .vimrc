@@ -306,6 +306,9 @@ nnoremap <C-d> <C-d>zz
 nmap ]q :cn<CR>zz
 nmap [q :cN<CR>zz
 
+" Move visual selection
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Forgiving mappings
 " ------------------
