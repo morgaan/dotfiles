@@ -330,6 +330,9 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
+" Personallu used for local scope symbol renaming.
+nmap <leader>ln <Plug>(coc-rename)
+
 " vim-easy-align mappings
 " -----------------------
 
