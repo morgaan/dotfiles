@@ -332,6 +332,8 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Personallu used for local scope symbol renaming.
 nmap <leader>ln <Plug>(coc-rename)
+" Project wide rename of current symbol.
+nnoremap <leader>pr :CocSearch <C-R>=expand('<cword>')<CR><CR>
 
 " vim-easy-align mappings
 " -----------------------
