@@ -285,11 +285,16 @@ vnoremap <leader>? y?\V\<<C-R>"\><CR>
 nnoremap <leader>1 :s/false/true/<CR>
 nnoremap <leader>0 :s/true/false/<CR>
 
+nnoremap gcp :let @+=@%<CR>
+
 nmap <leader>l :set list!<CR>
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
 
 " Open active buffer's folder in netrw.
 nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
+
+nnoremap [s i<Space><Esc>l
+nnoremap ]s a<Space><Esc>h
 
 " CoC mappings
 " ------------
