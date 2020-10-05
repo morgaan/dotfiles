@@ -287,6 +287,9 @@ nnoremap <leader>0 :s/true/false/<CR>
 
 nmap <leader>l :set list!<CR>
 
+" Open active buffer's folder in netrw.
+nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
+
 " CoC mappings
 " ------------
 
