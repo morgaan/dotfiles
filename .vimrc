@@ -306,6 +306,12 @@ nnoremap <C-d> <C-d>zz
 nmap ]q :cn<CR>zz
 nmap [q :cN<CR>zz
 
+
+" Forgiving mappings
+" ------------------
+cmap Qa qa
+
+
 " CoC mappings
 " ------------
 
