@@ -209,6 +209,9 @@ set wildignore+=*.pdf,*.psd
 set wildignore+=*.map,*.min.css,*.min.css
 set wildignore+=*/node_modules/*,*/bower_components/*
 
+" Outside vim file changes tracking
+set updatetime=250
+set autoread 
 
 " Indentation
 " -----------
@@ -361,6 +364,10 @@ nmap <Leader>wb :VimwikiGoBackLink<CR>
 
 autocmd VimEnter * nested call MyVimEnter()
 
+" Outside vim file changes tracking
+autocmd CursorHold,CursorHoldI * checktime
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 autocmd ColorScheme * highlight CursorLineNr ctermbg=magenta ctermfg=white guibg=magenta guifg=white
 autocmd ColorScheme * highlight Cursor ctermbg=yellow ctermfg=black guibg=yellow guifg=black
