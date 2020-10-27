@@ -227,6 +227,7 @@ set shiftround
 " ------
 
 set incsearch 
+set hlsearch
 
 
 
