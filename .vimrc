@@ -381,6 +381,7 @@ autocmd ColorScheme * highlight CursorLineNr ctermbg=magenta ctermfg=white guibg
 autocmd ColorScheme * highlight Cursor ctermbg=yellow ctermfg=black guibg=yellow guifg=black
 autocmd ColorScheme * highlight ColorColumn ctermbg=darkgrey guibg=#073642
 
+autocmd VimResized * wincmd =
 
 " emmet-vim
 autocmd FileType html,hbs,css,scss EmmetInstall
