@@ -193,6 +193,7 @@ set colorcolumn=+1
 set termguicolors
 set guifont=Victor\ Mono:h16
 set wildmenu
+set showmatch
 
 " Cursor behaviour
 set guicursor=n-v-c-ci-i:block-Cursor-blinkwait1-blinkon150-blinkoff150
