@@ -235,6 +235,13 @@ set ignorecase
 set smartcase
 
 
+" Swap and backup file strategy
+" -----------------------------
+
+set directory=$HOME/.vim-directory//
+set nobackup
+set nowritebackup
+
 
 
 
