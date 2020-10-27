@@ -229,6 +229,7 @@ set shiftround
 set incsearch 
 set hlsearch
 set ignorecase
+set smartcase
 
 
 
