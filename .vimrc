@@ -223,6 +223,13 @@ set softtabstop=4
 set shiftround
 
 
+" Search
+" ------
+
+set incsearch 
+
+
+
 
 
 
