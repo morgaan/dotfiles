@@ -383,6 +383,8 @@ autocmd ColorScheme * highlight ColorColumn ctermbg=darkgrey guibg=#073642
 
 autocmd VimResized * wincmd =
 
+autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+
 " emmet-vim
 autocmd FileType html,hbs,css,scss EmmetInstall
 
