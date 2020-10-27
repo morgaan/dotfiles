@@ -196,6 +196,10 @@ set wildmenu
 set showmatch
 syntax enable
 
+" Turn on omni completion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 " Cursor behaviour
 set guicursor=n-v-c-ci-i:block-Cursor-blinkwait1-blinkon150-blinkoff150
 
