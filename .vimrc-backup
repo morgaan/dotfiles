@@ -68,44 +68,6 @@ endfunction
 " SETTINGS
 " ========
 
-set updatetime=250             " Write swapfiles to disk a little sooner
-
-" Text rendering
-" ----------------------
-
-set showmatch                              " Show matching parens, brackets, etc.
-syntax enable                              " Enable syntax highlighting.
-
-" Omni completion is not usually enabled by default. These 2 lines turn it on.
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-
-
-" Search
-" ------
-
-set incsearch  " Find the next match as I type the seach.
-set hlsearch   " Highlight searches by default.
-set ignorecase " Ignore case when search...
-set smartcase  " ... unless I type a capital letter in search term.
-
-
-" Swap and backup file options
-" ----------------------------
-
-set directory=$HOME/.vim-directory// " Move swap files out of the editing folder.
-set nobackup                         " No backup mechanism...
-set nowritebackup                    " ...what so ever
-
-" External changes tracking
-" -------------------------
-
-" Track change on file outside of Vim.
-" Do not update changed buffer unless
-" - Invoking the shell via command
-" - Calling :checktime
-set autoread 
-
 " CoC settings
 " ------------
 
@@ -146,12 +108,11 @@ noremap! <expr> <Plug>(StopHL) execute('nohlsearch')[-1]
 
 autocmd FileType markdown syntax sync fromstart   " Force a full file syntax computation when opening Markdown files.
 " autocmd FileType dustjs set textwidth=0           " Disable textwidth for dust template
+"
 " Align GitHub-flavored Markdown tables
 autocmd FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
 autocmd FileType html,hbs,liquid,njk,dust,scss,css,mustache,javascript EmmetInstall
-" Ease help browsing by adding Find next/previous subject
-" autocmd! FileType help nnoremap <silent> <buffer> <Tab> /\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
-" autocmd! FileType help nnoremap <silent> <buffer> <S-Tab> ?\|\zs\S\+\ze\|<CR>:set nohlsearch<CR>
 
 " Create file when if it does not exist for scss files
 autocmd! FileType scss nnoremap <silent> <buffer> <leader>gf :exe 'e '.expand('%:h').'/_'.expand('<cfile>').'.scss'<CR>
@@ -160,35 +121,15 @@ autocmd! FileType scss nnoremap <silent> <buffer> <leader>gf :exe 'e '.expand('%
 autocmd VimResized * wincmd =
 
 
-autocmd BufNewFile,BufRead *.md set filetype=markdown         " Markdown also starts with .md
+autocmd BufNewFile,BufRead *.md setlocal filetype=markdown         " Markdown also starts with .md
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80         " Force the cursor onto a new line after 80 characters.
-autocmd BufNewFile,BufRead *.hbs,*.mustache set filetype=html " Handlebars/mustache template to be considered as html
-
-" Call checktime
-" - *once* after 'updatetime' (250ms) without doing anything
-" - and then when hitting a key after the hold
-"
-" https://gist.github.com/j-manu/840172
-" https://www.reddit.com/r/vim/comments/29iq9s/vim_detecting_changes_on_disk/
-autocmd CursorHold,CursorHoldI * checktime
-
-" Give feedback that file has change.
-autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+autocmd BufNewFile,BufRead *.hbs,*.mustache setlocal filetype=html " Handlebars/mustache template to be considered as html
 
 
 " CoC autocommands
  
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" augroup mygroup
-"   autocmd!
-"   " Setup formatexpr specified filetype(s).
-"   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"   " Update signature help on jump placeholder
-"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" augroup end
 
 augroup SearchHighlight
 au!
@@ -202,31 +143,6 @@ augroup end
 " COMMANDS
 " ========
 
-" fzf commands
-"
-" Augmenting Ag command using fzf#vim#with_preview function
-"   * fzf#vim#with_preview([[options], [preview window], [toggle keys...]])
-"     * For syntax-highlighting, Ruby and any of the following tools are required:
-"       - Bat: https://github.com/sharkdp/bat
-"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
-"       - CodeRay: http://coderay.rubychan.de/
-"       - Rouge: https://github.com/jneen/rouge
-"
-"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
-"   :Ag! - Start fzf in fullscreen and display the preview window above
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \                 <bang>0)
-" Likewise, Files command with preview window
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
 " CoC commands
 "
 " Use `:Format` to format current buffer
@@ -234,3 +150,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " use `:OR` for organize import of current buffer
 " command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
