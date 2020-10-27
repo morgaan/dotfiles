@@ -49,7 +49,6 @@ let g:vimwiki_list = [{'path': '~/notebook/',
 let g:vimwiki_global_ext = 0
 
 
-
 " PLUGINS
 " =======
 
@@ -129,20 +128,6 @@ function MyVimEnter()
     endif
 
     return
-endfunction
-
-function! MyStatusLine()
-  let winNumber = '[w%{winnr()}|b%n]'
-  let currentFile = '%f%'
-  let isModified = "<%{&modified ? '[Unsaved] ' : !&modifiable ? '[RO] ' : '[Saved]'}"
-  let gitBranch = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
-  let seperator = ' %= '
-  let fileType  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
-  let cursorPosition = '%-12(%l:%c%V%)'
-  let percentageThrough = '|%P'
-  " Add status line support, for integration with other plugin, checkout `:h coc-status`
-  let cocStatus = "%{coc#status()}%{get(b:,'coc_current_function','')}"
-  return winNumber.currentFile.isModified.gitBranch.seperator.fileType.cursorPosition.percentageThrough.seperator.cocStatus
 endfunction
 
 " fzf functions
@@ -241,6 +226,9 @@ set shiftround
 " Italicised comments and attributes.
 highlight Comment cterm=italic gui=italic guifg=#5f87df
 highlight htmlArg cterm=italic gui=italic guifg=#af8700
+
+highlight StatuslineFilename cterm=bold ctermfg=136 gui=bold guifg=#b58900
+highlight StatuslineCustom ctermfg=252 ctermbg=238 guifg=#D9D9D9 guibg=#565656
 
 
 
@@ -393,7 +381,23 @@ command! DeleteBuffers call fzf#run(fzf#wrap({
 
 
 
-" MISC
-" ====
+" STATUSLINE
+" ==========
  
-let &statusline = MyStatusLine()
+" Preview
+" -------------------------------------------------
+" W1・<vim>       master・☰ 98%・362,1  .vimrc [+]
+" -------------------------------------------------
+set statusline=%#StatuslineCustom#
+set statusline+=\ W%{winnr()}・
+set statusline+=%{len(&filetype)?'<'.&filetype.'>':''}
+set statusline+=%=
+set statusline+=%{exists('g:loaded_fugitive')&&len(FugitiveHead())?'\ '.FugitiveHead():''}
+set statusline+=・☰\ 
+set statusline+=%P・
+set statusline+=%l,
+set statusline+=%c
+set statusline+=\ 
+set statusline+=%#StatuslineFilename#
+set statusline+=\ %t\ 
+set statusline+=%#ErrorMsg#%m 
