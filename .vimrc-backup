@@ -117,12 +117,6 @@ autocmd FileType html,hbs,liquid,njk,dust,scss,css,mustache,javascript EmmetInst
 " Create file when if it does not exist for scss files
 autocmd! FileType scss nnoremap <silent> <buffer> <leader>gf :exe 'e '.expand('%:h').'/_'.expand('<cfile>').'.scss'<CR>
 
-" Automatically equalize splits when Vim is resized.
-autocmd VimResized * wincmd =
-
-
-autocmd BufNewFile,BufRead *.md setlocal filetype=markdown         " Markdown also starts with .md
-autocmd BufNewFile,BufRead *.md setlocal textwidth=80         " Force the cursor onto a new line after 80 characters.
 autocmd BufNewFile,BufRead *.hbs,*.mustache setlocal filetype=html " Handlebars/mustache template to be considered as html
 
 
