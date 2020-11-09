@@ -150,3 +150,11 @@ $ brew install the_silver_searcher
 Used by vim fzf preview to render syntax highlighting
 
 [bat](https://github.com/sharkdp/bat), A cat(1) clone with wings. `brew install bat`.
+
+## Reattach to user namespace wrapper
+
+Connects tmux to the OS X clipboard service. Useful for copy mode.
+
+```
+brew install reattach-to-user-namespace
+```
