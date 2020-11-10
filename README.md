@@ -158,3 +158,20 @@ Connects tmux to the OS X clipboard service. Useful for copy mode.
 ```
 brew install reattach-to-user-namespace
 ```
+
+## Remap caps lock to Ctrl if combined with key
+
+In case of keyboard layout issue like this one:
+https://github.com/pqrs-org/Karabiner-Elements/issues/1426#issuecomment-395700840
+follow the instructions there.
+
+Make sure that all keyboards in System Preferences have `Caps lock` key mapped
+to `Caps lock` key.
+
+Hopefully the install script manage to copy the `custom-capslock.json` file to
+Karabiner config folder. If not cherry pick the commands from the `install.sh`
+file.
+
+In Karabiner go to `Complex Modification` and use the `Add rule` button. You
+should see the `Change caps_lock to control if pressed...`. Enable it. Update
+the value, in `Parameters` tab of `to_if_alone_timeout_milliseconds` to 500.
