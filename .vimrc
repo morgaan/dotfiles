@@ -80,6 +80,7 @@ Plug 'mattn/emmet-vim'
 " -----------------------
 
 Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/syntastic'
 
 " Buffer management
 " -----------------
