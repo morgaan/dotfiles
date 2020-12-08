@@ -35,6 +35,12 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ ]
 
+" Syntastic
+let g:syntastic_sass_checkers=["sasslint"]
+let g:syntastic_scss_checkers=["sasslint"]
+" Add below variable in a local .vimrc
+" let g:sass_lint_config = '/path/to/.sass-lint.yml'
+
 " markdown-preview
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
@@ -81,6 +87,7 @@ Plug 'mattn/emmet-vim'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/syntastic'
+Plug 'gcorne/vim-sass-lint'
 
 " Buffer management
 " -----------------
