@@ -381,7 +381,7 @@ nmap <Leader>wb :VimwikiGoBackLink<CR>
 autocmd VimEnter * nested call MyVimEnter()
 
 " Outside vim file changes tracking
-autocmd CursorHold,CursorHoldI * checktime
+autocmd CursorHold,CursorHoldI * silent! checktime
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
