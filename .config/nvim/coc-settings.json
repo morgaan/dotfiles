@@ -1,0 +1,15 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["javascript"],
+  "prettier.arrowParens": "avoid",
+  "prettier.bracketSpacing": false,
+  "prettier.htmlWhitespaceSensitivity": "css",
+  "prettier.jsxBracketSameLine": false,
+  "prettier.jsxSingleQuote": false,
+  "prettier.printWidth": 80,
+  "prettier.proseWrap": "preserve",
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.tabWidth": 1,
+  "prettier.trailingComma": "es5",
+  "prettier.useTabs": true
+}

@@ -19,6 +19,7 @@ mkdir -p .config/coc
 ln -s ~/dotfiles/.config/coc/ultisnips .config/coc/ultisnips
 mkdir -p .config/nvim
 ln -s ~/dotfiles/.config/nvim/init.vim .config/nvim/init.vim
+ln -s ~/dotfiles/.config/nvim/coc-settings.json .config/nvim/coc-settings.json
 ln -s ~/dotfiles/.vimrc .vimrc
 ln -s ~/dotfiles/.ctags .ctags
 ln -s ~/dotfiles/.tmux .tmux
