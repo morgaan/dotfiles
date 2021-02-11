@@ -10,6 +10,6 @@
   "prettier.semi": true,
   "prettier.singleQuote": true,
   "prettier.tabWidth": 1,
-  "prettier.trailingComma": "es5",
+  "prettier.trailingComma": "none",
   "prettier.useTabs": true
 }
