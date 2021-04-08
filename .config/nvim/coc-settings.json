@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["javascript"],
+  "coc.preferences.formatOnSaveFiletypes": [],
   "prettier.arrowParens": "avoid",
   "prettier.bracketSpacing": false,
   "prettier.htmlWhitespaceSensitivity": "css",
