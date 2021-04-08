@@ -353,6 +353,11 @@ nnoremap <leader>pr :CocSearch <C-R>=expand('<cword>')<CR><CR>
 " Fix autofix problem of current line
 nmap <leader>af  <Plug>(coc-fix-current)
 
+" CoC snippets mappings
+" ---------------------
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
 
 " vim-easy-align mappings
 " -----------------------
