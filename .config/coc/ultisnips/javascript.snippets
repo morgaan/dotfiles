@@ -38,20 +38,12 @@ snippet cl` "Console.log" b
 console.log(`$0`);
 endsnippet
 
-snippet d$ "doc.querySelector" b
-document.querySelector(${1:'$0'});
+snippet $ "querySelector" b
+${1:document}.querySelector('${0:selector}');
 endsnippet
 
-snippet d$$ "doc.querySelectorAll" b
-document.querySelectorAll($1);
-endsnippet
-
-snippet e$ "querySelector" b
-querySelector($1);
-endsnippet
-
-snippet e$$ "querySelectorAll" b
-querySelectorAll($1);
+snippet $$ "querySelectorAll" b
+${1:document}.querySelectorAll('${0:selector}');
 endsnippet
 
 
