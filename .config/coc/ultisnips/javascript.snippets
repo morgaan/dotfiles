@@ -23,34 +23,43 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
-snippet clog "Console.log" b
+
+# Vanilla
+# -------
+snippet cl "Console.log" b
 console.log($0);
 endsnippet
 
-snippet clog' "Console.log" b
+snippet cl' "Console.log" b
 console.log('$0');
 endsnippet
 
-snippet clog` "Console.log" b
+snippet cl` "Console.log" b
 console.log(`$0`);
 endsnippet
 
-snippet dqs "doc.querySelector" b
+snippet d$ "doc.querySelector" b
 document.querySelector(${1:'$0'});
 endsnippet
 
-snippet dqsa "doc.querySelectorAll" b
+snippet d$$ "doc.querySelectorAll" b
 document.querySelectorAll($1);
 endsnippet
 
-snippet qs "querySelector" b
+snippet e$ "querySelector" b
 querySelector($1);
 endsnippet
 
-snippet qsa "querySelectorAll" b
+snippet e$$ "querySelectorAll" b
 querySelectorAll($1);
 endsnippet
 
+
+
+
+
+# JEST
+# ----
 snippet jdes "Describe (jest)"
 describe('${1:description}', () => {
 	$0
