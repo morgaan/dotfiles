@@ -367,6 +367,9 @@ nmap <leader>af  <Plug>(coc-fix-current)
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 
+" Use <C-j> for trigger snippet expand.
+vmap <C-l> <Plug>(coc-snippets-select)
+
 " vim-easy-align mappings
 " -----------------------
 
