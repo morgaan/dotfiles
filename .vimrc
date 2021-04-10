@@ -428,6 +428,14 @@ command! DeleteBuffers call fzf#run(fzf#wrap({
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
 
+" formatting commands
+" -------------------
+
+command! -range=% -nargs=0 Tabs2SpacesOfTwo execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*2)'
+command! -range=% -nargs=0 SpacesOfTwo2Tabs execute '<line1>,<line2>s#^\( \{2\}\)\+#\=repeat("\t", len(submatch(0))/2)'
+command! -range=% -nargs=0 Tabs2SpacesOfFour execute '<line1>,<line2>s#^\t\+#\=repeat(" ", len(submatch(0))*4)'
+command! -range=% -nargs=0 SpacesOfFour2Tabs execute '<line1>,<line2>s#^\( \{4\}\)\+#\=repeat("\t", len(submatch(0))/4)'
+
 
 
 
