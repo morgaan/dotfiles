@@ -99,6 +99,7 @@ Plug 'jimmyhchan/dustjs.vim', { 'for': 'dust' }
 Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
+Plug 'udalov/kotlin-vim'
 
 " Syntax checkers/linters
 " -----------------------
@@ -335,7 +336,7 @@ nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . 
 nnoremap gcp :let @+=@%<CR>
 
 " Open active buffer's folder in netrw.
-nnoremap <silent> -- :Lex %:p:h<CR>:set winfixwidth!<CR>
+nnoremap <silent> -- :20Lex %:p:h<CR>:set winfixwidth!<CR>
 
 nnoremap [s i<Space><Esc>l
 nnoremap ]s a<Space><Esc>h
