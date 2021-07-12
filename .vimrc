@@ -158,6 +158,16 @@ function MyVimEnter()
     return
 endfunction
 
+" netrw functions
+" -------------
+
+function NetrwMappings()
+	nnoremap <buffer> <C-h> :wincmd h<cr>
+	nnoremap <buffer> <C-j> :wincmd j<cr>
+	nnoremap <buffer> <C-k> :wincmd k<cr>
+	nnoremap <buffer> <C-l> :wincmd l<cr>
+endfunction
+
 " fzf functions
 " -------------
 
@@ -420,6 +430,12 @@ autocmd VimResized * wincmd =
 
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead *.md setlocal textwidth=80
+
+" netrw
+augroup netrw_mappings
+  autocmd!
+  autocmd filetype netrw call NetrwMappings()
+augroup END
 
 " emmet-vim
 autocmd FileType html,hbs,css,scss EmmetInstall
