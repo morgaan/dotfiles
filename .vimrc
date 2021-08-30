@@ -123,6 +123,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'romainl/vim-cool'
 
 " Extensions
