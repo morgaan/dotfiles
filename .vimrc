@@ -346,6 +346,9 @@ nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . 
 " Copy current file path to clipboard.
 nnoremap gcp :let @+=@%<CR>
 
+" Copy current git branch to clipboard.
+nnoremap <leader>cb :!git cp<CR><CR>
+
 " Open active buffer's folder in netrw.
 nnoremap <silent> -- :20Lex %:p:h<CR>:set winfixwidth!<CR>
 
