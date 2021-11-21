@@ -406,8 +406,9 @@ vmap <C-l> <Plug>(coc-snippets-select)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" vimwiki mappings
-nmap <Leader>wb :VimwikiGoBackLink<CR>
+" VimWiki
+" -------
+vmap <leader><leader> ygv<CR>%la./<esc>f)i.md<esc>mmvi)gugv:s/\%V /-/ge<CR>:w<CR>gv<esc><CR>i# <C-r>"<CR><CR><esc>:w<CR>i
 
 
 
