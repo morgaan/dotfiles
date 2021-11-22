@@ -68,7 +68,7 @@ let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_install_global = 0
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/notebook/',
+let g:vimwiki_list = [{'path': '~/notebook/notes',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
