@@ -111,19 +111,16 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 # Notebook syncing
 notes () {
-  local notes_dir="$HOME/notebook"
+  local notes_dir="$HOME/notebook/notes"
   case "$1" in
     h)
-      printf "%s\n" "h: Help" "d: Change [d]irectory to notes folder" "i: Open wiki [i]ndex in vim" "j: Open wiki [j]ournal(diary) index in vim" "p: [p]ersist: Stage, commit, push latest changes to git and sync to Dropbox" "f: [f]etch: Pull from git and sync to Dropbox"  
+      printf "%s\n" "h: Help" "d: Change [d]irectory to notes folder" "i: Open wiki [i]ndex in vim" "p: [p]ersist: Stage, commit, push latest changes to git and sync to Dropbox" "f: [f]etch: Pull from git and sync to Dropbox"  
       ;;
     d)
       cd "$notes_dir/"
       ;;
     i)
       vim "$notes_dir/index.md"
-      ;;
-    j)
-      vim "$notes_dir/diary/diary.md"
       ;;
     p)
       pushd "$notes_dir"
