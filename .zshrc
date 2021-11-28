@@ -114,7 +114,7 @@ notes () {
   local notes_dir="$HOME/notebook/notes"
   case "$1" in
     h)
-      printf "%s\n" "h: Help" "d: Change [d]irectory to notes folder" "i: Open wiki [i]ndex in vim" "p: [p]ersist: Stage, commit, push latest changes to git and sync to Dropbox" "f: [f]etch: Pull from git and sync to Dropbox"  
+      printf "%s\n" "h: Help" "d: Change [d]irectory to notes folder" "i: Open wiki [i]ndex in vim" "p: [p]ersist: Stage, commit, push latest changes to git" "f: [f]etch: Pull from git"  
       ;;
     d)
       cd "$notes_dir/"
@@ -128,17 +128,12 @@ notes () {
       git add .
       git commit -m "$msg"
       git push origin master
-      notes s
       popd
       ;;
     f)
       pushd "$notes_dir"
       git pull origin master
-      notes s
       popd
-      ;;
-    s)
-      rsync -av --progress "$notes_dir" "$HOME/Dropbox" --exclude ".git"
       ;;
   esac
 }
