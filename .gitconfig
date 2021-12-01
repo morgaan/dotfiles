@@ -17,3 +17,5 @@
 [diff]
   tool = vimdiff
   keepBackup = false
+[pull]
+	rebase = false
