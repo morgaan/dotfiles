@@ -20,8 +20,6 @@ $ mkdir ~/.vim-backupdir
 $ mkdir ~/.vim-directory
 ```
 
-Once vim open execute: `:PlugInstall`
-
 ## Install zsh
 
 ```
@@ -45,6 +43,18 @@ $ source ~/.zshrc
 ```
 $ brew install z
 ```
+
+## Install nvm
+
+```
+$ brew install nvm
+```
+
+```
+$ mkdir ~/.nvm
+```
+
+Install a node version you need on the current machine
 
 ## Iterm2
 
@@ -70,41 +80,9 @@ Under the Text tab change the font for each type (Regular and Non-ASCII) to ‘I
 This is happening because you have italics enabled, but some combination of your iTerm2 reported terminal type and terminfo database is causing italics to be displayed incorrectly.
 
 1. In iTerm2 preferences, on the “Terminal” tab, for the “Report Terminal Type:” setting, select “xtern-256color” if it’s not already selected
-2. Create a file somewhere on disk with the following contents:
-
-        xterm-256color|xterm with 256 colors and italic,
-          sitm=\E[3m, ritm=\E[23m,
-          use=xterm-256color,
-3. In a shell, run tic path/to/the/file/you/just/made
-4. Quit and restart iTerm2
-5. Vim should now display italics properly
-
-## Install Neovim (nvim)
-
-```
-$ brew install neovim/neovim/neovim
-```
-
-The following alias is set into `.zshrc`
-```
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-fi
-```
-allows to map `vim` to be `nvim`
-
-Run `:checkhealth` to figure out what are the missing providers.
-
-Among the command to turn all OK are:
-
-```
-npm install -g neovim
-brew install python@2
-python2 -m pip install --user --upgrade pynvim
-brew install python@3
-python3 -m pip install --user --upgrade pynvim
-gem install neovim
-```
+2. In a shell, run tic ~/dotfiles/iTerm2Fix
+3. Quit and restart iTerm2
+4. Vim should now display italics properly
 
 ## Install ripgrep (required for CocSearch)
 
@@ -112,7 +90,7 @@ gem install neovim
 brew install ripgrep
 ```
 
-## Install ctags
+## Install ctags (Optional now that we have CoC)
 
 ```
 $ brew install ctags
@@ -151,12 +129,31 @@ Used by vim fzf preview to render syntax highlighting
 
 [bat](https://github.com/sharkdp/bat), A cat(1) clone with wings. `brew install bat`.
 
-## Reattach to user namespace wrapper
-
-Connects tmux to the OS X clipboard service. Useful for copy mode.
+## Install Neovim (nvim)
 
 ```
-brew install reattach-to-user-namespace
+$ brew install neovim
+```
+
+Run `:checkhealth` to figure out what are the missing providers.
+
+Among the command to turn all OK are:
+
+```
+npm install -g neovim
+brew install python@3
+python3 -m pip install --user --upgrade pynvim
+gem install neovim
+```
+
+## Install Vim plugins
+
+Once vim open execute: `:PlugInstall`
+
+## Install tmux
+
+```
+$ brew install tmux
 ```
 
 ## Remap caps lock to Ctrl if combined with key
@@ -175,3 +172,11 @@ file.
 In Karabiner go to `Complex Modification` and use the `Add rule` button. You
 should see the `Change caps_lock to control if pressed...`. Enable it. Update
 the value, in `Parameters` tab of `to_if_alone_timeout_milliseconds` to 500.
+
+## Reattach to user namespace wrapper
+
+Connects tmux to the OS X clipboard service. Useful for copy mode.
+
+```
+brew install reattach-to-user-namespace
+```
