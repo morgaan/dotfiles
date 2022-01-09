@@ -6,6 +6,7 @@
 	co = checkout
 	br = branch
 	ci = commit
+	pu = push
 	st = status
 	pf = push --force-with-lease
 	visual = !gitk
