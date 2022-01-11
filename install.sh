@@ -14,6 +14,7 @@ rm -f .gitignore
 rm -f .gitconfig
 rm -f .git_template
 rm -f copy-git-branch-to-clipboard.sh
+rm -f git-clone-bare-for-worktrees.sh
 
 ln -s ~/dotfiles/.vim .vim
 mkdir -p .config/coc
@@ -33,4 +34,5 @@ ln -s ~/dotfiles/.gitignore .gitignore
 ln -s ~/dotfiles/.gitconfig .gitconfig
 ln -s ~/dotfiles/.git_template .git_template
 ln -s ~/dotfiles/copy-git-branch-to-clipboard.sh copy-git-branch-to-clipboard.sh
+ln -s ~/dotfiles/git-clone-bare-for-worktrees.sh git-clone-bare-for-worktrees.sh
 

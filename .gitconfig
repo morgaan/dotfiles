@@ -3,6 +3,7 @@
 	email = morgaan@gmail.com
 [alias]
 	cp = "!sh $HOME/copy-git-branch-to-clipboard.sh"
+	clone-for-worktrees = "!sh $HOME/git-clone-bare-for-worktrees.sh"
 	co = checkout
 	br = branch
 	ci = commit
