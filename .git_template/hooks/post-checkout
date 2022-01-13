@@ -1,2 +1,16 @@
 #!/bin/sh
 .git/hooks/ctags >/dev/null 2>&1 &
+
+if [ -f "package-lock.json" ];
+then 
+	if [ -f "sample.env" ];
+	then 
+		cp sample.env .env
+	fi
+	if [ -f ".nvmrc" ];
+	then 
+		[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+		nvm use
+	fi
+	npm ci
+fi
