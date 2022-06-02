@@ -17,7 +17,7 @@ cd "$name"
 
 # Moves all the administrative git files (a.k.a $GIT_DIR) under .bare directory.
 #
-# Plan is to create worktree as siblings of this directory.
+# Plan is to create worktrees as siblings of this directory.
 # Example targeted structure:
 # .bare
 # main
