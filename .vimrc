@@ -101,6 +101,7 @@ Plug 'plasticboy/vim-markdown', { 'for': ['md', 'markdown'] }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 Plug 'udalov/kotlin-vim'
+Plug 'jparise/vim-graphql'
 
 " Syntax checkers/linters
 " -----------------------
