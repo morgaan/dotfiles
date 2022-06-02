@@ -137,3 +137,8 @@ notes () {
   esac
 }
 
+# Vim mode in the command line
+bindkey -v
+export KEYTIMEOUT=1
+# Bring back reverse history search in Vim mode
+bindkey "^R" history-incremental-search-backward
