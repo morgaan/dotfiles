@@ -21,6 +21,7 @@
 
 
 # Project specific
+--ignore-file=match:rollupCache
 --ignore-directory=is:frontend-toolkit/public
 --ignore-directory=is:website/public
 --ignore-directory=is:public/assets
