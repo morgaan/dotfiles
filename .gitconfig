@@ -16,6 +16,7 @@
 	excludesfile = ~/.gitignore
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [diff]
   tool = vimdiff
   keepBackup = false
