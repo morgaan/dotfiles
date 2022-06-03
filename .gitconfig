@@ -12,6 +12,10 @@
 	pf = push --force-with-lease
 	visual = !gitk
 	last = log -1 HEAD
+	wtl = worktree list
+	wtan = worktree add -b
+	wtar = worktree add --track -b
+	wtr = worktree remove
 [core]
 	excludesfile = ~/.gitignore
 [init]
