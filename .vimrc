@@ -128,6 +128,7 @@ Plug 'mileszs/ack.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'romainl/vim-cool'
+Plug 'travisjeffery/vim-gotosymbol'
 
 " Extensions
 " ----------
@@ -417,6 +418,9 @@ nmap ga <Plug>(EasyAlign)
 " -------
 vmap <leader><leader> ygv<CR>%la./<esc>f)i.md<esc>mmvi)gugv:s/\%V /-/ge<CR>:w<CR>gv<esc><CR>i# <C-r>"<CR><CR><esc>:w<CR>i
 
+" GotoSymbol
+" ----------
+nmap <leader>@ :GotoSymbol 
 
 
 
