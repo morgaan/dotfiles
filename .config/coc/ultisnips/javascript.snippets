@@ -24,86 +24,200 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
+# Check this for cherry picking Vanilla: https://github.com/honza/vim-snippets/blob/master/snippets/javascript/javascript.snippets
+# Check this for cherry picking Node: https://github.com/honza/vim-snippets/blob/master/snippets/javascript/javascript.node.snippets
+
 # Vanilla
 # -------
-snippet cl "Console.log" b
-console.log($0);
+
+# Functions
+snippet proto "Prototype method"
+${1:className}.prototype.${2:methodName} = function(${3:params}) {
+	${0:${VISUAL}}
+};
 endsnippet
 
-snippet cl' "Console.log" b
-console.log('$0');
+snippet fun "Function"
+function ${1:functionName}(${2:params}) {
+	${0:${VISUAL}}
+}
 endsnippet
 
-snippet cl` "Console.log" b
-console.log(`$0`);
+snippet asfun "Async function"
+async function ${1:functionName}(${2:params}) {
+	${0:${VISUAL}}
+}
 endsnippet
 
-snippet $ "querySelector" b
-${1:document}.querySelector('${0:selector}');
+snippet funexp "Function assigned to variable"
+var ${1:functionName} = function $1(${2:params}) {
+	${0:${VISUAL}}
+};
 endsnippet
 
-snippet $$ "querySelectorAll" b
-${1:document}.querySelectorAll('${0:selector}');
+snippet iife "IIFE"
+(function ${1:functionName}(${2:params}) {
+	${0:${VISUAL}}
+}(${3:args}));
 endsnippet
 
+# Flow control
+snippet if "if (condition) { ... }"
+if (${1:true}) {
+	${0:${VISUAL}}
+}
+endsnippet
 
+snippet ifelse "if (condition) { ... } else { ... }"
+if (${1:true}) {
+	${0:${VISUAL}}
+} else {
+	${2}
+}
+endsnippet
 
+snippet ternary "Ternary: `condition ? true : false`"
+$1 ? $2: $0
+endsnippet
 
+snippet switch
+switch (${1:expression}) {
+	case '${3:case}':
+		${4}
+		break;
+		${0}
+	default:
+		${2}
+}
+endsnippet
+
+snippet case "case 'xyz': ... break"
+case '${1:case}':
+	${0:${VISUAL}}
+	break;
+endsnippet
+
+snippet try "try { ... } catch(e) { ... }"
+	try {
+		${0:${VISUAL}}
+	} catch (${1:e}) {
+		${2:/* handle error */}
+	}
+endsnippet
+
+snippet tryf "try { ... } catch(e) { ... } finally { ... }"
+	try {
+		${0:${VISUAL}}
+	} catch (${1:e}) {
+		${2:/* handle error */}
+	} finally {
+		${3:/* be executed regardless of the try / catch result*/}
+	}
+endsnippet
+
+snippet throw "throw new Error..."
+	throw new Error('${1:error message}')
+endsnippet
+
+snippet ret "Return statement"
+	return ${0:result};
+endsnippet
+
+snippet for "for (...) {...}"
+	for (let ${1:i} = 0, ${2:len} = ${3:Things.length}; $1 < $2; $1++) {
+		${0:${VISUAL}}
+	}
+endsnippet
+
+snippet forr "reversed for (...) {...}"
+	for (let ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {
+		${0:${VISUAL}}
+	}
+endsnippet
+
+snippet while "(condition) { ... }"
+	while (${1:true}) {
+		${0:${VISUAL}}
+	}
+endsnippet
+
+snippet whiletrue "(true) { ... }"
+	while (true) {
+		${0:${VISUAL}}
+	}
+endsnippet
+
+snippet dowhile "do { ... } while (condition)"
+	do {
+		${0:${VISUAL}}
+	} while ($1);
+endsnippet
+
+snippet forin
+	for (let ${1:property} in ${2:objectInstance}) {
+		${0:$2[$1]}
+	}
+endsnippet
+
+snippet forof
+for (let ${1:item} of ${2:iterableInstance}) {
+	${0}
+}
+endsnippet
+
+snippet foreach
+${1:array}.forEach((${2:item}) => {
+	${0}
+})
+endsnippet
 
 # JSDOC
-# -----
-snippet /** "Function jsdoc" b
+snippet jsdoc "JSDOC block"
 /**
- * ${1:description}
- * $0
+ * ${0:description}
+ *
  */
 endsnippet
 
-snippet @par "Jsdoc param"
-@param {${1:type}} ${2:name} - ${0:description}
+snippet @par "JSDOC param"
+@param {${1:type}} ${2:name} ${0:description}
 endsnippet
 
-snippet @ret
-@returns {${1:type}} ${0:description}
+snippet @ret "JSDOC return"
+@return {${1:type}} ${0:description}
 endsnippet
 
-
-
-
-# JEST
-# ----
-snippet jdes "Describe (jest)"
-describe('${1:description}', () => {
-	$0
-});
+# Query selector
+snippet qs
+	${1:document}.querySelector('${0:CSS selector}')
 endsnippet
 
-snippet jit "it (jest)"
-it('${1:description}', () => {
-	$0
-});
+snippet qsa
+	${1:document}.querySelectorAll('${0:CSS selector}')
 endsnippet
 
-snippet jbefe "before each (jest)"
-beforeEach(() => {
-	$0
-});
+# Debugging
+snippet deb
+	debugger;
 endsnippet
 
-snippet jafte "after each (jest)"
-afterEach(() => {
-	$0
-});
+snippet cl "console.log"
+	console.log(${0});
 endsnippet
 
-snippet jbefa "before all (jest)"
-beforeAll(() => {
-	$0
-});
+snippet cd "console.debug"
+	console.debug(${0});
 endsnippet
 
-snippet jafta "after all (jest)"
-afterAll(() => {
-	$0
-});
+snippet ce "console.error"
+	console.error(${0});
 endsnippet
+
+snippet cw "console.warn"
+	console.warn(${0});
+endsnippet
+
+snippet ci "console.info"
+	console.info(${0});
+endsnippet
+
