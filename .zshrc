@@ -150,7 +150,7 @@ wt () {
 			git "wt$1" "$2" "$2"
 			;;
 		ar)
-			git "wt$1" "$2" "origin/$2"
+			git "wt$1" "$2" "$2" "origin/$2"
 			;;
 		r)
 			git "wt$1" "$2"
