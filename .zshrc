@@ -142,3 +142,18 @@ bindkey -v
 export KEYTIMEOUT=1
 # Bring back reverse history search in Vim mode
 bindkey "^R" history-incremental-search-backward
+
+# Shorter git worktree commands
+wt () {
+	case "$1" in
+		an)
+			git "wt$1" "$2" "$2"
+			;;
+		ar)
+			git "wt$1" "$2" "origin/$2"
+			;;
+		r)
+			git "wt$1" "$2"
+			;;
+	esac
+}
