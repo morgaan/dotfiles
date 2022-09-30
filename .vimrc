@@ -62,7 +62,7 @@ let g:syntastic_scss_checkers=["sasslint"]
 " markdown-preview
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
-let g:mkdp_browser = 'firefox'
+let g:mkdp_browser = 'Firefox Developer Edition'
 
 " emmet-vim
 let g:user_emmet_leader_key='<C-E>'
