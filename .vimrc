@@ -343,6 +343,7 @@ nnoremap <leader>0 :s/true/false/<CR>
 nnoremap <leader>h :nohl<CR>
 nmap <leader>l :set list!<CR>
 nnoremap <Leader>c :let &cole=(&cole == 2) ? 0 : 2 <bar> echo 'conceallevel ' . &cole <CR>
+nnoremap <leader>r :set relativenumber!<CR>
 
 " Copy current file path to clipboard.
 nnoremap gcp :let @+=@%<CR>
