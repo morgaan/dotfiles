@@ -221,3 +221,29 @@ snippet ci "console.info"
 	console.info(${0});
 endsnippet
 
+
+# Jest
+
+snippet jestdescflagon
+describe('⚑ ${1:flag} ON', () => {
+	${0:descImpl}
+});
+endsnippet
+
+snippet jestdescflagoff
+describe('⚑ ${1:flag} OFF', () => {
+	${0:descImpl}
+});
+endsnippet
+
+snippet jestdesc
+describe('${1:title}', () => {
+	${0:descImpl}
+});
+endsnippet
+
+snippet jestit
+it('${1:title}', () => {
+	${0:testImpl}
+});
+endsnippet
