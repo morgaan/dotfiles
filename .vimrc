@@ -352,7 +352,7 @@ nnoremap gcp :let @+=@%<CR>
 nnoremap <leader>cb :!git cp<CR><CR>
 
 " Open active buffer's folder in netrw.
-nnoremap <silent> -- :25Vex<CR>:set winfixwidth!<CR>
+nnoremap <silent> -- :Ex<CR>
 
 nnoremap [s i<Space><Esc>l
 nnoremap ]s a<Space><Esc>h
