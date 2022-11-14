@@ -354,6 +354,8 @@ nnoremap <leader>cb :!git cp<CR><CR>
 " Open active buffer's folder in netrw.
 nnoremap <silent> -- :Ex<CR>
 
+nnoremap <silent> =ie =<Plug>(textobj-entire-i)``zz
+
 nnoremap [s i<Space><Esc>l
 nnoremap ]s a<Space><Esc>h
 
