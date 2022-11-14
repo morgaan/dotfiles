@@ -155,5 +155,8 @@ wt () {
 		r)
 			git "wt$1" "$2"
 			;;
+		l)
+			git worktree list
+			;;
 	esac
 }
