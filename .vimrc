@@ -374,6 +374,10 @@ vnoremap K :m '<-2<CR>gv=gv
 cmap Qa qa
 cmap Wq wq
 
+" Notes (VimWiki) management
+" --------------------------
+nnoremap <leader>np :!notes p<CR>
+nnoremap <leader>nf :!notes f<CR>
 
 " CoC mappings
 " ------------
