@@ -432,6 +432,9 @@ nmap <leader>@ :GotoSymbol
 
 autocmd VimEnter * nested call MyVimEnter()
 
+" Use zsh rather
+autocmd vimenter * let &shell='/bin/zsh -i'
+
 " Outside vim file changes tracking
 autocmd CursorHold,CursorHoldI * silent! checktime
 autocmd FileChangedShellPost *
