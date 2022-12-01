@@ -335,7 +335,7 @@ nnoremap <leader>f :Ack! "
 vnoremap <leader>f y:Ack! "<C-R>"" --
 vnoremap <leader>/ y/\V\<<C-R>"\><CR>
 vnoremap <leader>? y?\V\<<C-R>"\><CR>
-nnoremap <leader>f :VWS 
+nnoremap <leader>ws :VWS 
 
 " Swap booleans.
 nnoremap <leader>1 :s/false/true/<CR>
