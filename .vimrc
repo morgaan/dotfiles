@@ -353,7 +353,9 @@ nnoremap gcp :let @+=@%<CR>
 nnoremap <leader>cb :!git cp<CR><CR>
 
 " Open active buffer's folder in netrw.
-nnoremap <silent> -- :20Lex %:p:h<CR>:set winfixwidth!<CR>
+nnoremap <silent> -- :Ex<CR>
+
+nnoremap <silent> =ie =<Plug>(textobj-entire-i)``zz
 
 nnoremap [s i<Space><Esc>l
 nnoremap ]s a<Space><Esc>h
