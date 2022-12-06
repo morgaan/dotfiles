@@ -70,7 +70,7 @@ let g:user_emmet_install_global = 0
 
 " vimwiki
 let g:vimwiki_list = [{'path': '~/notebook/notes',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+                      \ 'syntax': 'markdown', 'ext': '.md', 'links_space_char': '-'}]
 let g:vimwiki_global_ext = 0
 
 
