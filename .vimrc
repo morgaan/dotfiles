@@ -460,6 +460,9 @@ augroup END
 " emmet-vim
 autocmd FileType html,hbs,css,scss EmmetInstall
 
+" vimwiki
+autocmd BufRead */notebook/notes/index.md silent !notes f
+autocmd FileType vimwiki autocmd BufWritePost <buffer> silent !notes p
 
 
 
