@@ -39,6 +39,8 @@ return require('packer').startup(function(use)
 -- Buffer management
 -- -----------------
 
+  use('tpope/vim-eunuch')
+
 -- UI/UX Extensions
 -- ----------------
 
