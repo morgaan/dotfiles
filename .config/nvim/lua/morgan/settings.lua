@@ -31,6 +31,7 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.listchars = 'tab:>~,space:·,trail:·,eol:¬'
 vim.o.cursorline = true
+vim.cmd('set colorcolumn=+1')
 
 
 vim.cmd('colorscheme solarized')
