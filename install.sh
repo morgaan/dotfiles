@@ -16,13 +16,12 @@ rm -f .git_template
 rm -f copy-git-branch-to-clipboard.sh
 rm -f git-clone-bare-for-worktrees.sh
 
-ln -s ~/dotfiles/.vim .vim
 mkdir -p .config/coc
 ln -s ~/dotfiles/.config/coc/ultisnips .config/coc/ultisnips
 mkdir -p .config/nvim
-ln -s ~/dotfiles/.config/nvim/init.vim .config/nvim/init.vim
+ln -s ~/dotfiles/.config/nvim/init.lua .config/nvim/init.lua
+ln -s ~/dotfiles/.config/nvim/morgan .config/nvim/morgan
 ln -s ~/dotfiles/.config/nvim/coc-settings.json .config/nvim/coc-settings.json
-ln -s ~/dotfiles/.vimrc .vimrc
 ln -s ~/dotfiles/.ctags .ctags
 ln -s ~/dotfiles/.tmux .tmux
 ln -s ~/dotfiles/.tmux.conf .tmux.conf
