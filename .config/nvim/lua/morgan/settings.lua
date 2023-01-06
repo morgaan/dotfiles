@@ -37,5 +37,11 @@ vim.o.showmatch = true
 vim.o.omnifunc = 'syntaxcomplete#Complete'
 vim.o.guicursor = 'n-v-c-ci-i:block-Cursor-blinkwait1-blinkon150-blinkoff150'
 
+-- Don't offer to open certain files/folders
+vim.opt.wildignore:append{"*.bmp", "*.gif", "*.ico", "*.jpg", "*.png", "*.ico"}
+vim.opt.wildignore:append{"*.pdf", "*.psd"}
+vim.opt.wildignore:append{"*.map", "*.min.css", "*.min.css"}
+vim.opt.wildignore:append{"node_modules", "bower_components"}
+
 vim.cmd('colorscheme solarized')
 vim.o.background = 'dark'
