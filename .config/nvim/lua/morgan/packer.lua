@@ -13,7 +13,5 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
   
-  use {
-	  'ishan9299/nvim-solarized-lua'
-  }
+  use('ishan9299/nvim-solarized-lua')
 end)
