@@ -34,6 +34,7 @@ vim.o.cursorline = true
 vim.cmd('set colorcolumn=+1')
 vim.opt.guifont = {'Victor Mono', 'h16'}
 vim.o.showmatch = true
+vim.o.omnifunc = 'syntaxcomplete#Complete'
 
 vim.cmd('colorscheme solarized')
 vim.o.background = 'dark'
