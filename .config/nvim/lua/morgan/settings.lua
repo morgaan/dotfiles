@@ -32,6 +32,7 @@ vim.o.splitbelow = true
 vim.o.listchars = 'tab:>~,space:·,trail:·,eol:¬'
 vim.o.cursorline = true
 vim.cmd('set colorcolumn=+1')
+vim.opt.guifont = {'Victor Mono', 'h16'}
 
 
 vim.cmd('colorscheme solarized')
