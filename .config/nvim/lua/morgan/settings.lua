@@ -25,6 +25,7 @@ vim.o.exrc = true
 
 vim.o.termguicolors = true
 vim.o.title = true
+vim.o.laststatus = 2
 
 vim.cmd('colorscheme solarized')
 vim.o.background = 'dark'
