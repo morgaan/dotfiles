@@ -6,6 +6,7 @@ vim.o.encoding = 'utf-8'
 vim.o.backspace = 'indent,eol,start'
 vim.o.hidden = true
 vim.o.history = 1000
+vim.o.exrc = true
 
 -- Indentation
 -- -----------
