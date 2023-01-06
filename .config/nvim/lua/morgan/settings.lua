@@ -29,6 +29,7 @@ vim.o.laststatus = 2
 vim.o.number = true
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.listchars = 'tab:>~,space:·,trail:·,eol:¬'
 
 vim.cmd('colorscheme solarized')
 vim.o.background = 'dark'
