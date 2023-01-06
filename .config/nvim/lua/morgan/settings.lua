@@ -30,6 +30,8 @@ vim.o.number = true
 vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.listchars = 'tab:>~,space:·,trail:·,eol:¬'
+vim.o.cursorline = true
+
 
 vim.cmd('colorscheme solarized')
 vim.o.background = 'dark'
