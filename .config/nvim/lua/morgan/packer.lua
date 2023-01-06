@@ -20,6 +20,12 @@ return require('packer').startup(function(use)
 
 -- Language support/syntax highlighting
 -- ------------------------------------
+
+  use{
+	  'preservim/vim-markdown',
+	  requires = {'godlygeek/tabular'},
+	  ft = {'markdown', 'md'}
+  }
   
 -- Syntax checkers/linters
 -- -----------------------
