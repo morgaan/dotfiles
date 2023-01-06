@@ -23,4 +23,6 @@ return require('packer').startup(function(use)
   use('ishan9299/nvim-solarized-lua')
   use('tpope/vim-fugitive')
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+
+  use('tpope/vim-unimpaired')
 end)
