@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
   
   use('kana/vim-textobj-user')
   use('kana/vim-textobj-entire')
+  use('kana/vim-textobj-line')
   use('ishan9299/nvim-solarized-lua')
   use('tpope/vim-fugitive')
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
