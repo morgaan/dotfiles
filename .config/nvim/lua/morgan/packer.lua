@@ -12,5 +12,8 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-
+  
+  use {
+	  'ishan9299/nvim-solarized-lua'
+  }
 end)
