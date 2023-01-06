@@ -1,1 +1,1 @@
-
+require('morgan.remap')
