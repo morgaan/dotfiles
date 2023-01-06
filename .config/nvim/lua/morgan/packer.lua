@@ -7,12 +7,6 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
 -- Text objects
 -- ------------
   
@@ -37,6 +31,11 @@ return require('packer').startup(function(use)
 -- ----------------
 
   use('ishan9299/nvim-solarized-lua')
+  use {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+	  -- or                            , branch = '0.1.x',
+	  requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use('tpope/vim-fugitive')
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
