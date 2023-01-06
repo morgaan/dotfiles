@@ -34,6 +34,8 @@ return require('packer').startup(function(use)
 -- Syntax checkers/linters
 -- -----------------------
 
+  use('editorconfig/editorconfig-vim')
+
 -- Buffer management
 -- -----------------
 
