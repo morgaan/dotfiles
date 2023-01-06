@@ -33,7 +33,7 @@ vim.o.listchars = 'tab:>~,space:·,trail:·,eol:¬'
 vim.o.cursorline = true
 vim.cmd('set colorcolumn=+1')
 vim.opt.guifont = {'Victor Mono', 'h16'}
-
+vim.o.showmatch = true
 
 vim.cmd('colorscheme solarized')
 vim.o.background = 'dark'
