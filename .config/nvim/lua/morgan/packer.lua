@@ -26,6 +26,10 @@ return require('packer').startup(function(use)
 	  requires = {'godlygeek/tabular'},
 	  ft = {'markdown', 'md'}
   }
+  use{
+	  'mustache/vim-mustache-handlebars',
+	  ft = {'mustache', 'hbs'}
+  }
   
 -- Syntax checkers/linters
 -- -----------------------
