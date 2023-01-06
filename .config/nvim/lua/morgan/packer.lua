@@ -29,4 +29,6 @@ return require('packer').startup(function(use)
   use('tpope/vim-commentary')
   use('tpope/vim-repeat')
   use('junegunn/vim-easy-align')
+
+  use('vimwiki/vimwiki')
 end)
