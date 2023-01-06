@@ -43,5 +43,10 @@ vim.opt.wildignore:append{"*.pdf", "*.psd"}
 vim.opt.wildignore:append{"*.map", "*.min.css", "*.min.css"}
 vim.opt.wildignore:append{"node_modules", "bower_components"}
 
+-- Outside vim file changes tracking
+vim.o.updatetime = 250
+vim.o.autoread = true
+
+
 vim.cmd('colorscheme solarized')
 vim.o.background = 'dark'
