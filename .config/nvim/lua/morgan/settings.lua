@@ -1,6 +1,7 @@
 -- General configuration
 -- ---------------------
 
+vim.api.nvim_exec('language en_US.utf-8', true)
 
 -- Indentation
 -- -----------
