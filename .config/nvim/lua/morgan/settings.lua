@@ -26,6 +26,10 @@ vim.o.smartcase = true
 -- Swap and backup file strategy
 -- -----------------------------
 
+vim.o.directory = os.getenv("HOME") .. "/.vim-directory//"
+vim.o.backup = false
+vim.o.writebackup = false
+
 
 -- User Interface
 -- --------------
