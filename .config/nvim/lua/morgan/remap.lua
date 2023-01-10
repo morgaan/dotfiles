@@ -14,4 +14,10 @@ vim.keymap.set('', '<C-j>', '<C-w>j')
 vim.keymap.set('', '<C-k>', '<C-w>k')
 vim.keymap.set('', '<C-l>', '<C-w>l')
 
+-- <S-arrow> to resize splits (not optimal yet).
+vim.keymap.set('n', '<S-right>', '<cmd>vertical resize +2<CR>')
+vim.keymap.set('n', '<S-left>', '<cmd>vertical resize -2<CR>')
+vim.keymap.set('n', '<S-down>', '<cmd>resize -2<CR>')
+vim.keymap.set('n', '<S-up>', '<cmd>resize +2<CR>')
+
 vim.keymap.set('n', '<leader>gs', '<cmd>Ge :<CR>')
