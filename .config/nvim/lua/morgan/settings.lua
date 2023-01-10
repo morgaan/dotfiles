@@ -21,6 +21,7 @@ vim.o.shiftround = true
 -- ------
 
 vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Swap and backup file strategy
 -- -----------------------------
