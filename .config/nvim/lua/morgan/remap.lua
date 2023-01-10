@@ -29,6 +29,8 @@ vim.keymap.set('n', '<leader>gs', '<cmd>Ge :<CR>')
 vim.keymap.set('n', '<leader>1', '<cmd>s/false/true/<CR>')
 vim.keymap.set('n', '<leader>0', '<cmd>s/true/false/<CR>')
 
+vim.keymap.set('n', '<leader>l', '<cmd>set list!<CR>', {remap = true})
+
 -- Copy current git branch to clipboard.
 vim.keymap.set('n', '<leader>cb', '<cmd>!git cp<CR><CR>')
 
