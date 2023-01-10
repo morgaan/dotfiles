@@ -20,6 +20,7 @@ vim.o.shiftround = true
 -- Search
 -- ------
 
+vim.o.ignorecase = true
 
 -- Swap and backup file strategy
 -- -----------------------------
