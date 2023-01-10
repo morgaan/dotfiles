@@ -31,3 +31,11 @@ vim.keymap.set('n', '<leader>cb', '<cmd>!git cp<CR><CR>')
 
 vim.keymap.set('n', '[s', 'i<Space><Esc>l')
 vim.keymap.set('n', ']s', 'a<Space><Esc>h')
+
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', ']q', '<cmd>cn<CR>zz', {remap = true})
+vim.keymap.set('n', '[q', '<cmd>cN<CR>zz', {remap = true})
+vim.keymap.set('n', '=ie', '=<Plug>(textobj-entire-i)``zz', {silent = true})
