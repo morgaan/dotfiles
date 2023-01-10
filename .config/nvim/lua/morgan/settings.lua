@@ -11,6 +11,7 @@ vim.o.exrc = true
 -- Indentation
 -- -----------
 
+vim.o.noexpandtab = true
 
 -- Search
 -- ------
