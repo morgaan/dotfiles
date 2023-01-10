@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
 	  'iamcco/markdown-preview.nvim',
 	  run = 'cd app & npm install'
   }
+  use('romainl/vim-cool')
 
 
 -- Extensions
