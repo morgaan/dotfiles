@@ -25,3 +25,6 @@ vim.keymap.set('n', '<leader>gs', '<cmd>Ge :<CR>')
 -- Swap booleans.
 vim.keymap.set('n', '<leader>1', '<cmd>s/false/true/<CR>')
 vim.keymap.set('n', '<leader>0', '<cmd>s/true/false/<CR>')
+
+-- Copy current git branch to clipboard.
+vim.keymap.set('n', '<leader>cb', '<cmd>!git cp<CR><CR>')
