@@ -28,3 +28,6 @@ vim.keymap.set('n', '<leader>0', '<cmd>s/true/false/<CR>')
 
 -- Copy current git branch to clipboard.
 vim.keymap.set('n', '<leader>cb', '<cmd>!git cp<CR><CR>')
+
+vim.keymap.set('n', '[s', 'i<Space><Esc>l')
+vim.keymap.set('n', ']s', 'a<Space><Esc>h')
