@@ -12,6 +12,7 @@ vim.o.exrc = true
 -- -----------
 
 vim.o.noexpandtab = true
+vim.o.tabstop = 4
 
 -- Search
 -- ------
