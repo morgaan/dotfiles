@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 
 vim.keymap.set('n', '--', vim.cmd.Ex)
 
+-- Copy current file path to clipboard.
+vim.keymap.set('n', 'gcp', '<cmd>let @+=@%<CR>')
+
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
