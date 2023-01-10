@@ -21,3 +21,7 @@ vim.keymap.set('n', '<S-down>', '<cmd>resize -2<CR>')
 vim.keymap.set('n', '<S-up>', '<cmd>resize +2<CR>')
 
 vim.keymap.set('n', '<leader>gs', '<cmd>Ge :<CR>')
+
+-- Swap booleans.
+vim.keymap.set('n', '<leader>1', '<cmd>s/false/true/<CR>')
+vim.keymap.set('n', '<leader>0', '<cmd>s/true/false/<CR>')
