@@ -44,3 +44,13 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', ']q', '<cmd>cn<CR>zz', {remap = true})
 vim.keymap.set('n', '[q', '<cmd>cN<CR>zz', {remap = true})
 vim.keymap.set('n', '=ie', '=<Plug>(textobj-entire-i)``zz', {silent = true})
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
+-- Notes (VimWiki) management
+vim.keymap.set('n', '<leader>np', ':!notes p<CR><CR>')
+vim.keymap.set('n', '<leader>nf', ':!notes f<CR><CR>')

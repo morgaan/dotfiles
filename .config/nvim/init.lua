@@ -1,6 +1,7 @@
 require('morgan.packer')
 require('morgan.settings')
-require('morgan.treesitter')
 require('morgan.remap')
 require('morgan.highlights')
+require('morgan.commands')
 require('morgan.statusline')
+require('morgan.vimwiki')
