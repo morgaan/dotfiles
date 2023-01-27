@@ -26,6 +26,9 @@ pcall(require('telescope').load_extension, 'fzf')
 -- Look for your vimwiki pages using telescope!
 pcall(require('telescope').load_extension, 'vimwiki')
 
+-- Take git worktree experience to the next level
+pcall(require('telescope').load_extension, 'git_worktree')
+
 -- See `:help telescope.builtin`
 local builtin = require('telescope.builtin')
 
@@ -50,3 +53,7 @@ vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps'
 
 -- Vimwiki mappings
 vim.keymap.set('n', '<leader>sn', '<cmd>Telescope live_grep search_dirs=~/notebook/notes/ theme=dropdown<cr>', { desc = '[S]earch [N]otes' })
+
+-- Git worktree mappings
+vim.keymap.set('n', '<leader>mt', require('telescope').extensions.git_worktree.git_worktrees, { desc = '[M]anage Git Work[T]rees (<Enter> - Switch, <c-d> - delete, <c-f> - toggles forcing' })
+vim.keymap.set('n', '<leader>ct', require('telescope').extensions.git_worktree.create_git_worktree, { desc = '[C]reate new Git Work[T]rees' })
