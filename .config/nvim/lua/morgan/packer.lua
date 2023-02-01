@@ -24,32 +24,39 @@ require('packer').startup(function(use)
 		requires = {'godlygeek/tabular'},
 		ft = {'markdown', 'md'}
 	}
-	use{
+
+	use {
 		'mustache/vim-mustache-handlebars',
 		ft = {'mustache', 'hbs'}
 	}
 
-	use { -- LSP Configuration & Plugins
-	'neovim/nvim-lspconfig',
-	requires = {
-		-- Automatically install LSPs to stdpath for neovim
-		'williamboman/mason.nvim',
-		'williamboman/mason-lspconfig.nvim',
+	-- LSP
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v1.x',
+		requires = {
+			-- LSP Support
+			{'neovim/nvim-lspconfig'},
+			{'williamboman/mason.nvim'},
+			{'williamboman/mason-lspconfig.nvim'},
 
-		-- See the progress reported by LSP servers without involving the status line
-		'j-hui/fidget.nvim',
+			-- Autocompletion
+			{'hrsh7th/nvim-cmp'},
+			{'hrsh7th/cmp-nvim-lsp'},
+			{'hrsh7th/cmp-buffer'},
+			{'hrsh7th/cmp-path'},
+			{'saadparwaiz1/cmp_luasnip'},
+			{'hrsh7th/cmp-nvim-lua'},
 
-		-- Neovim setup for init.lua and plugin development with full signature
-		-- help, docs and completion for the nvim lua API.
-		'folke/neodev.nvim'
+			-- Snippets
+			{'L3MON4D3/LuaSnip'},
+			{'rafamadriz/friendly-snippets'},
+
+			-- Neovim setup for init.lua and plugin development with full signature
+			-- help, docs and completion for the nvim lua API.
+			{'folke/neodev.nvim'}
+		}
 	}
-}
-
-use { -- Autocompletion
-'hrsh7th/nvim-cmp',
-requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  }
-
   -- Buffer management
   -- -----------------
 

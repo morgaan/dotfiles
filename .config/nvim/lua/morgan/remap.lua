@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 
 vim.keymap.set('n', '--', vim.cmd.Ex)
 
+vim.keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<CR>')
+
 -- Copy current file path to clipboard.
 vim.keymap.set('n', 'gcp', '<cmd>let @+=@%<CR>')
 
@@ -9,7 +11,7 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 vim.keymap.set('n', '<leader>w', '<cmd>write!<CR>')
-vim.keymap.set('n', '<leader>q', '<cmd>quit<CR>')
+vim.keymap.set('n', '<leader>wq', '<cmd>wq!<CR>')
 
 -- Easier window navigation.
 vim.keymap.set('', '<C-h>', '<C-w>h')
@@ -43,14 +45,12 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', ']q', '<cmd>cn<CR>zz', {remap = true})
 vim.keymap.set('n', '[q', '<cmd>cN<CR>zz', {remap = true})
-vim.keymap.set('n', '=ie', '=<Plug>(textobj-entire-i)``zz', {silent = true})
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '=ie', '<Plug>(textobj-entire-i)``zz', {silent = true})
 
 -- Notes (VimWiki) management
-vim.keymap.set('n', '<leader>np', ':!notes p<CR><CR>')
-vim.keymap.set('n', '<leader>nf', ':!notes f<CR><CR>')
+vim.keymap.set('n', '<leader>np', ':!notes p<CR><CR>') -- Push changes
+vim.keymap.set('n', '<leader>nf', ':!notes f<CR><CR>') -- Fetch changes
+
+-- Move visual selection
+vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv')
+vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv')
