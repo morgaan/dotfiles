@@ -71,6 +71,10 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
+  -- Search recursively with option to select per file type.
+  -- :Ack! pattern --scss.
+  use('mileszs/ack.vim')
+
   -- Vimwiki extension for telescope
   use('ElPiloto/telescope-vimwiki.nvim')
 
