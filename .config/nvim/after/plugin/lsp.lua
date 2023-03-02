@@ -55,16 +55,18 @@ lsp.on_attach(function(_, bufnr)
 end)
 
 lsp.setup_nvim_cmp({
-  sources = {
-    {name = 'path'},
-    {
-		name = 'buffer',
-		keyword_length = 3,
-		get_bufnrs = function() return vim.api.nvim_list_bufs() end
-	},
-    {name = 'nvim_lsp'},
-    {name = 'luasnip', keyword_length = 2},
-  }
+	sources = {
+		{ name = 'path' },
+		{
+			name = 'buffer',
+			keyword_length = 4,
+			option = {
+				get_bufnrs = function() return vim.api.nvim_list_bufs() end
+			}
+		},
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip', keyword_length = 2 }
+	}
 })
 
 lsp.setup()
