@@ -56,21 +56,3 @@ vim.api.nvim_create_autocmd({'VimResized'}, {
   group = on_resize,
   pattern = '*'
 })
-
--- vimwiki
--- autocmd BufRead */notebook/notes/index.md silent !notes f
--- autocmd FileType vimwiki autocmd BufWritePost <buffer> silent !notes p
-local vimwiki_commands = vim.api.nvim_create_augroup('VimWikiCommands', { clear = true })
-vim.api.nvim_create_autocmd({'BufRead'}, {
-  command = 'silent !notes f',
-  group = vimwiki_commands,
-  pattern = '*/notebook/notes/index.md'
-})
-vim.api.nvim_create_autocmd({'FileType'}, {
-  command = 'autocmd BufWritePost <buffer> silent !notes p',
-  group = vimwiki_commands,
-  pattern = 'vimwiki'
-})
-
-
-
