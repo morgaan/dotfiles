@@ -33,6 +33,7 @@ vim.keymap.set('n', '<leader>1', '<cmd>s/false/true/<CR>')
 vim.keymap.set('n', '<leader>0', '<cmd>s/true/false/<CR>')
 
 vim.keymap.set('n', '<leader>l', '<cmd>set list!<CR>', {remap = true})
+vim.keymap.set('n', '<leader>c', '<cmd>let &cole=(&cole == 2) ? 0 : 2 <bar> echo \'conceallevel \' . &cole <CR>')
 
 -- Copy current git branch to clipboard.
 vim.keymap.set('n', '<leader>cb', '<cmd>!git cp<CR><CR>')
@@ -58,3 +59,6 @@ vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv')
 
 -- Search per file type
 vim.keymap.set('n', '<leader>f', ':Ack!<space>')
+
+-- Preview markdown in browser
+vim.keymap.set('n', '<leader>mp', ':MarkdownPreview<CR>')

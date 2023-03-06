@@ -26,6 +26,23 @@ pcall(require('telescope').load_extension, 'fzf')
 -- Look for your vimwiki pages using telescope!
 pcall(require('telescope').load_extension, 'vimwiki')
 
+function _G.find_vim_wiki_notes()
+  require('telescope.builtin').find_files({
+	search_dirs= {'~/notebook/notes/'},
+    prompt_title = 'Search Vim Wiki files',
+    path_display = function(_, path)
+	  return require('telescope.utils').transform_path({path_display={'tail'}}, path)
+    end
+  })
+end
+function _G.live_grep_vim_wiki_notes()
+  require('telescope.builtin').live_grep({
+	search_dirs = {'~/notebook/notes/'},
+	theme = 'dropdown',
+	prompt_title = 'Grep Vim Wiki notes'
+  })
+end
+
 -- Take git worktree experience to the next level
 pcall(require('telescope').load_extension, 'git_worktree')
 
@@ -51,6 +68,7 @@ vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch curren
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 vim.keymap.set('n', '<leader>sc', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = '[S]earch Vim [C]onfig' })
-vim.keymap.set('n', '<leader>sn', '<cmd>Telescope live_grep search_dirs=~/notebook/notes/ theme=dropdown<cr>', { desc = '[S]earch Vimwiki [N]otes' })
+vim.keymap.set('n', '<leader>sn', _G.live_grep_vim_wiki_notes, { desc = '[S]earch Vimwiki [N]otes' })
+vim.keymap.set('n', '<leader>sN', _G.find_vim_wiki_notes, { desc = '[S]earch Vimwiki [N]otes files' })
 vim.keymap.set('n', '<leader>mt', require('telescope').extensions.git_worktree.git_worktrees, { desc = '[M]anage Git Work[T]rees (<Enter> - Switch, <c-d> - delete, <c-f> - toggles forcing' })
 vim.keymap.set('n', '<leader>ct', require('telescope').extensions.git_worktree.create_git_worktree, { desc = '[C]reate new Git Work[T]rees' })
