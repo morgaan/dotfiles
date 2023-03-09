@@ -72,3 +72,4 @@ vim.keymap.set('n', '<leader>sn', _G.live_grep_vim_wiki_notes, { desc = '[S]earc
 vim.keymap.set('n', '<leader>sN', _G.find_vim_wiki_notes, { desc = '[S]earch Vimwiki [N]otes files' })
 vim.keymap.set('n', '<leader>mt', require('telescope').extensions.git_worktree.git_worktrees, { desc = '[M]anage Git Work[T]rees (<Enter> - Switch, <c-d> - delete, <c-f> - toggles forcing' })
 vim.keymap.set('n', '<leader>ct', require('telescope').extensions.git_worktree.create_git_worktree, { desc = '[C]reate new Git Work[T]rees' })
+vim.keymap.set('n', '<leader>hm', require('telescope').extensions.harpoon.marks, { desc = '[H]arpoon [M]arks' })

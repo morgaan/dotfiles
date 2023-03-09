@@ -62,3 +62,6 @@ vim.keymap.set('n', '<leader>f', ':Ack!<space>')
 
 -- Preview markdown in browser
 vim.keymap.set('n', '<leader>mp', ':MarkdownPreview<CR>')
+
+-- Close all other buffers but current
+vim.keymap.set('n', '<leader>co', ':w|%bd<CR><C-O>:bd#<CR>')
