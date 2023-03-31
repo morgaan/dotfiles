@@ -15,4 +15,10 @@ require('packer').startup(function(use)
 	use('whatyouhide/vim-textobj-xmlattr')
 	use('jceb/vim-textobj-uri')
 	use('wellle/targets.vim')
+
+	-- UI/UX Extensions
+	-- ----------------
+
+	-- Theme
+	use('ishan9299/nvim-solarized-lua')
 end)
