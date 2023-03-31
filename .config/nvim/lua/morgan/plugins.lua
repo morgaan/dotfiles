@@ -21,4 +21,7 @@ require('packer').startup(function(use)
 
 	-- Theme
 	use('ishan9299/nvim-solarized-lua')
+
+	-- Git
+	use('tpope/vim-fugitive')
 end)
