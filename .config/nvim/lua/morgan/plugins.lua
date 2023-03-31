@@ -31,6 +31,10 @@ require('packer').startup(function(use)
 	-- :Ack! pattern --scss.
 	use('mileszs/ack.vim')
 
+	-- Disables search highlighting when you are done searching and re-enables
+	-- it when you search again
+	use('romainl/vim-cool')
+
 	-- Git
 	use('tpope/vim-fugitive')
 	use('lewis6991/gitsigns.nvim')
