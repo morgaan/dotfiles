@@ -21,13 +21,11 @@ require('packer').startup(function(use)
 
 	use{
 		'preservim/vim-markdown',
-		requires = {'godlygeek/tabular'},
-		ft = {'markdown', 'md'}
+		requires = {'godlygeek/tabular'}
 	}
 
 	use {
-		'mustache/vim-mustache-handlebars',
-		ft = {'mustache', 'hbs'}
+		'mustache/vim-mustache-handlebars'
 	}
 
 	-- Language Server Protocol (LSP)
