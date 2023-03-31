@@ -1,21 +1,11 @@
-require('neodev').setup()
+local mason_lspconfig = require('mason-lspconfig')
 
--- Learn the keybindings, see :help lsp-zero-keybindings
--- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-
-lsp.set_preferences({
-	suggest_lsp_servers = true,
-	sign_icons = {
-		error = '✘',
-		warn = '▲',
-		hint = '⚑',
-		info = 'i'
-	}
+require('mason').setup()
+mason_lspconfig.setup({
+	ensure_installed = { 'lua_ls' }
 })
 
-lsp.on_attach(function(_, bufnr)
+local on_attach = function(_, bufnr)
 	local nmap = function(keys, func, desc)
 		if desc then
 			desc = 'LSP: ' .. desc
@@ -23,6 +13,9 @@ lsp.on_attach(function(_, bufnr)
 
 		vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
 	end
+
+	-- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
 	nmap('[d', vim.diagnostic.goto_prev, 'Previous [D]iagnostic')
 	nmap(']d', vim.diagnostic.goto_next, 'Next [D]iagnostic')
@@ -47,22 +40,35 @@ lsp.on_attach(function(_, bufnr)
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 		vim.lsp.buf.format()
 	end, { desc = 'LSP: Format current buffer with LSP' })
-end)
+end
 
-lsp.setup_nvim_cmp({
-	sources = {
-		{ name = 'path' },
-		{
-			name = 'buffer',
-			keyword_length = 4,
-			option = {
-				get_bufnrs = function() return vim.api.nvim_list_bufs() end
+local settings = {
+	lua_ls = {
+		Lua = {
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = {'vim'}
 			}
-		},
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip', keyword_length = 2 }
+		}
 	}
-})
+}
 
-lsp.setup()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+mason_lspconfig.setup_handlers {
+	function (server)
+		require('lspconfig')[server].setup {
+			settings = settings[server] ~= nil and settings[server] or nil,
+			on_attach = on_attach,
+			capabilities = capabilities
+		}
+	end
+}
+
+local signs = { Error = "✘", Warn = "▲", Hint = "⚑", Info = "i" }
+
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
+end
 

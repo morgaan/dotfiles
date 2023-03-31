@@ -28,33 +28,49 @@ require('packer').startup(function(use)
 		'mustache/vim-mustache-handlebars'
 	}
 
+	-- Completion
+	use('hrsh7th/nvim-cmp')
+	use('hrsh7th/cmp-nvim-lsp')
+	use('saadparwaiz1/cmp_luasnip')
+	-- Snippets
+	use('L3MON4D3/LuaSnip')
+	use('rafamadriz/friendly-snippets')
+
 	-- Language Server Protocol (LSP)
+	use('neovim/nvim-lspconfig')
 	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v1.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},
-			{'williamboman/mason.nvim'},
-			{'williamboman/mason-lspconfig.nvim'},
-
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},
-			{'hrsh7th/cmp-nvim-lsp'},
-			{'hrsh7th/cmp-buffer'},
-			{'hrsh7th/cmp-path'},
-			{'saadparwaiz1/cmp_luasnip'},
-			{'hrsh7th/cmp-nvim-lua'},
-
-			-- Snippets
-			{'L3MON4D3/LuaSnip'},
-			{'rafamadriz/friendly-snippets'},
-
-			-- Neovim setup for init.lua and plugin development with full
-			-- signature help, docs and completion for the nvim lua API.
-			{'folke/neodev.nvim'}
-		}
+		'williamboman/mason.nvim',
+		run = ":MasonUpdate" -- :MasonUpdate updates registry contents
 	}
+	use('williamboman/mason-lspconfig.nvim')
+
+	-- Language Server Protocol (LSP)
+	-- use {
+	-- 	'VonHeikemen/lsp-zero.nvim',
+	-- 	branch = 'v1.x',
+	-- 	requires = {
+	-- 		-- LSP Support
+	-- 		{'neovim/nvim-lspconfig'},
+	-- 		{'williamboman/mason.nvim'},
+	-- 		{'williamboman/mason-lspconfig.nvim'},
+
+	-- 		-- Autocompletion
+	-- 		{'hrsh7th/nvim-cmp'},
+	-- 		{'hrsh7th/cmp-nvim-lsp'},
+	-- 		{'hrsh7th/cmp-buffer'},
+	-- 		{'hrsh7th/cmp-path'},
+	-- 		{'saadparwaiz1/cmp_luasnip'},
+	-- 		{'hrsh7th/cmp-nvim-lua'},
+
+	-- 		-- Snippets
+	-- 		{'L3MON4D3/LuaSnip'},
+	-- 		{'rafamadriz/friendly-snippets'},
+
+	-- 		-- Neovim setup for init.lua and plugin development with full
+	-- 		-- signature help, docs and completion for the nvim lua API.
+	-- 		{'folke/neodev.nvim'}
+	-- 	}
+	-- }
 
 	-- Buffer management
 	-- -----------------
