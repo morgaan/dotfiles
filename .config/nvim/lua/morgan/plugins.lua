@@ -26,6 +26,14 @@ require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
 	use('lewis6991/gitsigns.nvim')
 
+	-- Extensions
+	-- ----------
+
+	use('tpope/vim-surround')
+	use('tpope/vim-unimpaired')
+	use('tpope/vim-commentary')
+	use('tpope/vim-repeat')
+
 	-- Applications
 	-- ------------
 	use('vimwiki/vimwiki')
