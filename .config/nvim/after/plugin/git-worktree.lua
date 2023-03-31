@@ -1,3 +1,4 @@
+local keymap = vim.keymap.set
 local Worktree = require('git-worktree')
 
 Worktree.setup({
@@ -31,3 +32,6 @@ Worktree.on_tree_change(function(op, metadata)
   end
 end)
 
+-- Telescope integration
+keymap('n', '<leader>mt', require('telescope').extensions.git_worktree.git_worktrees, { desc = 'Git-worktree: [M]anage Git Work[T]rees (<Enter> - Switch, <c-d> - delete, <c-f> - toggles forcing' })
+keymap('n', '<leader>ct', require('telescope').extensions.git_worktree.create_git_worktree, { desc = 'Git-worktree: [C]reate new Git Work[T]rees' })
