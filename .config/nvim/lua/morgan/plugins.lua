@@ -56,6 +56,12 @@ require('packer').startup(function(use)
 	-- Focused files manager/switcher
 	use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
 
+	-- Markdown file real-time preview
+	use({
+		'iamcco/markdown-preview.nvim',
+		run = function() vim.fn['mkdp#util#install']() end,
+	})
+
 	-- Extensions
 	-- ----------
 
