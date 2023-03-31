@@ -129,7 +129,9 @@ Used by vim fzf preview to render syntax highlighting
 
 [bat](https://github.com/sharkdp/bat), A cat(1) clone with wings. `brew install bat`.
 
-## Install Neovim (nvim)
+## Neovim
+
+### Install Neovim (nvim)
 
 ```
 $ brew install neovim
@@ -146,17 +148,28 @@ python3 -m pip install --user --upgrade pynvim
 gem install neovim
 ```
 
-## Install Vim plugins
+### Install Packer
+
+```
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
+
+## TMUX
+
+### Install Vim plugins
 
 Once vim open execute: `:PlugInstall`
 
-## Install tmux
+## Tmux
+
+### Install tmux
 
 ```
 $ brew install tmux
 ```
 
-## Remap caps lock to Ctrl if combined with key
+### Remap caps lock to Ctrl if combined with key
 
 In case of keyboard layout issue like this one:
 https://github.com/pqrs-org/Karabiner-Elements/issues/1426#issuecomment-395700840
@@ -173,7 +186,7 @@ In Karabiner go to `Complex Modification` and use the `Add rule` button. You
 should see the `Change caps_lock to control if pressed...`. Enable it. Update
 the value, in `Parameters` tab of `to_if_alone_timeout_milliseconds` to 500.
 
-## Reattach to user namespace wrapper
+### Reattach to user namespace wrapper
 
 Connects tmux to the OS X clipboard service. Useful for copy mode.
 
