@@ -16,6 +16,20 @@ require('packer').startup(function(use)
 	use('jceb/vim-textobj-uri')
 	use('wellle/targets.vim')
 
+	-- Language support/syntax highlighting
+	-- ------------------------------------
+
+	use{
+		'preservim/vim-markdown',
+		requires = {'godlygeek/tabular'},
+		ft = {'markdown', 'md'}
+	}
+
+	use {
+		'mustache/vim-mustache-handlebars',
+		ft = {'mustache', 'hbs'}
+	}
+
 	-- Buffer management
 	-- -----------------
 
