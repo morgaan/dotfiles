@@ -1,6 +1,7 @@
 require('morgan.options')
 require('morgan.colorscheme')
 require('morgan.highlights')
+require('morgan.keymaps')
 require('morgan.auto-commands')
 require('morgan.commands')
 require('morgan.statusline')
