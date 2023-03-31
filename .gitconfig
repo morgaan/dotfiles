@@ -17,6 +17,7 @@
 	wtar = worktree add --track -b
 	wtr = worktree remove
 [core]
+	editor = nvim
 	excludesfile = ~/.gitignore
 [init]
 	templatedir = ~/.git_template
