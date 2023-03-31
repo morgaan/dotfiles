@@ -69,6 +69,17 @@ require('packer').startup(function(use)
 	-- Theme
 	use('ishan9299/nvim-solarized-lua')
 
+	-- Telescope:
+	-- Fuzzy anything (files, lsp, keymaps, commands, help...)
+	use {
+		'nvim-telescope/telescope.nvim',
+		branch = '0.1.x',
+		requires = { 'nvim-lua/plenary.nvim' }
+	}
+	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+	-- Vimwiki extension for telescope
+	use('ElPiloto/telescope-vimwiki.nvim')
+
 	-- Search recursively with option to select per file type.
 	-- :Ack! pattern --scss.
 	use('mileszs/ack.vim')
