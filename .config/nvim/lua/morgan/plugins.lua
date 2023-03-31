@@ -53,6 +53,9 @@ require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
 	use('lewis6991/gitsigns.nvim')
 
+	-- Focused files manager/switcher
+	use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
+
 	-- Extensions
 	-- ----------
 
