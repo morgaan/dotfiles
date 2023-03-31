@@ -16,6 +16,11 @@ require('packer').startup(function(use)
 	use('jceb/vim-textobj-uri')
 	use('wellle/targets.vim')
 
+	-- Buffer management
+	-- -----------------
+
+	use('tpope/vim-eunuch')
+
 	-- UI/UX Extensions
 	-- ----------------
 
