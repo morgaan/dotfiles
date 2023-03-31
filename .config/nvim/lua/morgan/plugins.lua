@@ -27,6 +27,10 @@ require('packer').startup(function(use)
 	-- Theme
 	use('ishan9299/nvim-solarized-lua')
 
+	-- Search recursively with option to select per file type.
+	-- :Ack! pattern --scss.
+	use('mileszs/ack.vim')
+
 	-- Git
 	use('tpope/vim-fugitive')
 	use('lewis6991/gitsigns.nvim')
