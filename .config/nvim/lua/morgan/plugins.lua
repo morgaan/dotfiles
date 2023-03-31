@@ -56,6 +56,14 @@ require('packer').startup(function(use)
 	-- Focused files manager/switcher
 	use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
 
+	-- Highlight, edit, and navigate code
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function()
+			pcall(require('nvim-treesitter.install').update { with_sync = true })
+		end,
+	}
+
 	-- Markdown file real-time preview
 	use({
 		'iamcco/markdown-preview.nvim',
