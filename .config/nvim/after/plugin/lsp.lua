@@ -1,6 +1,14 @@
 local mason_lspconfig = require('mason-lspconfig')
 
-require('mason').setup()
+require('mason').setup({
+	-- May need to have `gh` cli install and to run `gh auth login -w`
+	-- Figured that out thanks to https://github.com/williamboman/mason.nvim/issues/828
+    registries = {
+        'github:mason-org/mason-registry',
+        'lua:mason-registry.index'
+    }
+})
+
 mason_lspconfig.setup({
 	ensure_installed = { 'lua_ls' }
 })
