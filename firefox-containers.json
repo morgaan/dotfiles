@@ -1,0 +1,23 @@
+{"version":4,"lastUserContextId":23,"identities":[
+{"userContextId":17,"public":true,"icon":"fingerprint","color":"red","name":"Search | DDG"},
+{"userContextId":8,"public":true,"icon":"fingerprint","color":"blue","name":"Search | Google"},
+{"userContextId":10,"public":true,"icon":"briefcase","color":"yellow","name":"Work | authenticated"},
+{"userContextId":20,"public":true,"icon":"briefcase","color":"red","name":"Work | local"},
+{"userContextId":7,"public":true,"icon":"vacation","color":"blue","name":"Translations"},
+{"userContextId":22,"public":true,"icon":"tree","color":"turquoise","name":"Wikipedia"},
+{"userContextId":18,"public":true,"icon":"circle","color":"blue","name":"Gmail"},
+{"userContextId":6,"public":true,"icon":"dollar","color":"yellow","name":"Postbank"},
+{"userContextId":16,"public":true,"icon":"dollar","color":"red","name":"Caisse Epargne"},
+{"userContextId":12,"public":true,"icon":"dollar","color":"blue","name":"La Nef"},
+{"userContextId":13,"public":true,"icon":"briefcase","color":"blue","name":"Github"},
+{"userContextId":19,"public":true,"icon":"circle","color":"turquoise","name":"Netlify"},
+{"userContextId":14,"public":true,"icon":"fence","color":"red","name":"YouTube"},
+{"userContextId":9,"public":true,"icon":"fence","color":"blue","name":"Twitter"},
+{"userContextId":15,"public":true,"icon":"fence","color":"red","name":"Insta"},
+{"userContextId":4,"public":true,"icon":"cart","color":"purple","telemetryId":4,"name":"Shopping"},
+{"userContextId":21,"public":true,"icon":"pet","color":"blue","name":"Game"},
+{"userContextId":23,"public":true,"icon":"briefcase","color":"orange","name":"Stackoverflow"},
+{"userContextId":5,"public":false,"icon":"","color":"","name":"userContextIdInternal.thumbnail","accessKey":""},
+{"userContextId":4294967295,"public":false,"icon":"","color":"","name":"userContextIdInternal.webextStorageLocal","accessKey":""}
+]}
+
