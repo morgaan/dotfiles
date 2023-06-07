@@ -16,6 +16,9 @@
 	wtan = worktree add -b
 	wtar = worktree add --track -b
 	wtr = worktree remove
+	list-gone = "!git remote prune origin && git branch -vv | cut -c 3- | grep ': gone]' | awk '{print $1}'"
+	delete-gone = "!git remote prune origin && git branch -vv | cut -c 3- | grep ': gone]' | awk '{print $1}' | xargs -n1 -r git branch -d"
+	delete-gone-force = "!git remote prune origin && git branch -vv | cut -c 3- | grep ': gone]' | awk '{print $1}' | xargs -n1 -r git branch -D"
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
@@ -27,3 +30,5 @@
   keepBackup = false
 [pull]
 	rebase = false
+[fetch]
+	prune = true

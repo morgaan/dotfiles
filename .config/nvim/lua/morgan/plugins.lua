@@ -105,7 +105,11 @@ require('packer').startup(function(use)
 	-- Git
 	use('tpope/vim-fugitive')
 	use('lewis6991/gitsigns.nvim')
-	use('ThePrimeagen/git-worktree.nvim')
+	use{
+		-- 'ThePrimeagen/git-worktree.nvim',
+		'zkygr/git-worktree.nvim', -- This is needed until this PR: https://github.com/ThePrimeagen/git-worktree.nvim/pull/104 is merged
+		commit = 'c8ff32c'
+	}
 
 	-- Focused files manager/switcher
 	use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
