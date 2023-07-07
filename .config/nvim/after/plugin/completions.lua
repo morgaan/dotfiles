@@ -23,7 +23,7 @@ cmp.setup({
 		['<c-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 		['<c-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 		['<c-e>'] = cmp.mapping.abort(),
-		['<cr>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<c-y>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 
 		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -47,7 +47,23 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, { 'i', 's' })
+		end, { 'i', 's' }),
+
+		['<c-n>'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif hasPriorWords() then
+				cmp.complete()
+			else
+				fallback()
+			end
+			end, { 'i', 's' }),
+
+		['<c-p>'] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.select_prev_item()
+			end
+			end, { 'i', 's' }),
 	},
 	sources = cmp.config.sources({
       { name = 'nvim_lsp' },
