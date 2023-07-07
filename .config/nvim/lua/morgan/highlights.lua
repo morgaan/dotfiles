@@ -1,19 +1,22 @@
+vim.api.nvim_set_hl(0, 'InYourFacePink', {bold=true, bg='magenta', fg='white'})
+
 -- Italicised comments and attributes.
-vim.cmd([[
-	highlight Comment cterm=italic gui=italic guifg=#5f87df
-	highlight htmlArg cterm=italic gui=italic guifg=#af8700
-]])
+vim.api.nvim_set_hl(0, 'Comment', {italic=true, fg='#5f87df'})
+vim.api.nvim_set_hl(0, 'htmlArg', {italic=true, fg='#af8700'})
 
 -- Status line highlights
-vim.cmd([[
-	highlight StatuslineFilename cterm=bold ctermfg=136 gui=bold guifg=#b58900
-	highlight StatuslineCustom ctermfg=252 ctermbg=238 guifg=#D9D9D9 guibg=#565656
-]])
+vim.api.nvim_set_hl(0, 'StatuslineFilename', {bold=true, fg='#b58900'})
+vim.api.nvim_set_hl(0, 'StatuslineCustom', {fg='#D9D9D9', bg='#565656'})
 
--- More contrasterd CursorLineNr, Cursor and ColorColumn
-vim.cmd([[
-	highlight CursorLineNr ctermbg=magenta ctermfg=white guibg=magenta guifg=white
-	highlight Cursor ctermbg=yellow ctermfg=black guibg=yellow guifg=black
-	highlight ColorColumn ctermbg=darkgrey guibg=#073642
-]])
+-- More contrasted CursorLineNr, Cursor and ColorColumn
+vim.api.nvim_set_hl(0, 'CursorLineNr', {link='InYourFacePink'})
+vim.api.nvim_set_hl(0, 'ColorColumn', {bg='#073642'})
+vim.api.nvim_set_hl(0, 'Cursor', {link='CursorLineNr'})
+
+-- More contrasted Visual selection
+vim.api.nvim_set_hl(0, 'Visual', {reverse=false, bg='#B58900', fg='#073642'})
+
+-- Fix highlights issues with Telescope
+vim.api.nvim_set_hl(0, 'TelescopeSelection', {fg='#D9D9D9', bg='#565656'})
+vim.api.nvim_set_hl(0, 'TelescopeMatching', {link='InYourFacePink'})
 
