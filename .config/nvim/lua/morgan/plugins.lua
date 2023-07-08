@@ -1,13 +1,12 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-require('packer').startup(function(use)
+require('packer').startup({function(use)
 	-- Package manager (Packer can manage itself)
 	use 'wbthomason/packer.nvim'
 
 	-- Text objects
 	-- ------------
-
 	use('kana/vim-textobj-user')
 	use('kana/vim-textobj-entire')
 	use('kana/vim-textobj-line')
@@ -18,61 +17,39 @@ require('packer').startup(function(use)
 
 	-- Language support/syntax highlighting
 	-- ------------------------------------
-
 	use{
 		'preservim/vim-markdown',
 		requires = {'godlygeek/tabular'}
 	}
-
 	use {
 		'mustache/vim-mustache-handlebars'
 	}
 
 	-- Completion
-	use('hrsh7th/nvim-cmp')
-	use('hrsh7th/cmp-buffer')
-	use('hrsh7th/cmp-path')
-	use('hrsh7th/cmp-nvim-lsp')
-	use('saadparwaiz1/cmp_luasnip')
-	-- Snippets
-	use('L3MON4D3/LuaSnip')
-	use('rafamadriz/friendly-snippets')
+	use{
+		'hrsh7th/nvim-cmp',
+		requires = {
+			{'hrsh7th/cmp-buffer'},
+			{'hrsh7th/cmp-path'},
+			{'hrsh7th/cmp-nvim-lsp'},
+			{
+				-- Snippets
+				'saadparwaiz1/cmp_luasnip',
+				requires = {
+					{'L3MON4D3/LuaSnip'},
+					{'rafamadriz/friendly-snippets'}
+				}
+			}
+		}
+	}
 
 	-- Language Server Protocol (LSP)
 	use('neovim/nvim-lspconfig')
 	use {
 		'williamboman/mason.nvim',
-		run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+		run = ':MasonUpdate' -- :MasonUpdate updates registry contents
 	}
 	use('williamboman/mason-lspconfig.nvim')
-
-	-- Language Server Protocol (LSP)
-	-- use {
-	-- 	'VonHeikemen/lsp-zero.nvim',
-	-- 	branch = 'v1.x',
-	-- 	requires = {
-	-- 		-- LSP Support
-	-- 		{'neovim/nvim-lspconfig'},
-	-- 		{'williamboman/mason.nvim'},
-	-- 		{'williamboman/mason-lspconfig.nvim'},
-
-	-- 		-- Autocompletion
-	-- 		{'hrsh7th/nvim-cmp'},
-	-- 		{'hrsh7th/cmp-nvim-lsp'},
-	-- 		{'hrsh7th/cmp-buffer'},
-	-- 		{'hrsh7th/cmp-path'},
-	-- 		{'saadparwaiz1/cmp_luasnip'},
-	-- 		{'hrsh7th/cmp-nvim-lua'},
-
-	-- 		-- Snippets
-	-- 		{'L3MON4D3/LuaSnip'},
-	-- 		{'rafamadriz/friendly-snippets'},
-
-	-- 		-- Neovim setup for init.lua and plugin development with full
-	-- 		-- signature help, docs and completion for the nvim lua API.
-	-- 		{'folke/neodev.nvim'}
-	-- 	}
-	-- }
 
 	-- Buffer management
 	-- -----------------
@@ -114,7 +91,10 @@ require('packer').startup(function(use)
 	}
 
 	-- Focused files manager/switcher
-	use { 'ThePrimeagen/harpoon', requires = { 'nvim-lua/plenary.nvim' } }
+	use {
+		'ThePrimeagen/harpoon',
+		requires = {'nvim-lua/plenary.nvim'}
+	}
 
 	-- Highlight, edit, and navigate code
 	use {
@@ -125,10 +105,10 @@ require('packer').startup(function(use)
 	}
 
 	-- Markdown file real-time preview
-	use({
+	use{
 		'iamcco/markdown-preview.nvim',
 		run = function() vim.fn['mkdp#util#install']() end,
-	})
+	}
 
 	-- Extensions
 	-- ----------
@@ -141,4 +121,11 @@ require('packer').startup(function(use)
 	-- Applications
 	-- ------------
 	use('vimwiki/vimwiki')
-end)
+end,
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'single' })
+    end
+  }
+}})
