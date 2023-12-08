@@ -27,7 +27,7 @@ local on_attach = function(_, bufnr)
 
 	nmap('[d', vim.diagnostic.goto_prev, 'Previous [D]iagnostic')
 	nmap(']d', vim.diagnostic.goto_next, 'Next [D]iagnostic')
-	nmap('<leader>vd', vim.diagnostic.open_float, '[V]iew [D]iagnostic')
+	nmap('<leader>dd', vim.diagnostic.open_float, '[V]iew [D]iagnostic')
 	nmap('<leader>q', vim.diagnostic.setloclist, 'Buffer Diagnostics')
 
 	nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -79,4 +79,3 @@ for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
 end
-
