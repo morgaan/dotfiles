@@ -53,7 +53,7 @@ keymap('n', '<leader>sl', function()
 end, { desc = 'Telescope: [S]earch [L]ines' })
 
 keymap('n', '<leader>sf', function()
-	builtin.find_files({ hidden = true })
+	builtin.find_files({ hidden = true, file_ignore_patterns = {'node_modules'}})
 end, { desc = 'Telescope: [S]earch [F]iles' })
 keymap('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope: [S]earch [H]elp' })
 keymap('n', '<leader>sw', builtin.grep_string, { desc = 'Telescope: [S]earch current [W]ord' })
