@@ -20,7 +20,8 @@
 	delete-gone = "!git remote prune origin && git branch -vv | cut -c 3- | grep ': gone]' | awk '{print $1}' | xargs -n1 -r git branch -d"
 	delete-gone-force = "!git remote prune origin && git branch -vv | cut -c 3- | grep ': gone]' | awk '{print $1}' | xargs -n1 -r git branch -D"
 [core]
-	editor = nvim
+	; editor property set via GIT_EDITOR to overcome git-bash not resolving
+	; aliases as it looks like. GIT_EDITOR is set in my .zshrc
 	excludesfile = ~/.gitignore
 [init]
 	templatedir = ~/.git_template

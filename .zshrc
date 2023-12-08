@@ -90,6 +90,12 @@ DEFAULT_USER=`whoami`
 
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
+  export GIT_EDITOR=nvim
+fi
+
+if type /opt/neovim/neovim/bin/nvim > /dev/null 2>&1; then
+  alias vim='/opt/neovim/neovim/bin/nvim'
+  export GIT_EDITOR=/opt/neovim/neovim/bin/nvim
 fi
 
 alias dc='docker-compose'
