@@ -1,8 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/`whoami`/.oh-my-zsh
+# export PATH=$HOME/bin:/usr/local/bin:$PATH Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -47,13 +44,14 @@ ZSH_THEME="agnoster"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# FYI oh-my-zsh includes now the zsh-z plugin
+source $ZSH/oh-my-zsh.sh
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+plugins=(git z)
 
 # User configuration
 
@@ -86,8 +84,6 @@ source $ZSH/oh-my-zsh.sh
 
 DEFAULT_USER=`whoami`
 
-. `brew --prefix`/etc/profile.d/z.sh
-
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
   export GIT_EDITOR=nvim
@@ -98,16 +94,21 @@ if type /opt/neovim/neovim/bin/nvim > /dev/null 2>&1; then
   export GIT_EDITOR=/opt/neovim/neovim/bin/nvim
 fi
 
+alias python='python3'
 alias dc='docker-compose'
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export VAULT_ADDR=https://vault.halfpipe.io
+# export NVM_DIR="$HOME/.nvm"
+#  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-source ~/.bashrc
+# This is meant to source local specifics that aren't meant to be under source control
+[ -f ~/.locals.zsh ] && source ~/.locals.zsh
 
+source $HOME/superexport/.secretreader.sh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
