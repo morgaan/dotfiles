@@ -32,13 +32,17 @@ pcall(require('telescope').load_extension, 'fzf')
 pcall(require('telescope').load_extension, 'vimwiki')
 -- Take git worktree experience to the next level
 pcall(require('telescope').load_extension, 'git_worktree')
+-- Search node_modules folder
+pcall(require('telescope').load_extension, 'node_modules')
 
 -- Keymaps:
 keymap('n', '<C-p>', function()
 	builtin.git_files({ use_git_root = false })
 end, { desc = 'Telescope: [<C-p>] Find files under git versioning only' })
 keymap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = 'Telescope: [?] Find recently opened files' })
-keymap('n', '<leader>gb', builtin.buffers, { desc = 'Telescope: [G]o to [B]uffer'})
+keymap('n', '<leader>gb', function()
+	builtin.buffers({path_display = { shorten = 3}})
+end, { desc = 'Telescope: [G]o to [B]uffer'})
 
 keymap('n', '<leader>sl', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -56,4 +60,5 @@ keymap('n', '<leader>sw', builtin.grep_string, { desc = 'Telescope: [S]earch cur
 keymap('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope: [S]earch by [G]rep' })
 keymap('n', '<leader>sk', builtin.keymaps, { desc = 'Telescope: [S]earch [K]eymaps' })
 keymap('n', '<leader>sc', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch Vim [C]onfig' })
+keymap('n', '<leader>sm', '<cmd>Telescope node_modules list<cr>', { desc = 'Telescope: [S]earch Node [M]odules' })
 

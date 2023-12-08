@@ -72,6 +72,8 @@ require('packer').startup({function(use)
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 	-- Vimwiki extension for telescope
 	use('ElPiloto/telescope-vimwiki.nvim')
+	-- node_modules search extension for telescope
+	use('nvim-telescope/telescope-node-modules.nvim')
 
 	-- Search recursively with option to select per file type.
 	-- :Ack! pattern --scss.
