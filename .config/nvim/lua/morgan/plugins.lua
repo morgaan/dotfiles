@@ -74,6 +74,7 @@ require('packer').startup({function(use)
 	use('ElPiloto/telescope-vimwiki.nvim')
 	-- node_modules search extension for telescope
 	use('nvim-telescope/telescope-node-modules.nvim')
+	use('princejoogie/dir-telescope.nvim')
 
 	-- Search recursively with option to select per file type.
 	-- :Ack! pattern --scss.
