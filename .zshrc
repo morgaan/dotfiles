@@ -169,7 +169,7 @@ wt () {
 }
 
 alias npm-show-wanted='npm outdated | awk '\''($2!=$3 && $1!="Package") {print $1":from:v"$2":to:v"$3}'\'' | column -t -s:'
-alias npm-show-lastest='npm outdated | awk '\''($3!=$4 && $1!="Package") {print $1":from:v"$2":to:v"$4}'\'' | column -t -s:'
+alias npm-show-latest='npm outdated | awk '\''($3!=$4 && $1!="Package") {print $1":from:v"$2":to:v"$4}'\'' | column -t -s:'
 alias npm-install-wanted='npm outdated | awk '\''($2!=$3 && $1!="Package") {print $1"@"$3}'\'' | paste -s -d" " - | xargs npm install'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
