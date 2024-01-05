@@ -9,16 +9,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*'
 })
 
-local vimenter_group = vim.api.nvim_create_augroup('MyVimEnter', { clear = true })
-vim.api.nvim_create_autocmd({'VimEnter'}, {
-  callback = function()
-    if vim.v.argv[3] == '.' then
-		require('telescope.builtin').find_files()
-    end
-  end,
-  group = vimenter_group,
-  pattern = '*'
-})
 -- Force shell interactive mode so that .zshrc commands are known in Vim.
 vim.api.nvim_create_autocmd({'VimEnter'}, {
   command = "let &shell='/bin/zsh -i'",
