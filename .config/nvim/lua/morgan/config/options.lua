@@ -4,7 +4,6 @@ local winopt = vim.wo
 -- General configuration
 -- ---------------------
 
-vim.api.nvim_exec('language en_US.utf-8', true)
 opt.encoding = 'utf-8'
 opt.mouse = ''
 
