@@ -67,6 +67,7 @@ return {
 		keymap('n', '<leader>sf', function()
 			builtin.find_files({ hidden = true, file_ignore_patterns = {'node_modules'}})
 		end, { desc = 'Telescope: [S]earch [F]iles' })
+		keymap('n', '<leader>rt', builtin.resume, { desc = 'Telescope: [R]esume [T]elescope' })
 		keymap('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope: [S]earch [H]elp' })
 		keymap('n', '<leader>sw', builtin.grep_string, { desc = 'Telescope: [S]earch current [W]ord' })
 		keymap('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope: [S]earch by [G]rep' })
