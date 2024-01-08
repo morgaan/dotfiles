@@ -94,6 +94,11 @@ if type /opt/neovim/neovim/bin/nvim > /dev/null 2>&1; then
   export GIT_EDITOR=/opt/neovim/neovim/bin/nvim
 fi
 
+if type /Users/morgan/nvim-macos/bin/nvim > /dev/null 2>&1; then
+	alias vim='/Users/morgan/nvim-macos/bin/nvim'
+  export GIT_EDITOR=/Users/morgan/nvim-macos/bin/nvim
+fi
+
 alias python='python3'
 alias dc='docker-compose'
 
@@ -109,6 +114,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.locals.zsh ] && source ~/.locals.zsh
 
 source $HOME/superexport/.secretreader.sh
+# source $HOME/superexport/.secretreader.sh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
