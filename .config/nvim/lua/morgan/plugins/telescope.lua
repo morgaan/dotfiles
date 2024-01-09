@@ -9,22 +9,28 @@ return {
 			run = 'make',
 			cond = vim.fn.executable 'make' == 1
 		},
-		'nvim-telescope/telescope-node-modules.nvim',
-		'princejoogie/dir-telescope.nvim'
+		'nvim-telescope/telescope-file-browser.nvim'
 	},
 	config = function()
 		local keymap = vim.keymap.set
 		-- See `:help telescope.builtin`
 		local builtin = require('telescope.builtin')
+		local actions = require('telescope.actions')
 
 		-- See `:help telescope` and `:help telescope.setup()`
 		require('telescope').setup {
 			defaults = {
 				mappings = {
 					i = {
-						['<C-[>'] = require('telescope.actions').close,
-						['<C-u>'] = false,
-						['<C-d>'] = false
+						-- Hit ['<C-[>'] twice to close the window, as hitting
+						-- once only switch use to normal mode.
+						--
+						-- By default the one below allow to scroll preview
+						-- window. But this wipe out the delete entire line
+						-- functionality.
+						-- To get the scroll <C-u>/<C-d>/<C-b>/<C-f> functions
+						-- rather use normal mode, it's just a <C-[> away.
+						['<C-u>'] = false
 					}
 				}
 			}
@@ -43,8 +49,6 @@ return {
 		-- | !^music | inverse-prefix-exact-match | Items that do not start with `music` |
 		-- | !.mp3$  | inverse-suffix-exact-match | Items that do not end with `.mp3`    |
 		pcall(require('telescope').load_extension, 'fzf')
-		-- Search node_modules folder
-		pcall(require('telescope').load_extension, 'node_modules')
 
 		-- Keymaps:
 		keymap('n', '<C-p>', function()
@@ -73,9 +77,6 @@ return {
 		keymap('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope: [S]earch by [G]rep' })
 		keymap('n', '<leader>sk', builtin.keymaps, { desc = 'Telescope: [S]earch [K]eymaps' })
 		keymap('n', '<leader>sc', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch Vim [C]onfig' })
-		keymap('n', '<leader>sm', '<cmd>Telescope node_modules list<cr>', { desc = 'Telescope: [S]earch Node [M]odules' })
-		keymap('n', '<leader>gd', '<cmd>Telescope dir live_grep<cr>',  { desc = 'Telescope: [G]rep in [D]irectory', noremap = true, silent = true })
-		keymap('n', '<leader>sd', '<cmd>Telescope dir find_files<cr>',  { desc = 'Telescope: [S]earch in [D]irectory...', noremap = true, silent = true })
 
 		-- auto command to pop up telescope for file search if `vim .` was
 		-- invoked in the Terminal.
@@ -89,5 +90,25 @@ return {
 			group = vimenter_group,
 			pattern = '*'
 		})
+
+		vim.api.nvim_set_keymap(
+			'n',
+			'<space>fb',
+			':Telescope file_browser<CR>',
+			{
+				desc = 'Telescope [F]ile [B]rowser from CWD',
+				noremap = true
+			}
+		)
+		-- open file_browser with the path of the current buffer
+		vim.api.nvim_set_keymap(
+			'n',
+			'--',
+			':Telescope file_browser path=%:p:h select_buffer=true<CR>',
+			{
+				desc = 'Telescope [F]ile [B]rowser from parent directory',
+				noremap = true
+			}
+		)
 end
 }

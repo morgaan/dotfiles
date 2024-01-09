@@ -2,7 +2,7 @@ local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
 
-keymap('n', '--', vim.cmd.Ex, { desc = 'Open current file\'s parent folder in netrw' })
+-- keymap('n', '--', vim.cmd.Ex, { desc = 'Open current file\'s parent folder in netrw' })
 
 keymap('n', '<leader>tr', '<cmd>set relativenumber!<CR>', { desc = '[T]oggle [R]elativenumber' })
 
