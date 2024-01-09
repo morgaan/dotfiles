@@ -35,4 +35,5 @@ ln -s ~/dotfiles/.gitconfig .gitconfig
 ln -s ~/dotfiles/.git_template .git_template
 ln -s ~/dotfiles/copy-git-branch-to-clipboard.sh copy-git-branch-to-clipboard.sh
 ln -s ~/dotfiles/git-clone-bare-for-worktrees.sh git-clone-bare-for-worktrees.sh
+ln -s ~/dotfiles/git-cotree.sh /usr/local/bin/git-cotree
 
