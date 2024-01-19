@@ -22,15 +22,10 @@ return {
 			defaults = {
 				mappings = {
 					i = {
-						-- Hit ['<C-[>'] twice to close the window, as hitting
-						-- once only switch use to normal mode.
-						--
+						['<C-[>'] = require('telescope.actions').close
 						-- By default the one below allow to scroll preview
-						-- window. But this wipe out the delete entire line
-						-- functionality.
-						-- To get the scroll <C-u>/<C-d>/<C-b>/<C-f> functions
-						-- rather use normal mode, it's just a <C-[> away.
-						['<C-u>'] = false
+						-- window.
+						-- <C-u>/<C-d>/<C-b>/<C-f>
 					}
 				}
 			}
@@ -103,7 +98,7 @@ return {
 		-- open file_browser with the path of the current buffer
 		vim.api.nvim_set_keymap(
 			'n',
-			'--',
+			'<space>fB',
 			':Telescope file_browser path=%:p:h select_buffer=true<CR>',
 			{
 				desc = 'Telescope [F]ile [B]rowser from parent directory',
