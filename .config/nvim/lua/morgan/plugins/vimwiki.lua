@@ -30,8 +30,5 @@ return {
 
 		keymap('n', '<leader>sn', _G.live_grep_vim_wiki_notes, { desc = 'Vimwiki: [S]earch Vimwiki [N]otes' })
 		keymap('n', '<leader>sN', _G.find_vim_wiki_notes, { desc = 'Vimwiki: [S]earch Vimwiki [N]otes files' })
-
--- 		-- Look for your vimwiki pages using telescope!
--- 		pcall(require('telescope').load_extension, 'vimwiki')
 	end
 }
