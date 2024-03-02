@@ -73,10 +73,13 @@ return {
 		keymap('n', '<leader>sw', builtin.grep_string, { desc = 'Telescope: [S]earch current [W]ord' })
 		keymap('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope: [S]earch by [G]rep' })
 		keymap('n', '<leader>sk', builtin.keymaps, { desc = 'Telescope: [S]earch [K]eymaps' })
-		keymap('n', '<leader>sc', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch Vim [C]onfig' })
+		keymap('n', '<leader>sc', builtin.commands, { desc = 'Telescope: [S]earch [C]ommands' })
+		keymap('n', '<leader>sC', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch Vim [C]onfig' })
 		keymap('n', '<leader>sm', '<cmd>Telescope node_modules list<cr>', { desc = 'Telescope: [S]earch Node [M]odules' })
 		keymap('n', '<leader>gd', '<cmd>Telescope dir live_grep<cr>',  { desc = 'Telescope: [G]rep in [D]irectory', noremap = true, silent = true })
 		keymap('n', '<leader>sd', '<cmd>Telescope dir find_files<cr>',  { desc = 'Telescope: [S]earch in [D]irectory...', noremap = true, silent = true })
+		keymap('n', '<leader>sN', '<cmd>Telescope find_files search_dirs=~/second-brain<cr>', { desc = 'Telescope: [S]earch [N]otes' })
+		keymap('n', '<leader>sn', '<cmd>Telescope live_grep search_dirs=~/second-brain<cr>', { desc = 'Telescope: [S]earch [n]otes with Grep' })
 
 		-- auto command to pop up telescope for file search if `vim .` was
 		-- invoked in the Terminal.

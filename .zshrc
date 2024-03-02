@@ -121,30 +121,30 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-# Notebook syncing
-notes () {
-  local notes_dir="$HOME/notebook/notes"
+# Second brain syncing
+sb () {
+  local second_brain="$HOME/second-brain"
   case "$1" in
     h)
-      printf "%s\n" "h: Help" "d: Change [d]irectory to notes folder" "i: Open wiki [i]ndex in vim" "p: [p]ersist: Stage, commit, push latest changes to git" "f: [f]etch: Pull from git"  
+      printf "%s\n" "h: Help" "d: Change [d]irectory to second-brain directory" "o: Open in vim" "p: [p]ersist: Stage, commit, push latest changes to git" "f: [f]etch: Pull from git"  
       ;;
     d)
-      cd "$notes_dir/"
+      cd "$second_brain/"
       ;;
-    i)
-      vim "$notes_dir/index.md"
+    o)
+      vim "$second_brain"
       ;;
     p)
-      pushd "$notes_dir"
+      pushd "$second_brain"
       msg="Sync from $(hostname) on $(date -u '+%Y-%m-%d %H:%M:%S') UTC"
       git add .
       git commit -m "$msg"
-      git push origin master
+      git push origin main
       popd
       ;;
     f)
-      pushd "$notes_dir"
-      git pull origin master
+      pushd "$second_brain"
+      git pull origin main
       popd
       ;;
   esac

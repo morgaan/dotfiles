@@ -46,8 +46,8 @@ keymap('n', ']q', '<cmd>cn<CR>zz', { remap = true, desc = 'Scroll cursor to midd
 keymap('n', '[q', '<cmd>cN<CR>zz', { remap = true, desc = 'Scroll cursor to middle after a quickfix jump backward' })
 keymap('n', '=ie', '<Plug>(textobj-entire-i)``zz', { silent = true, desc = 'Scroll cursor to middle after re-indent the entire buffer' })
 
-keymap('n', '<leader>np', ':!notes p<CR><CR>', { desc = '[N]otes changes are being [P]ushed]' })
-keymap('n', '<leader>nf', ':!notes f<CR><CR>', { desc = '[N]otes changes are being [F]etched' })
+keymap('n', '<leader>np', ':!sb p<CR><CR>', { desc = '[N]otes changes from Second Brain are being [P]ushed]' })
+keymap('n', '<leader>nf', ':!sb f<CR><CR>', { desc = '[N]otes changes from Second Brain are being [F]etched' })
 
 keymap('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move visual selection downward' })
 keymap('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual selection upward' })
