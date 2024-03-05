@@ -178,6 +178,16 @@ alias npm-show-wanted='npm outdated | awk '\''($2!=$3 && $1!="Package") {print $
 alias npm-show-latest='npm outdated | awk '\''($3!=$4 && $1!="Package") {print $1":from:v"$2":to:v"$4}'\'' | column -t -s:'
 alias npm-install-wanted='npm outdated | awk '\''($2!=$3 && $1!="Package") {print $1"@"$3}'\'' | paste -s -d" " - | xargs npm install'
 
+# Removing Middle Click or Middle Tap from Touchpad on Linux
+# source: https://www.acleon.co.uk/posts/disable-trackpad-middle-click-on-linux/)
+#
+# $OSTYPE
+# source: https://stackoverflow.com/a/8597411
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	touchpad=$(xinput --list | awk '/ELAN.*Touchpad/ { printf substr($6, 4) }')
+	xinput set-button-map $touchpad 1 1 3
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
