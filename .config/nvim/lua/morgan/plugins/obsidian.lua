@@ -2,7 +2,6 @@ return {
   "epwalsh/obsidian.nvim",
   version = "*",  -- recommended, use latest release instead of latest commit
   event = "VeryLazy",
-  ft = "markdown",
   -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
   --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -10,6 +9,7 @@ return {
   --   "BufReadPre path/to/my-vault/**.md",
   --   "BufNewFile path/to/my-vault/**.md",
   -- },
+  ft = "markdown",
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
@@ -29,25 +29,6 @@ return {
 		-- Trigger completion at 2 chars.
 		min_chars = 2,
 	},
-
-	-- mappings = {
-	-- 	-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-	-- 	["gf"] = {
-	-- 		action = function()
-	-- 			return require("obsidian").util.gf_passthrough()
-	-- 		end,
-
-	-- 		opts = { noremap = false, expr = true, buffer = true },
-	-- 	},
-
-	-- 	-- Toggle check-boxes.
-	-- 	["<leader>ch"] = {
-	-- 		action = function()
-	-- 			return require("obsidian").util.toggle_checkbox()
-	-- 		end,
-	-- 		opts = { buffer = true },
-	-- 	},
-	-- },
 
 	preferred_link_style = "markdown",
 
@@ -80,6 +61,8 @@ return {
 		return out
 	end,
 
+	new_notes_location = "current_dir",
+
 	note_id_func = function(title)
 		-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
 		-- In this case a note with the title 'My new note' will be given an ID that looks
@@ -94,7 +77,65 @@ return {
 				suffix = suffix .. string.char(math.random(65, 90))
 			end
 		end
-		return tostring(os.time()) .. "-" .. suffix
-	end
+		-- return tostring(os.time()) .. "-" .. suffix
+		return suffix
+	end,
+
+	templates = {
+		subdir = "4 Archives/zzz_notes-templates/nvim",
+		date_format = "%Y-%m-%d",
+		time_format = "%H:%M",
+		tags = "",
+		substitutions = {
+			year = function()
+				return os.date("%Y", os.time())
+			end
+		}
+	},
+
+	markdown_link_func = function(opts)
+		local util = require "obsidian.util"
+		local client = require("obsidian").get_client()
+		local anchor = ""
+		local header = ""
+
+		if opts.anchor then
+			anchor = opts.anchor.anchor
+			header = util.format_anchor_label(opts.anchor)
+		elseif opts.block then
+			anchor = "#" .. opts.block.id
+			header = "#" .. opts.block.id
+		end
+
+		-- This is now an absolute path to the file.
+		local path = client.dir / opts.path
+		-- This is an absolute path to the current buffer's parent directory.
+		local buf_dir = client.buf_dir
+
+		local rel_path
+		if buf_dir:is_parent_of(path) then
+			rel_path = tostring(path:relative_to(buf_dir))
+		else
+			local parents = buf_dir:parents()
+			for i, parent in ipairs(parents) do
+				if parent:is_parent_of(path) then
+					rel_path = string.rep("../", i) .. tostring(path:relative_to(parent))
+					break
+				end
+			end
+		end
+
+		local encoded_path = util.urlencode(rel_path, { keep_path_sep = true })
+		return string.format("[%s%s](%s%s)", opts.label, header, encoded_path, anchor)
+	end,
+
+	follow_url_func = function(url)
+		-- Open the URL in the default web browser.
+		if (vim.loop.os_uname().sysname == "Linux") then
+			vim.fn.jobstart({"xdg-open", url}) -- Linux
+		else
+			vim.fn.jobstart({"open", url})  -- MacOS
+		end
+	end,
   }
 }

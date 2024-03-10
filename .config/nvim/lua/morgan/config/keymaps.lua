@@ -46,8 +46,8 @@ keymap('n', ']q', '<cmd>cn<CR>zz', { remap = true, desc = 'Scroll cursor to midd
 keymap('n', '[q', '<cmd>cN<CR>zz', { remap = true, desc = 'Scroll cursor to middle after a quickfix jump backward' })
 keymap('n', '=ie', '<Plug>(textobj-entire-i)``zz', { silent = true, desc = 'Scroll cursor to middle after re-indent the entire buffer' })
 
-keymap('n', '<leader>np', ':!sb p<CR><CR>', { desc = '[N]otes changes from Second Brain are being [P]ushed]' })
-keymap('n', '<leader>nf', ':!sb f<CR><CR>', { desc = '[N]otes changes from Second Brain are being [F]etched' })
+keymap('n', '<leader>np', ':!sb p<CR>', { desc = '[N]otes changes from Second Brain are being [P]ushed]' })
+keymap('n', '<leader>nf', ':!sb f<CR>', { desc = '[N]otes changes from Second Brain are being [F]etched' })
 
 keymap('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move visual selection downward' })
 keymap('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual selection upward' })
@@ -55,6 +55,12 @@ keymap('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual selection upward' })
 keymap('n', '<leader>f', ':Ack!<space>', { desc = 'Grep (using Ack) through files of certain type when --filetype appended to search term' })
 
 keymap('n', '<leader>mp', ':MarkdownPreview<CR>', { desc = '[M]arkdown [P]review in browser' })
+
+-- Noice
+keymap("n", "<leader>dn", ":NoiceDismiss<CR>", { noremap = true, desc = '[D]ismiss [N]otifications' })
+
+-- Obsidian
+keymap("n", "<leader>os", ":ObsidianSearch<CR>", { noremap = true, desc = '[O]bsidian [S]earch' })
 
 -- Close all other buffers but current
 keymap('n', '<leader>co', ':w|%bd<CR><C-O>:bd#<CR>', { desc = '[C]lose all [O]ther buffer but current' })
