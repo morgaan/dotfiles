@@ -56,6 +56,8 @@ keymap('n', '<leader>f', ':Ack!<space>', { desc = 'Grep (using Ack) through file
 
 keymap('n', '<leader>mp', ':MarkdownPreview<CR>', { desc = '[M]arkdown [P]review in browser' })
 
+keymap('n', '<leader>rl', 'F["_d%.i', { desc = '[R]eplace Markdown [L]ink' })
+
 -- Noice
 keymap("n", "<leader>dn", ":NoiceDismiss<CR>", { noremap = true, desc = '[D]ismiss [N]otifications' })
 
