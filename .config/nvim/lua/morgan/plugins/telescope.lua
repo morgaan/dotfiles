@@ -18,12 +18,41 @@ return {
 		local builtin = require('telescope.builtin')
 		local actions = require('telescope.actions')
 
+		-- Taken from: https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-1679797700
+		local select_one_or_multi = function(prompt_bufnr)
+			local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
+			local multi = picker:get_multi_selection()
+			if not vim.tbl_isempty(multi) then
+				require('telescope.actions').close(prompt_bufnr)
+				for _, j in pairs(multi) do
+					if j.path ~= nil then
+						if j.lnum ~= nil then
+							-- Taken from: https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-1991532321
+							vim.cmd(string.format("%s %s:%s", "edit", j.path, j.lnum))
+						else
+							vim.cmd(string.format("%s %s", "edit", j.path))
+						end
+					end
+				end
+			else
+				require('telescope.actions').select_default(prompt_bufnr)
+			end
+		end
+
+		local find_second_brain_files = function()
+			builtin.find_files({
+				search_dirs = {'~/second-brain'},
+				file_ignore_patterns = {'zzz_20240301_archive'}
+			})
+		end
+
 		-- See `:help telescope` and `:help telescope.setup()`
 		require('telescope').setup {
 			defaults = {
 				mappings = {
 					i = {
-						['<C-[>'] = require('telescope.actions').close
+						['<C-[>'] = require('telescope.actions').close,
+						['<CR>'] = select_one_or_multi,
 						-- By default the one below allow to scroll preview
 						-- window.
 						-- <C-u>/<C-d>/<C-b>/<C-f>
@@ -74,13 +103,32 @@ return {
 		keymap('n', '<leader>sg', builtin.live_grep, { desc = 'Telescope: [S]earch by [G]rep' })
 		keymap('n', '<leader>sk', builtin.keymaps, { desc = 'Telescope: [S]earch [K]eymaps' })
 		keymap('n', '<leader>sc', builtin.commands, { desc = 'Telescope: [S]earch [C]ommands' })
-		keymap('n', '<leader>sN', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch [N]eovim config (find_files)' })
-		keymap('n', '<leader>sn', '<cmd>Telescope live_grep search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch [N]eovim config (live_grep)' })
 		keymap('n', '<leader>sm', '<cmd>Telescope node_modules list<cr>', { desc = 'Telescope: [S]earch Node [M]odules' })
 		keymap('n', '<leader>gd', '<cmd>Telescope dir live_grep<cr>',  { desc = 'Telescope: [G]rep in [D]irectory', noremap = true, silent = true })
 		keymap('n', '<leader>sd', '<cmd>Telescope dir find_files<cr>',  { desc = 'Telescope: [S]earch in [D]irectory...', noremap = true, silent = true })
-		keymap('n', '<leader>sB', '<cmd>Telescope find_files search_dirs=~/second-brain<cr>', { desc = 'Telescope: [S]econd [B]rain (find_files)' })
-		keymap('n', '<leader>sb', '<cmd>Telescope live_grep search_dirs=~/second-brain<cr>', { desc = 'Telescope: [S]econd [b]rain (live_grep' })
+
+		-- Second Brain
+		keymap('n', '<leader>sB', find_second_brain_files, { desc = 'Telescope: [S]econd [B]rain (find_files)' })
+		keymap('n', '<leader>sb', function()
+			builtin.live_grep({
+				search_dirs = {'~/second-brain'},
+				file_ignore_patterns = {'zzz_20240301_archive'}
+			})
+		end, { desc = 'Telescope: [S]econd [b]rain (live_grep)' })
+		keymap('n', '<leader>sA', function()
+			builtin.find_files({
+				search_dirs = {'~/second-brain/4 Archives/zzz_20240301_archive'},
+			})
+		end, { desc = 'Telescope: [S]earch [A]rchive (find_files)' })
+		keymap('n', '<leader>sA', function()
+			builtin.live_grep({
+				search_dirs = {'~/second-brain/4 Archives/zzz_20240301_archive'},
+			})
+		end, { desc = 'Telescope: [S]earch [a]rchive (live_grep)' })
+
+		-- Search Neovim config
+		keymap('n', '<leader>sN', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch [N]eovim config (find_files)' })
+		keymap('n', '<leader>sn', '<cmd>Telescope live_grep search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch [N]eovim config (live_grep)' })
 
 		-- auto command to pop up telescope for file search if `vim .` was
 		-- invoked in the Terminal.
@@ -88,7 +136,11 @@ return {
 		vim.api.nvim_create_autocmd({'VimEnter'}, {
 			callback = function()
 				if vim.v.argv[3] == '.' then
-					require('telescope.builtin').find_files()
+					if string.sub(vim.fn.getcwd(), -13) == '/second-brain' then
+						find_second_brain_files()
+					else
+						require('telescope.builtin').find_files()
+					end
 				end
 			end,
 			group = vimenter_group,
