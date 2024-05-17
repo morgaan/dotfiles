@@ -61,7 +61,7 @@ return {
 		return out
 	end,
 
-	new_notes_location = "current_dir",
+	new_notes_location = "notes_subdir",
 
 	note_id_func = function(title)
 		-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
