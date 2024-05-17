@@ -16,7 +16,6 @@ rm -f git-clone-bare-for-worktrees.sh
 
 ln -s ~/dotfiles/.config/nvim .config/nvim
 ln -s ~/dotfiles/.ctags .ctags
-ln -s ~/dotfiles/.tmux .tmux
 ln -s ~/dotfiles/.tmux.conf .tmux.conf
 ln -s ~/dotfiles/.ackrc .ackrc
 ln -s ~/dotfiles/.zshrc .zshrc
