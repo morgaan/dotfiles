@@ -5,3 +5,4 @@ cmd('iabbr coauth Co-authored-by: Daniel Clubb <daniel.clubb@springernature.com>
 cmd('iabbr cochris Co-authored-by: Chrissa Kaza <chrysoula.kaza@springernature.com>')
 cmd('iabbr codan Co-authored-by: Daniel Clubb <daniel.clubb@springernature.com>')
 cmd('iabbr coarun Co-authored-by: Arun Prasath <arunprasath.tamilselvan@springernature.com>')
+cmd('iabbr comarkus Co-authored-by: Markus Hampel <markus.hampel@springer.com>')
