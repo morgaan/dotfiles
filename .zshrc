@@ -136,7 +136,7 @@ sb () {
       ;;
     p)
       pushd "$second_brain"
-      msg="Sync from $(hostname) on $(date -u '+%Y-%m-%d %H:%M:%S') UTC"
+	  msg="$(date -u '+%Y-%m-%d %H:%M:%S') vault manual backup ($(hostname))"
       git add .
       git commit -m "$msg"
       git push origin main
@@ -146,6 +146,10 @@ sb () {
       pushd "$second_brain"
       git pull origin main
       popd
+      ;;
+	*)
+      cd "$second_brain/"
+	  vim .
       ;;
   esac
 }
