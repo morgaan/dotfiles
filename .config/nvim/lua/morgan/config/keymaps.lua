@@ -2,8 +2,6 @@ local keymap = vim.keymap.set
 
 vim.g.mapleader = " "
 
-keymap('n', '--', vim.cmd.Ex, { desc = 'Open current file\'s parent folder in netrw' })
-
 keymap('n', '<leader>tr', '<cmd>set relativenumber!<CR>', { desc = '[T]oggle [R]elativenumber' })
 
 keymap('n', 'gcp', '<cmd>let @+=@%<CR>', { desc = '[G]et [C]urrent [P]ath into system clipboard' })
@@ -61,8 +59,18 @@ keymap('n', '<leader>rl', 'F["_d%.i', { desc = '[R]eplace Markdown [L]ink' })
 -- Noice
 keymap("n", "<leader>dn", ":NoiceDismiss<CR>", { noremap = true, desc = '[D]ismiss [N]otifications' })
 
+-- Oil.nvim
+vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oil.nvim" })
+
 -- Obsidian
-keymap("n", "<leader>os", ":ObsidianSearch<CR>", { noremap = true, desc = '[O]bsidian [S]earch' })
+keymap("n", "<leader>ov", ":e ~/second-brain | norm g.<CR>", { noremap = true, desc = 'Browse to [O]bsidian [V]ault' })
+keymap("n", "<leader>on", ":ObsidianNew<CR>", { noremap = true, desc = '[O]bsidian [N]ew' })
+keymap("n", "<leader>oo", ":ObsidianQuickSwitch<CR>", { noremap = true, desc = '[O]bsidian [O]pen' })
+keymap("n", "<leader>os", ":ObsidianSearch<CR>", { noremap = true, desc = '[O]bsidian grep [S]earch' })
+keymap("n", "<leader>ot", ":ObsidianTemplate<CR>", { noremap = true, desc = '[O]bsidian [T]emplate' })
+keymap("n", "<leader>oh", ":ObsidianTags<CR>", { noremap = true, desc = '[O]bsidian [H]ashtags' })
+keymap("n", "<leader>ob", ":ObsidianBacklinks<CR>", { noremap = true, desc = '[O]bsidian note [B]acklinks' })
+keymap("n", "<leader>ol", ":ObsidianLinks<CR>", { noremap = true, desc = '[O]bsidian note [L]inks' })
 
 -- Close all other buffers but current
 keymap('n', '<leader>co', ':w|%bd<CR><C-O>:bd#<CR>', { desc = '[C]lose all [O]ther buffer but current' })

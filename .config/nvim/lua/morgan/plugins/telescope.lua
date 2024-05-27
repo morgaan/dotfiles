@@ -6,6 +6,11 @@ return {
 		'nvim-lua/plenary.nvim',
 		{
 			'nvim-telescope/telescope-fzf-native.nvim',
+			branch = 'main',
+			-- Last version before using `cmake` that I do not have on my
+			-- machine. Had to fix that because the extension was not loading at
+			-- all and I couldn't use the fzf search tokens
+			commit = 'f297259',
 			run = 'make',
 			cond = vim.fn.executable 'make' == 1
 		},
@@ -137,6 +142,9 @@ return {
 			callback = function()
 				if vim.v.argv[3] == '.' then
 					if string.sub(vim.fn.getcwd(), -13) == '/second-brain' then
+						-- Hide hidden files to unclutter the vault
+						vim.cmd.normal('g.')
+
 						find_second_brain_files()
 					else
 						require('telescope.builtin').find_files()
