@@ -34,7 +34,7 @@ vim.cmd([[
 		let result = substitute(result, "$\\+", "dollars" ,"g")
 
 		" Patch anything else with a dash
-		let result = substitute(result, "[^a-z]\\+", "-" ,"g")
+		let result = substitute(result, "[^a-z0-9]\\+", "-" ,"g")
 
 		return result
 	endfunction

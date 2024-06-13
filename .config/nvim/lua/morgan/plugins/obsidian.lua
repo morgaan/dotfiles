@@ -82,7 +82,7 @@ return {
 	end,
 
 	templates = {
-		subdir = "4 Archives/zzz_notes-templates/nvim",
+		subdir = "4-Archives/zzz_notes-templates/nvim",
 		date_format = "%Y-%m-%d",
 		time_format = "%H:%M",
 		tags = "",
