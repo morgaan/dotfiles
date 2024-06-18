@@ -1,8 +1,10 @@
+-- https://github.com/catppuccin/nvim?tab=readme-ov-file#usage
 return {
-	'ishan9299/nvim-solarized-lua',
-	priority = 1000, -- make sure to load first
+	'catppuccin/nvim',
+	name = 'catppuccin',
+	priority = 1000,
 	config = function()
-		vim.cmd([[colorscheme solarized]])
+		-- colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+		vim.cmd([[colorscheme catppuccin-frappe]])
 	end
 }
-
