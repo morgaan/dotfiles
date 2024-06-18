@@ -48,7 +48,6 @@ opt.showmatch = true
 opt.omnifunc = 'syntaxcomplete#Complete'
 opt.guicursor = 'n-v-c-ci-i:block-Cursor-blinkwait1-blinkon150-blinkoff150'
 opt.background = 'dark'
-opt.conceallevel = 2
 winopt.colorcolumn = '+1'
 winopt.signcolumn = 'yes'
 
