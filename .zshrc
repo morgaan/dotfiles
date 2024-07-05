@@ -84,6 +84,10 @@ plugins=(git z)
 
 DEFAULT_USER=`whoami`
 
+if type jq > /dev/null 2>&1; then
+	alias jq='jq --indent 2'
+fi
+
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
   export GIT_EDITOR=nvim
