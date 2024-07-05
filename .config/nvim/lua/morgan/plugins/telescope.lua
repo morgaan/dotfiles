@@ -15,7 +15,8 @@ return {
 			cond = vim.fn.executable 'make' == 1
 		},
 		'nvim-telescope/telescope-node-modules.nvim',
-		'princejoogie/dir-telescope.nvim'
+		'fbuchlak/telescope-directory.nvim'
+		-- 'princejoogie/dir-telescope.nvim'
 	},
 	config = function()
 		local keymap = vim.keymap.set
@@ -47,7 +48,7 @@ return {
 		local find_second_brain_files = function()
 			builtin.find_files({
 				search_dirs = {'~/second-brain'},
-				file_ignore_patterns = {'zzz_20240301_archive'}
+				file_ignore_patterns = {'4-Archives/.pre-second-brain-archive-20240301'}
 			})
 		end
 
@@ -109,27 +110,33 @@ return {
 		keymap('n', '<leader>sk', builtin.keymaps, { desc = 'Telescope: [S]earch [K]eymaps' })
 		keymap('n', '<leader>sc', builtin.commands, { desc = 'Telescope: [S]earch [C]ommands' })
 		keymap('n', '<leader>sm', '<cmd>Telescope node_modules list<cr>', { desc = 'Telescope: [S]earch Node [M]odules' })
-		keymap('n', '<leader>gd', '<cmd>Telescope dir live_grep<cr>',  { desc = 'Telescope: [G]rep in [D]irectory', noremap = true, silent = true })
-		keymap('n', '<leader>sd', '<cmd>Telescope dir find_files<cr>',  { desc = 'Telescope: [S]earch in [D]irectory...', noremap = true, silent = true })
+		keymap('n', '<leader>sd', '<cmd>Telescope directory live_grep theme=dropdown previewer=false hidden=true<cr>',  { desc = 'Telescope: [G]rep from within [D]irectory...', noremap = true, silent = true })
+		keymap('n', '<leader>sD', '<cmd>Telescope directory find_files theme=dropdown hidden=true<cr>',  { desc = 'Telescope: [S]earch to find files in [D]irectory...', noremap = true, silent = true })
+		keymap('n', '<leader>gd', '<cmd>Telescope directory hidden=true theme=dropdown feature=open_in_file_explorer <cr>',  { desc = 'Telescope: [G]o to [D]irectory', noremap = true, silent = true })
 
 		-- Second Brain
 		keymap('n', '<leader>sB', find_second_brain_files, { desc = 'Telescope: [S]econd [B]rain (find_files)' })
 		keymap('n', '<leader>sb', function()
 			builtin.live_grep({
 				search_dirs = {'~/second-brain'},
-				file_ignore_patterns = {'zzz_20240301_archive'}
+				file_ignore_patterns = {'.pre-second-brain-archive-20240301'}
 			})
 		end, { desc = 'Telescope: [S]econd [b]rain (live_grep)' })
 		keymap('n', '<leader>sA', function()
 			builtin.find_files({
-				search_dirs = {'~/second-brain/4 Archives/zzz_20240301_archive'},
+				search_dirs = {'~/second-brain/.pre-second-brain-archive-20240301'},
 			})
-		end, { desc = 'Telescope: [S]earch [A]rchive (find_files)' })
-		keymap('n', '<leader>sA', function()
+		end, { desc = 'Telescope: [S]econd brain notes [A]rchive (find_files)' })
+		keymap('n', '<leader>sa', function()
 			builtin.live_grep({
-				search_dirs = {'~/second-brain/4 Archives/zzz_20240301_archive'},
+				search_dirs = {'~/second-brain/.pre-second-brain-archive-20240301'},
 			})
-		end, { desc = 'Telescope: [S]earch [a]rchive (live_grep)' })
+		end, { desc = 'Telescope: [S]earch notes [a]rchive (live_grep)' })
+		keymap('n', '<leader>sT', function()
+			builtin.find_files({
+				search_dirs = {'~/second-brain/.templates'},
+			})
+		end, { desc = 'Telescope: [S]earch second brain [T]emplates (find_files)' })
 
 		-- Search Neovim config
 		keymap('n', '<leader>sN', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch [N]eovim config (find_files)' })

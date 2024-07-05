@@ -4,6 +4,16 @@ vim.api.nvim_create_user_command('TrimTrailingSpaces', function ()
 	]])
 end, { desc = 'Trim each line of file from trailing spaces' })
 
+vim.cmd([[
+	function Hyphenate(text)
+		let result = substitute(a:text, "[^a-zA-Z0-9]\\+", "-" ,"g")
+
+		return result
+	endfunction
+
+	command -range Dashify :<line1>,<line2>s/\%V.*\%V./\=Hyphenate(submatch(0))/
+]])
+
 -- Taken and adapted from https://codereview.stackexchange.com/questions/274729/slugify-selection
 vim.cmd([[
 	function Slugify(text)

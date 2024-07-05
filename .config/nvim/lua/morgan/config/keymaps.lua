@@ -63,8 +63,8 @@ keymap("n", "<leader>dn", ":NoiceDismiss<CR>", { noremap = true, desc = '[D]ismi
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oil.nvim" })
 
 -- Obsidian
-keymap("n", "<leader>ov", ":e ~/second-brain | norm g.<CR>", { noremap = true, desc = 'Browse to [O]bsidian [V]ault' })
-keymap("n", "<leader>op", ":e ~/second-brain/1-Projects | norm g.<CR>", { noremap = true, desc = 'Browse to [O]bsidian [P]rojects' })
+keymap("n", "<leader>ov", ":e ~/second-brain<CR>", { noremap = true, desc = 'Browse to [O]bsidian [V]ault' })
+keymap("n", "<leader>op", ":e ~/second-brain/1-Projects<CR>", { noremap = true, desc = 'Browse to [O]bsidian [P]rojects' })
 keymap("n", "<leader>on", ":ObsidianNew<CR>", { noremap = true, desc = '[O]bsidian [N]ew' })
 keymap("n", "<leader>oq", ":ObsidianQuickSwitch<CR>", { noremap = true, desc = '[O]bsidian [Q]uickSwitch' })
 keymap("n", "<leader>oo", ":ObsidianOpen<CR>", { noremap = true, desc = '[O]bsidian [O]pen' })
@@ -74,6 +74,8 @@ keymap("n", "<leader>oh", ":ObsidianTags<CR>", { noremap = true, desc = '[O]bsid
 keymap("n", "<leader>ob", ":ObsidianBacklinks<CR>", { noremap = true, desc = '[O]bsidian note [B]acklinks' })
 keymap("n", "<leader>ol", ":ObsidianLinks<CR>", { noremap = true, desc = '[O]bsidian note [L]inks' })
 keymap("v", "<leader>oe", ":ObsidianExtractNote<CR>", { noremap = true, desc = '[O]bsidian [E]xtract' })
+keymap("n", "<leader>oi", ":ObsidianPasteImg<CR>", { noremap = true, desc = '[O]bsidian [I]nsert Image from clipboard' })
+keymap("n", "<leader>ox", ":ObsidianFollowLink<CR>", { noremap = true, desc = '[O]bsidian follow link the cursor is on. NOTE: <CR> does the same!' })
 
 -- Close all other buffers but current
 keymap('n', '<leader>co', ':w|%bd<CR><C-O>:bd#<CR>', { desc = '[C]lose all [O]ther buffer but current' })

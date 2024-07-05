@@ -1,3 +1,4 @@
+-- https://github.com/epwalsh/obsidian.nvim
 return {
   "epwalsh/obsidian.nvim",
   version = "*",  -- recommended, use latest release instead of latest commit
@@ -61,7 +62,9 @@ return {
 		return out
 	end,
 
-	new_notes_location = "current_dir",
+	--  * "current_dir" - put new notes in same directory as the current buffer.
+	--  * "notes_subdir" - put new notes in the default notes subdirectory.
+	new_notes_location = "notes_dir",
 
 	note_id_func = function(title)
 		-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
@@ -82,7 +85,7 @@ return {
 	end,
 
 	templates = {
-		subdir = "4-Archives/zzz_notes-templates/nvim",
+		subdir = ".templates/nvim",
 		date_format = "%Y-%m-%d",
 		time_format = "%H:%M",
 		tags = "",
@@ -137,5 +140,34 @@ return {
 			vim.fn.jobstart({"open", url})  -- MacOS
 		end
 	end,
+
+	-- Specify how to handle attachments.
+	attachments = {
+		-- The default folder to place images in via `:ObsidianPasteImg`.
+		-- If this is a relative path it will be interpreted as relative to the vault root.
+		-- You can always override this per image by passing a full path to the command instead of just a filename.
+		img_folder = ".assets/img",
+		-- A function that determines the text to insert in the note when pasting an image.
+		-- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
+		-- This is the default implementation.
+		---@param client obsidian.Client
+		---@param path obsidian.Path the absolute path to the image file
+		---@return string
+		img_text_func = function(client, path)
+			path = client:vault_relative_path(path) or path
+			return string.format("![%s](%s)", path.name, path)
+		end,
+	},
+
+	ui = {
+		checkboxes = {
+			-- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
+			[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+			["x"] = { char = "", hl_group = "ObsidianDone" }
+			-- [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+			-- ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+			-- ["!"] = { char = "", hl_group = "ObsidianImportant" },
+		}
+	}
   }
 }
