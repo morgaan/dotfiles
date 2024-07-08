@@ -122,8 +122,8 @@ source $HOME/superexport/.secretreader.sh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
+# Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # Second brain syncing
 sb () {
