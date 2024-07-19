@@ -114,16 +114,7 @@ export NVM_DIR="$HOME/.nvm"
 #  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 #  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# This is meant to source local specifics that aren't meant to be under source control
-[ -f ~/.locals.zsh ] && source ~/.locals.zsh
-
-source $HOME/superexport/.secretreader.sh
-# source $HOME/superexport/.secretreader.sh
-
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
-
-# Set up fzf key bindings and fuzzy completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Second brain syncing
 sb () {
@@ -196,6 +187,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	xinput set-button-map $touchpad 1 1 3
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# Set up fzf key bindings and fuzzy completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# This is meant to source local specifics that aren't meant to be under source control
+[ -f ~/.locals.zsh ] && source ~/.locals.zsh
