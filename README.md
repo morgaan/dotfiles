@@ -155,6 +155,17 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
+### Install spellcheck dictionary
+
+Normally we should be prompt to download the missing. But most of the time this
+may be disabled by a plugin... The work around is to start with no config `vim
+-u none`. At that point you may or not need to do the manual setup of options.
+Like `set spelllang=en, fr, en` and then `set spell`. Hopefully you are given
+with the prompt with the option to download or decline.
+
+This may not be necessary if it's able to pickup the dictionary from my
+dotfiles.
+
 ## TMUX
 
 ### Install Vim plugins
