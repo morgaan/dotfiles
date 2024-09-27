@@ -33,8 +33,8 @@ keymap('n', '<leader>c', '<cmd>let &cole=(&cole == 2) ? 0 : 2 <bar> echo \'conce
 
 keymap('n', '<leader>cb', '<cmd>!git cp<CR><CR>', { desc = '[C]opy current git [B]ranch to system clipboard' })
 
-keymap('n', '[s', 'i<Space><Esc>l', { desc = 'Insert a space before the current character' })
-keymap('n', ']s', 'a<Space><Esc>h', { desc = 'Insert a space after the current character' })
+keymap('n', '[<tab>', 'i<Space><Esc>l', { desc = 'Insert a space before the current character' })
+keymap('n', ']<tab>', 'a<Space><Esc>h', { desc = 'Insert a space after the current character' })
 
 keymap('n', 'n', 'nzz', { desc = 'Scroll cursor to middle after searching for next search term occurence' })
 keymap('n', 'N', 'Nzz', { desc = 'Scroll cursor to middle after searching for previous search term occurence' })
