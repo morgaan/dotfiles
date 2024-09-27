@@ -9,7 +9,12 @@ return {
 		},
 		heading = {
 			enabled = true,
-			width = 'block'
+			width = 'block',
+			-- Could not find where these are coming from, not from
+			-- `nvim-web-devicons` as it seems not to be listed in
+			-- `:NvimWebDeviconsHiTest`
+			-- icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+			icons = {},
 		},
 		link = {
 			enabled = true,
