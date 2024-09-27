@@ -53,8 +53,8 @@ keymap('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual selection upward' })
 keymap('n', '<leader>f', ':Ack!<space>', { desc = 'Grep (using Ack) through files of certain type when --filetype appended to search term' })
 
 keymap('n', '<leader>mp', ':MarkdownPreview<CR>', { desc = '[M]arkdown [P]review in browser' })
-
 keymap('n', '<leader>rl', 'F["_d%.i', { desc = '[R]eplace Markdown [L]ink' })
+keymap('v', '<leader>h', '<Esc>`>a==<C-o>`<==<Esc>`>5l', { desc = 'Add a "markdown" [H]ighlight to visual selection' })
 
 -- Noice
 keymap("n", "<leader>dn", ":NoiceDismiss<CR>", { noremap = true, desc = '[D]ismiss [N]otifications' })
