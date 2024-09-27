@@ -119,17 +119,17 @@ return {
 		keymap('n', '<leader>sb', function()
 			builtin.live_grep({
 				search_dirs = {'~/second-brain'},
-				file_ignore_patterns = {'.pre-second-brain-archive-20240301'}
+				file_ignore_patterns = {'4-Archives/zzz_pre-second-brain-archive-20240301'}
 			})
 		end, { desc = 'Telescope: [S]econd [b]rain (live_grep)' })
 		keymap('n', '<leader>sA', function()
 			builtin.find_files({
-				search_dirs = {'~/second-brain/.pre-second-brain-archive-20240301'},
+				search_dirs = {'~/second-brain/4-Archives/zzz_pre-second-brain-archive-20240301'},
 			})
 		end, { desc = 'Telescope: [S]econd brain notes [A]rchive (find_files)' })
 		keymap('n', '<leader>sa', function()
 			builtin.live_grep({
-				search_dirs = {'~/second-brain/.pre-second-brain-archive-20240301'},
+				search_dirs = {'~/second-brain/4-Archives/zzz_pre-second-brain-archive-20240301'},
 			})
 		end, { desc = 'Telescope: [S]earch notes [a]rchive (live_grep)' })
 		keymap('n', '<leader>sT', function()
