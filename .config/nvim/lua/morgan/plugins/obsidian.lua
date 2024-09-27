@@ -23,6 +23,12 @@ return {
       }
     },
 
+	-- This allows to create any new notes in the Inbox thanks to
+	-- new_notes_location that is being pointed to notes_subdir.
+	-- Luckily this has no impact on the obsidian search as it is still
+	-- searching the entire vault.
+	notes_subdir = "0-Inbox",
+
 	-- Completion of wiki links, local markdown links, and tags using nvim-cmp.
 	completion = {
 		-- Set to false to disable completion.
