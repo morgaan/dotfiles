@@ -14,7 +14,7 @@ hl('StatuslineFilename', {bold=true, fg='#b58900'})
 hl('StatuslineCustom', {fg='#D9D9D9', bg='#565656'})
 
 -- More contrasted CursorLineNr, Cursor and ColorColumn
-hl('CursorLineNr', {ctermbg='magenta', ctermfg='white', guibg='magenta', guifg='white'})
+hl('CursorLineNr', {ctermbg='magenta', ctermfg='white'})
 hl('ColorColumn', {bg='#073642'})
 hl('Cursor', {link='CursorLineNr'})
 
