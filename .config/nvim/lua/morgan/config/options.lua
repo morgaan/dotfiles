@@ -7,6 +7,10 @@ local winopt = vim.wo
 opt.encoding = 'utf-8'
 opt.mouse = ''
 
+-- Spell check
+opt.spelllang = {'en', 'fr', 'de'}
+opt.spell = true
+
 -- Indentation
 -- -----------
 
