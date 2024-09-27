@@ -64,7 +64,7 @@ return {
 
 	--  * "current_dir" - put new notes in same directory as the current buffer.
 	--  * "notes_subdir" - put new notes in the default notes subdirectory.
-	new_notes_location = "notes_dir",
+	new_notes_location = "notes_subdir",
 
 	note_id_func = function(title)
 		-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
