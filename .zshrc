@@ -91,15 +91,11 @@ fi
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
   export GIT_EDITOR=nvim
-fi
-
-if type /opt/neovim/neovim/bin/nvim > /dev/null 2>&1; then
+elif type /opt/neovim/neovim/bin/nvim > /dev/null 2>&1; then
   alias vim='/opt/neovim/neovim/bin/nvim'
   export GIT_EDITOR=/opt/neovim/neovim/bin/nvim
-fi
-
-if type /Users/morgan/nvim-macos/bin/nvim > /dev/null 2>&1; then
-	alias vim='/Users/morgan/nvim-macos/bin/nvim'
+elif type /Users/morgan/nvim-macos/bin/nvim > /dev/null 2>&1; then
+  alias vim='/Users/morgan/nvim-macos/bin/nvim'
   export GIT_EDITOR=/Users/morgan/nvim-macos/bin/nvim
 fi
 
