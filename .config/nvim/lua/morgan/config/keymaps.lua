@@ -64,7 +64,6 @@ vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oi
 
 -- Obsidian
 keymap("n", "<leader>ov", ":e ~/second-brain<CR>", { noremap = true, desc = 'Browse to [O]bsidian [V]ault' })
-keymap("n", "<leader>op", ":e ~/second-brain/1-Projects<CR>", { noremap = true, desc = 'Browse to [O]bsidian [P]rojects' })
 keymap("n", "<leader>on", ":ObsidianNew<CR>", { noremap = true, desc = '[O]bsidian [N]ew' })
 keymap("n", "<leader>oq", ":ObsidianQuickSwitch<CR>", { noremap = true, desc = '[O]bsidian [Q]uickSwitch' })
 keymap("n", "<leader>oo", ":ObsidianOpen<CR>", { noremap = true, desc = '[O]bsidian [O]pen' })
