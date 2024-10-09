@@ -91,7 +91,7 @@ return {
 	end,
 
 	templates = {
-		subdir = ".templates/nvim",
+		subdir = "2-Areas/Second-Brain/templates/nvim",
 		date_format = "%Y-%m-%d",
 		time_format = "%H:%M",
 		tags = "",
