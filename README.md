@@ -10,7 +10,7 @@
 $ cd ~/dotfiles
 $ chmod +x install.sh
 $ cd ~
-$ ./install.sh
+$ ./dotfiles/install.sh
 $ git clone git@github.com:mbadolato/iTerm2-Color-Schemes.git ~/dotfiles/iTerm2/iTerm2-Color-Schemes
 ```
 
