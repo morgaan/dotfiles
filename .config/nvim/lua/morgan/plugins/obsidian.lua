@@ -102,6 +102,14 @@ return {
 		}
 	},
 
+	disable_frontmatter = function(filename)
+		if filename:find("obsidian%-template") == nil then
+			return false
+		else
+			return true
+		end
+	end,
+
 	markdown_link_func = function(opts)
 		local util = require "obsidian.util"
 		local client = require("obsidian").get_client()
