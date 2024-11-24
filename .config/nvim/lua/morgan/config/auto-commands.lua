@@ -48,3 +48,22 @@ vim.api.nvim_create_autocmd({'VimResized'}, {
   pattern = '*'
 })
 
+-- Source: Prevent Vim from breaking up links mid-tag in markdown
+-- https://vi.stackexchange.com/questions/564/prevent-vim-from-breaking-up-links-mid-tag-in-markdown#649
+--
+-- May have some flaws but seems to work eventually. If I use `<C-k>`
+-- mapping introduced by 'ixru/nvim-markdown' plugin to insert a markdown
+-- link as I write if should be alright!
+--
+-- TODO: Migrate this to lua potentially
+vim.api.nvim_exec([[
+	au CursorMovedI *.md call ModifyTextWidth() " Use only within *.md files
+
+	function! ModifyTextWidth()
+		if getline(".")=~'^.*\[.*\](.*)$' " If the line ends with Markdown link - set big value for textwidth
+			setlocal textwidth=500
+		else
+			setlocal textwidth=80 " Otherwise use normal textwidth
+		endif
+	endfunction
+]], false)
