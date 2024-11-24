@@ -5,6 +5,10 @@ return {
 	-- Create links [link text](url) in insert or visual mode. If pressed in an
 	-- url, or in a word, it will autofill the correct field. tab can be used in
 	-- insert mode to skip from one field to the next.
+	--
+	-- Note: In auto-commands.lua, there is some vimscript to prevent markdown
+	-- links to break up when the tag is crossing the textwidth, by
+	-- accommodating a bigger textwidth for that particular line
 	event = {'BufReadPre', 'BufNewFile'},
 	dependencies = {'godlygeek/tabular'},
 	config = function()
