@@ -13,7 +13,7 @@ return {
 			position = 'inline',
 			width = 'block',
 			-- You can search for symbols in https://www.nerdfonts.com/cheat-sheet though
-			signs = {' 󰉫', ' 󰉬', ' 󰉭' , ' 󰉮', ' 󰉯', ' 󰉰'},
+			signs = {'󰉫', '󰉬', '󰉭' , '󰉮', '󰉯', '󰉰'},
 			icons = {''}
 		},
 		dash = {
@@ -21,7 +21,6 @@ return {
 			width = 80
 		},
 		quote = {
-			enable = true,
 			highlight = 'rainbow4',
 			icon = '|';
 		},
@@ -30,21 +29,19 @@ return {
 			image = '󰥶 ',
 			email = '󰁥 ',
 			hyperlink = '󰌹 ',
-			highlight = 'RenderMarkdownLink',
+			highlight = 'RenderMarkdownCustomLink',
 			custom = {
-				internalLink = { pattern = '%.md$', icon = '󱅸 ', highlight = 'RenderMarkdownLink' },
-				projectLink = { pattern = '%-PROJECT-', icon = '󰪺 ', highlight = 'RenderMarkdownLink' },
-				areaLink = { pattern = '%-AREA-', icon = '󰻿 ', highlight = 'RenderMarkdownLink' },
-				ghLink = { pattern = '^http[s]?://.*github.com.*', icon = ' ', highlight = 'RenderMarkdownLink' },
-				glLink = { pattern = '^http[s]?://.*gitlab.com.*', icon = ' ', highlight = 'RenderMarkdownLink' },
-				soLink = { pattern = '^http[s]?://.*stackoverflow.com.*', icon = ' ', highlight = 'RenderMarkdownLink' },
-				ytLink = { pattern = '^http[s]?://.*youtube.com.*', icon = '󰗃 ', highlight = 'RenderMarkdownLink' },
-				ytmLink = { pattern = '^http[s]?://.*youtu.be.*', icon = '󰗃 ', highlight = 'RenderMarkdownLink' },
-				web = { pattern = '^http[s]?://', icon = '󰖟 ', highlight = 'RenderMarkdownLink' }
+				internalLink = { pattern = '%.md$', icon = '󱅸 ', highlight = 'RenderMarkdownCustomLink' },
+				projectLink = { pattern = '%-PROJECT-', icon = '󰪺 ', highlight = 'RenderMarkdownCustomLink' },
+				areaLink = { pattern = '%-AREA-', icon = '󰻿 ', highlight = 'RenderMarkdownCustomLink' },
+				ghLink = { pattern = '^http[s]?://.*github.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
+				glLink = { pattern = '^http[s]?://.*gitlab.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
+				soLink = { pattern = '^http[s]?://.*stackoverflow.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
+				ytLink = { pattern = '^http[s]?://.*youtube.com.*', icon = '󰗃 ', highlight = 'RenderMarkdownCustomLink' },
+				ytmLink = { pattern = '^http[s]?://.*youtu.be.*', icon = '󰗃 ', highlight = 'RenderMarkdownCustomLink' },
+				spotifyLink = { pattern = '^http[s]?://.*spotify.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
+				web = { pattern = '^http[s]?://', icon = '󰖟 ', highlight = 'RenderMarkdownCustomLink' }
 			},
-		},
-		bullet = {
-			icons = { '●', '○', '◆', '◇' }
 		},
 		code = {
 			enabled = true,
@@ -54,6 +51,32 @@ return {
 			min_width = 81,
 			left_pad = 2,
 			right_pad = 2
+		},
+		bullet = {
+			icons = { '–' },
+			highlight = 'RenderMarkdownChecked'
+		},
+		checkbox = {
+			enabled = true,
+			unchecked = {
+				icon = ' ',
+				highlight = 'RenderMarkdownUnchecked',
+				scope_highlight = nil,
+			},
+			checked = {
+				icon = ' ',
+				highlight = 'RenderMarkdownChecked',
+				scope_highlight = nil,
+			},
+			custom = {
+				Mood = { raw = '[~]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				Event = { raw = '[o]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				Appointment = { raw = '[^]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				capture = { raw = '[*]', rendered = ' ', highlight = 'rainbow3', scope_highlight = nil },
+				wip = { raw = '[/]', rendered = ' ', highlight = 'DiagnosticWarn', scope_highlight = nil },
+				migrated = { raw = '[>]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				moved = { raw = '[<]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil }
+			}
 		},
 		custom_handlers = {
 			markdown = {
@@ -94,7 +117,7 @@ return {
 					-- Hide first 2 equal signs
 					append({ start_row, start_row }, { start_col, start_col + 2 }, '', nil)
 					-- Highlight contents
-					append({ start_row, end_row }, { start_col, end_col }, nil, 'RenderMarkdownHighlight')
+					append({ start_row, end_row }, { start_col, end_col }, nil, 'RenderMarkdownCustomHighlight')
 					-- Hide last 2 equal signs
 					append({ end_row, end_row }, { end_col - 2, end_col }, '', nil)
 					index = end_index + 1
