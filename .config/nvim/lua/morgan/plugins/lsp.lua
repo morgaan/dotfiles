@@ -25,7 +25,7 @@ return {
 		})
 
 		mason_lspconfig.setup({
-			ensure_installed = { 'lua_ls', 'tsserver', 'eslint', 'kotlin_language_server' }
+			ensure_installed = { 'lua_ls', 'ts_ls', 'eslint', 'kotlin_language_server' }
 		})
 
 		local on_attach = function(_, bufnr)
