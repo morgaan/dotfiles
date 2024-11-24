@@ -79,3 +79,4 @@ keymap("n", "<leader>ox", ":ObsidianFollowLink<CR>", { noremap = true, desc = '[
 -- Close all other buffers but current
 keymap('n', '<leader>co', ':w|%bd<CR><C-O>:bd#<CR>', { desc = '[C]lose all [O]ther buffer but current' })
 
+keymap('n', 'g<C-v>', '`[V`]', { desc = 'Reselect just pasted text' })
