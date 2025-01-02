@@ -1,7 +1,7 @@
 -- Fuzzy anything (files, lsp, keymaps, commands, help...)
 return {
 	'nvim-telescope/telescope.nvim',
-	branch = '0.1.x',
+	-- branch = '0.1.x',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 		{
@@ -29,7 +29,7 @@ return {
 			local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
 			local multi = picker:get_multi_selection()
 			if not vim.tbl_isempty(multi) then
-				require('telescope.actions').close(prompt_bufnr)
+				actions.close(prompt_bufnr)
 				for _, j in pairs(multi) do
 					if j.path ~= nil then
 						if j.lnum ~= nil then
@@ -41,7 +41,7 @@ return {
 					end
 				end
 			else
-				require('telescope.actions').select_default(prompt_bufnr)
+				actions.select_default(prompt_bufnr)
 			end
 		end
 
@@ -57,15 +57,21 @@ return {
 			defaults = {
 				mappings = {
 					i = {
-						['<C-[>'] = require('telescope.actions').close,
+						['<C-[>'] = actions.close,
 						['<CR>'] = select_one_or_multi,
-						-- By default the one below allow to scroll preview
-						-- window.
-						-- <C-u>/<C-d>/<C-b>/<C-f>
+						-- To scroll preview window.
+						-- Vertically: <C-u>/<C-d>
+						-- Horizontally: <C-f>/<C-k>
+						--
+						-- To scroll results window.
+						-- Vertically: <PageUp>/<PageDown>
+						-- Horizontally: <M-f>/<M-k>
 					}
 				}
 			}
 		}
+
+		require('morgan.config.telescope.multigrep').setup()
 
 		-- Telescope extensions:
 		--
