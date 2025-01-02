@@ -36,6 +36,11 @@ keymap('n', '<leader>cb', '<cmd>!git cp<CR><CR>', { desc = '[C]opy current git [
 keymap('n', '[<tab>', 'i<Space><Esc>l', { desc = 'Insert a space before the current character' })
 keymap('n', ']<tab>', 'a<Space><Esc>h', { desc = 'Insert a space after the current character' })
 
+-- Couldn't find a lua equivalent yet!
+-- These 2 below scroll cursor to middle after jumping to marks adding the
+-- missing `zz`
+vim.cmd('nnoremap <expr> \' "\'" . nr2char(getchar()) . "zz"')
+vim.cmd('nnoremap <expr> ` "`" . nr2char(getchar()) . "zz"')
 keymap('n', 'n', 'nzz', { desc = 'Scroll cursor to middle after searching for next search term occurence' })
 keymap('n', 'N', 'Nzz', { desc = 'Scroll cursor to middle after searching for previous search term occurence' })
 keymap('n', '<C-d>', '<C-d>zz', { desc = 'Scroll cursor to middle after half page jump downward' })
