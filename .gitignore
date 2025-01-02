@@ -19,3 +19,7 @@ node_modules
 .metals/
 project/metals.sbt
 .config/nvim/plugin/packer_compiled.lua
+
+# LambdaTest
+lt.log
+ltcupdate
