@@ -37,6 +37,7 @@ return {
 				ghLink = { pattern = '^http[s]?://.*github.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
 				glLink = { pattern = '^http[s]?://.*gitlab.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
 				soLink = { pattern = '^http[s]?://.*stackoverflow.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
+				redditLink = { pattern = '^http[s]?://.*reddit.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
 				ytLink = { pattern = '^http[s]?://.*youtube.com.*', icon = '󰗃 ', highlight = 'RenderMarkdownCustomLink' },
 				ytmLink = { pattern = '^http[s]?://.*youtu.be.*', icon = '󰗃 ', highlight = 'RenderMarkdownCustomLink' },
 				spotifyLink = { pattern = '^http[s]?://.*spotify.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
