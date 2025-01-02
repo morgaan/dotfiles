@@ -11,8 +11,7 @@
 .vim/bundle/
 .vim/plugged/
 .netrwhist
-.tmux/resurrect
-.tmux/plugins
+.tmux/
 iTerm2/iTerm2-Color-Schemes/
 node_modules
 .bloop/
