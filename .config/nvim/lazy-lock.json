@@ -25,7 +25,7 @@
   "obsidian.nvim": { "branch": "main", "commit": "ae1f76a75c7ce36866e1d9342a8f6f5b9c2caf9b" },
   "oil.nvim": { "branch": "master", "commit": "21705a1debe6d85a53c138ab944484b685432b2b" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
-  "render-markdown.nvim": { "branch": "main", "commit": "d6a82d70765aa238b7ea48d257a1d57a92501423" },
+  "render-markdown.nvim": { "branch": "main", "commit": "3a319cdbefebf0079a7012dab6b1bfc18ca5b97f" },
   "tabular": { "branch": "master", "commit": "12437cd1b53488e24936ec4b091c9324cafee311" },
   "targets.vim": { "branch": "master", "commit": "6325416da8f89992b005db3e4517aaef0242602e" },
   "telescope-directory.nvim": { "branch": "main", "commit": "ef5cf2579671a3d5496a29428344795efac11332" },
