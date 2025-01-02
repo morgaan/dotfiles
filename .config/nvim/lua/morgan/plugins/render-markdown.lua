@@ -76,7 +76,8 @@ return {
 				capture = { raw = '[*]', rendered = ' ', highlight = 'rainbow3', scope_highlight = nil },
 				wip = { raw = '[/]', rendered = ' ', highlight = 'DiagnosticWarn', scope_highlight = nil },
 				migrated = { raw = '[>]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
-				moved = { raw = '[<]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil }
+				moved = { raw = '[<]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				delegated = { raw = '[d]', rendered = '  ', highlight = 'RenderMarkdownChecked', scope_highlight = nil }
 			}
 		},
 		custom_handlers = {
