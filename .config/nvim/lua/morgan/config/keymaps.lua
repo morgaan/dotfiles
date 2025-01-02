@@ -55,8 +55,6 @@ keymap('n', '<leader>nf', ':!sb f<CR>', { desc = '[N]otes changes from Second Br
 keymap('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move visual selection downward' })
 keymap('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual selection upward' })
 
-keymap('n', '<leader>f', ':Ack!<space>', { desc = 'Grep (using Ack) through files of certain type when --filetype appended to search term' })
-
 keymap('n', '<leader>mp', ':MarkdownPreview<CR>', { desc = '[M]arkdown [P]review in browser' })
 keymap('n', '<leader>rl', 'F["_d%.i', { desc = '[R]eplace Markdown [L]ink' })
 keymap('v', '<leader>h', '<Esc>`>a==<C-o>`<==<Esc>`>5l', { desc = 'Add a "markdown" [H]ighlight to visual selection' })
