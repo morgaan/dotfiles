@@ -1,5 +1,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -82,7 +83,9 @@ plugins=(git z)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-DEFAULT_USER=`whoami`
+# DEFAULT_USER=`whoami`
+
+eval "$(tmuxifier init -)"
 
 if type jq > /dev/null 2>&1; then
 	alias jq='jq --indent 2'
