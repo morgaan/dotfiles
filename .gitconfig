@@ -1,6 +1,6 @@
 [user]
 	name = Morgan CUGERONE
-	email = morgaan@gmail.com
+	signingkey = ~/.ssh/id_rsa
 [alias]
 	cp = "!sh $HOME/copy-git-branch-to-clipboard.sh"
 	clone-for-worktrees = "!sh $HOME/git-clone-bare-for-worktrees.sh"
@@ -33,3 +33,7 @@
 	rebase = false
 [fetch]
 	prune = true
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
