@@ -83,7 +83,7 @@ plugins=(git z)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# DEFAULT_USER=`whoami`
+DEFAULT_USER=`whoami`
 
 eval "$(tmuxifier init -)"
 
