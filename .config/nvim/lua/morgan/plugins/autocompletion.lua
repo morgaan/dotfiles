@@ -7,7 +7,21 @@ return {
 		'hrsh7th/cmp-nvim-lsp',
 		'saadparwaiz1/cmp_luasnip',
 		'L3MON4D3/LuaSnip',
-		'rafamadriz/friendly-snippets'
+		'rafamadriz/friendly-snippets',
+		{
+			-- https://github.com/folke/lazydev.nvim
+			-- Make lua_ls aware of vim globals... and therefore support
+			-- autocompletion experience when authoring vim configuration
+			'folke/lazydev.nvim',
+			ft = "lua", -- only load on lua files
+			opts = {
+				library = {
+					-- See the configuration section for more details
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				}
+			}
+		}
 	},
 	config = function()
 		local cmp = require('cmp')
@@ -84,5 +98,12 @@ return {
 				{ name = 'buffer', option = { get_bufnrs = function() return vim.api.nvim_list_bufs() end }},
 			})
 		})
-	end
+	end,
+	opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+      })
+    end
 }
