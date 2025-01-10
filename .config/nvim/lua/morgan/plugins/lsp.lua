@@ -9,7 +9,7 @@ return {
 					'williamboman/mason.nvim',
 					run = ':MasonUpdate' -- :MasonUpdate updates registry contents
 				}
-			}
+			},
 		}
 	},
 	config = function()
@@ -88,7 +88,7 @@ return {
 			end
 		}
 
-		local signs = { Error = "✘", Warn = "▲", Hint = "⚑", Info = "i" }
+		local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type

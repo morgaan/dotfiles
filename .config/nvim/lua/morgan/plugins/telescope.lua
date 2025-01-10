@@ -15,7 +15,12 @@ return {
 			cond = vim.fn.executable 'make' == 1
 		},
 		'nvim-telescope/telescope-node-modules.nvim',
-		'fbuchlak/telescope-directory.nvim'
+		'fbuchlak/telescope-directory.nvim',
+		-- It sets vim.ui.select to telescope. That means for example that
+		-- neovim core stuff can fill the telescope picker. Example would be lua
+		-- vim.lsp.buf.code_action().
+		'nvim-telescope/telescope-ui-select.nvim'
+
 		-- 'princejoogie/dir-telescope.nvim'
 	},
 	config = function()
@@ -68,6 +73,11 @@ return {
 						-- Horizontally: <M-f>/<M-k>
 					}
 				}
+			},
+			extensions = {
+				['ui-select'] = {
+					require("telescope.themes").get_dropdown {}
+				}
 			}
 		}
 
@@ -86,7 +96,9 @@ return {
 		-- | !^music | inverse-prefix-exact-match | Items that do not start with `music` |
 		-- | !.mp3$  | inverse-suffix-exact-match | Items that do not end with `.mp3`    |
 		pcall(require('telescope').load_extension, 'fzf')
+
 		pcall(require('telescope').load_extension, 'node_modules')
+		pcall(require('telescope').load_extension, 'ui-select')
 
 		-- Keymaps:
 		keymap('n', '<C-p>', function()
