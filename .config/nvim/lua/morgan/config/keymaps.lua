@@ -63,7 +63,7 @@ keymap('v', '<leader>h', '<Esc>`>a==<C-o>`<==<Esc>`>5l', { desc = 'Add a "markdo
 keymap("n", "<leader>dn", ":NoiceDismiss<CR>", { noremap = true, desc = '[D]ismiss [N]otifications' })
 
 -- Oil.nvim
-vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oil.nvim" })
+vim.keymap.set("n", "<leader>-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oil.nvim" })
 
 -- Obsidian
 keymap("n", "<leader>ov", ":e ~/second-brain<CR>", { noremap = true, desc = 'Browse to [O]bsidian [V]ault' })
