@@ -5,6 +5,13 @@ end
 
 hl('InYourFacePink', {bold=true, bg='magenta', fg='white'})
 
+hl('MyMarkdownH1', {bold=true, fg='#e78284'})
+hl('MyMarkdownH2', {bold=true, fg='#ef9f76'})
+hl('MyMarkdownH3', {bold=true, fg='#e5c890'})
+hl('MyMarkdownH4', {bold=true, fg='#a6d189'})
+hl('MyMarkdownH5', {bold=true, fg='#99d1db'})
+hl('MyMarkdownH6', {bold=true, fg='#babbf1'})
+
 -- Italicised comments and attributes.
 hl('Comment', {italic=true, fg='#5f87df'})
 hl('htmlArg', {italic=true, fg='#af8700'})

@@ -15,7 +15,23 @@ return {
 			width = 'block',
 			-- You can search for symbols in https://www.nerdfonts.com/cheat-sheet though
 			signs = {'󰉫', '󰉬', '󰉭' , '󰉮', '󰉯', '󰉰'},
-			icons = {''}
+			icons = {''},
+			backgrounds = {
+				'MyMarkdownH1',
+				'MyMarkdownH2',
+				'MyMarkdownH3',
+				'MyMarkdownH4',
+				'MyMarkdownH5',
+				'MyMarkdownH6',
+			},
+			foregrounds = {
+				'MyMarkdownH1',
+				'MyMarkdownH2',
+				'MyMarkdownH3',
+				'MyMarkdownH4',
+				'MyMarkdownH5',
+				'MyMarkdownH6',
+			},
 		},
 		dash = {
 			enabled = true,
