@@ -90,6 +90,9 @@ return {
 				mappings = {
 					i = {
 						['<C-[>'] = actions.close,
+						["<C-w>"] = function()
+							vim.api.nvim_input "<c-s-w>"
+						end,
 						['<CR>'] = select_one_or_multi,
 						['<C-h>'] = harpoon_file_from_telescope_selection,
 						-- To scroll preview window.
