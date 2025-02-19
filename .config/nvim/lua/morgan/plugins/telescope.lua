@@ -25,9 +25,10 @@ return {
 	},
 	config = function()
 		local keymap = vim.keymap.set
-		-- See `:help telescope.builtin`
+
 		local builtin = require('telescope.builtin')
 		local actions = require('telescope.actions')
+		local actions_utils = require('telescope.actions.utils')
 
 		-- Taken from: https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-1679797700
 		local select_one_or_multi = function(prompt_bufnr)
@@ -50,6 +51,32 @@ return {
 			end
 		end
 
+		-- Harpoon mark files from telescope picker
+		-- Taken from https://gist.github.com/benlubas/09254459af633cce1b5ac12d16640f0e
+		local harpoon_file_from_telescope_selection = function(tb)
+			actions.drop_all(tb)
+			actions.add_selection(tb)
+
+			actions_utils.map_selections(tb, function(selection)
+				local file = selection[1]
+
+				-- This lets it work with live grep picker
+				if selection.filename then
+				file = selection.filename
+				end
+
+				-- this lets it work with git status picker
+				if selection.value then
+				file = selection.filename
+				end
+
+				pcall(require("harpoon.mark").add_file, file)
+			end)
+
+			actions.remove_selection(tb)
+		end
+
+
 		local find_second_brain_files = function()
 			builtin.find_files({
 				search_dirs = {'~/second-brain'},
@@ -64,6 +91,7 @@ return {
 					i = {
 						['<C-[>'] = actions.close,
 						['<CR>'] = select_one_or_multi,
+						['<C-h>'] = harpoon_file_from_telescope_selection,
 						-- To scroll preview window.
 						-- Vertically: <C-u>/<C-d>
 						-- Horizontally: <C-f>/<C-k>
