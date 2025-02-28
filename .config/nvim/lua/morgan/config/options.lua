@@ -7,6 +7,9 @@ local winopt = vim.wo
 opt.encoding = 'utf-8'
 opt.mouse = ''
 
+-- Improved clipboard management
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+
 -- Spell check
 opt.spelllang = {'en', 'fr', 'de'}
 opt.spell = true
