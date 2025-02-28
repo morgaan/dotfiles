@@ -1,3 +1,5 @@
+-- https://github.com/ixru/nvim-markdown
+-- Nice mappings to learn TBH: https://github.com/ixru/nvim-markdown?tab=readme-ov-file#mappings
 return {
 	'ixru/nvim-markdown',
 	-- Fork from 'preservim/vim-markdown',
@@ -17,5 +19,10 @@ return {
 		global.vim_markdown_folding_disabled = 1
 		global.vim_markdown_frontmatter = 1
 		global.vim_markdown_auto_insert_bullets = 0
+
+		-- This unmap '<tab>' to fold functionality as it seems to nuke `CTRL-I`
+		-- which is synonymous of `<tab>` and that I'd rather use for navigating
+		-- the jump list.
+		vim.cmd[[map <Plug> <Plug>Markdown_Fold]]
 	end
 }
