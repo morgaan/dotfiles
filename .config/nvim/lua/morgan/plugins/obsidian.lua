@@ -27,7 +27,7 @@ return {
 	-- new_notes_location that is being pointed to notes_subdir.
 	-- Luckily this has no impact on the obsidian search as it is still
 	-- searching the entire vault.
-	notes_subdir = "0-Inbox",
+	notes_subdir = "+",
 
 	-- Completion of wiki links, local markdown links, and tags using nvim-cmp.
 	completion = {
@@ -91,7 +91,7 @@ return {
 	end,
 
 	templates = {
-		subdir = "2-Areas/Second-Brain/templates/nvim",
+		subdir = "x/templates/nvim",
 		date_format = "%Y-%m-%d",
 		time_format = "%H:%M",
 		tags = "",
@@ -160,7 +160,7 @@ return {
 		-- The default folder to place images in via `:ObsidianPasteImg`.
 		-- If this is a relative path it will be interpreted as relative to the vault root.
 		-- You can always override this per image by passing a full path to the command instead of just a filename.
-		img_folder = "4-Archives/zzz_attachments",
+		img_folder = "x/attachments",
 		-- A function that determines the text to insert in the note when pasting an image.
 		-- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
 		-- This is the default implementation.
