@@ -45,7 +45,6 @@ opt.writebackup = false
 opt.termguicolors = true
 opt.title = true
 opt.number = true
-opt.relativenumber = true
 opt.splitright = true
 opt.splitbelow = true
 opt.listchars = 'tab:>~,space:·,trail:·,eol:¬'
