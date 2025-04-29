@@ -1,13 +1,32 @@
 -- https://github.com/MeanderingProgrammer/render-markdown.nvim
 return {
 	'MeanderingProgrammer/render-markdown.nvim',
-	commit = '3a319cd',
+	commit = '5dcadc7',
+	-- e6c8081 seems to be a breaking change for me!
 	event = {'BufReadPre', 'BufNewFile'},
 	dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons'},
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
 	opts = {
 		render_modes = { 'n', 'c', 'i' },
 		anti_conceal = {
 			enabled = true,
+		},
+		completions = {
+			-- Settings for in-process language server completions
+			lsp = { enabled = true },
+		},
+		latex = {
+			enabled = false
+		},
+		html = {
+			enabled = true,
+			tag = {
+				kbd = {
+					icon = ' ',
+					highlight = 'RenderMarkdownHtmlComment'
+				}
+			}
 		},
 		heading = {
 			enabled = true,
