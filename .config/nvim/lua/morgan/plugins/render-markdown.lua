@@ -15,6 +15,11 @@ return {
 		completions = {
 			-- Settings for in-process language server completions
 			lsp = { enabled = true },
+			filter = {
+				checkbox = function(value)
+					return value.raw ~= '[-]'
+				end
+			}
 		},
 		latex = {
 			enabled = false
@@ -109,11 +114,11 @@ return {
 				Mood = { raw = '[~]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
 				Event = { raw = '[o]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
 				Appointment = { raw = '[^]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
-				capture = { raw = '[*]', rendered = ' ', highlight = 'rainbow3', scope_highlight = nil },
-				wip = { raw = '[/]', rendered = ' ', highlight = 'DiagnosticWarn', scope_highlight = nil },
-				migrated = { raw = '[>]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
-				moved = { raw = '[<]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
-				delegated = { raw = '[d]', rendered = '  ', highlight = 'RenderMarkdownChecked', scope_highlight = nil }
+				Capture = { raw = '[*]', rendered = ' ', highlight = 'rainbow3', scope_highlight = nil },
+				WiP = { raw = '[/]', rendered = ' ', highlight = 'DiagnosticWarn', scope_highlight = nil },
+				Migrated = { raw = '[>]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				Moved = { raw = '[<]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				Delegated = { raw = '[d]', rendered = '  ', highlight = 'RenderMarkdownChecked', scope_highlight = nil }
 			}
 		},
         -- Mimics Obsidian inline highlights when content is surrounded by double equals
