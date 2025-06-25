@@ -81,6 +81,8 @@ return {
 				redditLink = { pattern = '^http[s]?://.*reddit.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
 				ytLink = { pattern = '^http[s]?://.*youtube.com.*', icon = '󰗃 ', highlight = 'RenderMarkdownCustomLink' },
 				ytmLink = { pattern = '^http[s]?://.*youtu.be.*', icon = '󰗃 ', highlight = 'RenderMarkdownCustomLink' },
+				gmapLink = { pattern = '^http[s]?://.*google.com/maps.*', icon = '󰗵 ', highlight = 'RenderMarkdownCustomLink' },
+				gmailLink = { pattern = '^http[s]?://.*google.com/mail.*', icon = '󰊫 ', highlight = 'RenderMarkdownCustomLink' },
 				spotifyLink = { pattern = '^http[s]?://.*spotify.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
 				web = { pattern = '^http[s]?://', icon = '󰖟 ', highlight = 'RenderMarkdownCustomLink' }
 			},
