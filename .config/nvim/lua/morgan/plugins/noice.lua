@@ -85,13 +85,13 @@ return {
 			-- messages = {
 			-- 	enabled = true
 			-- },
-			-- routes = {
-			-- 	-- Route vim modes and recording macro messages to bottom
-			-- 	-- command line rather than default notify!
-			-- 	{
-			-- 		view = "cmdline",
-			-- 		filter = { event = "msg_showmode" },
-			-- 	},
+			routes = {
+				-- Route vim modes and recording macro messages to bottom
+				-- command line rather than default notify!
+				{
+					view = "cmdline",
+					filter = { event = "msg_showmode" },
+				},
 			-- 	-- Disable a bunch of annoying messages ("...written", changes "... after...", "... before ...")
 			-- 	-- Borrowed from there: https://github.com/folke/noice.nvim/issues/568#issuecomment-1673907587
 			-- 	{
@@ -107,7 +107,7 @@ return {
 			-- 		},
 			-- 		opts = { skip = true }
 			-- 	}
-			-- },
+			},
 		})
   end
 }
