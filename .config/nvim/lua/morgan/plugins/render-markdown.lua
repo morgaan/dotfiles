@@ -8,7 +8,12 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
 	opts = {
-		render_modes = { 'n', 'c', 'i' },
+		-- this win_options is making the `render_modes` behave as expected
+		-- Reference: https://github.com/MeanderingProgrammer/render-markdown.nvim/issues/303#issuecomment-2608156758
+		win_options = {
+			conceallevel = { default = 0, rendered = 3 },
+		},
+		render_modes = { 'n', 'c', 't' },
 		anti_conceal = {
 			enabled = true,
 		},
