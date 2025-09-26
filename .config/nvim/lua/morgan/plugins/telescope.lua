@@ -171,7 +171,11 @@ return {
 		end, { desc = 'Telescope: [S]earch [L]ines' })
 
 		keymap('n', '<leader>sf', function()
-			builtin.find_files({ hidden = true, file_ignore_patterns = {'node_modules'}})
+			builtin.find_files({
+				no_ignore = true, -- Include ignored files
+				hidden = true, -- Optionally include hidden files
+				file_ignore_patterns = {'node_modules', '.git'}
+			})
 		end, { desc = 'Telescope: [S]earch [F]iles' })
 		keymap('n', '<leader>rt', builtin.resume, { desc = 'Telescope: [R]esume [T]elescope' })
 		keymap('n', '<leader>sh', builtin.help_tags, { desc = 'Telescope: [S]earch [H]elp' })
