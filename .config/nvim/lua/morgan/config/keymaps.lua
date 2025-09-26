@@ -55,9 +55,7 @@ keymap('n', '<leader>nf', ':!sb f<CR>', { desc = '[N]otes changes from Second Br
 keymap('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move visual selection downward' })
 keymap('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual selection upward' })
 
-keymap('n', '<leader>mp', ':MarkdownPreview<CR>', { desc = '[M]arkdown [P]review in browser' })
-keymap('n', '<leader>rl', 'F["_d%.i', { desc = '[R]eplace Markdown [L]ink' })
-keymap('v', '<leader>h', '<Esc>`>a==<C-o>`<==<Esc>`>5l', { desc = 'Add a "markdown" [H]ighlight to visual selection' })
+keymap('v', '<leader>mh', '<Esc>`>a==<C-o>`<==<Esc>`>5l', { desc = 'Add a "[M]arkdown" [H]ighlight to visual selection' })
 
 -- Oil.nvim
 vim.keymap.set("n", "<leader>-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oil.nvim" })
