@@ -21,9 +21,13 @@ hl('StatuslineFilename', {bold=true, fg='#b58900'})
 hl('StatuslineCustom', {fg='#D9D9D9', bg='#565656'})
 
 -- More contrasted CursorLineNr, Cursor and ColorColumn
-hl('CursorLineNr', {ctermbg='magenta', ctermfg='white'})
-hl('ColorColumn', {bg='#073642'})
-hl('Cursor', {link='CursorLineNr'})
+-- Could go for the `hl()` way, so fall back to old way
+-- https://stackoverflow.com/a/79220071
+vim.o.cursorline = true
+vim.cmd([[
+  highlight CursorLineNr guibg=#e5c890 guifg=#073642
+  highlight CursorColumn guifg=#D9D9D9
+]])
 
 -- More contrasted Visual selection
 hl('Visual', {reverse=false, bg='#B58900', fg='#073642'})
