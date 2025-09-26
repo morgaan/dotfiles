@@ -10,13 +10,25 @@ return {
 
 		keymap('n', '<leader>ha', mark.add_file, { desc = '[H]arpoon: [A]dd file' })
 		keymap('n', '<leader>hm', ui.toggle_quick_menu, { desc = '[H]arpoon [M]enu' })
+
 		-- Telescope integration
-		keymap('n', '<leader>ht', require('telescope').extensions.harpoon.marks, { desc = 'Harpoon: [H]arpoon marks in [T]elescope' })
+		--
+		-- Could not see the value in this anymore
+		-- keymap('n', '<leader>ht', require('telescope').extensions.harpoon.marks, { desc = 'Harpoon: [H]arpoon marks in [T]elescope' })
+		--
+		-- For adding from Telescope to Harpoon user `<C-h>` from withing the
+		-- picker: See telescope config and hunt for
+		-- `harpoon_file_from_telescope_selection`
 
 		keymap('n', '<leader>1', function() ui.nav_file(1) end, { desc = 'Harpoon: Navigate to file 1' })
 		keymap('n', '<leader>2', function() ui.nav_file(2) end, { desc = 'Harpoon: Navigate to file 2' })
 		keymap('n', '<leader>3', function() ui.nav_file(3) end, { desc = 'Harpoon: Navigate to file 3' })
 		keymap('n', '<leader>4', function() ui.nav_file(4) end, { desc = 'Harpoon: Navigate to file 4' })
+		keymap('n', '<leader>5', function() ui.nav_file(5) end, { desc = 'Harpoon: Navigate to file 5' })
+		-- At this point you are going non-sense mate, just saying!
+		keymap('n', '<leader>6', function() ui.nav_file(6) end, { desc = 'Harpoon: Navigate to file 6' })
+		keymap('n', '<leader>7', function() ui.nav_file(7) end, { desc = 'Harpoon: Navigate to file 7' })
+		keymap('n', '<leader>8', function() ui.nav_file(8) end, { desc = 'Harpoon: Navigate to file 8' })
 
 		-- Previous/Next (mnemonic G preceeds H and J follows H on my keyboard)
 		keymap('n', '<leader>hg', ui.nav_prev, { desc = '[H]arpoon: Nav previous' })
