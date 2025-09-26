@@ -25,8 +25,8 @@ keymap('n', '<S-up>', '<cmd>resize +2<CR>', { desc = 'Decrease height of current
 
 keymap('n', '<leader>gs', '<cmd>Ge :<CR>', { desc = 'Open [GS]tatus on the current window' })
 
-keymap('n', '<leader>1', '<cmd>s/false/true/<CR>', { desc = 'Swap first occurrence of false with true' })
-keymap('n', '<leader>0', '<cmd>s/true/false/<CR>', { desc = 'Swap first occurrence of true with false' })
+keymap('n', '<leader>bt', '<cmd>s/false/true/<CR>', { desc = '[B]oolean to [T]rue: Swap first occurrence of false with true' })
+keymap('n', '<leader>bf', '<cmd>s/true/false/<CR>', { desc = '[B]oolean to [F]alse: Swap first occurrence of true with false' })
 
 keymap('n', '<leader>l', '<cmd>set list!<CR>', { remap = true, desc = 'Toggle showing tabs and spaces characters using set [l]ist' })
 keymap('n', '<leader>c', '<cmd>let &cole=(&cole == 2) ? 0 : 2 <bar> echo \'conceallevel \' . &cole <CR>', { desc = 'Toggle [C]onceallevel'})
