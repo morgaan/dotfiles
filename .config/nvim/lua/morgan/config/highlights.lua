@@ -24,8 +24,9 @@ hl('StatuslineCustom', {fg='#D9D9D9', bg='#565656'})
 -- Could go for the `hl()` way, so fall back to old way
 -- https://stackoverflow.com/a/79220071
 vim.o.cursorline = true
+-- Could not make it work with hl()!
 vim.cmd([[
-  highlight CursorLineNr guibg=#e5c890 guifg=#073642
+  highlight CursorLineNr gui=bold guifg=#e5c890 guibg=#565656
   highlight CursorColumn guifg=#D9D9D9
 ]])
 
