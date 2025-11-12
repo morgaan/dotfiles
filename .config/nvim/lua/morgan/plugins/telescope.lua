@@ -110,6 +110,7 @@ return {
 				mappings = {
 					i = {
 						['<leader>p'] = focus_preview,
+						['<M-d>'] = actions.delete_buffer,
 						['<C-[>'] = actions.close,
 						["<C-w>"] = function()
 							vim.api.nvim_input "<c-s-w>"
