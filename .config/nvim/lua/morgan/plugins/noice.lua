@@ -82,9 +82,9 @@ return {
 			-- 	inc_rename = false, -- enables an input dialog for inc-rename.nvim
 			-- 	lsp_doc_border = false, -- add a border to hover docs and signature help
 			-- },
-			-- messages = {
-			-- 	enabled = true
-			-- },
+			messages = {
+				enabled = false
+			},
 			routes = {
 				-- Route vim modes and recording macro messages to bottom
 				-- command line rather than default notify!
