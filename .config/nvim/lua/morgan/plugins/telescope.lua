@@ -85,7 +85,7 @@ return {
 			local bufnr = previewer.state.bufnr or previewer.state.termopen_bufnr
 			local winid = previewer.state.winid or vim.fn.win_findbuf(bufnr)[1]
 
-			vim.keymap.set("n", "<leader>p", function()
+			vim.keymap.set("n", "]p", function()
 				vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", prompt_win))
 			end, { buffer = bufnr })
 
@@ -109,7 +109,7 @@ return {
 			defaults = {
 				mappings = {
 					i = {
-						['<leader>p'] = focus_preview,
+						[']p'] = focus_preview,
 						['<M-d>'] = actions.delete_buffer,
 						['<C-[>'] = actions.close,
 						["<C-w>"] = function()

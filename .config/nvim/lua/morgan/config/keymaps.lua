@@ -80,3 +80,4 @@ keymap('n', '<leader>co', ':w|%bd<CR><C-O>:bd#<CR>', { desc = '[C]lose all [O]th
 keymap('n', 'g<C-v>', '`[V`]', { desc = 'Reselect just pasted text' })
 
 keymap({'n', 'v'}, '<leader>y', [["+y]], { desc = 'Yank to system clipboard' })
+keymap({'n', 'v'}, '<leader>p', [["+p]], { desc = 'Paste from system clipboard' })
