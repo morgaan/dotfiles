@@ -6,6 +6,7 @@ local winopt = vim.wo
 
 opt.encoding = 'utf-8'
 opt.mouse = ''
+opt.iskeyword:append("-") -- Treat dash as part of a word
 
 -- Spell check
 opt.spelllang = {'en', 'fr', 'de'}
