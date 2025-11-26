@@ -28,15 +28,6 @@ opt.hlsearch = false
 opt.ignorecase = true
 opt.smartcase = true
 
--- Swap and backup file strategy
--- -----------------------------
-
-opt.directory = os.getenv("HOME") .. "/.vim-directory//"
-opt.undodir = os.getenv("HOME") .. "/.vim-directory/undo//"
-opt.undofile = true
-opt.backup = false
-opt.writebackup = false
-
 -- User Interface
 -- --------------
 
@@ -69,8 +60,22 @@ opt.wildignore:append{"*.pdf", "*.psd"}
 opt.wildignore:append{"*.map", "*.min.css", "*.min.css"}
 opt.wildignore:append{"node_modules", "bower_components"}
 
--- Outside vim file changes tracking
-opt.updatetime = 250
+-- File Handling
+opt.backup = false -- Don't create backup files
+opt.writebackup = false -- Don't backup before overwriting
+opt.swapfile = false -- Don't create swap files
+opt.undofile = true -- Persistent undo
+opt.directory = os.getenv("HOME") .. "/.vim-directory//"
+opt.updatetime = 250 -- Time in ms to trigger CursorHold
+opt.timeoutlen = 500 -- Time in ms to wait for mapped sequence
+opt.ttimeoutlen = 0 -- No wait for key code sequences
+opt.autoread = true -- Auto-reload file if changed outside
+-- Set undo directory and ensure it exists
+local undodir = os.getenv("HOME") .. "/.vim-directory/undo//" -- Undo directory path
+opt.undodir = undodir
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, "p") -- Create if not exists
+end
 
 -- Better completion experience
 opt.completeopt = 'menuone,noselect'
