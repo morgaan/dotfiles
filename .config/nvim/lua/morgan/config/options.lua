@@ -51,7 +51,14 @@ opt.textwidth = 80
 opt.guifont = {'Victor Mono', 'h16'}
 opt.showmatch = true
 opt.omnifunc = 'syntaxcomplete#Complete'
-opt.guicursor = 'n-v-c-ci-i:block-Cursor-blinkwait1-blinkon150-blinkoff150'
+opt.guicursor = {
+	"n-v-c:block", -- Normal, Visual, Command-line
+	"i-ci-ve:block", -- Insert, Command-line Insert, Visual-exclusive
+	"r-cr:hor20", -- Replace, Command-line Replace
+	"o:hor50", -- Operator-pending
+	"a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor", -- All modes: blinking & highlight groups
+	"sm:block-blinkwait175-blinkoff150-blinkon175", -- Showmatch mode
+}
 opt.background = 'dark'
 winopt.colorcolumn = '+1'
 winopt.signcolumn = 'yes'
