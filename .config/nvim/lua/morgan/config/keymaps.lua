@@ -55,7 +55,12 @@ keymap('n', '<leader>nf', ':!sb f<CR>', { desc = '[N]otes changes from Second Br
 keymap('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move visual selection downward' })
 keymap('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move visual selection upward' })
 
-keymap('v', '<leader>mh', '<Esc>`>a==<C-o>`<==<Esc>`>5l', { desc = 'Add a "[M]arkdown" [H]ighlight to visual selection' })
+-- Markdown edition QoL
+keymap('v', 'mh', '<Esc>`>a==<C-o>`<==<Esc>`>5l', { desc = 'Add a [M]arkdown [H]ighlight to visual selection' })
+keymap('v', 'mb', '<Esc>`>a**<C-o>`<**<Esc>`>5l', { desc = 'Add a [M]arkdown [B]old to visual selection' })
+keymap('v', 'mi', '<Esc>`>a*<C-o>`<*<Esc>`>3l', { desc = 'Add a [M]arkdown" [I]talic to visual selection' })
+keymap('v', 'ms', '<Esc>`>a~<C-o>`<~<Esc>`>3l', { desc = 'Add a [M]arkdown" [S]trikethrough to visual selection' })
+keymap('v', 'mc', '<Esc>`>a`<C-o>`<`<Esc>`>3l', { desc = 'Add a [M]arkdown" inline [C]ode to visual selection' })
 
 -- Oil.nvim
 vim.keymap.set("n", "<leader>-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oil.nvim" })
