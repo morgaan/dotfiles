@@ -19,9 +19,35 @@ return {
 		-- It sets vim.ui.select to telescope. That means for example that
 		-- neovim core stuff can fill the telescope picker. Example would be lua
 		-- vim.lsp.buf.code_action().
-		'nvim-telescope/telescope-ui-select.nvim'
+		'nvim-telescope/telescope-ui-select.nvim',
+		{
+			'fbuchlak/telescope-directory.nvim',
+			config = {
+				features = {
+					{
+						name = "open_in_file_explorer",
+						callback = function(dirs, feature_opts)
+							local dir = dirs[1] -- open single directory (ignore multiple selection)
 
-		-- 'princejoogie/dir-telescope.nvim'
+							-- 1. netrw
+							-- vim.cmd(("Vex %s"):format(dir))
+
+							-- 2. https://github.com/echasnovski/mini.files
+							-- require("mini.files").open(dir)
+
+							-- 3. https://github.com/stevearc/oil.nvim
+							require("oil").open(dir)
+							-- or
+							-- require("oil").open_float(dir)
+						end
+					},
+				}
+			},
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"nvim-telescope/telescope.nvim",
+			}
+		}
 	},
 	config = function()
 		local keymap = vim.keymap.set
@@ -134,7 +160,7 @@ return {
 			}
 		}
 
-		require('config.telescope.multigrep').setup()
+		require('plugins.telescope.multigrep').setup()
 
 		-- Telescope extensions:
 		--
