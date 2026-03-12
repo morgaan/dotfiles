@@ -134,7 +134,7 @@ return {
 			}
 		}
 
-		require('morgan.config.telescope.multigrep').setup()
+		require('config.telescope.multigrep').setup()
 
 		-- Telescope extensions:
 		--

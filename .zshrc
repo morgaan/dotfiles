@@ -4,6 +4,8 @@ if [[ ":$FPATH:" != *":/home/mcq3103/.zsh/completions:"* ]]; then export FPATH="
 export ZSH=~/.oh-my-zsh
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
