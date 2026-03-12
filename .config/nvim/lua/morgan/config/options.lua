@@ -7,6 +7,7 @@ local winopt = vim.wo
 opt.encoding = 'utf-8'
 opt.mouse = ''
 opt.iskeyword:append("-") -- Treat dash as part of a word
+opt.iskeyword:append("*") -- Treat star as part of a word (Helpful for markdown)
 
 -- Spell check
 opt.spelllang = {'en', 'fr', 'de'}
