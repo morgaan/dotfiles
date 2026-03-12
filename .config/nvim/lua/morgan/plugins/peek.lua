@@ -4,9 +4,18 @@
 -- If Deno is not on the machine, you'll need it:
 -- `curl -fsSL https://deno.land/install.sh | sh`
 return {
-	'toppair/peek.nvim',
-	event = { 'VeryLazy' },
-	build = 'deno task --quiet build:fast',
+	-- NOTE: Using fmorroni's fork with GitHub-style callouts/alerts support.
+	-- The upstream toppair/peek.nvim does not render [!NOTE], [!WARNING], [!TIP],
+	-- [!IMPORTANT], [!CAUTION] blockquotes. This fork implements PR #68 which adds
+	-- Obsidian-style callout rendering (same syntax as GitHub alerts).
+	-- See: https://github.com/toppair/peek.nvim/pull/68
+	-- Revert to "toppair/peek.nvim" once PR #68 is merged upstream.
+	-- 20260224: I suscribed to this PR, so can revert to upstream once PR merged
+	"fmorroni/peek.nvim",
+	branch = "callouts",
+	-- "toppair/peek.nvim",
+	event = { "VeryLazy" },
+	build = "deno task --quiet build:fast",
 	config = function()
 		local config = {
 			-- whether to automatically load preview when entering another
