@@ -1,3 +1,4 @@
+-- https://github.com/obsidian-nvim/obsidian.nvim
 return {
 	"obsidian-nvim/obsidian.nvim",
 	version = "*", -- use latest release, remove to use latest commit
@@ -27,6 +28,10 @@ return {
 		--  * "current_dir" - put new notes in same directory as the current buffer.
 		--  * "notes_subdir" - put new notes in the default notes subdirectory.
 		new_notes_location = "notes_subdir",
+
+		note = {
+			template = "default-template.md"
+		},
 
 		link = {
 			style = function(opts)
@@ -132,14 +137,14 @@ return {
 			-- In this case a note with the title 'My new note' will be given an ID that looks
 			-- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
 			local suffix = ""
-			if title ~= nil then
-				-- If title is given, transform it into valid file name.
-				suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
-			else
+			if title == nil then
 				-- If title is nil, just add 4 random uppercase letters to the suffix.
 				for _ = 1, 4 do
 					suffix = suffix .. string.char(math.random(65, 90))
 				end
+			else
+				-- If title is given, transform it into valid file name.
+				suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
 			end
 			-- return tostring(os.time()) .. "-" .. suffix
 			return suffix
