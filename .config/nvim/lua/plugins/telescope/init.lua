@@ -11,8 +11,12 @@ return {
 			-- machine. Had to fix that because the extension was not loading at
 			-- all and I couldn't use the fzf search tokens
 			commit = 'f297259',
-			run = 'make',
-			cond = vim.fn.executable 'make' == 1
+			build = 'make',
+			-- If error: 'fzf' extension doesn't exist or isn't installed
+			-- You may want to go inside directory
+			-- `$HOME`/.local/share/nvim/lazy/telescope-fzf-native.nvim
+			-- and run the `make` command. Restart vim, hopefully the fzf syntax
+			-- work
 		},
 		'nvim-telescope/telescope-node-modules.nvim',
 		'fbuchlak/telescope-directory.nvim',
@@ -126,7 +130,7 @@ return {
 		local find_second_brain_files = function()
 			builtin.find_files({
 				search_dirs = {'~/second-brain'},
-				file_ignore_patterns = {'4-Archives/.pre-second-brain-archive-20240301'}
+				file_ignore_patterns = {'4-Archives/zzz_pre-second-brain-archive-20240301'}
 			})
 		end
 
@@ -151,13 +155,13 @@ return {
 						-- Vertically: <PageUp>/<PageDown>
 						-- Horizontally: <M-f>/<M-k>
 					}
-				}
+				},
 			},
 			extensions = {
 				['ui-select'] = {
 					require("telescope.themes").get_dropdown {}
 				}
-			}
+			},
 		}
 
 		require('plugins.telescope.multigrep').setup()
@@ -174,7 +178,7 @@ return {
 		-- | !fire   | inverse-exact-match        | Items that do not include `fire`     |
 		-- | !^music | inverse-prefix-exact-match | Items that do not start with `music` |
 		-- | !.mp3$  | inverse-suffix-exact-match | Items that do not end with `.mp3`    |
-		pcall(require('telescope').load_extension, 'fzf')
+		require('telescope').load_extension('fzf')
 
 		pcall(require('telescope').load_extension, 'node_modules')
 		pcall(require('telescope').load_extension, 'ui-select')
