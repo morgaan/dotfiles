@@ -4,16 +4,16 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		-- your configuration comes here
-		-- or leave it empty to use the default settings
-		-- refer to the configuration section below
+		-- use Snacks notifier to support noice.
+		notifier = { enabled = true },
+
+		-- for now all the rest disabled
 		bigfile = { enabled = false },
 		dashboard = { enabled = false },
 		explorer = { enabled = false },
 		indent = { enabled = true },
 		input = { enable = false },
 		picker = { enabled = false },
-		notifier = { enabled = true },
 		quickfile = { enabled = false },
 		scope = { enabled = false },
 		scroll = { enabled = false },
@@ -22,5 +22,6 @@ return {
 	},
 	keys = {
 		{ "<leader>dn", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+		{ "<leader>nh", function() Snacks.notifier.show_history() end, desc = "Show [M]essages [History] with Snacks notifier" },
 	}
 }
