@@ -61,6 +61,7 @@ keymap('v', 'mb', '<Esc>`>a**<C-o>`<**<Esc>`>5l', { desc = 'Add a [M]arkdown [B]
 keymap('v', 'mi', '<Esc>`>a*<C-o>`<*<Esc>`>3l', { desc = 'Add a [M]arkdown" [I]talic to visual selection' })
 keymap('v', 'ms', '<Esc>`>a~<C-o>`<~<Esc>`>3l', { desc = 'Add a [M]arkdown" [S]trikethrough to visual selection' })
 keymap('v', 'mc', '<Esc>`>a`<C-o>`<`<Esc>`>3l', { desc = 'Add a [M]arkdown" inline [C]ode to visual selection' })
+keymap('v', 'mk', '<Esc>`>a</kbd><C-o>`<<kbd><Esc>/kbd>/e<CR>', { desc = 'Surround visual selection with <kbd> tag' })
 
 -- Oil.nvim
 vim.keymap.set("n", "<leader>-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oil.nvim" })
