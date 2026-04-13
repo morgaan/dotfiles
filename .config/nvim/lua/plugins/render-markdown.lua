@@ -7,6 +7,9 @@ return {
 	dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons'},
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
+	keys = {
+      { "<leader>tr", "<cmd>RenderMarkdown toggle<cr>", desc = "[T]oggle [R]enderMarkdown" },
+	},
 	opts = {
 		-- this win_options is making the `render_modes` behave as expected
 		-- Reference: https://github.com/MeanderingProgrammer/render-markdown.nvim/issues/303#issuecomment-2608156758
