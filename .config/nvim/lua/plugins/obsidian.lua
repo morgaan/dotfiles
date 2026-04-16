@@ -15,7 +15,7 @@ return {
 	opts = {
 		legacy_commands = false, -- this will be removed in the next major release
 		workspaces = {
-			{
+		{
 				name = "Second Brain",
 				path = "~/second-brain",
 			},
@@ -34,46 +34,11 @@ return {
 		},
 
 		link = {
-			style = function(opts)
-				if opts ~= nil then
-					return "markdown"
-				end
-
-				local util = require("obsidian.util")
-				local client = require("obsidian").get_client()
-				local anchor = ""
-				local header = ""
-
-				if opts.anchor then
-					anchor = opts.anchor.anchor
-					header = util.format_anchor_label(opts.anchor)
-				elseif opts.block then
-					anchor = "#" .. opts.block.id
-					header = "#" .. opts.block.id
-				end
-
-				-- This is now an absolute path to the file.
-				local path = client.dir / opts.path
-				-- This is an absolute path to the current buffer's parent directory.
-				local buf_dir = client.buf_dir
-
-				local rel_path
-				if buf_dir:is_parent_of(path) then
-					rel_path = tostring(path:relative_to(buf_dir))
-				else
-					local parents = buf_dir:parents()
-					for i, parent in ipairs(parents) do
-						if parent:is_parent_of(path) then
-							rel_path = string.rep("../", i) .. tostring(path:relative_to(parent))
-							break
-						end
-					end
-				end
-
-				local encoded_path = util.urlencode(rel_path, { keep_path_sep = true })
-				return string.format("[%s%s](%s%s)", opts.label, header, encoded_path, anchor)
-			end,
-			format = "relative",
+			format = "absolute",
+			-- Type [[query to get the dropdown and pick the one with the alias
+			-- you want
+			style = "markdown",
+			auto_update = false,
 		},
 
 		completion = (function()
@@ -100,12 +65,11 @@ return {
 		},
 
 		frontmatter = {
-			enabled = function(filename)
-				if filename:find("obsidian%-template") == nil then
+			enabled = function(path)
+				if vim.endswith(tostring(path), "-template.md") then -- disables the frontmatter when it is a template file
 					return false
-				else
-					return true
 				end
+				return true
 			end,
 			func = function(note)
 				-- Add the title of the note as an alias.
@@ -160,6 +124,10 @@ return {
 					return os.date("%Y", os.time())
 				end,
 			},
+		},
+
+		backlinks = {
+			parse_headers = true,
 		},
 
 		-- Specify how to handle attachments.
