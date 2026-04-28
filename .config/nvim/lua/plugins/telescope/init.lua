@@ -18,6 +18,8 @@ return {
 			-- and run the `make` command. Restart vim, hopefully the fzf syntax
 			-- work
 		},
+		-- https://github.com/crispgm/telescope-heading.nvim
+		'crispgm/telescope-heading.nvim',
 		'nvim-telescope/telescope-node-modules.nvim',
 		'fbuchlak/telescope-directory.nvim',
 		-- It sets vim.ui.select to telescope. That means for example that
@@ -182,6 +184,7 @@ return {
 
 		pcall(require('telescope').load_extension, 'node_modules')
 		pcall(require('telescope').load_extension, 'ui-select')
+		pcall(require('telescope').load_extension, 'heading')
 
 		-- Keymaps:
 		keymap('n', '<C-p>', function()
@@ -218,6 +221,9 @@ return {
 		keymap('n', '<leader>sd', '<cmd>Telescope directory live_grep theme=dropdown previewer=false hidden=true<cr>',  { desc = 'Telescope: [G]rep from within [D]irectory...', noremap = true, silent = true })
 		keymap('n', '<leader>sD', '<cmd>Telescope directory find_files theme=dropdown hidden=true<cr>',  { desc = 'Telescope: [S]earch to find files in [D]irectory...', noremap = true, silent = true })
 		keymap('n', '<leader>gd', '<cmd>Telescope directory hidden=true theme=dropdown feature=open_in_file_explorer <cr>',  { desc = 'Telescope: [G]o to [D]irectory', noremap = true, silent = true })
+		keymap('n', '<leader>gh',
+			'<cmd>Telescope heading <cr>',
+			{ desc = 'Telescope: [G]o to Markdown [H]eading', noremap = true, silent = true })
 
 		-- Second Brain
 		keymap('n', '<leader>sB', find_second_brain_files, { desc = 'Telescope: [S]econd [B]rain (find_files)' })

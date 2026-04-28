@@ -83,6 +83,7 @@ return {
 				internalLink = { pattern = '%.md$', icon = '󱅸 ', highlight = 'RenderMarkdownCustomLink' },
 				projectLink = { pattern = '%-PROJECT-', icon = '󰪺 ', highlight = 'RenderMarkdownCustomLink' },
 				areaLink = { pattern = '%-AREA-', icon = '󰻿 ', highlight = 'RenderMarkdownCustomLink' },
+				hubLink = { pattern = '%/hubs/', icon = '󰴗 ', highlight = 'RenderMarkdownCustomLink' },
 				ghLink = { pattern = '^http[s]?://.*github.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
 				glLink = { pattern = '^http[s]?://.*gitlab.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
 				soLink = { pattern = '^http[s]?://.*stackoverflow.com.*', icon = ' ', highlight = 'RenderMarkdownCustomLink' },
