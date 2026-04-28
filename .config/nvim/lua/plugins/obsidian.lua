@@ -2,20 +2,16 @@
 return {
 	"obsidian-nvim/obsidian.nvim",
 	version = "*", -- use latest release, remove to use latest commit
-	-- Only want to load obsidian.nvim for markdown files in my vault:
-	event = {
-		-- home shortcut '~' here you need to call 'vim.fn.expand'.
-		"BufReadPre " .. vim.fn.expand "~" .. "/second-brain/**.md",
-		"BufReadPre oil://" .. vim.fn.expand "~" .. "/second-brain/**",
-		"BufNewFile " .. vim.fn.expand "~" .. "/second-brain/**.md",
-	},
-	ft = "markdown",
+	-- Adding `oil` to `ft` allows to trigger vim.cmd('Obsidian quick_switch')
+	-- when opening my second-brain directory with nvim. (see: `MyVimEnter` auto
+	-- command in Telescope config.
+	ft = { "markdown", "oil" },
 	---@module 'obsidian'
 	---@type obsidian.config
 	opts = {
 		legacy_commands = false, -- this will be removed in the next major release
 		workspaces = {
-		{
+			{
 				name = "Second Brain",
 				path = "~/second-brain",
 			},

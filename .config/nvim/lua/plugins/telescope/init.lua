@@ -238,6 +238,8 @@ return {
 					if string.sub(vim.fn.getcwd(), -13) == '/second-brain' then
 						-- Hide hidden files to unclutter the vault
 						vim.cmd.normal('g.')
+
+						vim.cmd('Obsidian quick_switch');
 					else
 						require('telescope.builtin').find_files()
 					end
