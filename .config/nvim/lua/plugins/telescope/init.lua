@@ -94,12 +94,12 @@ return {
 
 				-- This lets it work with live grep picker
 				if selection.filename then
-				file = selection.filename
+					file = selection.filename
 				end
 
 				-- this lets it work with git status picker
 				if selection.value then
-				file = selection.filename
+					file = selection.filename
 				end
 
 				pcall(require("harpoon.mark").add_file, file)
@@ -127,13 +127,6 @@ return {
 
 			vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", winid))
 			-- api.nvim_set_current_win(winid)
-		end
-
-		local find_second_brain_files = function()
-			builtin.find_files({
-				search_dirs = {'~/second-brain'},
-				file_ignore_patterns = {'4-Archives/zzz_pre-second-brain-archive-20240301'}
-			})
 		end
 
 		-- See `:help telescope` and `:help telescope.setup()`
@@ -190,11 +183,12 @@ return {
 		keymap('n', '<C-p>', function()
 			builtin.git_files({ use_git_root = false })
 		end, { desc = 'Telescope: [<C-p>] Find files under git versioning only' })
-		keymap('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = 'Telescope: [?] Find recently opened files' })
+		keymap('n', '<leader>?', require('telescope.builtin').oldfiles,
+			{ desc = 'Telescope: [?] Find recently opened files' })
 		keymap('n', '<leader>vd', builtin.diagnostics, { desc = 'Telescope: [V]iew workspace [D]iagnostic' })
 		keymap('n', '<leader>gb', function()
-			builtin.buffers({path_display = { shorten = 3}})
-		end, { desc = 'Telescope: [G]o to [B]uffer'})
+			builtin.buffers({ path_display = { shorten = 3 } })
+		end, { desc = 'Telescope: [G]o to [B]uffer' })
 
 		keymap('n', '<leader>sl', function()
 			-- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -208,7 +202,7 @@ return {
 			builtin.find_files({
 				no_ignore = true, -- Include ignored files
 				hidden = true, -- Optionally include hidden files
-				file_ignore_patterns = {'node_modules', '.git'}
+				file_ignore_patterns = { 'node_modules', '.git' }
 			})
 		end, { desc = 'Telescope: [S]earch [F]iles' })
 		keymap('n', '<leader>rt', builtin.resume, { desc = 'Telescope: [R]esume [T]elescope' })
@@ -218,52 +212,32 @@ return {
 		keymap('n', '<leader>sk', builtin.keymaps, { desc = 'Telescope: [S]earch [K]eymaps' })
 		keymap('n', '<leader>sc', builtin.commands, { desc = 'Telescope: [S]earch [C]ommands' })
 		keymap('n', '<leader>sm', '<cmd>Telescope node_modules list<cr>', { desc = 'Telescope: [S]earch Node [M]odules' })
-		keymap('n', '<leader>sd', '<cmd>Telescope directory live_grep theme=dropdown previewer=false hidden=true<cr>',  { desc = 'Telescope: [G]rep from within [D]irectory...', noremap = true, silent = true })
-		keymap('n', '<leader>sD', '<cmd>Telescope directory find_files theme=dropdown hidden=true<cr>',  { desc = 'Telescope: [S]earch to find files in [D]irectory...', noremap = true, silent = true })
-		keymap('n', '<leader>gd', '<cmd>Telescope directory hidden=true theme=dropdown feature=open_in_file_explorer <cr>',  { desc = 'Telescope: [G]o to [D]irectory', noremap = true, silent = true })
+		keymap('n', '<leader>sd', '<cmd>Telescope directory live_grep theme=dropdown previewer=false hidden=true<cr>',
+			{ desc = 'Telescope: [G]rep from within [D]irectory...', noremap = true, silent = true })
+		keymap('n', '<leader>sD', '<cmd>Telescope directory find_files theme=dropdown hidden=true<cr>',
+			{ desc = 'Telescope: [S]earch to find files in [D]irectory...', noremap = true, silent = true })
+		keymap('n', '<leader>gd',
+			'<cmd>Telescope directory hidden=true theme=dropdown feature=open_in_file_explorer <cr>',
+			{ desc = 'Telescope: [G]o to [D]irectory', noremap = true, silent = true })
 		keymap('n', '<leader>gh',
 			'<cmd>Telescope heading <cr>',
 			{ desc = 'Telescope: [G]o to Markdown [H]eading', noremap = true, silent = true })
 
-		-- Second Brain
-		keymap('n', '<leader>sB', find_second_brain_files, { desc = 'Telescope: [S]econd [B]rain (find_files)' })
-		keymap('n', '<leader>sb', function()
-			builtin.live_grep({
-				search_dirs = {'~/second-brain'},
-				file_ignore_patterns = {'4-Archives/zzz_pre-second-brain-archive-20240301'}
-			})
-		end, { desc = 'Telescope: [S]econd [b]rain (live_grep)' })
-		keymap('n', '<leader>sA', function()
-			builtin.find_files({
-				search_dirs = {'~/second-brain/4-Archives/zzz_pre-second-brain-archive-20240301'},
-			})
-		end, { desc = 'Telescope: [S]econd brain notes [A]rchive (find_files)' })
-		keymap('n', '<leader>sa', function()
-			builtin.live_grep({
-				search_dirs = {'~/second-brain/4-Archives/zzz_pre-second-brain-archive-20240301'},
-			})
-		end, { desc = 'Telescope: [S]earch notes [a]rchive (live_grep)' })
-		keymap('n', '<leader>sT', function()
-			builtin.find_files({
-				search_dirs = {'~/second-brain/.templates'},
-			})
-		end, { desc = 'Telescope: [S]earch second brain [T]emplates (find_files)' })
-
 		-- Search Neovim config
-		keymap('n', '<leader>sN', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch [N]eovim config (find_files)' })
-		keymap('n', '<leader>sn', '<cmd>Telescope live_grep search_dirs=~/dotfiles/.config/nvim<cr>', { desc = 'Telescope: [S]earch [N]eovim config (live_grep)' })
+		keymap('n', '<leader>sN', '<cmd>Telescope find_files search_dirs=~/dotfiles/.config/nvim<cr>',
+			{ desc = 'Telescope: [S]earch [N]eovim config (find_files)' })
+		keymap('n', '<leader>sn', '<cmd>Telescope live_grep search_dirs=~/dotfiles/.config/nvim<cr>',
+			{ desc = 'Telescope: [S]earch [N]eovim config (live_grep)' })
 
 		-- auto command to pop up telescope for file search if `vim .` was
 		-- invoked in the Terminal.
 		local vimenter_group = vim.api.nvim_create_augroup('MyVimEnter', { clear = true })
-		vim.api.nvim_create_autocmd({'VimEnter'}, {
+		vim.api.nvim_create_autocmd({ 'VimEnter' }, {
 			callback = function()
 				if vim.v.argv[3] == '.' then
 					if string.sub(vim.fn.getcwd(), -13) == '/second-brain' then
 						-- Hide hidden files to unclutter the vault
 						vim.cmd.normal('g.')
-
-						find_second_brain_files()
 					else
 						require('telescope.builtin').find_files()
 					end
@@ -272,5 +246,5 @@ return {
 			group = vimenter_group,
 			pattern = '*'
 		})
-end
+	end
 }
