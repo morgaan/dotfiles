@@ -69,6 +69,9 @@ return {
 				if vim.endswith(tostring(path), "-template.md") then -- disables the frontmatter when it is a template file
 					return false
 				end
+				if vim.endswith(tostring(path), "-hub.md") then -- disables the frontmatter when it is a hub note
+					return false
+				end
 				return true
 			end,
 			func = function(note)
