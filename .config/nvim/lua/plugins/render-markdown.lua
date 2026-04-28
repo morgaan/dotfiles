@@ -3,12 +3,12 @@ return {
 	'MeanderingProgrammer/render-markdown.nvim',
 	commit = '5dcadc7',
 	-- e6c8081 seems to be a breaking change for me!
-	event = {'BufReadPre', 'BufNewFile'},
-	dependencies = {'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons'},
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
+	event = { 'BufReadPre', 'BufNewFile' },
+	dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+	---@module 'render-markdown'
+	---@type render.md.UserConfig
 	keys = {
-      { "<leader>tr", "<cmd>RenderMarkdown toggle<cr>", desc = "[T]oggle [R]enderMarkdown" },
+		{ "<leader>tr", "<cmd>RenderMarkdown toggle<cr>", desc = "[T]oggle [R]enderMarkdown" },
 	},
 	opts = {
 		-- this win_options is making the `render_modes` behave as expected
@@ -46,8 +46,8 @@ return {
 			position = 'inline',
 			width = 'block',
 			-- You can search for symbols in https://www.nerdfonts.com/cheat-sheet though
-			signs = {'󰉫', '󰉬', '󰉭' , '󰉮', '󰉯', '󰉰'},
-			icons = {''},
+			signs = { '󰉫', '󰉬', '󰉭', '󰉮', '󰉯', '󰉰' },
+			icons = { '' },
 			backgrounds = {
 				'MyMarkdownH1',
 				'MyMarkdownH2',
@@ -71,7 +71,7 @@ return {
 		},
 		quote = {
 			highlight = 'rainbow4',
-			icon = '|';
+			icon = '|',
 		},
 		link = {
 			enabled = true,
@@ -122,24 +122,25 @@ return {
 				scope_highlight = nil,
 			},
 			custom = {
-				Mood = { raw = '[~]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				Mood = { raw = '[=]', rendered = '󰇼 ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
 				Event = { raw = '[o]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
 				Appointment = { raw = '[^]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
-				Capture = { raw = '[*]', rendered = ' ', highlight = 'rainbow3', scope_highlight = nil },
+				Capture = { raw = '[*]', rendered = ' ', highlight = 'rainbow3', scope_highlight = nil },
 				WiP = { raw = '[/]', rendered = ' ', highlight = 'DiagnosticWarn', scope_highlight = nil },
 				Migrated = { raw = '[>]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
 				Moved = { raw = '[<]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
-				Delegated = { raw = '[d]', rendered = '  ', highlight = 'RenderMarkdownChecked', scope_highlight = nil }
+				Delegated = { raw = '[@]', rendered = '󰭓 ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
+				Blocked = { raw = '[#]', rendered = ' ', highlight = 'RenderMarkdownChecked', scope_highlight = nil },
 			}
 		},
-        -- Mimics Obsidian inline highlights when content is surrounded by double equals
-        -- The equals on both ends are concealed and the inner content is highlighted
-        inline_highlight = {
-            -- Turn on / off inline highlight rendering
-            enabled = true,
-            -- Applies to background of surrounded text
-            highlight = 'RenderMarkdownCustomHighlight',
-        },
+		-- Mimics Obsidian inline highlights when content is surrounded by double equals
+		-- The equals on both ends are concealed and the inner content is highlighted
+		inline_highlight = {
+			-- Turn on / off inline highlight rendering
+			enabled = true,
+			-- Applies to background of surrounded text
+			highlight = 'RenderMarkdownCustomHighlight',
+		},
 		--custom_handlers = {
 		--	markdown = {
 		--	extends = true,
