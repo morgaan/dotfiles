@@ -1,54 +1,91 @@
 -- https://github.com/qadzek/link.vim
+-- Specify the file types where the plugin should be active.
+local ft = { "markdown", "text", "mail", "gitcommit" }
+
 return {
-	'qadzek/link.vim',
-	ft = { 'markdown', 'gitcommit' },
-	-- link.vim is a plugin for Vim and Neovim that keeps long URLs out of your
-	-- way. It supports links in Markdown syntax and plaintext links (e.g. in
-	-- emails, in text files etc.)
-	--
-	-- Beyond this commit this fucks up load time, Oil.nvim takes ages to load
-	-- and Telescope is there but not interactive yet
-	-- This line is intriguing: https://github.com/qadzek/link.vim/commit/4f2371691b07cba2b1b5755b1e278edbdf11362e#diff-b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5R61
-	--
-	-- TODO: Investigate to fix this, that is hindering
-	commit = '0acbf748ae052edf0bd4d70a632a1bb289e1eb33',
-	event = { 'BufReadPre', 'BufNewFile' },
+	"qadzek/link.vim",
+	ft = ft,
 	config = function()
-		local global = vim.g
-		local keymap = vim.keymap.set
+		-- Run `:help link-configuration` for more information on the following
+		-- settings.
+		vim.g.link_use_default_mappings = 0
+		vim.g.link_heading = ""
+		vim.g.link_start_index = 1
+		vim.g.link_include_blockquotes = 1
+		vim.g.link_disable_internal_links = 0
+		vim.g.link_missing_marker = "???"
 
-		global.link_heading = ''
-		global.link_include_blockquotes = 1
-		global.link_start_index = 1
-		global.link_use_default_mappings = 0
-		global.link_disable_internal_links = 0
+		-- This `autocmd` ensures the following key bindings are only applied to
+		-- the specified file types.
+		vim.api.nvim_create_autocmd("Filetype", {
+			pattern = ft,
 
-		keymap('n', '<LocalLeader>j', '<plug>(LinkVim-Jump)')
-		keymap('n', '<LocalLeader>p', '<plug>(LinkVim-Peek)')
-		keymap('n', '<LocalLeader>o', '<plug>(LinkVim-Open)')
-		keymap('n', '<LocalLeader>r', '<plug>(LinkVim-Reformat)')
-		keymap('n', '<LocalLeader>c', '<Plug>(LinkVim-ConvertSingle)')
-		keymap('i', '<C-g>c', '<Plug>(LinkVim-ConvertSingleInsert)')
-		keymap('v', '<LocalLeader>c', '<plug>(LinkVim-ConvertRange)')
-		keymap('n', '<LocalLeader>a', '<plug>(LinkVim-ConvertAll)')
-		keymap('n', '<LocalLeader>s', '<plug>(LinkVim-Show)')
+			group = vim.api.nvim_create_augroup("LinkVim", { clear = true }),
 
-		-- global.link_use_default_mappings = 1
-		-- Above config would turns the below mappings
-		-- :LinkConvertSingle 	LocalLeader + c 	Convert link under cursor
-		-- 					<C-g> + c 	Same, but from insert mode
-		-- :LinkConvertRange 	LocalLeader + c 	Convert links on visually selected lines
-		-- :LinkConvertAll 	LocalLeader + a 	Convert all links in document
-		-- :LinkJump 	LocalLeader + j 	Jump to and from reference section
-		-- :LinkOpen 	LocalLeader + o 	Open link in browser
-		-- :LinkPeek 	LocalLeader + p 	Show link preview
-		-- :LinkReformat 	LocalLeader + r 	Renumber/merge/delete unneeded links
-		--
-		-- Note that by default, <LocalLeader> is the backslash key. Run
-		-- :help link-mappings to view how to change these key bindings.
+			callback = function(ev)
+				vim.keymap.set(
+					"n",
+					"<LocalLeader>c",
+					"<Plug>(LinkVim-ConvertSingle)",
+					{ buffer = ev.buf, desc = "Convert single link" }
+				)
 
-		-- Read :help link-configuration to learn how to customize or
-		-- disable the heading, the position of the reference section, which
-		-- lines to skip and more.
-	end
+				vim.keymap.set(
+					"i",
+					"<C-g>c",
+					"<Plug>(LinkVim-ConvertSingleInsert)",
+					{ buffer = ev.buf, desc = "Convert single link from Insert mode" }
+				)
+
+				vim.keymap.set(
+					"v",
+					"<LocalLeader>c",
+					"<plug>(LinkVim-ConvertRange)",
+					{ buffer = ev.buf, desc = "Convert range of links" }
+				)
+
+				vim.keymap.set(
+					"n",
+					"<LocalLeader>a",
+					"<plug>(LinkVim-ConvertAll)",
+					{ buffer = ev.buf, desc = "Convert all links" }
+				)
+
+				vim.keymap.set(
+					"n",
+					"<LocalLeader>j",
+					"<plug>(LinkVim-Jump)",
+					{ buffer = ev.buf, desc = "Jump between links" }
+				)
+
+				vim.keymap.set("n", "<LocalLeader>o", "<plug>(LinkVim-Open)", { buffer = ev.buf, desc = "Open link" })
+
+				vim.keymap.set("n", "<LocalLeader>p", "<plug>(LinkVim-Peek)", { buffer = ev.buf, desc = "Peek link" })
+
+				vim.keymap.set(
+					"n",
+					"<LocalLeader>r",
+					"<plug>(LinkVim-Reformat)",
+					{ buffer = ev.buf, desc = "Reformat links" }
+				)
+
+				vim.keymap.set(
+					"n",
+					"<LocalLeader>s",
+					"<plug>(LinkVim-Show)",
+					{ buffer = ev.buf, desc = "Show debug info about link" }
+				)
+
+				vim.keymap.set(
+					"n",
+					"<C-p>",
+					"<plug>(LinkVim-Prev)",
+					{ buffer = ev.buf, desc = "Move cursor to previous link" }
+				)
+
+				vim.keymap.set("n", "<C-n>", "<plug>(LinkVim-Next)",
+					{ buffer = ev.buf, desc = "Move cursor to next link" })
+			end,
+		})
+	end,
 }
