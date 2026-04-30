@@ -4,6 +4,9 @@ local ft = { "markdown", "text", "mail", "gitcommit" }
 
 return {
 	"qadzek/link.vim",
+	-- Last commit before "Rewrite plugin based on wiki.vim" which introduce
+	-- slow loading time for me, see https://github.com/qadzek/link.vim/issues/27
+	commit = '0acbf748ae052edf0bd4d70a632a1bb289e1eb33',
 	ft = ft,
 	config = function()
 		-- Run `:help link-configuration` for more information on the following
