@@ -79,15 +79,15 @@ return {
 					{ buffer = ev.buf, desc = "Show debug info about link" }
 				)
 
-				vim.keymap.set(
-					"n",
-					"<C-p>",
-					"<plug>(LinkVim-Prev)",
-					{ buffer = ev.buf, desc = "Move cursor to previous link" }
-				)
+				-- vim.keymap.set(
+				-- 	"n",
+				-- 	"<C-p>",
+				-- 	"<plug>(LinkVim-Prev)",
+				-- 	{ buffer = ev.buf, desc = "Move cursor to previous link" }
+				-- )
 
-				vim.keymap.set("n", "<C-n>", "<plug>(LinkVim-Next)",
-					{ buffer = ev.buf, desc = "Move cursor to next link" })
+				-- vim.keymap.set("n", "<C-n>", "<plug>(LinkVim-Next)",
+				-- 	{ buffer = ev.buf, desc = "Move cursor to next link" })
 			end,
 		})
 	end,
