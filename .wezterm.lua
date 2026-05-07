@@ -25,6 +25,7 @@ config.window_padding = {
 }
 
 config.font = wezterm.font("Fira Code iVictor Mono", {weight=450, stretch="Normal", style="Normal"})
+config.warn_about_missing_glyphs = false
 
 -- and finally, return the configuration to wezterm
 return config
