@@ -122,6 +122,10 @@ export NVM_DIR="$HOME/.nvm"
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
+# Bookmarks backup to markdown
+
+alias bm2md="~/dotfiles/bm2md.js";
+
 # Second brain syncing
 sb () {
   local second_brain="$HOME/second-brain"
