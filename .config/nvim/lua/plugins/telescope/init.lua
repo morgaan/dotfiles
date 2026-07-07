@@ -117,7 +117,7 @@ return {
 			local bufnr = previewer.state.bufnr or previewer.state.termopen_bufnr
 			local winid = previewer.state.winid or vim.fn.win_findbuf(bufnr)[1]
 
-			vim.keymap.set("n", "]p", function()
+			vim.keymap.set("n", "<M-p>", function()
 				vim.cmd(string.format("noautocmd lua vim.api.nvim_set_current_win(%s)", prompt_win))
 			end, { buffer = bufnr })
 
@@ -134,20 +134,30 @@ return {
 			defaults = {
 				mappings = {
 					i = {
-						[']p'] = focus_preview,
-						['<M-d>'] = actions.delete_buffer,
+						-- Whatever you configure here it will show up in the
+						-- Telescope keymaps cheatsheet <C-/>
+
+						['<M-p>'] = focus_preview, -- Alt as toggle key and `p` for preview
 						['<C-[>'] = actions.close,
 						["<C-w>"] = function()
 							vim.api.nvim_input "<c-s-w>"
 						end,
 						['<CR>'] = select_one_or_multi,
 						['<C-h>'] = harpoon_file_from_telescope_selection,
+
+						['<S-v>'] = actions.select_vertical, -- This replaces <C-v>
+						['<S-s>'] = actions.select_horizontal, -- This replaces <C-x> that I then use for deleting buffers
+
+						['<C-x>'] = actions.delete_buffer,
+
+						-- Possible mnemonic for f to be left: leFt
+						-- Possible mnemonic for k to be right: c(K)locK-wise
+						--
 						-- To scroll preview window.
 						-- Vertically: <C-u>/<C-d>
 						-- Horizontally: <C-f>/<C-k>
 						--
 						-- To scroll results window.
-						-- Vertically: <PageUp>/<PageDown>
 						-- Horizontally: <M-f>/<M-k>
 					}
 				},
