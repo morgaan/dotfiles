@@ -2,7 +2,6 @@ local cmd = vim.api.nvim_command
 
 cmd('cabbrev Qa qa')
 
-cmd('iabbr cofeds Co-authored-by: Daniel Clubb <daniel.clubb.consultant@springernature.com><CR>Co-authored-by: Morgan Cugerone <morgan.cugerone@springernature.com><CR>Co-authored-by: Chrissa Kaza <chrysoula.kaza@springernature.com>')
 cmd('iabbr cochris Co-authored-by: Chrissa Kaza <chrysoula.kaza@springernature.com>')
 cmd('iabbr codan Co-authored-by: Daniel Clubb <daniel.clubb.consultant@springernature.com>')
 cmd('iabbr coben Co-authored-by: Ben Clark <hello@clarkben.com>')
@@ -16,3 +15,8 @@ cmd('iabbr codiogo Co-authored-by: diogo.matos@springernature.com')
 cmd('iabbr cojoerg Co-authored-by: joerg.liedl@springernature.com')
 cmd('iabbr comarkus Co-authored-by: Markus Hampel <markus.hampel@springer.com>')
 cmd('iabbr cowes Co-authored-by: Wesley Hall <wesley.hall@springernature.com>')
+
+cmd('iabbr coalexh Co-authored-by: alexhallspringer <120400118+alexhallspringer@users.noreply.github.com>')
+cmd('iabbr codeep Co-authored-by: Deepali Dubey <deepali.dubey@springernature.com>')
+cmd('iabbr comatteo Co-authored-by: matteo-gildone <matteo.gildone@springernature.com>')
+cmd('iabbr cosabri Co-authored-by: Sreilys <sabrina.bosco89@gmail.com>')
