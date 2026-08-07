@@ -25,11 +25,15 @@ keymap('n', '<S-up>', '<cmd>resize +2<CR>', { desc = 'Decrease height of current
 
 keymap('n', '<leader>gs', '<cmd>Ge :<CR>', { desc = 'Open [GS]tatus on the current window' })
 
-keymap('n', '<leader>bt', '<cmd>s/false/true/<CR>', { desc = '[B]oolean to [T]rue: Swap first occurrence of false with true' })
-keymap('n', '<leader>bf', '<cmd>s/true/false/<CR>', { desc = '[B]oolean to [F]alse: Swap first occurrence of true with false' })
+keymap('n', '<leader>bt', '<cmd>s/false/true/<CR>',
+	{ desc = '[B]oolean to [T]rue: Swap first occurrence of false with true' })
+keymap('n', '<leader>bf', '<cmd>s/true/false/<CR>',
+	{ desc = '[B]oolean to [F]alse: Swap first occurrence of true with false' })
 
-keymap('n', '<leader>l', '<cmd>set list!<CR>', { remap = true, desc = 'Toggle showing tabs and spaces characters using set [l]ist' })
-keymap('n', '<leader>c', '<cmd>let &cole=(&cole == 2) ? 0 : 2 <bar> echo \'conceallevel \' . &cole <CR>', { desc = 'Toggle [C]onceallevel'})
+keymap('n', '<leader>l', '<cmd>set list!<CR>',
+	{ remap = true, desc = 'Toggle showing tabs and spaces characters using set [l]ist' })
+keymap('n', '<leader>c', '<cmd>let &cole=(&cole == 2) ? 0 : 2 <bar> echo \'conceallevel \' . &cole <CR>',
+	{ desc = 'Toggle [C]onceallevel' })
 
 keymap('n', '<leader>cb', '<cmd>!git cp<CR><CR>', { desc = '[C]opy current git [B]ranch to system clipboard' })
 
@@ -47,7 +51,8 @@ keymap('n', '<C-d>', '<C-d>zz', { desc = 'Scroll cursor to middle after half pag
 keymap('n', '<C-u>', '<C-u>zz', { desc = 'Scroll cursor to middle after half page jump upward' })
 keymap('n', ']q', '<cmd>cn<CR>zz', { remap = true, desc = 'Scroll cursor to middle after a quickfix jump forward' })
 keymap('n', '[q', '<cmd>cN<CR>zz', { remap = true, desc = 'Scroll cursor to middle after a quickfix jump backward' })
-keymap('n', '=ie', '<Plug>(textobj-entire-i)``zz', { silent = true, desc = 'Scroll cursor to middle after re-indent the entire buffer' })
+keymap('n', '=ie', '<Plug>(textobj-entire-i)``zz',
+	{ silent = true, desc = 'Scroll cursor to middle after re-indent the entire buffer' })
 
 keymap('n', '<leader>np', ':!sb p<CR>', { desc = '[N]otes changes from Second Brain are being [P]ushed]' })
 keymap('n', '<leader>nf', ':!sb f<CR>', { desc = '[N]otes changes from Second Brain are being [F]etched' })
@@ -62,6 +67,8 @@ keymap('v', 'mi', '<Esc>`>a*<C-o>`<*<Esc>`>3l', { desc = 'Add a [M]arkdown" [I]t
 keymap('v', 'ms', '<Esc>`>a~<C-o>`<~<Esc>`>3l', { desc = 'Add a [M]arkdown" [S]trikethrough to visual selection' })
 keymap('v', 'mc', '<Esc>`>a`<C-o>`<`<Esc>`>3l', { desc = 'Add a [M]arkdown" inline [C]ode to visual selection' })
 keymap('v', 'mk', '<Esc>`>a</kbd><C-o>`<<kbd><Esc>/kbd>/e<CR>', { desc = 'Surround visual selection with <kbd> tag' })
+keymap('v', 'mq', '<Esc>`>a”<C-o>`<“<Esc>`>3l', { desc = 'Add quotes to visual selection' })
+keymap('v', 'mg', '<Esc>`>a»<C-o>`<«<Esc>`>3l', { desc = 'Add guillemets to visual selection' })
 
 -- Oil.nvim
 vim.keymap.set("n", "<leader>-", "<cmd>Oil<CR>", { desc = "Open parent directory with Oil.nvim" })
@@ -77,16 +84,18 @@ keymap("n", "<leader>oh", ":Obsidian tags<CR>", { noremap = true, desc = '[O]bsi
 keymap("n", "<leader>ob", ":Obsidian backlinks<CR>", { noremap = true, desc = '[O]bsidian note [B]acklinks' })
 keymap("n", "<leader>ol", ":Obsidian links<CR>", { noremap = true, desc = '[O]bsidian note [L]inks' })
 keymap("v", "<leader>oe", ":Obsidian extract_note<CR>", { noremap = true, desc = '[O]bsidian [E]xtract' })
-keymap("n", "<leader>oi", ":Obsidian paste_img<CR>", { noremap = true, desc = '[O]bsidian [I]nsert Image from clipboard' })
-keymap("n", "<leader>ox", ":Obsidian follow_link<CR>", { noremap = true, desc = '[O]bsidian follow link the cursor is on. NOTE: <CR> does the same!' })
+keymap("n", "<leader>oi", ":Obsidian paste_img<CR>",
+	{ noremap = true, desc = '[O]bsidian [I]nsert Image from clipboard' })
+keymap("n", "<leader>ox", ":Obsidian follow_link<CR>",
+	{ noremap = true, desc = '[O]bsidian follow link the cursor is on. NOTE: <CR> does the same!' })
 
 -- Close all other buffers but current
 keymap('n', '<leader>co', ':w|%bd<CR><C-O>:bd#<CR>', { desc = '[C]lose all [O]ther buffer but current' })
 
 keymap('n', 'g<C-v>', '`[V`]', { desc = 'Reselect just pasted text' })
 
-keymap({'n', 'v'}, '<leader>y', [["+y]], { desc = 'Yank to system clipboard' })
-keymap({'n', 'v'}, '<leader>p', [["+p]], { desc = 'Paste from system clipboard' })
+keymap({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'Yank to system clipboard' })
+keymap({ 'n', 'v' }, '<leader>p', [["+p]], { desc = 'Paste from system clipboard' })
 
 -- While editing
 keymap('i', '<C-]>', '<c-\\><c-o>:w<cr>', { desc = 'Save buffer from insert mode' })
