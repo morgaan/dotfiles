@@ -33,6 +33,11 @@ return {
 		-- Markdown files
 		'preservim/vim-textobj-quote',
 		event = { 'BufReadPre', 'BufNewFile' },
-		dependencies = { 'kana/vim-textobj-user' }
+		dependencies = { 'kana/vim-textobj-user' },
+		config = function()
+			local global = vim.g
+
+			global['textobj#quote#educate'] = 0
+		end
 	},
 }
