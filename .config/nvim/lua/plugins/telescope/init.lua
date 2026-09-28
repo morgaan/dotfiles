@@ -144,10 +144,6 @@ return {
 						end,
 						['<CR>'] = select_one_or_multi,
 						['<C-h>'] = harpoon_file_from_telescope_selection,
-
-						['<S-v>'] = actions.select_vertical, -- This replaces <C-v>
-						['<S-s>'] = actions.select_horizontal, -- This replaces <C-x> that I then use for deleting buffers
-
 						['<C-x>'] = actions.delete_buffer,
 
 						-- Possible mnemonic for f to be left: leFt
