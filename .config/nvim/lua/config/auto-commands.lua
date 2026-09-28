@@ -109,3 +109,20 @@ vim.api.nvim_create_autocmd("CursorMoved", {
 		end
 	end,
 })
+
+-- Source: https://gist.github.com/smnatale/692ac4f256d5f19fbcbb78fe32c87604#file-autocmds-lua-L26-L30
+--
+-- Restore cursor to file position in previous editing session
+vim.api.nvim_create_autocmd("BufReadPost", {
+	callback = function(args)
+		local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+		local line_count = vim.api.nvim_buf_line_count(args.buf)
+		if mark[1] > 0 and mark[1] <= line_count then
+			vim.api.nvim_win_set_cursor(0, mark)
+			-- defer centering slightly so it's applied after render
+			vim.schedule(function()
+				vim.cmd("normal! zz")
+			end)
+		end
+	end,
+})
