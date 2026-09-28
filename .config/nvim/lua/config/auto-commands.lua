@@ -48,6 +48,14 @@ vim.api.nvim_create_autocmd({ 'VimResized' }, {
 	pattern = '*'
 })
 
+-- Source: https://gist.github.com/smnatale/692ac4f256d5f19fbcbb78fe32c87604#file-autocmds-lua-L26-L30
+--
+-- Open help in vertical split rather than annoying horizontal split
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
+	command = "wincmd L",
+})
+
 -- Source: Prevent Vim from breaking up links mid-tag in markdown
 -- https://vi.stackexchange.com/questions/564/prevent-vim-from-breaking-up-links-mid-tag-in-markdown#649
 --
