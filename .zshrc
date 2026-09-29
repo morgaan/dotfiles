@@ -1,6 +1,6 @@
 # Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/mcq3103/.zsh/completions:"* ]]; then export FPATH="/home/mcq3103/.zsh/completions:$FPATH"; fi
-# export PATH=$HOME/bin:/usr/local/bin:$PATH Path to your oh-my-zsh installation.
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
+
 export ZSH=~/.oh-my-zsh
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
@@ -203,4 +203,5 @@ fi
 
 # This is meant to source local specifics that aren't meant to be under source control
 [ -f ~/.locals.zsh ] && source ~/.locals.zsh
-. "/home/mcq3103/.deno/env"
+
+. "$HOME/.deno/env"
