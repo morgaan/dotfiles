@@ -189,9 +189,9 @@ alias npm-show-wanted='npm outdated | awk '\''($2!=$3 && $1!="Package") {print $
 alias npm-show-latest='npm outdated | awk '\''($3!=$4 && $1!="Package") {print $1":from:v"$2":to:v"$4}'\'' | column -t -s:'
 alias npm-install-wanted='npm outdated | awk '\''($2!=$3 && $1!="Package") {print $1"@"$3}'\'' | paste -s -d" " - | xargs npm install'
 
-# $OSTYPE
-# source: https://stackoverflow.com/a/8597411
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+# $XDG_SESSION_TYPE
+# source: https://ostechnix.com/check-wayland-or-x11-in-linux/
+if [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
 	# Removing Middle Click or Middle Tap from Touchpad on Linux
 	# source: https://www.acleon.co.uk/posts/disable-trackpad-middle-click-on-linux/)
 	touchpad=$(xinput --list | awk '/ELAN.*Touchpad/ { printf substr($6, 4) }')
