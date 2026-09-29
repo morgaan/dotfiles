@@ -126,6 +126,8 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 alias bm2md="~/dotfiles/bm2md.js";
 
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier/layouts"
+
 # Second brain syncing
 sb () {
   local second_brain="$HOME/second-brain"
