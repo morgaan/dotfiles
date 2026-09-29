@@ -123,7 +123,6 @@ export NVM_DIR="$HOME/.nvm"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 # Bookmarks backup to markdown
-
 alias bm2md="~/dotfiles/bm2md.js";
 
 export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier/layouts"
@@ -205,3 +204,6 @@ fi
 [ -f ~/.locals.zsh ] && source ~/.locals.zsh
 
 . "$HOME/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
