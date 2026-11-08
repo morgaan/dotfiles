@@ -1,0 +1,4 @@
+[user]
+	signingkey = ~/.ssh/gitlab/id_ed25519
+[core]
+	sshCommand = ssh -i ~/.ssh/gitlab/id_ed25519

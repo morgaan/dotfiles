@@ -1,0 +1,5 @@
+[user]
+	signingkey = ~/.ssh/github/id_ed25519
+[core]
+	sshCommand = ssh -i ~/.ssh/github/id_ed25519
+

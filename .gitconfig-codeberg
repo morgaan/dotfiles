@@ -1,0 +1,4 @@
+[user]
+	signingkey = ~/.ssh/codeberg/id_ed25519
+[core]
+	sshCommand = ssh -i ~/.ssh/codeberg/id_ed25519
