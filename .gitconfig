@@ -40,12 +40,12 @@
 [push]
 	autoSetupRemote = true
 [includeIf "gitdir:~/repos/codeberg/**/.git"]
-	path = /home/morgan/dotfiles/.gitconfig-codeberg
+	path = ~/dotfiles/.gitconfig-codeberg
 [includeIf "gitdir:~/repos/github/**/.git"]
-	path = /home/morgan/dotfiles/.gitconfig-github
+	path = ~/dotfiles/.gitconfig-github
 [includeIf "gitdir:~/second-brain/"]
-	path = /home/morgan/dotfiles/.gitconfig-gitlab
+	path = ~/dotfiles/.gitconfig-gitlab
 [includeIf "gitdir:~/dotfiles/"]
-	path = /home/morgan/dotfiles/.gitconfig-github
+	path = ~/dotfiles/.gitconfig-github
 [gpg "ssh"]
 	defaultKeyCommand = ssh-add -L
